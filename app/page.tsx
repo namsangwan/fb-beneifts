@@ -42,6 +42,9 @@ const emptyPayload: BenefitsPayload = {
 
 const payOptions: Pay[] = ["네이버페이", "토스"];
 const categoryOptions: Array<Category | "전체"> = ["전체", "커피", "베이커리", "간식"];
+const benefitJsonUrl =
+  process.env.NEXT_PUBLIC_BENEFITS_JSON_URL ??
+  "https://pub-56d7d48261244062821afb49268b2223.r2.dev/benefits.json";
 
 function daysLeft(dateText: string | null | undefined, asOfDate: string) {
   if (!dateText) return null;
@@ -83,7 +86,7 @@ export default function Home() {
   useEffect(() => {
     let isMounted = true;
 
-    fetch("/api/benefits", { headers: { accept: "application/json" } })
+    fetch(benefitJsonUrl, { headers: { accept: "application/json" } })
       .then((response) => {
         if (!response.ok) throw new Error(`혜택 데이터를 불러오지 못했습니다. (${response.status})`);
         return response.json() as Promise<BenefitsPayload>;

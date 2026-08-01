@@ -61,10 +61,15 @@ type Benefit = {
 5. 수동 실행
    - GitHub Actions에서 `Update benefit JSON` 워크플로를 `workflow_dispatch`로 실행
 
-업로드가 끝나면 앱에서 사용할 JSON URL은 다음 중 하나가 됩니다.
+현재 앱에서 사용하는 JSON URL:
 
 ```text
-https://<public-r2-subdomain>.r2.dev/benefits.json
+https://pub-56d7d48261244062821afb49268b2223.r2.dev/benefits.json
+```
+
+나중에 도메인을 붙이면 앱의 `NEXT_PUBLIC_BENEFITS_JSON_URL` 값을 다음처럼 바꾸면 됩니다.
+
+```text
 https://benefits.<your-domain>.com/benefits.json
 ```
 
@@ -78,5 +83,5 @@ https://benefits.<your-domain>.com/benefits.json
 - `npm run collect`로 JSON 스냅샷 생성
 - `npm run upload:r2`로 `public/data/benefits.json`을 R2에 업로드
 - GitHub Actions의 `Update benefit JSON` 워크플로가 매일 00:00 UTC, 한국시간 09:00에 실행
-- 앱은 `/api/benefits`를 호출하고, 서버는 `public/data/benefits.json`을 반환
+- 앱은 R2의 공개 `benefits.json`을 직접 호출하고, 로컬/서버 API `/api/benefits`는 같은 JSON 파일을 반환
 - 내 주변 매장, 혜택 종료 임박 알림, 브랜드별 최저가 랭킹 추가
