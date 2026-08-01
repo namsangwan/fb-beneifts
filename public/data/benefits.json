@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-01T11:35:38.081Z",
+  "collectedAt": "2026-08-01T13:20:41.269Z",
   "asOfDate": "2026-08-01",
-  "asOfLabel": "2026.08.01 20:35 KST",
+  "asOfLabel": "2026.08.01 22:20 KST",
   "sources": [
     {
       "provider": "naverpay",
