@@ -42,9 +42,7 @@ const emptyPayload: BenefitsPayload = {
 
 const payOptions: Pay[] = ["네이버페이", "토스"];
 const categoryOptions: Array<Category | "전체"> = ["전체", "커피", "베이커리", "간식"];
-const benefitJsonUrl =
-  process.env.NEXT_PUBLIC_BENEFITS_JSON_URL ??
-  "https://pub-56d7d48261244062821afb49268b2223.r2.dev/benefits.json";
+const benefitJsonUrl = process.env.NEXT_PUBLIC_BENEFITS_JSON_URL ?? "/api/benefits";
 
 function daysLeft(dateText: string | null | undefined, asOfDate: string) {
   if (!dateText) return null;

@@ -8,7 +8,7 @@
 - 카테고리: 커피, 베이커리, 간식
 - 개인화: 선호 페이, 자주 가는 브랜드, 카테고리, 만료 혜택 숨김
 - 앱 데이터: 배치가 생성한 `public/data/benefits.json`
-- 서버 API: `/api/benefits`
+- 서버 API: `/api/benefits`가 R2의 공개 JSON을 서버 쪽에서 읽어 같은 도메인으로 응답
 - 공개 JSON 서버: Cloudflare R2의 `benefits.json`
 - 앱 저장소: 브라우저 로컬 저장소에 개인 필터 저장
 
@@ -90,7 +90,7 @@ https://benefits.<your-domain>.com/benefits.json
 https://benefit-radar.<your-workers-subdomain>.workers.dev
 ```
 
-앱 화면은 R2의 공개 JSON을 직접 읽습니다. 서버 API `/api/benefits`는 같은 JSON을 로컬/Worker 환경에서 확인하기 위한 보조 경로입니다.
+앱 화면은 기본적으로 같은 도메인의 `/api/benefits`를 읽습니다. Worker가 R2의 공개 JSON을 서버 쪽에서 가져오므로 브라우저 CORS 설정에 덜 민감합니다. 순수 정적 배포로 바꾸고 싶을 때만 `NEXT_PUBLIC_BENEFITS_JSON_URL`에 R2 URL을 직접 넣으면 됩니다.
 
 ## 출처별 수집 방식
 
@@ -103,5 +103,5 @@ https://benefit-radar.<your-workers-subdomain>.workers.dev
 - `npm run upload:r2`로 `public/data/benefits.json`을 R2에 업로드
 - `npm run deploy:web`으로 빌드된 화면을 Cloudflare Workers에 배포
 - GitHub Actions의 `Update benefit JSON` 워크플로가 매일 00:00 UTC, 한국시간 09:00에 실행
-- 앱은 R2의 공개 `benefits.json`을 직접 호출하고, 로컬/서버 API `/api/benefits`는 같은 JSON 파일을 반환
+- 앱은 같은 도메인의 `/api/benefits`를 호출하고, Worker가 R2의 공개 `benefits.json`을 읽어 반환
 - 내 주변 매장, 혜택 종료 임박 알림, 브랜드별 최저가 랭킹 추가

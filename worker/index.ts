@@ -4,6 +4,7 @@ import handler from "vinext/server/app-router-entry";
 
 interface Env {
   ASSETS: Fetcher;
+  BENEFITS_JSON_URL?: string;
   IMAGES: {
     input(stream: ReadableStream): {
       transform(options: Record<string, unknown>): {
@@ -24,15 +25,28 @@ interface ExecutionContext {
 // dangerouslyAllowSVG: true in next.config.js and uncomment below:
 // const imageConfig: ImageConfig = { dangerouslyAllowSVG: true };
 
+const DEFAULT_BENEFITS_JSON_URL =
+  "https://pub-56d7d48261244062821afb49268b2223.r2.dev/benefits.json";
+
+async function fetchBenefitsJson(request: Request, env: Env | undefined) {
+  const benefitsJsonUrl = env?.BENEFITS_JSON_URL ?? DEFAULT_BENEFITS_JSON_URL;
+
+  if (benefitsJsonUrl.startsWith("/")) {
+    const assetUrl = new URL(benefitsJsonUrl, request.url);
+    return env?.ASSETS ? env.ASSETS.fetch(new Request(assetUrl)) : fetch(assetUrl);
+  }
+
+  return fetch(benefitsJsonUrl, {
+    headers: { accept: "application/json" },
+  });
+}
+
 const worker = {
   async fetch(request: Request, env: Env | undefined, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
 
     if (url.pathname === "/api/benefits") {
-      const assetUrl = new URL("/data/benefits.json", request.url);
-      const response = env?.ASSETS
-        ? await env.ASSETS.fetch(new Request(assetUrl))
-        : await fetch(assetUrl);
+      const response = await fetchBenefitsJson(request, env);
 
       if (!response.ok) {
         return Response.json(

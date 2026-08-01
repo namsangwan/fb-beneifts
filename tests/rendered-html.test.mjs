@@ -25,6 +25,7 @@ async function render(path = "/") {
           return new Response("Not found", { status: 404 });
         },
       },
+      BENEFITS_JSON_URL: "/data/benefits.json",
       IMAGES: {
         input() {
           throw new Error("image optimization is not used in this test");
