@@ -73,6 +73,25 @@ https://pub-56d7d48261244062821afb49268b2223.r2.dev/benefits.json
 https://benefits.<your-domain>.com/benefits.json
 ```
 
+## 퍼블릭 화면 배포
+
+화면은 Cloudflare Workers에 배포합니다.
+
+1. Cloudflare API Token 권한 확인
+   - R2 업로드 권한
+   - Workers 배포 권한
+   - 대시보드에서 보이는 이름은 보통 `Workers Scripts: Edit` 또는 `Edit Cloudflare Workers`
+2. GitHub 저장소의 `CLOUDFLARE_API_TOKEN`이 위 권한을 포함해야 함
+3. `main` 브랜치에 push하면 `Deploy web app` 워크플로가 실행됨
+4. 수동 배포는 GitHub Actions에서 `Deploy web app` 워크플로의 `Run workflow` 실행
+5. 배포가 끝나면 Workers URL이 생성됨
+
+```text
+https://benefit-radar.<your-workers-subdomain>.workers.dev
+```
+
+앱 화면은 R2의 공개 JSON을 직접 읽습니다. 서버 API `/api/benefits`는 같은 JSON을 로컬/Worker 환경에서 확인하기 위한 보조 경로입니다.
+
 ## 출처별 수집 방식
 
 - 네이버페이: F&B 혜택 목록 API 응답을 정규화하고 종료일이 지난 항목은 제외
@@ -82,6 +101,7 @@ https://benefits.<your-domain>.com/benefits.json
 
 - `npm run collect`로 JSON 스냅샷 생성
 - `npm run upload:r2`로 `public/data/benefits.json`을 R2에 업로드
+- `npm run deploy:web`으로 빌드된 화면을 Cloudflare Workers에 배포
 - GitHub Actions의 `Update benefit JSON` 워크플로가 매일 00:00 UTC, 한국시간 09:00에 실행
 - 앱은 R2의 공개 `benefits.json`을 직접 호출하고, 로컬/서버 API `/api/benefits`는 같은 JSON 파일을 반환
 - 내 주변 매장, 혜택 종료 임박 알림, 브랜드별 최저가 랭킹 추가

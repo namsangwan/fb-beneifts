@@ -12,7 +12,8 @@
     "test": "npm run build && node --test tests/rendered-html.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "collect": "node scripts/collect-benefits.mjs",
-    "upload:r2": "wrangler r2 object put \"$R2_BUCKET/benefits.json\" --file public/data/benefits.json --content-type application/json --cache-control \"public, max-age=300, stale-while-revalidate=86400\" --remote"
+    "upload:r2": "wrangler r2 object put \"$R2_BUCKET/benefits.json\" --file public/data/benefits.json --content-type application/json --cache-control \"public, max-age=300, stale-while-revalidate=86400\" --remote",
+    "deploy:web": "WRANGLER_LOG_PATH=.wrangler/wrangler.log wrangler deploy --cwd dist/server --config wrangler.json"
   },
   "dependencies": {
     "next": "16.2.6",
