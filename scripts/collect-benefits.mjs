@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 
 const sources = {
@@ -253,6 +253,21 @@ function scoreBenefit(benefit) {
 function toPublicBenefit(benefit) {
   const { raw, sourceHash, collectedAt, ...publicBenefit } = benefit;
   return publicBenefit;
+}
+
+async function readPreviousBenefits() {
+  for (const file of ["data/benefits.snapshot.json", "public/data/benefits.json"]) {
+    try {
+      const payload = JSON.parse(await readFile(file, "utf8"));
+      return payload.benefits ?? [];
+    } catch (error) {
+      if (error.code !== "ENOENT") {
+        console.warn(`Could not read previous benefits from ${file}: ${error.message}`);
+      }
+    }
+  }
+
+  return [];
 }
 
 function categoryFromText(text) {
@@ -1063,39 +1078,70 @@ async function collectMammoth(asOfDate) {
     .slice(0, 8);
 }
 
-async function collectBrandBenefits(asOfDate) {
+function previousBrandBenefits(previousBenefits, brands, asOfDate) {
+  return previousBenefits
+    .filter((benefit) => benefit.provider === "brand" && brands.includes(benefit.brand))
+    .filter((benefit) => isCurrentOrFuture(benefit, asOfDate));
+}
+
+async function collectBrandBenefits(asOfDate, previousBenefits = []) {
   const collectors = [
-    collectHollys(asOfDate),
-    collectPaikdabang(asOfDate),
-    collectCompose(asOfDate),
-    collectMammoth(asOfDate),
-    collectMega(asOfDate),
-    collectGongcha(asOfDate),
-    collectParisBaguette(asOfDate),
-    collectPaulBassett(asOfDate),
-    collectStarbucks(asOfDate),
-    collectTwosome(asOfDate),
-    collectPascucci(asOfDate),
-    collectTheVenti(asOfDate),
+    { name: "hollys", brands: ["할리스"], collect: () => collectHollys(asOfDate) },
+    { name: "paikdabang", brands: ["빽다방"], collect: () => collectPaikdabang(asOfDate) },
+    { name: "compose", brands: ["컴포즈커피"], collect: () => collectCompose(asOfDate) },
+    { name: "mammoth", brands: ["매머드커피"], collect: () => collectMammoth(asOfDate) },
+    { name: "mega", brands: ["메가MGC커피"], collect: () => collectMega(asOfDate) },
+    { name: "gongcha", brands: ["공차"], collect: () => collectGongcha(asOfDate) },
+    { name: "parisbaguette", brands: ["파리바게뜨"], collect: () => collectParisBaguette(asOfDate) },
+    { name: "paulbassett", brands: ["폴바셋"], collect: () => collectPaulBassett(asOfDate) },
+    { name: "starbucks", brands: ["스타벅스"], collect: () => collectStarbucks(asOfDate) },
+    { name: "twosome", brands: ["투썸플레이스"], collect: () => collectTwosome(asOfDate) },
+    { name: "pascucci", brands: ["파스쿠찌"], collect: () => collectPascucci(asOfDate) },
+    { name: "theventi", brands: ["더벤티"], collect: () => collectTheVenti(asOfDate) },
   ];
-  const results = await Promise.allSettled(collectors);
+  const results = await Promise.allSettled(collectors.map((collector) => collector.collect()));
+  const warnings = [];
 
-  for (const result of results) {
-    if (result.status === "rejected") {
-      console.warn(result.reason);
-    }
-  }
+  return {
+    benefits: results.flatMap((result, index) => {
+      const collector = collectors[index];
+      const fallbackBenefits = previousBrandBenefits(previousBenefits, collector.brands, asOfDate);
 
-  return results.flatMap((result) => (result.status === "fulfilled" ? result.value : []));
+      if (result.status === "rejected") {
+        warnings.push({
+          source: collector.name,
+          brands: collector.brands,
+          reason: result.reason?.message ?? String(result.reason),
+          fallbackCount: fallbackBenefits.length,
+        });
+        return fallbackBenefits;
+      }
+
+      if (result.value.length === 0 && fallbackBenefits.length > 0) {
+        warnings.push({
+          source: collector.name,
+          brands: collector.brands,
+          reason: "collector returned no current benefits; preserved previous current benefits",
+          fallbackCount: fallbackBenefits.length,
+        });
+        return fallbackBenefits;
+      }
+
+      return result.value;
+    }),
+    warnings,
+  };
 }
 
 async function main() {
   const { date: asOfDate, label: asOfLabel } = kstDateParts();
-  const [naverBenefits, tossBenefits, brandBenefits] = await Promise.all([
+  const previousBenefits = await readPreviousBenefits();
+  const [naverBenefits, tossBenefits, brandResult] = await Promise.all([
     collectNaver(asOfDate),
     collectToss(asOfDate),
-    collectBrandBenefits(asOfDate),
+    collectBrandBenefits(asOfDate, previousBenefits),
   ]);
+  const brandBenefits = brandResult.benefits;
 
   const benefits = [...naverBenefits, ...tossBenefits, ...brandBenefits].sort((a, b) => b.fit - a.fit);
   const outputBase = {
@@ -1103,6 +1149,7 @@ async function main() {
     collectedAt: new Date().toISOString(),
     asOfDate,
     asOfLabel,
+    warnings: brandResult.warnings,
     sources: [
       {
         provider: "naverpay",
