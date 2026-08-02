@@ -45,8 +45,8 @@ test("server-renders the benefit radar shell", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>페이 혜택 레이더<\/title>/i);
-  assert.match(html, /페이 혜택 레이더/);
+  assert.match(html, /<title>카페할인 모아<\/title>/i);
+  assert.match(html, /카페할인 모아/);
   assert.doesNotMatch(html, /카카오페이|굿딜/);
 });
 

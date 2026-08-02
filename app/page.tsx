@@ -189,8 +189,7 @@ export default function Home() {
     <main className="app-shell">
       <section className="topbar" aria-label="요약">
         <div>
-          <p className="eyebrow">현재/미래 혜택만 표시</p>
-          <h1>페이 혜택 레이더</h1>
+          <h1>카페할인 모아</h1>
         </div>
         <div className="sync-status">
           <span className="status-dot" />

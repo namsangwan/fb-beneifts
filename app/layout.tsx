@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "페이 혜택 레이더",
+  title: "카페할인 모아",
   description: "네이버페이와 토스의 커피와 빵 혜택을 모아 보는 앱",
   icons: {
     icon: "/favicon.svg",
