@@ -14,8 +14,10 @@ const sources = {
     paikdabang: "https://paikdabang.com/news/?cate=event",
     parisbaguette: "https://www.paris.co.kr/",
     paulbassett: "https://www.baristapaulbassett.co.kr/Index.pb",
+    pascucci: "https://www.pascucci.co.kr/event/eventList.asp",
     starbucks: "https://www.starbucks.co.kr/whats_new/campaign_list.do",
-    twosome: "https://d-mcdn.twosome.co.kr/ev/eventList.do",
+    theventi: "https://theventi.co.kr/new2022/news/event.html",
+    twosome: "https://mo.twosome.co.kr/ev/eventList.do",
   },
 };
 
@@ -31,6 +33,8 @@ const cafeAndBakeryKeywords = [
   "공차",
   "메가커피",
   "빽다방",
+  "더벤티",
+  "파스쿠찌",
   "파리바게뜨",
   "뚜레쥬르",
   "베이커리",
@@ -51,12 +55,20 @@ const brandEventKeywords = [
   "페이",
   "포인트",
   "엘포인트",
+  "PAYCO",
+  "payco",
+  "OFF",
 ];
 const brandEventExclusionKeywords = [
   "당첨자",
   "결과 발표",
   "팬 사인회",
   "사전예약",
+  "당첨",
+  "럭키 드로우",
+  "럭키드로우",
+  "래플",
+  "응모",
   "출시 안내",
   "신메뉴",
   "신메뉴 출시",
@@ -73,6 +85,10 @@ const brandEventExclusionKeywords = [
   "코스터",
   "플래너",
   "다이어리",
+  "커피클래스",
+  "대량 구매",
+  "상품권 대량",
+  "카드 소개",
   "고향사랑",
   "고향사랑기부제",
   "기부제",
@@ -179,8 +195,8 @@ function textFromHtml(html) {
 
 function displayValue(valueText) {
   const text = compactText(valueText);
-  const onePlusOne = text.match(/1\s*\+\s*1/);
-  if (onePlusOne) return "1+1";
+  const plusDeal = text.match(/\d+\s*\+\s*\d+/);
+  if (plusDeal) return plusDeal[0].replace(/\s+/g, "");
 
   const percent = text.match(/(?:최대\s*)?\d+(?:\.\d+)?\s*%/);
   if (percent) return percent[0].replace(/\s+/g, "");
@@ -234,16 +250,25 @@ function categoryFromText(text) {
   return bakeryKeywords.some((keyword) => text.includes(keyword)) ? "베이커리" : "커피";
 }
 
-function hasBrandBenefitSignal(text) {
+function hasBrandExclusionSignal(text) {
   const normalized = compactText(text).toLowerCase();
-  if (brandEventExclusionKeywords.some((keyword) => normalized.includes(keyword.toLowerCase()))) return false;
-  if (/\d+(?:\.\d+)?\s*%|\d+(?:,\d{3})*(?:\.\d+)?\s*(?:만원|천원|원)|1\s*\+\s*1/.test(normalized)) {
+  return brandEventExclusionKeywords.some((keyword) => normalized.includes(keyword.toLowerCase()));
+}
+
+function hasPositiveBrandBenefitSignal(text) {
+  const normalized = compactText(text).toLowerCase();
+  if (/\d+(?:\.\d+)?\s*%|\d+(?:,\d{3})*(?:\.\d+)?\s*(?:만원|천원|원)|\d+\s*\+\s*\d+/.test(normalized)) {
     return true;
   }
-  if (/(?:카드|card).{0,12}혜택|혜택.{0,12}(?:카드|card)/.test(normalized)) {
+  if (/(?:카드|card|마이샵|link).{0,12}혜택|혜택.{0,12}(?:카드|card|마이샵|link)/.test(normalized)) {
     return true;
   }
   return brandEventKeywords.some((keyword) => normalized.includes(keyword.toLowerCase()));
+}
+
+function hasBrandBenefitSignal(text) {
+  if (hasBrandExclusionSignal(text)) return false;
+  return hasPositiveBrandBenefitSignal(text);
 }
 
 function absoluteUrl(url, baseUrl) {
@@ -271,6 +296,17 @@ function parseFlexiblePeriod(text, asOfDate) {
     return {
       startsAt: `${sy}-${sm.padStart(2, "0")}-${sd.padStart(2, "0")}`,
       validUntil: `${ey}-${em.padStart(2, "0")}-${ed.padStart(2, "0")}`,
+    };
+  }
+
+  const openFullDate = normalized.match(
+    /(\d{4})[.\-년]\s*(\d{1,2})[.\-월]\s*(\d{1,2})일?\s*(?:~|-)\s*(?:소진|재고)/,
+  );
+  if (openFullDate) {
+    const [, sy, sm, sd] = openFullDate;
+    return {
+      startsAt: `${sy}-${sm.padStart(2, "0")}-${sd.padStart(2, "0")}`,
+      validUntil: null,
     };
   }
 
@@ -840,6 +876,116 @@ async function collectStarbucks(asOfDate) {
     .slice(0, 8);
 }
 
+async function collectTwosome(asOfDate) {
+  const payload = await fetchFormJson(
+    "https://mo.twosome.co.kr/ev/eventListAjax.json",
+    {
+      eventDiv: "progress",
+      searchOpt: "endSoon",
+      pageNum: "1",
+    },
+    "Twosome",
+  );
+
+  return (payload.fetchResultListSet ?? [])
+    .map((item) => {
+      const title = compactText(item.ANNO_TITL_NM ?? "");
+      const bodyText = compactText(textFromHtml(item.ANNO_CNTNT ?? ""));
+      const altTexts = Array.from((item.ANNO_CNTNT ?? "").matchAll(/alt=["']([^"']+)["']/g))
+        .map(([, alt]) => compactText(alt))
+        .filter(Boolean);
+      const altBenefit = altTexts.find((alt) => !hasBrandExclusionSignal(alt) && hasPositiveBrandBenefitSignal(alt));
+      if (!title || hasBrandExclusionSignal(title)) return null;
+      if (!hasPositiveBrandBenefitSignal(`${title} ${bodyText} ${altTexts.join(" ")}`)) return null;
+      const displayTitle = hasPositiveBrandBenefitSignal(title) || !altBenefit ? title : `${title} - ${altBenefit}`;
+
+      return normalizeBrandEvent(
+        {
+          brand: "투썸플레이스",
+          id: `twosome-${item.ANNO_SEQ_NO ?? hash(title).slice(0, 12)}`,
+          title: displayTitle,
+          source: `${sources.brands.twosome}?eventDiv=progress&searchOpt=endSoon`,
+          sourceLabel: "투썸 이벤트",
+          startsAt: item.ANNO_FR_DT ?? null,
+          validUntil: item.ANNO_END_DT ?? null,
+          notes: item.EVENT_USE_DT_TERM || "투썸 모바일 공식 이벤트 목록에서 확인.",
+          raw: JSON.stringify(item),
+        },
+        asOfDate,
+      );
+    })
+    .filter(Boolean)
+    .slice(0, 8);
+}
+
+async function collectPascucci(asOfDate) {
+  const sourceUrl = sources.brands.pascucci;
+  const html = await fetchText(sourceUrl, "Pascucci");
+  const cards = Array.from(html.matchAll(/<li>\s*<figure>([\s\S]*?)<\/figure>\s*<\/li>/g));
+
+  return cards
+    .map(([, block]) => {
+      const title = compactText(textFromHtml(block.match(/<h1>([\s\S]*?)<\/h1>/)?.[1] ?? ""));
+      const periodText = compactText(textFromHtml(block.match(/<span class="date">([\s\S]*?)<\/span>/)?.[1] ?? ""));
+      const href = block.match(/<a href="([^"]+)" class="btn btnDetail"/)?.[1] ?? sourceUrl;
+      const period = parseFlexiblePeriod(periodText, asOfDate);
+      if (!title || !hasBrandBenefitSignal(title)) return null;
+
+      return normalizeBrandEvent(
+        {
+          brand: "파스쿠찌",
+          id: `pascucci-${hash(`${href}-${title}`).slice(0, 12)}`,
+          title,
+          source: absoluteUrl(href, sourceUrl),
+          sourceLabel: "파스쿠찌 이벤트",
+          startsAt: period.startsAt,
+          validUntil: period.validUntil,
+          notes: periodText || "파스쿠찌 공식 이벤트 목록에서 확인.",
+          raw: JSON.stringify({ href, title, periodText }),
+        },
+        asOfDate,
+      );
+    })
+    .filter(Boolean)
+    .filter((benefit, index, benefits) =>
+      benefits.findIndex((candidate) => candidate.title === benefit.title) === index,
+    )
+    .slice(0, 10);
+}
+
+async function collectTheVenti(asOfDate) {
+  const sourceUrl = sources.brands.theventi;
+  const html = await fetchText(sourceUrl, "The Venti");
+  const cards = Array.from(
+    html.matchAll(/<a href="([^"]*bmain=view[^"]*)">([\s\S]*?)(?=<\/a>)/g),
+  );
+
+  return cards
+    .map(([, href, block]) => {
+      const title = compactText(textFromHtml(block.match(/<p class="tit">([\s\S]*?)<\/p>/)?.[1] ?? ""));
+      const periodText = compactText(textFromHtml(block.match(/<p class="date">([\s\S]*?)<\/p>/)?.[1] ?? ""));
+      const period = parseFlexiblePeriod(periodText, asOfDate);
+      if (!title || !hasBrandBenefitSignal(title)) return null;
+
+      return normalizeBrandEvent(
+        {
+          brand: "더벤티",
+          id: `theventi-${hash(`${href}-${title}`).slice(0, 12)}`,
+          title,
+          source: absoluteUrl(href, sourceUrl),
+          sourceLabel: "더벤티 이벤트",
+          startsAt: period.startsAt,
+          validUntil: period.validUntil,
+          notes: periodText || "더벤티 공식 이벤트 목록에서 확인.",
+          raw: JSON.stringify({ href, title, periodText }),
+        },
+        asOfDate,
+      );
+    })
+    .filter(Boolean)
+    .slice(0, 8);
+}
+
 async function collectBrandBenefits(asOfDate) {
   const collectors = [
     collectHollys(asOfDate),
@@ -850,6 +996,9 @@ async function collectBrandBenefits(asOfDate) {
     collectParisBaguette(asOfDate),
     collectPaulBassett(asOfDate),
     collectStarbucks(asOfDate),
+    collectTwosome(asOfDate),
+    collectPascucci(asOfDate),
+    collectTheVenti(asOfDate),
   ];
   const results = await Promise.allSettled(collectors);
 
@@ -900,17 +1049,14 @@ async function main() {
           { brand: "파리바게뜨", url: sources.brands.parisbaguette },
           { brand: "폴바셋", url: sources.brands.paulbassett },
           { brand: "스타벅스", url: sources.brands.starbucks },
+          { brand: "투썸플레이스", url: sources.brands.twosome },
+          { brand: "파스쿠찌", url: sources.brands.pascucci },
+          { brand: "더벤티", url: sources.brands.theventi },
           {
             brand: "이디야",
             url: sources.brands.ediya,
             status: "excluded",
             reason: "공식 이벤트 목록 최신성이 낮아 우선 제외",
-          },
-          {
-            brand: "투썸플레이스",
-            url: sources.brands.twosome,
-            status: "pending",
-            reason: "공식 목록이 AJAX로 로드되며 현재 공개 JSON 요청은 403 응답",
           },
         ],
       },
