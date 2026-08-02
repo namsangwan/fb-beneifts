@@ -2,16 +2,16 @@
 
 ## Goal
 
-Build an Android app that shows current and future coffee/bakery/snack payment benefits from Naver Pay and Toss.
+Build an Android app that shows current and future coffee/bakery/snack benefits from official brand event pages, Naver Pay, and Toss.
 
 The app should fetch a public JSON file, render benefits quickly, and let the user save preferences for:
 
-- preferred payment providers
+- preferred sources/payment providers
 - favorite brands/cafes
 - category filter
 - search text
 
-KakaoPay is intentionally excluded for now.
+KakaoPay is intentionally excluded for now. Ediya is also excluded from brand-event crawling for now because its official event list was not reliably current.
 
 ## Public Endpoints
 
@@ -52,8 +52,8 @@ type BenefitsPayload = {
 
 type Benefit = {
   id: string;
-  provider: "naverpay" | "toss";
-  pay: "네이버페이" | "토스";
+  provider: "naverpay" | "toss" | "brand";
+  pay: "브랜드" | "네이버페이" | "토스";
   brand: string;
   category: "커피" | "베이커리" | "간식";
   title: string;
@@ -101,6 +101,7 @@ The live endpoint should be treated as the source of truth.
 - Hide expired benefits by default using `validUntil` and `asOfDate`.
 - Keep future benefits visible, with a "예정" status when `startsAt` is later than `asOfDate`.
 - Sort by `fit` descending first.
+- Treat `provider: "brand"` as official brand-event benefits.
 - Save user preferences on-device.
 
 ## Suggested Screens
@@ -120,4 +121,3 @@ The live endpoint should be treated as the source of truth.
 - GitHub Actions:
   - `.github/workflows/update-benefits.yml`
   - `.github/workflows/deploy-web.yml`
-

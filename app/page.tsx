@@ -2,12 +2,12 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-type Pay = "네이버페이" | "토스";
+type Pay = "네이버페이" | "토스" | "브랜드";
 type Category = "커피" | "베이커리" | "간식";
 
 type Benefit = {
   id: string;
-  provider: "naverpay" | "toss";
+  provider: "naverpay" | "toss" | "brand";
   pay: Pay;
   brand: string;
   category: Category;
@@ -40,7 +40,7 @@ const emptyPayload: BenefitsPayload = {
   benefits: [],
 };
 
-const payOptions: Pay[] = ["네이버페이", "토스"];
+const payOptions: Pay[] = ["브랜드", "네이버페이", "토스"];
 const categoryOptions: Array<Category | "전체"> = ["전체", "커피", "베이커리", "간식"];
 const benefitJsonUrl = process.env.NEXT_PUBLIC_BENEFITS_JSON_URL ?? "/api/benefits";
 
@@ -294,7 +294,7 @@ export default function Home() {
             </div>
           </div>
 
-          <p className="filter-note">매일 생성되는 JSON 파일에서 네이버페이와 토스 혜택만 보여줍니다.</p>
+          <p className="filter-note">매일 생성되는 JSON 파일에서 브랜드 공식 이벤트와 결제 혜택을 함께 보여줍니다.</p>
         </aside>
 
         <section className="benefit-list" aria-label="혜택 목록">
