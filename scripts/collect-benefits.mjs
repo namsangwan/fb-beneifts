@@ -10,6 +10,8 @@ const sources = {
     ediya: "https://www.ediya.com/contents/event.html",
     gongcha: "https://www.gong-cha.co.kr/brand/content/eventlist",
     hollys: "https://www.hollys.co.kr/news/event/list.do",
+    mammothEvent: "https://www.mmthcoffee.com/sub/event/list.html",
+    mammothNotice: "https://www.mmthcoffee.com/sub/notice/list.html",
     mega: "https://mega-mgccoffee.com/bbs/?bbs_category=3",
     paikdabang: "https://paikdabang.com/news/?cate=event",
     parisbaguette: "https://www.paris.co.kr/",
@@ -30,6 +32,8 @@ const cafeAndBakeryKeywords = [
   "폴바셋",
   "컴포즈",
   "매머드",
+  "매머드커피",
+  "매머드익스프레스",
   "공차",
   "메가커피",
   "빽다방",
@@ -69,6 +73,11 @@ const brandEventExclusionKeywords = [
   "럭키드로우",
   "래플",
   "응모",
+  "SNS",
+  "인스타그램 이벤트",
+  "블로그 이벤트",
+  "릴스 콘테스트",
+  "콘테스트",
   "출시 안내",
   "신메뉴",
   "신메뉴 출시",
@@ -986,11 +995,80 @@ async function collectTheVenti(asOfDate) {
     .slice(0, 8);
 }
 
+async function collectMammoth(asOfDate) {
+  const [eventHtml, noticeHtml] = await Promise.all([
+    fetchText(sources.brands.mammothEvent, "Mammoth event"),
+    fetchText(sources.brands.mammothNotice, "Mammoth notice"),
+  ]);
+  const eventItems = Array.from(
+    eventHtml.matchAll(/<li>\s*<a href='javascript:goView\((\d+)\);'>([\s\S]*?)<\/a>\s*<\/li>/g),
+  ).map(([, seq, block]) => {
+    const status = compactText(textFromHtml(block.match(/<div class='tag[^']*'>[\s\S]*?<span>([\s\S]*?)<\/span>/)?.[1] ?? ""));
+    const title = compactText(textFromHtml(block.match(/<strong>([\s\S]*?)<\/strong>/)?.[1] ?? ""));
+    const periodText = compactText(textFromHtml(block.match(/<p>([\s\S]*?)<\/p>/)?.[1] ?? ""));
+    const period = parseFlexiblePeriod(periodText, asOfDate);
+    if (!title || !/진행\s*중/.test(status) || !hasBrandBenefitSignal(title)) return null;
+
+    return normalizeBrandEvent(
+      {
+        brand: "매머드커피",
+        id: `mammoth-event-${seq}`,
+        title,
+        source: `https://www.mmthcoffee.com/sub/event/view.html?gallerySeq=${seq}`,
+        sourceLabel: "매머드 이벤트",
+        startsAt: period.startsAt,
+        validUntil: period.validUntil,
+        notes: periodText || "매머드커피 공식 이벤트 목록에서 확인.",
+        raw: JSON.stringify({ seq, status, title, periodText }),
+      },
+      asOfDate,
+    );
+  });
+
+  const noticeItems = Array.from(
+    noticeHtml.matchAll(
+      /<tr[^>]*>[\s\S]*?<td>[\s\S]*?<\/td>\s*<td><a href='javascript:goView\((\d+)\);'>([\s\S]*?)<\/a><\/td>\s*<td>([^<]+)<\/td>[\s\S]*?<\/tr>/g,
+    ),
+  ).map(([, seq, titleHtml, publishedAtRaw]) => {
+    const title = compactText(textFromHtml(titleHtml));
+    const publishedAt = compactText(publishedAtRaw);
+    const period = parseFlexiblePeriod(title, asOfDate);
+    if (!title || !hasBrandBenefitSignal(title)) return null;
+
+    return normalizeBrandEvent(
+      {
+        brand: "매머드커피",
+        id: `mammoth-notice-${seq}`,
+        title,
+        source: `https://www.mmthcoffee.com/sub/notice/view.html?noticeSeq=${seq}`,
+        sourceLabel: "매머드 공지",
+        startsAt: period.startsAt ?? publishedAt,
+        validUntil: period.validUntil,
+        publishedAt,
+        notes: period.validUntil
+          ? "매머드커피 공식 공지 목록에서 확인."
+          : "종료일은 목록에 없어 최근 공식 혜택만 표시합니다.",
+        raw: JSON.stringify({ seq, title, publishedAt }),
+      },
+      asOfDate,
+    );
+  });
+
+  return [...eventItems, ...noticeItems]
+    .filter(Boolean)
+    .filter(
+      (benefit, index, benefits) =>
+        benefits.findIndex((candidate) => candidate.title === benefit.title) === index,
+    )
+    .slice(0, 8);
+}
+
 async function collectBrandBenefits(asOfDate) {
   const collectors = [
     collectHollys(asOfDate),
     collectPaikdabang(asOfDate),
     collectCompose(asOfDate),
+    collectMammoth(asOfDate),
     collectMega(asOfDate),
     collectGongcha(asOfDate),
     collectParisBaguette(asOfDate),
@@ -1044,6 +1122,8 @@ async function main() {
           { brand: "할리스", url: sources.brands.hollys },
           { brand: "빽다방", url: sources.brands.paikdabang },
           { brand: "컴포즈커피", url: sources.brands.compose },
+          { brand: "매머드커피/익스프레스 이벤트", url: sources.brands.mammothEvent },
+          { brand: "매머드커피/익스프레스 공지", url: sources.brands.mammothNotice },
           { brand: "메가MGC커피", url: sources.brands.mega },
           { brand: "공차", url: sources.brands.gongcha },
           { brand: "파리바게뜨", url: sources.brands.parisbaguette },

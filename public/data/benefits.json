@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-02T05:34:32.780Z",
+  "collectedAt": "2026-08-02T05:42:02.242Z",
   "asOfDate": "2026-08-02",
-  "asOfLabel": "2026.08.02 14:34 KST",
+  "asOfLabel": "2026.08.02 14:42 KST",
   "sources": [
     {
       "provider": "naverpay",
@@ -30,6 +30,14 @@
         {
           "brand": "컴포즈커피",
           "url": "https://composecoffee.com/event"
+        },
+        {
+          "brand": "매머드커피/익스프레스 이벤트",
+          "url": "https://www.mmthcoffee.com/sub/event/list.html"
+        },
+        {
+          "brand": "매머드커피/익스프레스 공지",
+          "url": "https://www.mmthcoffee.com/sub/notice/list.html"
         },
         {
           "brand": "메가MGC커피",
@@ -467,6 +475,24 @@
       "notes": "종료일은 목록에 없어 최근 공식 이벤트만 표시합니다.",
       "source": "https://composecoffee.com/event/319126",
       "sourceLabel": "컴포즈 이벤트",
+      "fit": 57
+    },
+    {
+      "id": "brand-mammoth-notice-122",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "매머드커피",
+      "category": "커피",
+      "title": "매머드커피 1,000호점 오픈 기념! 아메리카노 1,000원",
+      "value": "1,000원",
+      "valueText": "매머드커피 1,000호점 오픈 기념! 아메리카노 1,000원",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026-07-22부터",
+      "startsAt": "2026-07-22",
+      "validUntil": null,
+      "notes": "종료일은 목록에 없어 최근 공식 혜택만 표시합니다.",
+      "source": "https://www.mmthcoffee.com/sub/notice/view.html?noticeSeq=122",
+      "sourceLabel": "매머드 공지",
       "fit": 57
     },
     {
