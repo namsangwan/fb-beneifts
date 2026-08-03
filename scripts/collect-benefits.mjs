@@ -280,6 +280,9 @@ function textFromHtml(html) {
 
 function displayValue(valueText) {
   const text = compactText(valueText);
+  const mPointBenefit = mPointEffectiveBenefit(text);
+  if (mPointBenefit) return `실질 ${mPointBenefit.effectiveText}`;
+
   const plusDeal = text.match(/\d+\s*\+\s*\d+/);
   if (plusDeal) return plusDeal[0].replace(/\s+/g, "");
 
@@ -301,6 +304,48 @@ function displayValue(valueText) {
     .replace(/\s*\((.*?)\)\s*/g, " ")
     .replace(/\s*(즉시\s*)?(적립|할인).*$/g, "")
     .trim();
+}
+
+function formatPercentNumber(percent) {
+  return Number(percent.toFixed(1)).toLocaleString("ko-KR", {
+    maximumFractionDigits: 1,
+  });
+}
+
+function mPointEffectiveBenefit(text) {
+  const compacted = compactText(text);
+  if (!/M\s*포인트|엠포인트/i.test(compacted)) return null;
+
+  const usagePercent = Number(compacted.match(/(\d+(?:\.\d+)?)\s*%/)?.[1] ?? 0);
+  if (!usagePercent) return null;
+
+  const effectivePercent = usagePercent / 6;
+  return {
+    usagePercent,
+    usageText: `${formatPercentNumber(usagePercent)}%`,
+    effectivePercent,
+    effectiveText: `${formatPercentNumber(effectivePercent)}%`,
+  };
+}
+
+function appendNote(notes, note) {
+  const cleanNotes = compactText(notes ?? "");
+  return cleanNotes ? `${cleanNotes} · ${note}` : note;
+}
+
+function applyMPointEffectiveValue(benefit) {
+  const mPointBenefit = mPointEffectiveBenefit(`${benefit.title} ${benefit.valueText} ${benefit.notes ?? ""}`);
+  if (!mPointBenefit) return benefit;
+
+  return {
+    ...benefit,
+    value: `실질 ${mPointBenefit.effectiveText}`,
+    valueText: `${benefit.valueText} (M포인트 ${mPointBenefit.usageText} 사용, 실질 할인효과 약 ${mPointBenefit.effectiveText})`,
+    notes: appendNote(
+      benefit.notes,
+      `M포인트는 1.5포인트를 1원 가치로 보고, 매장 1:1 사용분의 실질 할인효과를 약 ${mPointBenefit.effectiveText}로 계산했습니다.`,
+    ),
+  };
 }
 
 function scoreBenefit(benefit) {
@@ -532,8 +577,9 @@ function normalizeBrandEvent({
     collectedAt: new Date().toISOString(),
     raw,
   };
+  const adjustedBenefit = applyMPointEffectiveValue(benefit);
 
-  if (!isCurrentOrFuture(benefit, asOfDate)) return null;
+  if (!isCurrentOrFuture(adjustedBenefit, asOfDate)) return null;
   if (
     !validUntil &&
     publishedAt &&
@@ -544,8 +590,8 @@ function normalizeBrandEvent({
   }
 
   return {
-    ...benefit,
-    fit: scoreBenefit(benefit) - 3,
+    ...adjustedBenefit,
+    fit: scoreBenefit(adjustedBenefit) - 3,
   };
 }
 
@@ -585,12 +631,13 @@ function normalizeExternalBenefit({
     collectedAt: new Date().toISOString(),
     raw,
   };
+  const adjustedBenefit = applyMPointEffectiveValue(benefit);
 
-  if (!isCurrentOrFuture(benefit, asOfDate)) return null;
+  if (!isCurrentOrFuture(adjustedBenefit, asOfDate)) return null;
 
   return {
-    ...benefit,
-    fit: scoreBenefit(benefit) - 1,
+    ...adjustedBenefit,
+    fit: scoreBenefit(adjustedBenefit) - 1,
   };
 }
 
@@ -629,12 +676,13 @@ function normalizeNaverItem(item, asOfDate) {
     collectedAt: new Date().toISOString(),
     raw,
   };
+  const adjustedBenefit = applyMPointEffectiveValue(benefit);
 
-  if (!isCurrentOrFuture(benefit, asOfDate)) return null;
+  if (!isCurrentOrFuture(adjustedBenefit, asOfDate)) return null;
 
   return {
-    ...benefit,
-    fit: scoreBenefit(benefit),
+    ...adjustedBenefit,
+    fit: scoreBenefit(adjustedBenefit),
   };
 }
 
