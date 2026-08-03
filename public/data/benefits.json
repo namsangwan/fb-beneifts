@@ -1,44 +1,9 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-03T13:51:44.887Z",
-  "asOfDate": "2026-08-03",
-  "asOfLabel": "2026.08.03 22:51 KST",
-  "warnings": [
-    {
-      "source": "compose",
-      "brands": [
-        "컴포즈커피"
-      ],
-      "reason": "Compose fetch failed: 403",
-      "fallbackCount": 2
-    },
-    {
-      "source": "twosome",
-      "brands": [
-        "투썸플레이스"
-      ],
-      "reason": "fetch failed",
-      "fallbackCount": 5
-    },
-    {
-      "source": "theventi",
-      "brands": [
-        "더벤티"
-      ],
-      "reason": "collector returned no current benefits; preserved previous current benefits",
-      "fallbackCount": 2
-    },
-    {
-      "source": "kt-membership",
-      "reason": "fetch failed",
-      "fallbackCount": 9
-    },
-    {
-      "source": "lguplus-ongoing",
-      "reason": "LG U+ ongoing events fetch failed: 403",
-      "fallbackCount": 0
-    }
-  ],
+  "collectedAt": "2026-08-03T15:10:13.250Z",
+  "asOfDate": "2026-08-04",
+  "asOfLabel": "2026.08.04 00:10 KST",
+  "warnings": [],
   "sources": [
     {
       "provider": "naverpay",
@@ -58,15 +23,7 @@
     {
       "provider": "kt",
       "label": "KT 멤버십 푸드 제휴",
-      "url": "https://membership.kt.com/discount/partner/C23/67/PartnerDetail.do",
-      "children": [
-        {
-          "brand": "배달의민족",
-          "url": "https://www.baemin.com/",
-          "status": "limited",
-          "reason": "배민 공개 이벤트 목록 대신 KT 공식 제휴 혜택에 노출된 배민 혜택을 수집"
-        }
-      ]
+      "url": "https://membership.kt.com/discount/partner/C23/67/PartnerDetail.do"
     },
     {
       "provider": "lguplus",
@@ -303,24 +260,6 @@
       "fit": 90
     },
     {
-      "id": "kt-membership-76",
-      "provider": "kt",
-      "pay": "KT",
-      "brand": "배달의민족",
-      "category": "간식",
-      "title": "전등급: [케멤페] 최대 9천원 할인",
-      "value": "최대9천원",
-      "valueText": "전등급: [케멤페] 최대 9천원 할인",
-      "condition": "KT 멤버십 등급별 혜택",
-      "period": "2026.08.03 - 2026.08.31",
-      "startsAt": "2026-08-03",
-      "validUntil": "2026-08-31",
-      "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
-      "source": "https://membership.kt.com/discount/partner/C21/76/PartnerDetail.do",
-      "sourceLabel": "KT 멤버십",
-      "fit": 89
-    },
-    {
       "id": "brand-gongcha-70e188273eed",
       "provider": "brand",
       "pay": "브랜드",
@@ -445,24 +384,6 @@
       "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
       "sourceLabel": "SKT T day",
       "fit": 85
-    },
-    {
-      "id": "brand-twosome-260706",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "투썸플레이스",
-      "category": "커피",
-      "title": "26년 8월 슈퍼투썸데이 - 이달의 메뉴 20% 할인 쿠폰",
-      "value": "20%",
-      "valueText": "26년 8월 슈퍼투썸데이 - 이달의 메뉴 20% 할인 쿠폰",
-      "condition": "브랜드 공식 이벤트",
-      "period": "2026.08.01 - 2026.08.03",
-      "startsAt": "2026-08-01",
-      "validUntil": "2026-08-03",
-      "notes": "D-0",
-      "source": "https://mo.twosome.co.kr/ev/eventList.do?eventDiv=progress&searchOpt=endSoon",
-      "sourceLabel": "투썸 이벤트",
-      "fit": 83
     },
     {
       "id": "brand-pascucci-794881e78345",
@@ -963,7 +884,7 @@
       "period": "2026.07.24 - 2026.08.06",
       "startsAt": "2026-07-24",
       "validUntil": "2026-08-06",
-      "notes": "D-3",
+      "notes": "D-2",
       "source": "https://mo.twosome.co.kr/ev/eventList.do?eventDiv=progress&searchOpt=endSoon",
       "sourceLabel": "투썸 이벤트",
       "fit": 57

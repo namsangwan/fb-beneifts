@@ -72,5 +72,11 @@ test("serves the generated benefit JSON through the API", async () => {
   assert.ok(mPointPercentBenefits.length > 0);
   assert.ok(mPointPercentBenefits.every((benefit) => /^실질 \d+(?:\.\d+)?%$/.test(benefit.value)));
   assert.ok(mPointPercentBenefits.every((benefit) => !/^50%$|^20%$/.test(benefit.value)));
+  assert.ok(
+    payload.benefits.every(
+      (benefit) => !/배달의민족|배민/.test(`${benefit.brand} ${benefit.title} ${benefit.valueText}`),
+    ),
+  );
+  assert.doesNotMatch(JSON.stringify(payload.sources), /배달의민족|배민/);
   assert.ok(payload.benefits.every((benefit) => !("raw" in benefit)));
 });

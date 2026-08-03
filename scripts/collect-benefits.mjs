@@ -51,15 +51,13 @@ const cafeAndBakeryKeywords = [
   "베이커리",
   "빵",
   "테디뵈르",
-  "배달의민족",
-  "배민",
   "베스킨라빈스",
   "배스킨라빈스",
   "롯데리아",
 ];
 
 const bakeryKeywords = ["파리바게뜨", "뚜레쥬르", "베이커리", "빵", "테디뵈르"];
-const snackKeywords = ["배달의민족", "배민", "베스킨라빈스", "배스킨라빈스", "롯데리아"];
+const snackKeywords = ["베스킨라빈스", "배스킨라빈스", "롯데리아"];
 const brandEventKeywords = [
   "할인",
   "쿠폰",
@@ -130,7 +128,6 @@ const ktTargetBrands = new Set([
   "던킨",
   "뚜레쥬르",
   "메가MGC커피",
-  "배달의민족",
   "비트커피",
   "스타벅스",
   "카페베네",
@@ -153,8 +150,6 @@ const sktTargetBrands = [
   "이디야",
   "컴포즈커피",
   "매머드커피",
-  "배달의민족",
-  "배민",
 ];
 const telecomEventExclusionKeywords = [
   "휴대폰",
@@ -226,10 +221,6 @@ function includesCafeOrBakery(text) {
   return cafeAndBakeryKeywords.some((keyword) =>
     text.toLowerCase().includes(keyword.toLowerCase()),
   );
-}
-
-function hasDeliverySignal(text) {
-  return /배달의민족|배민/.test(text);
 }
 
 function hasTelecomEventExclusionSignal(text) {
@@ -1336,7 +1327,7 @@ async function collectSktTday(asOfDate) {
     if (!exactBrand && !title.startsWith(brand)) continue;
     if (hasSktDetailNoise(title)) continue;
     if (!hasPositiveBrandBenefitSignal(combined)) continue;
-    if (!includesCafeOrBakery(combined) && !hasDeliverySignal(combined)) continue;
+    if (!includesCafeOrBakery(combined)) continue;
     if (hasBrandExclusionSignal(combined)) continue;
 
     const period = firstPeriodInLines(lines, index, asOfDate);
@@ -1408,7 +1399,7 @@ async function collectKtMembership(asOfDate) {
       const title = extractKtBenefitSummary(html);
       const body = compactText(textFromHtml(html));
       if (!title || !hasPositiveBrandBenefitSignal(title)) return null;
-      if (!includesCafeOrBakery(`${partner.jungName} ${title}`) && !hasDeliverySignal(partner.jungName)) return null;
+      if (!includesCafeOrBakery(`${partner.jungName} ${title}`)) return null;
 
       const period = parseFlexiblePeriod(body, asOfDate);
       const raw = JSON.stringify({ partner, title, period });
@@ -1456,15 +1447,14 @@ async function collectLguplusOngoing(asOfDate) {
       const [, startDate, endDate] = dateMatch;
       const combined = `${title} ${tag} ${alt}`;
       const visibleSummary = `${title} ${tag}`;
-      if (!title || (!includesCafeOrBakery(visibleSummary) && !hasDeliverySignal(visibleSummary))) return null;
+      if (!title || !includesCafeOrBakery(visibleSummary)) return null;
       if (/즉시 추첨|신세계상품권|뮤지컬/.test(combined)) return null;
       if (!hasPositiveBrandBenefitSignal(combined)) return null;
-      if (hasTelecomEventExclusionSignal(title) && !/아메리카노|커피|공차|투썸|메가MGC|배달의민족|배민/.test(combined)) {
+      if (hasTelecomEventExclusionSignal(title) && !/아메리카노|커피|공차|투썸|메가MGC/.test(combined)) {
         return null;
       }
 
-      const brand =
-        inferFoodBrand(combined, hasDeliverySignal(combined) ? "배달의민족" : "커피");
+      const brand = inferFoodBrand(combined, "커피");
       const source = href.startsWith("http") ? decodeHtml(href) : absoluteUrl(href, sourceUrl);
       const raw = JSON.stringify({ title, tag, alt, startDate, endDate, source });
 
@@ -1668,14 +1658,6 @@ async function main() {
         provider: "kt",
         label: "KT 멤버십 푸드 제휴",
         url: sources.telecom.ktPartnerList,
-        children: [
-          {
-            brand: "배달의민족",
-            url: "https://www.baemin.com/",
-            status: "limited",
-            reason: "배민 공개 이벤트 목록 대신 KT 공식 제휴 혜택에 노출된 배민 혜택을 수집",
-          },
-        ],
       },
       {
         provider: "lguplus",
