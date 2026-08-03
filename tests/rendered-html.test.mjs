@@ -70,7 +70,7 @@ test("serves the generated benefit JSON through the API", async () => {
     ),
   );
   assert.ok(mPointPercentBenefits.length > 0);
-  assert.ok(mPointPercentBenefits.every((benefit) => /^실질 \d+(?:\.\d+)?%$/.test(benefit.value)));
+  assert.ok(mPointPercentBenefits.every((benefit) => /^\d+(?:\.\d+)?%$/.test(benefit.value)));
   assert.ok(mPointPercentBenefits.every((benefit) => !/^50%$|^20%$/.test(benefit.value)));
   assert.ok(
     payload.benefits.every(

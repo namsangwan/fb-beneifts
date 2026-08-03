@@ -272,7 +272,7 @@ function textFromHtml(html) {
 function displayValue(valueText) {
   const text = compactText(valueText);
   const mPointBenefit = mPointEffectiveBenefit(text);
-  if (mPointBenefit) return `실질 ${mPointBenefit.effectiveText}`;
+  if (mPointBenefit) return mPointBenefit.effectiveText;
 
   const plusDeal = text.match(/\d+\s*\+\s*\d+/);
   if (plusDeal) return plusDeal[0].replace(/\s+/g, "");
@@ -330,7 +330,7 @@ function applyMPointEffectiveValue(benefit) {
 
   return {
     ...benefit,
-    value: `실질 ${mPointBenefit.effectiveText}`,
+    value: mPointBenefit.effectiveText,
     valueText: `${benefit.valueText} (M포인트 ${mPointBenefit.usageText} 사용, 실질 할인효과 약 ${mPointBenefit.effectiveText})`,
     notes: appendNote(
       benefit.notes,
