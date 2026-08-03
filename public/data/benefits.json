@@ -1,9 +1,44 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-03T11:48:38.194Z",
+  "collectedAt": "2026-08-03T11:49:44.559Z",
   "asOfDate": "2026-08-03",
-  "asOfLabel": "2026.08.03 20:48 KST",
-  "warnings": [],
+  "asOfLabel": "2026.08.03 20:49 KST",
+  "warnings": [
+    {
+      "source": "compose",
+      "brands": [
+        "컴포즈커피"
+      ],
+      "reason": "Compose fetch failed: 403",
+      "fallbackCount": 2
+    },
+    {
+      "source": "twosome",
+      "brands": [
+        "투썸플레이스"
+      ],
+      "reason": "fetch failed",
+      "fallbackCount": 5
+    },
+    {
+      "source": "theventi",
+      "brands": [
+        "더벤티"
+      ],
+      "reason": "collector returned no current benefits; preserved previous current benefits",
+      "fallbackCount": 2
+    },
+    {
+      "source": "kt-membership",
+      "reason": "fetch failed",
+      "fallbackCount": 15
+    },
+    {
+      "source": "lguplus-ongoing",
+      "reason": "LG U+ ongoing events fetch failed: 403",
+      "fallbackCount": 15
+    }
+  ],
   "sources": [
     {
       "provider": "naverpay",
@@ -144,42 +179,6 @@
       "fit": 97
     },
     {
-      "id": "telecom-kt-184",
-      "provider": "telecom",
-      "pay": "통신사",
-      "brand": "공차",
-      "category": "커피",
-      "title": "전등급: [달.달.혜택] 인기 음료 6종 50% 할인(할인 한도 5천원) [상시]제조음료 구매 시 10% 할인",
-      "value": "50%",
-      "valueText": "전등급: [달.달.혜택] 인기 음료 6종 50% 할인(할인 한도 5천원) [상시]제조음료 구매 시 10% 할인",
-      "condition": "KT 멤버십 등급별 혜택",
-      "period": "2026.08.03 - 2026.08.17",
-      "startsAt": "2026-08-03",
-      "validUntil": "2026-08-17",
-      "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
-      "source": "https://membership.kt.com/discount/partner/C21/184/PartnerDetail.do",
-      "sourceLabel": "KT 멤버십",
-      "fit": 97
-    },
-    {
-      "id": "telecom-kt-122",
-      "provider": "telecom",
-      "pay": "통신사",
-      "brand": "비트커피",
-      "category": "커피",
-      "title": "전등급: 아메리카노 50% 할인",
-      "value": "50%",
-      "valueText": "전등급: 아메리카노 50% 할인",
-      "condition": "KT 멤버십 등급별 혜택",
-      "period": "상시/월별 제공",
-      "startsAt": null,
-      "validUntil": null,
-      "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
-      "source": "https://membership.kt.com/discount/partner/C21/122/PartnerDetail.do",
-      "sourceLabel": "KT 멤버십",
-      "fit": 97
-    },
-    {
       "id": "brand-gongcha-61df1330c5f3",
       "provider": "brand",
       "pay": "브랜드",
@@ -304,24 +303,6 @@
       "source": "https://pay.naver.com/benefit/payment/detail/14414967832373",
       "sourceLabel": "네이버페이 상세",
       "fit": 90
-    },
-    {
-      "id": "telecom-kt-76",
-      "provider": "telecom",
-      "pay": "통신사",
-      "brand": "배달의민족",
-      "category": "간식",
-      "title": "전등급: [케멤페] 최대 9천원 할인",
-      "value": "최대9천원",
-      "valueText": "전등급: [케멤페] 최대 9천원 할인",
-      "condition": "KT 멤버십 등급별 혜택",
-      "period": "2026.08.03 - 2026.08.31",
-      "startsAt": "2026-08-03",
-      "validUntil": "2026-08-31",
-      "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
-      "source": "https://membership.kt.com/discount/partner/C21/76/PartnerDetail.do",
-      "sourceLabel": "KT 멤버십",
-      "fit": 89
     },
     {
       "id": "brand-gongcha-70e188273eed",
@@ -576,24 +557,6 @@
       "fit": 78
     },
     {
-      "id": "telecom-kt-102",
-      "provider": "telecom",
-      "pay": "통신사",
-      "brand": "카페베네",
-      "category": "커피",
-      "title": "전등급: 10% 할인",
-      "value": "10%",
-      "valueText": "전등급: 10% 할인",
-      "condition": "KT 멤버십 등급별 혜택",
-      "period": "상시/월별 제공",
-      "startsAt": null,
-      "validUntil": null,
-      "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
-      "source": "https://membership.kt.com/discount/partner/C21/102/PartnerDetail.do",
-      "sourceLabel": "KT 멤버십",
-      "fit": 77
-    },
-    {
       "id": "brand-hollys-518",
       "provider": "brand",
       "pay": "브랜드",
@@ -646,96 +609,6 @@
       "source": "https://toss.im/tossfeed/article/tosspay-promotion",
       "sourceLabel": "토스피드 현재 월",
       "fit": 70
-    },
-    {
-      "id": "telecom-kt-78",
-      "provider": "telecom",
-      "pay": "통신사",
-      "brand": "던킨",
-      "category": "커피",
-      "title": "VVIP: [V/VIP 초이스] 아메리카노(S)＋글레이즈드 무료 / VIP: [V/VIP 초이스] 아메리카노(S)＋글레이즈드 무료",
-      "value": "증정",
-      "valueText": "VVIP: [V/VIP 초이스] 아메리카노(S)＋글레이즈드 무료 / VIP: [V/VIP 초이스] 아메리카노(S)＋글레이즈드 무료",
-      "condition": "KT 멤버십 등급별 혜택",
-      "period": "상시/월별 제공",
-      "startsAt": null,
-      "validUntil": null,
-      "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
-      "source": "https://membership.kt.com/discount/partner/C21/78/PartnerDetail.do",
-      "sourceLabel": "KT 멤버십",
-      "fit": 59
-    },
-    {
-      "id": "telecom-kt-60",
-      "provider": "telecom",
-      "pay": "통신사",
-      "brand": "뚜레쥬르",
-      "category": "베이커리",
-      "title": "VVIP: 1,000원당 150원 할인 / VIP: 1,000원당 150원 할인 / Gold: 1,000원당 150원 할인 / 일반: 1,000원당 100원 할인",
-      "value": "1,000원",
-      "valueText": "VVIP: 1,000원당 150원 할인 / VIP: 1,000원당 150원 할인 / Gold: 1,000원당 150원 할인 / 일반: 1,000원당 100원 할인",
-      "condition": "KT 멤버십 등급별 혜택",
-      "period": "상시/월별 제공",
-      "startsAt": null,
-      "validUntil": null,
-      "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
-      "source": "https://membership.kt.com/discount/partner/C21/60/PartnerDetail.do",
-      "sourceLabel": "KT 멤버십",
-      "fit": 59
-    },
-    {
-      "id": "telecom-kt-63",
-      "provider": "telecom",
-      "pay": "통신사",
-      "brand": "메가MGC커피",
-      "category": "커피",
-      "title": "전등급: [상시] ICE 아메리카노 구매 시 500원 할인(3장) [OTTX메가MGC커피] 500원 할인쿠폰 2장 / VVIP: [V/VIP 초이스] 아메리카노(HOT/ICE) 2잔 무료 / VIP: [V/VIP 초이스] 아메리카노(HOT/ICE) 2잔 무료",
-      "value": "500원",
-      "valueText": "전등급: [상시] ICE 아메리카노 구매 시 500원 할인(3장) [OTTX메가MGC커피] 500원 할인쿠폰 2장 / VVIP: [V/VIP 초이스] 아메리카노(HOT/ICE) 2잔 무료 / VIP: [V/VIP 초이스] 아메리카노(HOT/ICE) 2잔 무료",
-      "condition": "KT 멤버십 등급별 혜택",
-      "period": "상시/월별 제공",
-      "startsAt": null,
-      "validUntil": null,
-      "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
-      "source": "https://membership.kt.com/discount/partner/C21/63/PartnerDetail.do",
-      "sourceLabel": "KT 멤버십",
-      "fit": 59
-    },
-    {
-      "id": "telecom-kt-57",
-      "provider": "telecom",
-      "pay": "통신사",
-      "brand": "파리바게뜨",
-      "category": "베이커리",
-      "title": "VVIP: 1,000원당 100원 할인 / VIP: 1,000원당 100원 할인 / Gold: 1,000원당 100원 할인 / 일반: 1,000원당 50원 할인",
-      "value": "1,000원",
-      "valueText": "VVIP: 1,000원당 100원 할인 / VIP: 1,000원당 100원 할인 / Gold: 1,000원당 100원 할인 / 일반: 1,000원당 50원 할인",
-      "condition": "KT 멤버십 등급별 혜택",
-      "period": "상시/월별 제공",
-      "startsAt": null,
-      "validUntil": null,
-      "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
-      "source": "https://membership.kt.com/discount/partner/C21/57/PartnerDetail.do",
-      "sourceLabel": "KT 멤버십",
-      "fit": 59
-    },
-    {
-      "id": "telecom-kt-81",
-      "provider": "telecom",
-      "pay": "통신사",
-      "brand": "할리스",
-      "category": "커피",
-      "title": "VVIP: [VVIP 초이스] 커피 2잔＋휘낭시에 2개 세트 무료 / VIP: [생일] 바닐라 딜라이트(R) 1잔(생일 당월 한정)",
-      "value": "증정",
-      "valueText": "VVIP: [VVIP 초이스] 커피 2잔＋휘낭시에 2개 세트 무료 / VIP: [생일] 바닐라 딜라이트(R) 1잔(생일 당월 한정)",
-      "condition": "KT 멤버십 등급별 혜택",
-      "period": "2026-12-31까지",
-      "startsAt": null,
-      "validUntil": "2026-12-31",
-      "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
-      "source": "https://membership.kt.com/discount/partner/C21/81/PartnerDetail.do",
-      "sourceLabel": "KT 멤버십",
-      "fit": 59
     },
     {
       "id": "brand-compose-f7dd3488ef51",
