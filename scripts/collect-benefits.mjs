@@ -5,6 +5,12 @@ const sources = {
   naver:
     "https://pay.naver.com/web-api/pub/benefit/payment/accumulation-promotions?firstCategory=DOMESTIC_INSTORE&secondCategory=FNB",
   toss: "https://toss.im/tossfeed/article/tosspay-promotion",
+  telecom: {
+    sktTday: "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
+    ktPartnerList: "https://membership.kt.com/discount/partner/C23/67/PartnerDetail.do",
+    ktJungCodeList: "https://membership.kt.com/discount/partner/selectJungCodeList.json",
+    lguplusOngoing: "https://www.lguplus.com/benefit-event/ongoing",
+  },
   brands: {
     compose: "https://composecoffee.com/event",
     ediya: "https://www.ediya.com/contents/event.html",
@@ -38,16 +44,22 @@ const cafeAndBakeryKeywords = [
   "메가커피",
   "빽다방",
   "더벤티",
+  "던킨",
   "파스쿠찌",
   "파리바게뜨",
   "뚜레쥬르",
   "베이커리",
   "빵",
-  "HANS",
   "테디뵈르",
+  "배달의민족",
+  "배민",
+  "베스킨라빈스",
+  "배스킨라빈스",
+  "롯데리아",
 ];
 
-const bakeryKeywords = ["파리바게뜨", "뚜레쥬르", "베이커리", "빵", "HANS", "테디뵈르"];
+const bakeryKeywords = ["파리바게뜨", "뚜레쥬르", "베이커리", "빵", "테디뵈르"];
+const snackKeywords = ["배달의민족", "배민", "베스킨라빈스", "배스킨라빈스", "롯데리아"];
 const brandEventKeywords = [
   "할인",
   "쿠폰",
@@ -113,6 +125,48 @@ const brandEventExclusionKeywords = [
   "채용",
   "알바",
 ];
+const ktTargetBrands = new Set([
+  "공차",
+  "던킨",
+  "뚜레쥬르",
+  "메가MGC커피",
+  "배달의민족",
+  "비트커피",
+  "스타벅스",
+  "카페베네",
+  "파리바게뜨",
+  "파리크라상",
+  "할리스",
+]);
+const sktTargetBrands = [
+  "더벤티",
+  "투썸플레이스",
+  "던킨",
+  "공차",
+  "할리스",
+  "스타벅스",
+  "파리바게뜨",
+  "파스쿠찌",
+  "메가MGC커피",
+  "메가커피",
+  "빽다방",
+  "이디야",
+  "컴포즈커피",
+  "매머드커피",
+  "배달의민족",
+  "배민",
+];
+const telecomEventExclusionKeywords = [
+  "휴대폰",
+  "요금제",
+  "인터넷",
+  "iptv",
+  "방송패스",
+  "갤럭시",
+  "중고폰",
+  "자급제",
+  "유심",
+];
 
 function hash(value) {
   return createHash("sha256").update(value).digest("hex");
@@ -172,6 +226,28 @@ function includesCafeOrBakery(text) {
   return cafeAndBakeryKeywords.some((keyword) =>
     text.toLowerCase().includes(keyword.toLowerCase()),
   );
+}
+
+function hasDeliverySignal(text) {
+  return /배달의민족|배민/.test(text);
+}
+
+function hasTelecomEventExclusionSignal(text) {
+  const normalized = compactText(text).toLowerCase();
+  return telecomEventExclusionKeywords.some((keyword) => normalized.includes(keyword.toLowerCase()));
+}
+
+function hasSktDetailNoise(text) {
+  return /중복|동시에|없습니다|않습니다|일부 매장|문의|바로 가기|사용 가능|사용 안 됨|적립하실 수 없습니다|고객센터|유의 사항|홈페이지|매장 영업시간/.test(
+    text,
+  );
+}
+
+function inferFoodBrand(text, fallback = "커피") {
+  const specificKeywords = cafeAndBakeryKeywords
+    .filter((keyword) => !["커피", "카페", "베이커리", "빵"].includes(keyword))
+    .sort((a, b) => b.length - a.length);
+  return specificKeywords.find((keyword) => text.includes(keyword)) ?? fallback;
 }
 
 function isCurrentOrFuture(benefit, asOfDate) {
@@ -251,7 +327,10 @@ function scoreBenefit(benefit) {
 }
 
 function toPublicBenefit(benefit) {
-  const { raw, sourceHash, collectedAt, ...publicBenefit } = benefit;
+  const publicBenefit = { ...benefit };
+  delete publicBenefit.raw;
+  delete publicBenefit.sourceHash;
+  delete publicBenefit.collectedAt;
   return publicBenefit;
 }
 
@@ -271,6 +350,7 @@ async function readPreviousBenefits() {
 }
 
 function categoryFromText(text) {
+  if (snackKeywords.some((keyword) => text.includes(keyword))) return "간식";
   return bakeryKeywords.some((keyword) => text.includes(keyword)) ? "베이커리" : "커피";
 }
 
@@ -311,6 +391,37 @@ function inferEndYear(startsAt, endMonth, asOfDate) {
 
 function parseFlexiblePeriod(text, asOfDate) {
   const normalized = compactText(text).replace(/\([^)]+\)/g, "");
+  const koreanDateTimeRange = normalized.match(
+    /(\d{4})년\s*(\d{1,2})월\s*(\d{1,2})일(?:\s*(?:오전|오후)?\s*\d{1,2}시(?:\s*\d{1,2}분)?)?\s*~\s*(?:(\d{4})년\s*)?(\d{1,2})월\s*(\d{1,2})일/,
+  );
+  if (koreanDateTimeRange) {
+    const [, sy, sm, sd, eyRaw, em, ed] = koreanDateTimeRange;
+    const startsAt = `${sy}-${sm.padStart(2, "0")}-${sd.padStart(2, "0")}`;
+    const ey = eyRaw ?? String(inferEndYear(startsAt, Number(em), asOfDate));
+    return {
+      startsAt,
+      validUntil: `${ey}-${em.padStart(2, "0")}-${ed.padStart(2, "0")}`,
+    };
+  }
+
+  const koreanSingleDate = normalized.match(
+    /(\d{4})년\s*(\d{1,2})월\s*(\d{1,2})일(?:\s*(?:오전|오후)?\s*\d{1,2}시(?:\s*\d{1,2}분)?)?\s*~/,
+  );
+  if (koreanSingleDate) {
+    const [, sy, sm, sd] = koreanSingleDate;
+    const date = `${sy}-${sm.padStart(2, "0")}-${sd.padStart(2, "0")}`;
+    return { startsAt: date, validUntil: date };
+  }
+
+  const koreanEndDate = normalized.match(/~\s*(\d{4})년\s*(\d{1,2})월\s*(\d{1,2})일/);
+  if (koreanEndDate) {
+    const [, ey, em, ed] = koreanEndDate;
+    return {
+      startsAt: null,
+      validUntil: `${ey}-${em.padStart(2, "0")}-${ed.padStart(2, "0")}`,
+    };
+  }
+
   const fullDate = normalized.match(
     /(\d{4})[.\-년]\s*(\d{1,2})[.\-월]\s*(\d{1,2})일?\s*(?:~|-|부터\s*~?)\s*(\d{2,4})?[.\-년]?\s*(\d{1,2})[.\-월]\s*(\d{1,2})일?/,
   );
@@ -435,6 +546,51 @@ function normalizeBrandEvent({
   return {
     ...benefit,
     fit: scoreBenefit(benefit) - 3,
+  };
+}
+
+function normalizeExternalBenefit({
+  provider,
+  pay,
+  brand,
+  id,
+  title,
+  source,
+  sourceLabel,
+  startsAt = null,
+  validUntil = null,
+  notes = "",
+  condition,
+  periodLabel = null,
+  raw,
+}, asOfDate) {
+  const cleanTitle = compactText(title);
+  const benefit = {
+    id: `${provider}-${id}`,
+    provider,
+    pay,
+    brand,
+    category: categoryFromText(`${brand} ${cleanTitle} ${notes}`),
+    title: cleanTitle,
+    value: displayValue(cleanTitle),
+    valueText: cleanTitle,
+    condition,
+    period: periodLabel ?? formatPeriod(startsAt, validUntil),
+    startsAt,
+    validUntil,
+    notes,
+    source,
+    sourceLabel,
+    sourceHash: hash(raw),
+    collectedAt: new Date().toISOString(),
+    raw,
+  };
+
+  if (!isCurrentOrFuture(benefit, asOfDate)) return null;
+
+  return {
+    ...benefit,
+    fit: scoreBenefit(benefit) - 1,
   };
 }
 
@@ -603,6 +759,27 @@ async function fetchFormJson(url, params, label) {
     headers: {
       accept: "application/json, text/javascript, */*; q=0.01",
       "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+      "user-agent": "benefit-radar/1.0 (+https://github.com/namsangwan/fb-beneifts)",
+      "x-requested-with": "XMLHttpRequest",
+    },
+    body: new URLSearchParams(params),
+  });
+
+  if (!response.ok) {
+    throw new Error(`${label} fetch failed: ${response.status}`);
+  }
+
+  return response.json();
+}
+
+async function fetchKtFormJson(url, params, label) {
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      accept: "application/json, text/javascript, */*; q=0.01",
+      "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+      origin: "https://membership.kt.com",
+      referer: sources.telecom.ktPartnerList,
       "user-agent": "benefit-radar/1.0 (+https://github.com/namsangwan/fb-beneifts)",
       "x-requested-with": "XMLHttpRequest",
     },
@@ -1078,6 +1255,241 @@ async function collectMammoth(asOfDate) {
     .slice(0, 8);
 }
 
+function firstPeriodInLines(lines, startIndex, asOfDate) {
+  const windowLines = lines.slice(Math.max(0, startIndex - 6), startIndex + 60);
+  const periodLine =
+    windowLines.find((line) => /^(쿠폰 사용 기간|이벤트 기간)\s*:/.test(line)) ??
+    windowLines.find((line) => /^(쿠폰 다운로드 기간|사용 기간)\s*:/.test(line)) ??
+    windowLines.find((line) => /\d{4}년\s*\d{1,2}월\s*\d{1,2}일.*~/.test(line)) ??
+    windowLines.find((line) => /\d{1,2}[./]\d{1,2}.*~.*\d{1,2}[./]\d{1,2}/.test(line));
+
+  return {
+    periodText: periodLine ?? "",
+    ...parseFlexiblePeriod(periodLine ?? "", asOfDate),
+  };
+}
+
+async function collectSktTday(asOfDate) {
+  const sourceUrl = sources.telecom.sktTday;
+  const html = await fetchText(sourceUrl, "SKT T day");
+  const lines = textFromHtml(html).split("\n").map(compactText).filter(Boolean);
+  const candidates = [];
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index];
+    const exactBrand = sktTargetBrands.find((brand) => line === brand);
+    const inlineBrand = sktTargetBrands.find((brand) => line.includes(brand));
+    const brand = exactBrand ?? inlineBrand;
+    if (!brand) continue;
+
+    const title = exactBrand ? (lines[index + 1] ?? "") : line;
+    const combined = `${brand} ${title}`;
+    if (!title || title.length > 160) continue;
+    if (!exactBrand && !title.startsWith(brand)) continue;
+    if (hasSktDetailNoise(title)) continue;
+    if (!hasPositiveBrandBenefitSignal(combined)) continue;
+    if (!includesCafeOrBakery(combined) && !hasDeliverySignal(combined)) continue;
+    if (hasBrandExclusionSignal(combined)) continue;
+
+    const period = firstPeriodInLines(lines, index, asOfDate);
+    const raw = JSON.stringify({ brand, title, periodText: period.periodText });
+    const benefit = normalizeExternalBenefit(
+      {
+        provider: "telecom",
+        pay: "통신사",
+        brand,
+        id: `skt-${hash(raw).slice(0, 12)}`,
+        title,
+        source: sourceUrl,
+        sourceLabel: "SKT T day",
+        startsAt: period.startsAt,
+        validUntil: period.validUntil,
+        notes: period.periodText || "SKT T day 공식 페이지에서 확인.",
+        condition: "SKT T멤버십 T day",
+        raw,
+      },
+      asOfDate,
+    );
+
+    if (benefit) candidates.push(benefit);
+  }
+
+  return candidates
+    .filter(
+      (benefit, index, benefits) =>
+        benefits.findIndex((candidate) => candidate.brand === benefit.brand && candidate.title === benefit.title) ===
+        index,
+    )
+    .slice(0, 12);
+}
+
+function extractKtBenefitSummary(html) {
+  const listHtml = html.match(/<ul class="sec-cont-list">([\s\S]*?)<\/ul>/)?.[1] ?? "";
+  const rows = Array.from(
+    listHtml.matchAll(/<li>\s*<em[^>]*>([\s\S]*?)<\/em>\s*<span>([\s\S]*?)<\/span>\s*<\/li>/g),
+  )
+    .map(([, tierHtml, summaryHtml]) => {
+      const tier = compactText(textFromHtml(tierHtml));
+      const summary = compactText(textFromHtml(summaryHtml));
+      return [tier, summary].filter(Boolean).join(": ");
+    })
+    .filter(Boolean);
+
+  return Array.from(new Set(rows)).join(" / ");
+}
+
+async function collectKtMembership(asOfDate) {
+  const payload = await fetchKtFormJson(
+    sources.telecom.ktJungCodeList,
+    { daeCode: "C21" },
+    "KT membership food partners",
+  );
+  const partners = (payload.jungCodeList ?? payload.data?.jungCodeList ?? []).filter((partner) =>
+    ktTargetBrands.has(partner.jungName),
+  );
+  const detailPages = await Promise.all(
+    partners.map(async (partner) => {
+      const sourceUrl = `https://membership.kt.com/discount/partner/${partner.daeCode}/${partner.jungCode}/PartnerDetail.do`;
+      const html = await fetchText(sourceUrl, `KT ${partner.jungName}`);
+      return { partner, sourceUrl, html };
+    }),
+  );
+
+  return detailPages
+    .map(({ partner, sourceUrl, html }) => {
+      const title = extractKtBenefitSummary(html);
+      const body = compactText(textFromHtml(html));
+      if (!title || !hasPositiveBrandBenefitSignal(title)) return null;
+      if (!includesCafeOrBakery(`${partner.jungName} ${title}`) && !hasDeliverySignal(partner.jungName)) return null;
+
+      const period = parseFlexiblePeriod(body, asOfDate);
+      const raw = JSON.stringify({ partner, title, period });
+      return normalizeExternalBenefit(
+        {
+          provider: "telecom",
+          pay: "통신사",
+          brand: partner.jungName,
+          id: `kt-${partner.jungCode}`,
+          title,
+          source: sourceUrl,
+          sourceLabel: "KT 멤버십",
+          startsAt: period.startsAt,
+          validUntil: period.validUntil,
+          periodLabel: period.validUntil ? formatPeriod(period.startsAt, period.validUntil) : "상시/월별 제공",
+          notes: "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
+          condition: "KT 멤버십 등급별 혜택",
+          raw,
+        },
+        asOfDate,
+      );
+    })
+    .filter(Boolean);
+}
+
+async function collectLguplusOngoing(asOfDate) {
+  const sourceUrl = sources.telecom.lguplusOngoing;
+  const html = await fetchText(sourceUrl, "LG U+ ongoing events");
+  const cards = Array.from(html.matchAll(/<li data-fetch-key="data-v-1551fd35:\d+"[\s\S]*?<\/li>/g)).map(
+    ([block]) => block,
+  );
+
+  return cards
+    .map((block) => {
+      const href = block.match(/data-gtm-click-url="([^"]+)"/)?.[1];
+      const altText = block.match(/<img alt="([^"]*)"/)?.[1] ?? "";
+      const titleHtml = block.match(/<p class="tit"[^>]*>([\s\S]*?)<\/p>/)?.[1] ?? "";
+      const tagHtml = block.match(/<p class="flag-n-tag"[^>]*>\s*<em[^>]*>([\s\S]*?)<\/em>\s*<\/p>/)?.[1] ?? "";
+      const dateMatch = block.match(/<p class="date"[^>]*>\s*([\d-]+)\s*~\s*([\d-]+)/);
+      if (!href || !dateMatch) return null;
+
+      const title = compactText(textFromHtml(titleHtml));
+      const tag = compactText(textFromHtml(tagHtml));
+      const alt = compactText(altText);
+      const [, startDate, endDate] = dateMatch;
+      const combined = `${title} ${tag} ${alt}`;
+      const visibleSummary = `${title} ${tag}`;
+      if (!title || (!includesCafeOrBakery(visibleSummary) && !hasDeliverySignal(visibleSummary))) return null;
+      if (/즉시 추첨|신세계상품권|뮤지컬/.test(combined)) return null;
+      if (!hasPositiveBrandBenefitSignal(combined)) return null;
+      if (hasTelecomEventExclusionSignal(title) && !/아메리카노|커피|공차|투썸|메가MGC|배달의민족|배민/.test(combined)) {
+        return null;
+      }
+
+      const brand =
+        inferFoodBrand(combined, hasDeliverySignal(combined) ? "배달의민족" : "커피");
+      const source = href.startsWith("http") ? decodeHtml(href) : absoluteUrl(href, sourceUrl);
+      const raw = JSON.stringify({ title, tag, alt, startDate, endDate, source });
+
+      return normalizeExternalBenefit(
+        {
+          provider: "telecom",
+          pay: "통신사",
+          brand,
+          id: `lguplus-${hash(raw).slice(0, 12)}`,
+          title: tag ? `${title} - ${tag}` : title,
+          source,
+          sourceLabel: "LG U+ 진행 이벤트",
+          startsAt: startDate,
+          validUntil: endDate,
+          notes: alt || "LG U+ 진행 이벤트 목록에서 확인.",
+          condition: "LG U+ 이벤트 참여 조건",
+          raw,
+        },
+        asOfDate,
+      );
+    })
+    .filter(Boolean)
+    .filter(
+      (benefit, index, benefits) =>
+        benefits.findIndex((candidate) => candidate.source === benefit.source && candidate.title === benefit.title) ===
+        index,
+    )
+    .slice(0, 10);
+}
+
+function previousProviderBenefits(previousBenefits, provider, pay, asOfDate) {
+  return previousBenefits
+    .filter((benefit) => benefit.provider === provider && benefit.pay === pay)
+    .filter((benefit) => isCurrentOrFuture(benefit, asOfDate));
+}
+
+async function collectTelecomBenefits(asOfDate, previousBenefits = []) {
+  const collectors = [
+    { name: "skt-tday", collect: () => collectSktTday(asOfDate) },
+    { name: "kt-membership", collect: () => collectKtMembership(asOfDate) },
+    { name: "lguplus-ongoing", collect: () => collectLguplusOngoing(asOfDate) },
+  ];
+  const results = await Promise.allSettled(collectors.map((collector) => collector.collect()));
+  const fallbackBenefits = previousProviderBenefits(previousBenefits, "telecom", "통신사", asOfDate);
+  const warnings = [];
+
+  const benefits = results.flatMap((result, index) => {
+    const collector = collectors[index];
+
+    if (result.status === "rejected") {
+      warnings.push({
+        source: collector.name,
+        reason: result.reason?.message ?? String(result.reason),
+        fallbackCount: fallbackBenefits.length,
+      });
+      return [];
+    }
+
+    return result.value;
+  });
+
+  if (benefits.length === 0 && fallbackBenefits.length > 0) {
+    warnings.push({
+      source: "telecom",
+      reason: "all telecom collectors returned no current benefits; preserved previous current benefits",
+      fallbackCount: fallbackBenefits.length,
+    });
+    return { benefits: fallbackBenefits, warnings };
+  }
+
+  return { benefits, warnings };
+}
+
 function previousBrandBenefits(previousBenefits, brands, asOfDate) {
   return previousBenefits
     .filter((benefit) => benefit.provider === "brand" && brands.includes(benefit.brand))
@@ -1136,20 +1548,24 @@ async function collectBrandBenefits(asOfDate, previousBenefits = []) {
 async function main() {
   const { date: asOfDate, label: asOfLabel } = kstDateParts();
   const previousBenefits = await readPreviousBenefits();
-  const [naverBenefits, tossBenefits, brandResult] = await Promise.all([
+  const [naverBenefits, tossBenefits, brandResult, telecomResult] = await Promise.all([
     collectNaver(asOfDate),
     collectToss(asOfDate),
     collectBrandBenefits(asOfDate, previousBenefits),
+    collectTelecomBenefits(asOfDate, previousBenefits),
   ]);
   const brandBenefits = brandResult.benefits;
+  const telecomBenefits = telecomResult.benefits;
 
-  const benefits = [...naverBenefits, ...tossBenefits, ...brandBenefits].sort((a, b) => b.fit - a.fit);
+  const benefits = [...naverBenefits, ...tossBenefits, ...brandBenefits, ...telecomBenefits].sort(
+    (a, b) => b.fit - a.fit,
+  );
   const outputBase = {
     schemaVersion: 1,
     collectedAt: new Date().toISOString(),
     asOfDate,
     asOfLabel,
-    warnings: brandResult.warnings,
+    warnings: [...brandResult.warnings, ...telecomResult.warnings],
     sources: [
       {
         provider: "naverpay",
@@ -1160,6 +1576,22 @@ async function main() {
         provider: "toss",
         label: "토스피드 현재 월",
         url: sources.toss,
+      },
+      {
+        provider: "telecom",
+        label: "통신사/배달 제휴 혜택",
+        url: sources.telecom.sktTday,
+        children: [
+          { brand: "SKT T day", url: sources.telecom.sktTday },
+          { brand: "KT 멤버십 푸드 제휴", url: sources.telecom.ktPartnerList },
+          { brand: "LG U+ 진행 이벤트", url: sources.telecom.lguplusOngoing },
+          {
+            brand: "배달의민족",
+            url: "https://www.baemin.com/",
+            status: "limited",
+            reason: "공개 이벤트 목록 대신 통신사 공식 제휴/진행 이벤트에 노출된 배민 혜택을 수집",
+          },
+        ],
       },
       {
         provider: "brand",

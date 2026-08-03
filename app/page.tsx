@@ -2,12 +2,12 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-type Pay = "네이버페이" | "토스" | "브랜드";
+type Pay = "네이버페이" | "토스" | "브랜드" | "통신사";
 type Category = "커피" | "베이커리" | "간식";
 
 type Benefit = {
   id: string;
-  provider: "naverpay" | "toss" | "brand";
+  provider: "naverpay" | "toss" | "brand" | "telecom";
   pay: Pay;
   brand: string;
   category: Category;
@@ -40,10 +40,10 @@ const emptyPayload: BenefitsPayload = {
   benefits: [],
 };
 
-const payOptions: Pay[] = ["브랜드", "네이버페이", "토스"];
+const payOptions: Pay[] = ["브랜드", "통신사", "네이버페이", "토스"];
 const categoryOptions: Array<Category | "전체"> = ["전체", "커피", "베이커리", "간식"];
 const benefitJsonUrl = process.env.NEXT_PUBLIC_BENEFITS_JSON_URL ?? "/api/benefits";
-const preferencesVersion = 2;
+const preferencesVersion = 3;
 
 function daysLeft(dateText: string | null | undefined, asOfDate: string) {
   if (!dateText) return null;
@@ -126,8 +126,8 @@ export default function Home() {
       const availablePays = (preferences.pays ?? []).filter((pay) => payOptions.includes(pay));
       const nextPays = availablePays.length ? availablePays : payOptions;
       setSelectedPays(
-        (preferences.version ?? 1) < preferencesVersion && !nextPays.includes("브랜드")
-          ? ["브랜드", ...nextPays]
+        (preferences.version ?? 1) < preferencesVersion
+          ? Array.from(new Set([...payOptions, ...nextPays]))
           : nextPays,
       );
       setSelectedBrands(preferences.brands ?? []);

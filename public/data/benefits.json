@@ -1,34 +1,9 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-03T02:54:34.939Z",
+  "collectedAt": "2026-08-03T11:48:38.194Z",
   "asOfDate": "2026-08-03",
-  "asOfLabel": "2026.08.03 11:54 KST",
-  "warnings": [
-    {
-      "source": "compose",
-      "brands": [
-        "컴포즈커피"
-      ],
-      "reason": "Compose fetch failed: 403",
-      "fallbackCount": 2
-    },
-    {
-      "source": "twosome",
-      "brands": [
-        "투썸플레이스"
-      ],
-      "reason": "fetch failed",
-      "fallbackCount": 4
-    },
-    {
-      "source": "theventi",
-      "brands": [
-        "더벤티"
-      ],
-      "reason": "collector returned no current benefits; preserved previous current benefits",
-      "fallbackCount": 2
-    }
-  ],
+  "asOfLabel": "2026.08.03 20:48 KST",
+  "warnings": [],
   "sources": [
     {
       "provider": "naverpay",
@@ -39,6 +14,31 @@
       "provider": "toss",
       "label": "토스피드 현재 월",
       "url": "https://toss.im/tossfeed/article/tosspay-promotion"
+    },
+    {
+      "provider": "telecom",
+      "label": "통신사/배달 제휴 혜택",
+      "url": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
+      "children": [
+        {
+          "brand": "SKT T day",
+          "url": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do"
+        },
+        {
+          "brand": "KT 멤버십 푸드 제휴",
+          "url": "https://membership.kt.com/discount/partner/C23/67/PartnerDetail.do"
+        },
+        {
+          "brand": "LG U+ 진행 이벤트",
+          "url": "https://www.lguplus.com/benefit-event/ongoing"
+        },
+        {
+          "brand": "배달의민족",
+          "url": "https://www.baemin.com/",
+          "status": "limited",
+          "reason": "공개 이벤트 목록 대신 통신사 공식 제휴/진행 이벤트에 노출된 배민 혜택을 수집"
+        }
+      ]
     },
     {
       "provider": "brand",
@@ -107,6 +107,78 @@
     }
   ],
   "benefits": [
+    {
+      "id": "telecom-skt-d07b07f39224",
+      "provider": "telecom",
+      "pay": "통신사",
+      "brand": "더벤티",
+      "category": "커피",
+      "title": "아이스 아메리카노 50% 할인",
+      "value": "50%",
+      "valueText": "아이스 아메리카노 50% 할인",
+      "condition": "SKT T멤버십 T day",
+      "period": "2026.08.03 - 2026.08.07",
+      "startsAt": "2026-08-03",
+      "validUntil": "2026-08-07",
+      "notes": "쿠폰 사용 기간: 8월 3일(월)~8월 7일(금)",
+      "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
+      "sourceLabel": "SKT T day",
+      "fit": 97
+    },
+    {
+      "id": "telecom-skt-e727425da3a8",
+      "provider": "telecom",
+      "pay": "통신사",
+      "brand": "던킨",
+      "category": "커피",
+      "title": "던킨 음료 카테고리+자이언트 버킷 50% 할인 또는 적립",
+      "value": "50%",
+      "valueText": "던킨 음료 카테고리+자이언트 버킷 50% 할인 또는 적립",
+      "condition": "SKT T멤버십 T day",
+      "period": "2026.08.26 - 2026.08.26",
+      "startsAt": "2026-08-26",
+      "validUntil": "2026-08-26",
+      "notes": "이벤트 기간: 2026년 8월 26일(수) 오전 9시~오후 11시 59분(기간은 연장되지 않습니다.)",
+      "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
+      "sourceLabel": "SKT T day",
+      "fit": 97
+    },
+    {
+      "id": "telecom-kt-184",
+      "provider": "telecom",
+      "pay": "통신사",
+      "brand": "공차",
+      "category": "커피",
+      "title": "전등급: [달.달.혜택] 인기 음료 6종 50% 할인(할인 한도 5천원) [상시]제조음료 구매 시 10% 할인",
+      "value": "50%",
+      "valueText": "전등급: [달.달.혜택] 인기 음료 6종 50% 할인(할인 한도 5천원) [상시]제조음료 구매 시 10% 할인",
+      "condition": "KT 멤버십 등급별 혜택",
+      "period": "2026.08.03 - 2026.08.17",
+      "startsAt": "2026-08-03",
+      "validUntil": "2026-08-17",
+      "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
+      "source": "https://membership.kt.com/discount/partner/C21/184/PartnerDetail.do",
+      "sourceLabel": "KT 멤버십",
+      "fit": 97
+    },
+    {
+      "id": "telecom-kt-122",
+      "provider": "telecom",
+      "pay": "통신사",
+      "brand": "비트커피",
+      "category": "커피",
+      "title": "전등급: 아메리카노 50% 할인",
+      "value": "50%",
+      "valueText": "전등급: 아메리카노 50% 할인",
+      "condition": "KT 멤버십 등급별 혜택",
+      "period": "상시/월별 제공",
+      "startsAt": null,
+      "validUntil": null,
+      "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
+      "source": "https://membership.kt.com/discount/partner/C21/122/PartnerDetail.do",
+      "sourceLabel": "KT 멤버십",
+      "fit": 97
+    },
     {
       "id": "brand-gongcha-61df1330c5f3",
       "provider": "brand",
@@ -234,6 +306,24 @@
       "fit": 90
     },
     {
+      "id": "telecom-kt-76",
+      "provider": "telecom",
+      "pay": "통신사",
+      "brand": "배달의민족",
+      "category": "간식",
+      "title": "전등급: [케멤페] 최대 9천원 할인",
+      "value": "최대9천원",
+      "valueText": "전등급: [케멤페] 최대 9천원 할인",
+      "condition": "KT 멤버십 등급별 혜택",
+      "period": "2026.08.03 - 2026.08.31",
+      "startsAt": "2026-08-03",
+      "validUntil": "2026-08-31",
+      "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
+      "source": "https://membership.kt.com/discount/partner/C21/76/PartnerDetail.do",
+      "sourceLabel": "KT 멤버십",
+      "fit": 89
+    },
+    {
       "id": "brand-gongcha-70e188273eed",
       "provider": "brand",
       "pay": "브랜드",
@@ -288,6 +378,78 @@
       "fit": 86
     },
     {
+      "id": "telecom-skt-e0a63d1aff92",
+      "provider": "telecom",
+      "pay": "통신사",
+      "brand": "파스쿠찌",
+      "category": "커피",
+      "title": "10,000원 이상 구매 시 20% 할인",
+      "value": "20%",
+      "valueText": "10,000원 이상 구매 시 20% 할인",
+      "condition": "SKT T멤버십 T day",
+      "period": "2026.08.03 - 2026.08.07",
+      "startsAt": "2026-08-03",
+      "validUntil": "2026-08-07",
+      "notes": "쿠폰 사용 기간: 2026년 8월 3일(월)~8월 7일(금)",
+      "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
+      "sourceLabel": "SKT T day",
+      "fit": 85
+    },
+    {
+      "id": "telecom-skt-ad8bde725300",
+      "provider": "telecom",
+      "pay": "통신사",
+      "brand": "파스쿠찌",
+      "category": "커피",
+      "title": "파스쿠찌 10,000원 이상 구매 시 40% 할인(최대 8,000원)",
+      "value": "40%",
+      "valueText": "파스쿠찌 10,000원 이상 구매 시 40% 할인(최대 8,000원)",
+      "condition": "SKT T멤버십 T day",
+      "period": "2026.08.03 - 2026.08.07",
+      "startsAt": "2026-08-03",
+      "validUntil": "2026-08-07",
+      "notes": "쿠폰 사용 기간: 2026년 8월 3일(월) 오전 9시~8월 7일(금) 오후 11시 59분(매장 영업시간 안에 이용하실 수 있습니다.)",
+      "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
+      "sourceLabel": "SKT T day",
+      "fit": 85
+    },
+    {
+      "id": "telecom-skt-0a94fac3d00c",
+      "provider": "telecom",
+      "pay": "통신사",
+      "brand": "파스쿠찌",
+      "category": "커피",
+      "title": "파스쿠찌 10,000원 이상 구매 시 20% 할인(최대 3,000원)",
+      "value": "20%",
+      "valueText": "파스쿠찌 10,000원 이상 구매 시 20% 할인(최대 3,000원)",
+      "condition": "SKT T멤버십 T day",
+      "period": "2026.08.03 - 2026.08.07",
+      "startsAt": "2026-08-03",
+      "validUntil": "2026-08-07",
+      "notes": "쿠폰 사용 기간: 2026년 8월 3일(월) 오전 9시~8월 7일(금) 오후 11시 59분(매장 영업시간 안에 이용하실 수 있습니다.)",
+      "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
+      "sourceLabel": "SKT T day",
+      "fit": 85
+    },
+    {
+      "id": "telecom-skt-b0ecc3daa8d9",
+      "provider": "telecom",
+      "pay": "통신사",
+      "brand": "투썸플레이스",
+      "category": "커피",
+      "title": "투썸플레이스 시즌 음료 5종 또는 조각 케이크 5종 40% 할인(10종 중 택1)",
+      "value": "40%",
+      "valueText": "투썸플레이스 시즌 음료 5종 또는 조각 케이크 5종 40% 할인(10종 중 택1)",
+      "condition": "SKT T멤버십 T day",
+      "period": "2026.08.19 - 2026.08.25",
+      "startsAt": "2026-08-19",
+      "validUntil": "2026-08-25",
+      "notes": "쿠폰 사용 기간: 2026년 8월 19일(수) 오전 9시~8월 25일(화) 오후 11시 59분",
+      "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
+      "sourceLabel": "SKT T day",
+      "fit": 85
+    },
+    {
       "id": "brand-gongcha-5d394c87c204",
       "provider": "brand",
       "pay": "브랜드",
@@ -318,7 +480,7 @@
       "period": "2026.08.01 - 2026.08.03",
       "startsAt": "2026-08-01",
       "validUntil": "2026-08-03",
-      "notes": "D-1",
+      "notes": "D-0",
       "source": "https://mo.twosome.co.kr/ev/eventList.do?eventDiv=progress&searchOpt=endSoon",
       "sourceLabel": "투썸 이벤트",
       "fit": 83
@@ -414,6 +576,24 @@
       "fit": 78
     },
     {
+      "id": "telecom-kt-102",
+      "provider": "telecom",
+      "pay": "통신사",
+      "brand": "카페베네",
+      "category": "커피",
+      "title": "전등급: 10% 할인",
+      "value": "10%",
+      "valueText": "전등급: 10% 할인",
+      "condition": "KT 멤버십 등급별 혜택",
+      "period": "상시/월별 제공",
+      "startsAt": null,
+      "validUntil": null,
+      "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
+      "source": "https://membership.kt.com/discount/partner/C21/102/PartnerDetail.do",
+      "sourceLabel": "KT 멤버십",
+      "fit": 77
+    },
+    {
       "id": "brand-hollys-518",
       "provider": "brand",
       "pay": "브랜드",
@@ -466,6 +646,96 @@
       "source": "https://toss.im/tossfeed/article/tosspay-promotion",
       "sourceLabel": "토스피드 현재 월",
       "fit": 70
+    },
+    {
+      "id": "telecom-kt-78",
+      "provider": "telecom",
+      "pay": "통신사",
+      "brand": "던킨",
+      "category": "커피",
+      "title": "VVIP: [V/VIP 초이스] 아메리카노(S)＋글레이즈드 무료 / VIP: [V/VIP 초이스] 아메리카노(S)＋글레이즈드 무료",
+      "value": "증정",
+      "valueText": "VVIP: [V/VIP 초이스] 아메리카노(S)＋글레이즈드 무료 / VIP: [V/VIP 초이스] 아메리카노(S)＋글레이즈드 무료",
+      "condition": "KT 멤버십 등급별 혜택",
+      "period": "상시/월별 제공",
+      "startsAt": null,
+      "validUntil": null,
+      "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
+      "source": "https://membership.kt.com/discount/partner/C21/78/PartnerDetail.do",
+      "sourceLabel": "KT 멤버십",
+      "fit": 59
+    },
+    {
+      "id": "telecom-kt-60",
+      "provider": "telecom",
+      "pay": "통신사",
+      "brand": "뚜레쥬르",
+      "category": "베이커리",
+      "title": "VVIP: 1,000원당 150원 할인 / VIP: 1,000원당 150원 할인 / Gold: 1,000원당 150원 할인 / 일반: 1,000원당 100원 할인",
+      "value": "1,000원",
+      "valueText": "VVIP: 1,000원당 150원 할인 / VIP: 1,000원당 150원 할인 / Gold: 1,000원당 150원 할인 / 일반: 1,000원당 100원 할인",
+      "condition": "KT 멤버십 등급별 혜택",
+      "period": "상시/월별 제공",
+      "startsAt": null,
+      "validUntil": null,
+      "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
+      "source": "https://membership.kt.com/discount/partner/C21/60/PartnerDetail.do",
+      "sourceLabel": "KT 멤버십",
+      "fit": 59
+    },
+    {
+      "id": "telecom-kt-63",
+      "provider": "telecom",
+      "pay": "통신사",
+      "brand": "메가MGC커피",
+      "category": "커피",
+      "title": "전등급: [상시] ICE 아메리카노 구매 시 500원 할인(3장) [OTTX메가MGC커피] 500원 할인쿠폰 2장 / VVIP: [V/VIP 초이스] 아메리카노(HOT/ICE) 2잔 무료 / VIP: [V/VIP 초이스] 아메리카노(HOT/ICE) 2잔 무료",
+      "value": "500원",
+      "valueText": "전등급: [상시] ICE 아메리카노 구매 시 500원 할인(3장) [OTTX메가MGC커피] 500원 할인쿠폰 2장 / VVIP: [V/VIP 초이스] 아메리카노(HOT/ICE) 2잔 무료 / VIP: [V/VIP 초이스] 아메리카노(HOT/ICE) 2잔 무료",
+      "condition": "KT 멤버십 등급별 혜택",
+      "period": "상시/월별 제공",
+      "startsAt": null,
+      "validUntil": null,
+      "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
+      "source": "https://membership.kt.com/discount/partner/C21/63/PartnerDetail.do",
+      "sourceLabel": "KT 멤버십",
+      "fit": 59
+    },
+    {
+      "id": "telecom-kt-57",
+      "provider": "telecom",
+      "pay": "통신사",
+      "brand": "파리바게뜨",
+      "category": "베이커리",
+      "title": "VVIP: 1,000원당 100원 할인 / VIP: 1,000원당 100원 할인 / Gold: 1,000원당 100원 할인 / 일반: 1,000원당 50원 할인",
+      "value": "1,000원",
+      "valueText": "VVIP: 1,000원당 100원 할인 / VIP: 1,000원당 100원 할인 / Gold: 1,000원당 100원 할인 / 일반: 1,000원당 50원 할인",
+      "condition": "KT 멤버십 등급별 혜택",
+      "period": "상시/월별 제공",
+      "startsAt": null,
+      "validUntil": null,
+      "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
+      "source": "https://membership.kt.com/discount/partner/C21/57/PartnerDetail.do",
+      "sourceLabel": "KT 멤버십",
+      "fit": 59
+    },
+    {
+      "id": "telecom-kt-81",
+      "provider": "telecom",
+      "pay": "통신사",
+      "brand": "할리스",
+      "category": "커피",
+      "title": "VVIP: [VVIP 초이스] 커피 2잔＋휘낭시에 2개 세트 무료 / VIP: [생일] 바닐라 딜라이트(R) 1잔(생일 당월 한정)",
+      "value": "증정",
+      "valueText": "VVIP: [VVIP 초이스] 커피 2잔＋휘낭시에 2개 세트 무료 / VIP: [생일] 바닐라 딜라이트(R) 1잔(생일 당월 한정)",
+      "condition": "KT 멤버십 등급별 혜택",
+      "period": "2026-12-31까지",
+      "startsAt": null,
+      "validUntil": "2026-12-31",
+      "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
+      "source": "https://membership.kt.com/discount/partner/C21/81/PartnerDetail.do",
+      "sourceLabel": "KT 멤버십",
+      "fit": 59
     },
     {
       "id": "brand-compose-f7dd3488ef51",
@@ -612,6 +882,24 @@
       "fit": 57
     },
     {
+      "id": "brand-twosome-260702",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "투썸플레이스",
+      "category": "커피",
+      "title": "투썸xNOL 제휴 이벤트",
+      "value": "투썸xNOL 제휴 이벤트",
+      "valueText": "투썸xNOL 제휴 이벤트",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.08.03 - 2026.08.17",
+      "startsAt": "2026-08-03",
+      "validUntil": "2026-08-17",
+      "notes": "진행중",
+      "source": "https://mo.twosome.co.kr/ev/eventList.do?eventDiv=progress&searchOpt=endSoon",
+      "sourceLabel": "투썸 이벤트",
+      "fit": 57
+    },
+    {
       "id": "brand-twosome-260709",
       "provider": "brand",
       "pay": "브랜드",
@@ -642,7 +930,7 @@
       "period": "2026.07.24 - 2026.08.06",
       "startsAt": "2026-07-24",
       "validUntil": "2026-08-06",
-      "notes": "D-4",
+      "notes": "D-3",
       "source": "https://mo.twosome.co.kr/ev/eventList.do?eventDiv=progress&searchOpt=endSoon",
       "sourceLabel": "투썸 이벤트",
       "fit": 57

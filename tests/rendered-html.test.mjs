@@ -59,6 +59,6 @@ test("serves the generated benefit JSON through the API", async () => {
   assert.equal(payload.schemaVersion, 1);
   assert.ok(Array.isArray(payload.benefits));
   assert.ok(payload.benefits.length > 0);
-  assert.ok(payload.benefits.every((benefit) => ["naverpay", "toss", "brand"].includes(benefit.provider)));
+  assert.ok(payload.benefits.every((benefit) => ["naverpay", "toss", "brand", "telecom"].includes(benefit.provider)));
   assert.ok(payload.benefits.every((benefit) => !("raw" in benefit)));
 });

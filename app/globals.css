@@ -277,7 +277,7 @@ h1 {
 
 .chip-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
 }
 
@@ -401,6 +401,10 @@ h1 {
 
 .pay-badge.브랜드 {
   background: #8a5a14;
+}
+
+.pay-badge.통신사 {
+  background: #c2410c;
 }
 
 .benefit-title {
