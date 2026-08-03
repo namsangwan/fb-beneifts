@@ -1295,10 +1295,10 @@ async function collectSktTday(asOfDate) {
     const raw = JSON.stringify({ brand, title, periodText: period.periodText });
     const benefit = normalizeExternalBenefit(
       {
-        provider: "telecom",
-        pay: "통신사",
+        provider: "skt",
+        pay: "SKT",
         brand,
-        id: `skt-${hash(raw).slice(0, 12)}`,
+        id: `tday-${hash(raw).slice(0, 12)}`,
         title,
         source: sourceUrl,
         sourceLabel: "SKT T day",
@@ -1366,10 +1366,10 @@ async function collectKtMembership(asOfDate) {
       const raw = JSON.stringify({ partner, title, period });
       return normalizeExternalBenefit(
         {
-          provider: "telecom",
-          pay: "통신사",
+          provider: "kt",
+          pay: "KT",
           brand: partner.jungName,
-          id: `kt-${partner.jungCode}`,
+          id: `membership-${partner.jungCode}`,
           title,
           source: sourceUrl,
           sourceLabel: "KT 멤버십",
@@ -1422,10 +1422,10 @@ async function collectLguplusOngoing(asOfDate) {
 
       return normalizeExternalBenefit(
         {
-          provider: "telecom",
-          pay: "통신사",
+          provider: "lguplus",
+          pay: "LGU+",
           brand,
-          id: `lguplus-${hash(raw).slice(0, 12)}`,
+          id: `ongoing-${hash(raw).slice(0, 12)}`,
           title: tag ? `${title} - ${tag}` : title,
           source,
           sourceLabel: "LG U+ 진행 이벤트",
@@ -1447,24 +1447,58 @@ async function collectLguplusOngoing(asOfDate) {
     .slice(0, 10);
 }
 
-function previousProviderBenefits(previousBenefits, provider, pay, asOfDate) {
+function previousProviderBenefits(previousBenefits, { provider, pay, legacySourcePattern }, asOfDate) {
   return previousBenefits
-    .filter((benefit) => benefit.provider === provider && benefit.pay === pay)
-    .filter((benefit) => isCurrentOrFuture(benefit, asOfDate));
+    .filter(
+      (benefit) =>
+        (benefit.provider === provider && benefit.pay === pay) ||
+        (benefit.provider === "telecom" &&
+          benefit.pay === "통신사" &&
+          legacySourcePattern.test(benefit.sourceLabel ?? "")),
+    )
+    .filter((benefit) => isCurrentOrFuture(benefit, asOfDate))
+    .map((benefit) =>
+      benefit.provider === provider
+        ? benefit
+        : {
+            ...benefit,
+            id: benefit.id.replace(/^telecom-/, `${provider}-`),
+            provider,
+            pay,
+          },
+    );
 }
 
 async function collectTelecomBenefits(asOfDate, previousBenefits = []) {
   const collectors = [
-    { name: "skt-tday", collect: () => collectSktTday(asOfDate) },
-    { name: "kt-membership", collect: () => collectKtMembership(asOfDate) },
-    { name: "lguplus-ongoing", collect: () => collectLguplusOngoing(asOfDate) },
+    {
+      name: "skt-tday",
+      provider: "skt",
+      pay: "SKT",
+      legacySourcePattern: /SKT/,
+      collect: () => collectSktTday(asOfDate),
+    },
+    {
+      name: "kt-membership",
+      provider: "kt",
+      pay: "KT",
+      legacySourcePattern: /KT/,
+      collect: () => collectKtMembership(asOfDate),
+    },
+    {
+      name: "lguplus-ongoing",
+      provider: "lguplus",
+      pay: "LGU+",
+      legacySourcePattern: /LG U\+/,
+      collect: () => collectLguplusOngoing(asOfDate),
+    },
   ];
   const results = await Promise.allSettled(collectors.map((collector) => collector.collect()));
-  const fallbackBenefits = previousProviderBenefits(previousBenefits, "telecom", "통신사", asOfDate);
   const warnings = [];
 
   const benefits = results.flatMap((result, index) => {
     const collector = collectors[index];
+    const fallbackBenefits = previousProviderBenefits(previousBenefits, collector, asOfDate);
 
     if (result.status === "rejected") {
       warnings.push({
@@ -1472,20 +1506,20 @@ async function collectTelecomBenefits(asOfDate, previousBenefits = []) {
         reason: result.reason?.message ?? String(result.reason),
         fallbackCount: fallbackBenefits.length,
       });
-      return [];
+      return fallbackBenefits;
+    }
+
+    if (result.value.length === 0 && fallbackBenefits.length > 0) {
+      warnings.push({
+        source: collector.name,
+        reason: "collector returned no current benefits; preserved previous current benefits",
+        fallbackCount: fallbackBenefits.length,
+      });
+      return fallbackBenefits;
     }
 
     return result.value;
   });
-
-  if (benefits.length === 0 && fallbackBenefits.length > 0) {
-    warnings.push({
-      source: "telecom",
-      reason: "all telecom collectors returned no current benefits; preserved previous current benefits",
-      fallbackCount: fallbackBenefits.length,
-    });
-    return { benefits: fallbackBenefits, warnings };
-  }
 
   return { benefits, warnings };
 }
@@ -1578,20 +1612,27 @@ async function main() {
         url: sources.toss,
       },
       {
-        provider: "telecom",
-        label: "통신사/배달 제휴 혜택",
+        provider: "skt",
+        label: "SKT T day",
         url: sources.telecom.sktTday,
+      },
+      {
+        provider: "kt",
+        label: "KT 멤버십 푸드 제휴",
+        url: sources.telecom.ktPartnerList,
         children: [
-          { brand: "SKT T day", url: sources.telecom.sktTday },
-          { brand: "KT 멤버십 푸드 제휴", url: sources.telecom.ktPartnerList },
-          { brand: "LG U+ 진행 이벤트", url: sources.telecom.lguplusOngoing },
           {
             brand: "배달의민족",
             url: "https://www.baemin.com/",
             status: "limited",
-            reason: "공개 이벤트 목록 대신 통신사 공식 제휴/진행 이벤트에 노출된 배민 혜택을 수집",
+            reason: "배민 공개 이벤트 목록 대신 KT 공식 제휴 혜택에 노출된 배민 혜택을 수집",
           },
         ],
+      },
+      {
+        provider: "lguplus",
+        label: "LG U+ 진행 이벤트",
+        url: sources.telecom.lguplusOngoing,
       },
       {
         provider: "brand",

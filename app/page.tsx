@@ -2,13 +2,13 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-type Pay = "네이버페이" | "토스" | "브랜드" | "통신사";
+type SourceFilter = "브랜드" | "SKT" | "KT" | "LGU+" | "네이버페이" | "토스";
 type Category = "커피" | "베이커리" | "간식";
 
 type Benefit = {
   id: string;
-  provider: "naverpay" | "toss" | "brand" | "telecom";
-  pay: Pay;
+  provider: "naverpay" | "toss" | "brand" | "skt" | "kt" | "lguplus";
+  pay: SourceFilter;
   brand: string;
   category: Category;
   title: string;
@@ -40,10 +40,10 @@ const emptyPayload: BenefitsPayload = {
   benefits: [],
 };
 
-const payOptions: Pay[] = ["브랜드", "통신사", "네이버페이", "토스"];
+const sourceOptions: SourceFilter[] = ["브랜드", "SKT", "KT", "LGU+", "네이버페이", "토스"];
 const categoryOptions: Array<Category | "전체"> = ["전체", "커피", "베이커리", "간식"];
 const benefitJsonUrl = process.env.NEXT_PUBLIC_BENEFITS_JSON_URL ?? "/api/benefits";
-const preferencesVersion = 3;
+const preferencesVersion = 4;
 
 function daysLeft(dateText: string | null | undefined, asOfDate: string) {
   if (!dateText) return null;
@@ -77,7 +77,7 @@ export default function Home() {
   const [payload, setPayload] = useState<BenefitsPayload>(emptyPayload);
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState("");
-  const [selectedPays, setSelectedPays] = useState<Pay[]>(payOptions);
+  const [selectedSources, setSelectedSources] = useState<SourceFilter[]>(sourceOptions);
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [category, setCategory] = useState<Category | "전체">("전체");
   const [query, setQuery] = useState("");
@@ -119,16 +119,21 @@ export default function Home() {
     try {
       const preferences = JSON.parse(raw) as {
         version?: number;
-        pays?: Pay[];
+        pays?: Array<SourceFilter | "통신사">;
+        sources?: SourceFilter[];
         brands?: string[];
         category?: Category | "전체";
       };
-      const availablePays = (preferences.pays ?? []).filter((pay) => payOptions.includes(pay));
-      const nextPays = availablePays.length ? availablePays : payOptions;
-      setSelectedPays(
+      const legacySources = (preferences.pays ?? []).flatMap((source) =>
+        source === "통신사" ? (["SKT", "KT", "LGU+"] as SourceFilter[]) : [source],
+      );
+      const savedSources = preferences.sources ?? legacySources;
+      const availableSources = savedSources.filter((source) => sourceOptions.includes(source));
+      const nextSources = availableSources.length ? availableSources : sourceOptions;
+      setSelectedSources(
         (preferences.version ?? 1) < preferencesVersion
-          ? Array.from(new Set([...payOptions, ...nextPays]))
-          : nextPays,
+          ? Array.from(new Set([...sourceOptions, ...nextSources]))
+          : nextSources,
       );
       setSelectedBrands(preferences.brands ?? []);
       setCategory(preferences.category ?? "전체");
@@ -146,12 +151,12 @@ export default function Home() {
       "benefit-radar-preferences",
       JSON.stringify({
         version: preferencesVersion,
-        pays: selectedPays,
+        sources: selectedSources,
         brands: selectedBrands,
         category,
       }),
     );
-  }, [category, didLoadPreferences, selectedBrands, selectedPays]);
+  }, [category, didLoadPreferences, selectedBrands, selectedSources]);
 
   const brandOptions = useMemo(
     () =>
@@ -165,7 +170,7 @@ export default function Home() {
     const normalizedQuery = query.trim().toLowerCase();
 
     return payload.benefits
-      .filter((benefit) => selectedPays.includes(benefit.pay))
+      .filter((benefit) => selectedSources.includes(benefit.pay))
       .filter((benefit) => selectedBrands.length === 0 || selectedBrands.includes(benefit.brand))
       .filter((benefit) => category === "전체" || benefit.category === category)
       .filter((benefit) => {
@@ -179,7 +184,7 @@ export default function Home() {
           .includes(normalizedQuery);
       })
       .sort((a, b) => b.fit - a.fit);
-  }, [category, payload.asOfDate, payload.benefits, query, selectedBrands, selectedPays]);
+  }, [category, payload.asOfDate, payload.benefits, query, selectedBrands, selectedSources]);
 
   const activeTop = filteredBenefits[0];
   const selectedBrandText =
@@ -224,7 +229,7 @@ export default function Home() {
             <p>표시 혜택</p>
           </div>
           <div>
-            <span>{payOptions.length}</span>
+            <span>{sourceOptions.length}</span>
             <p>자동 수집 출처</p>
           </div>
           <div>
@@ -241,7 +246,7 @@ export default function Home() {
             <button
               className="ghost-button"
               onClick={() => {
-                setSelectedPays(payOptions);
+                setSelectedSources(sourceOptions);
                 setSelectedBrands([]);
                 setCategory("전체");
                 setQuery("");
@@ -262,16 +267,16 @@ export default function Home() {
           </label>
 
           <div className="filter-group">
-            <span>페이</span>
+            <span>출처</span>
             <div className="chip-grid">
-              {payOptions.map((pay) => (
+              {sourceOptions.map((source) => (
                 <button
-                  className={selectedPays.includes(pay) ? "chip selected" : "chip"}
-                  key={pay}
-                  onClick={() => setSelectedPays((current) => toggleValue(current, pay))}
+                  className={selectedSources.includes(source) ? "chip selected" : "chip"}
+                  key={source}
+                  onClick={() => setSelectedSources((current) => toggleValue(current, source))}
                   type="button"
                 >
-                  {pay}
+                  {source}
                 </button>
               ))}
             </div>
@@ -309,7 +314,7 @@ export default function Home() {
             </div>
           </div>
 
-          <p className="filter-note">매일 생성되는 JSON 파일에서 브랜드 공식 이벤트와 결제 혜택을 함께 보여줍니다.</p>
+          <p className="filter-note">매일 생성되는 JSON 파일에서 브랜드 공식 이벤트와 결제/멤버십 혜택을 함께 보여줍니다.</p>
         </aside>
 
         <section className="benefit-list" aria-label="혜택 목록">
@@ -321,7 +326,7 @@ export default function Home() {
               <article className="benefit-card" key={benefit.id}>
                 <div className="card-top">
                   <div>
-                    <span className={`pay-badge ${benefit.pay}`}>{benefit.pay}</span>
+                    <span className={`source-badge source-${benefit.provider}`}>{benefit.pay}</span>
                     <h2>{benefit.brand}</h2>
                   </div>
                   <strong>{benefit.value}</strong>

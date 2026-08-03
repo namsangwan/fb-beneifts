@@ -277,7 +277,7 @@ h1 {
 
 .chip-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
 }
 
@@ -380,7 +380,7 @@ h1 {
   line-height: 1;
 }
 
-.pay-badge {
+.source-badge {
   display: inline-flex;
   align-items: center;
   min-height: 25px;
@@ -391,20 +391,28 @@ h1 {
   font-weight: 900;
 }
 
-.pay-badge.네이버페이 {
+.source-badge.source-naverpay {
   background: #03a64a;
 }
 
-.pay-badge.토스 {
+.source-badge.source-toss {
   background: #2768ff;
 }
 
-.pay-badge.브랜드 {
+.source-badge.source-brand {
   background: #8a5a14;
 }
 
-.pay-badge.통신사 {
+.source-badge.source-skt {
   background: #c2410c;
+}
+
+.source-badge.source-kt {
+  background: #111827;
+}
+
+.source-badge.source-lguplus {
+  background: #d6006c;
 }
 
 .benefit-title {
