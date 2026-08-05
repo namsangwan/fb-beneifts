@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-04T20:37:13.024Z",
+  "collectedAt": "2026-08-05T00:08:55.277Z",
   "asOfDate": "2026-08-05",
-  "asOfLabel": "2026.08.05 05:37 KST",
+  "asOfLabel": "2026.08.05 09:08 KST",
   "warnings": [
     {
       "source": "compose",
@@ -27,11 +27,6 @@
       ],
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 2
-    },
-    {
-      "source": "kt-membership",
-      "reason": "fetch failed",
-      "fallbackCount": 8
     },
     {
       "source": "lguplus-ongoing",
@@ -310,6 +305,24 @@
       "notes": "2026.08.01(토) ~ 2026.08.31(월)",
       "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=665&keyword=&status=&scroll=y",
       "sourceLabel": "공차 이벤트",
+      "fit": 87
+    },
+    {
+      "id": "brand-parisbaguette-c0f4a0aeee1a",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "파리바게뜨",
+      "category": "베이커리",
+      "title": "8월 매주 수요일! 새로워진 신한 슈퍼SOL로 1만원 이상 결제하면 💙5천원 혜택",
+      "value": "1만원",
+      "valueText": "8월 매주 수요일! 새로워진 신한 슈퍼SOL로 1만원 이상 결제하면 💙5천원 혜택",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.08.04 - 2026.08.26",
+      "startsAt": "2026-08-04",
+      "validUntil": "2026-08-26",
+      "notes": "파리바게뜨 공식 프로모션 목록에서 확인.",
+      "source": "https://www.paris.co.kr/promotion/pb-with-shinhan-super-sol/",
+      "sourceLabel": "파리바게뜨 프로모션",
       "fit": 87
     },
     {
