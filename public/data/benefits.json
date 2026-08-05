@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-05T04:14:57.506Z",
-  "asOfDate": "2026-08-05",
-  "asOfLabel": "2026.08.05 13:14 KST",
+  "collectedAt": "2026-08-05T20:35:43.287Z",
+  "asOfDate": "2026-08-06",
+  "asOfLabel": "2026.08.06 05:35 KST",
   "warnings": [
     {
       "source": "compose",
@@ -27,6 +27,11 @@
       ],
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 2
+    },
+    {
+      "source": "kt-membership",
+      "reason": "fetch failed",
+      "fallbackCount": 8
     },
     {
       "source": "lguplus-ongoing",
@@ -791,6 +796,24 @@
       "notes": "종료일은 목록에 없어 최근 공식 혜택만 표시합니다.",
       "source": "https://www.mmthcoffee.com/sub/notice/view.html?noticeSeq=122",
       "sourceLabel": "매머드 공지",
+      "fit": 57
+    },
+    {
+      "id": "brand-mega-c9205656e7f6",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "메가MGC커피",
+      "category": "커피",
+      "title": "8월 메가MGC커피 X 하나페이 할인 EVENT",
+      "value": "할인",
+      "valueText": "8월 메가MGC커피 X 하나페이 할인 EVENT",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026-08-05부터",
+      "startsAt": "2026-08-05",
+      "validUntil": null,
+      "notes": "종료일은 목록에 없어 최근 공식 이벤트만 표시합니다.",
+      "source": "https://mega-mgccoffee.com/bbs/detail/?YmJzX2lkeD02NTMmYmJzX2NhdGVnb3J5PTMmYmJzX2RldGFpbF9jYXRlZ29yeT0mYmJzX3BhZ2U9MQ==",
+      "sourceLabel": "메가MGC 이벤트",
       "fit": 57
     },
     {
