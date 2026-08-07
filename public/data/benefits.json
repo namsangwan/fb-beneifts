@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-06T04:16:40.118Z",
-  "asOfDate": "2026-08-06",
-  "asOfLabel": "2026.08.06 13:16 KST",
+  "collectedAt": "2026-08-07T00:43:00.597Z",
+  "asOfDate": "2026-08-07",
+  "asOfLabel": "2026.08.07 09:42 KST",
   "warnings": [
     {
       "source": "compose",
@@ -18,7 +18,7 @@
         "투썸플레이스"
       ],
       "reason": "fetch failed",
-      "fallbackCount": 4
+      "fallbackCount": 3
     },
     {
       "source": "theventi",
@@ -215,24 +215,6 @@
       "notes": "2026.08.03(월) ~ 2026.08.17(월)",
       "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=664&keyword=&status=&scroll=y",
       "sourceLabel": "공차 이벤트",
-      "fit": 95
-    },
-    {
-      "id": "brand-parisbaguette-96f10a2226c1",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "파리바게뜨",
-      "category": "베이커리",
-      "title": "👓김부장과 밥 먹고 파바고! 💙아이스캔디 50%",
-      "value": "50%",
-      "valueText": "👓김부장과 밥 먹고 파바고! 💙아이스캔디 50%",
-      "condition": "브랜드 공식 이벤트",
-      "period": "2026.07.31 - 2026.08.06",
-      "startsAt": "2026-07-31",
-      "validUntil": "2026-08-06",
-      "notes": "파리바게뜨 공식 프로모션 목록에서 확인.",
-      "source": "https://www.paris.co.kr/promotion/pb-go-with-agent-kim/",
-      "sourceLabel": "파리바게뜨 프로모션",
       "fit": 95
     },
     {
@@ -933,24 +915,6 @@
       "startsAt": "2026-07-27",
       "validUntil": "2026-08-31",
       "notes": "진행중",
-      "source": "https://mo.twosome.co.kr/ev/eventList.do?eventDiv=progress&searchOpt=endSoon",
-      "sourceLabel": "투썸 이벤트",
-      "fit": 57
-    },
-    {
-      "id": "brand-twosome-260701",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "투썸플레이스",
-      "category": "커피",
-      "title": "떠먹는 말차 초코 크런치 아박 페어링 2,500원 OFF",
-      "value": "2,500원",
-      "valueText": "떠먹는 말차 초코 크런치 아박 페어링 2,500원 OFF",
-      "condition": "브랜드 공식 이벤트",
-      "period": "2026.07.24 - 2026.08.06",
-      "startsAt": "2026-07-24",
-      "validUntil": "2026-08-06",
-      "notes": "D-2",
       "source": "https://mo.twosome.co.kr/ev/eventList.do?eventDiv=progress&searchOpt=endSoon",
       "sourceLabel": "투썸 이벤트",
       "fit": 57
