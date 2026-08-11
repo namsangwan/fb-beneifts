@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-11T03:06:20.556Z",
-  "asOfDate": "2026-08-11",
-  "asOfLabel": "2026.08.11 12:06 KST",
+  "collectedAt": "2026-08-11T20:02:29.016Z",
+  "asOfDate": "2026-08-12",
+  "asOfLabel": "2026.08.12 05:02 KST",
   "warnings": [
     {
       "source": "compose",
@@ -127,6 +127,24 @@
     }
   ],
   "benefits": [
+    {
+      "id": "naver-24278798653035",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "더벤티",
+      "category": "커피",
+      "title": "5천원 이상 결제 시 50% 할인",
+      "value": "50%",
+      "valueText": "50% 할인",
+      "condition": "5천원 이상 결제 시",
+      "period": "2026.08.11 - 2026.08.14",
+      "startsAt": "2026-08-11",
+      "validUntil": "2026-08-14",
+      "notes": "삼성페이 결제 시 혜택 적용 불가 자세한 내용은 매장 안내 참조",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653035",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 98
+    },
     {
       "id": "skt-tday-e727425da3a8",
       "provider": "skt",
