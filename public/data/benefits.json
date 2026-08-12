@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-12T03:25:44.322Z",
-  "asOfDate": "2026-08-12",
-  "asOfLabel": "2026.08.12 12:25 KST",
+  "collectedAt": "2026-08-12T20:02:37.543Z",
+  "asOfDate": "2026-08-13",
+  "asOfLabel": "2026.08.13 05:02 KST",
   "warnings": [
     {
       "source": "compose",
@@ -218,6 +218,24 @@
       "fit": 95
     },
     {
+      "id": "brand-gongcha-2e178748b4fd",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "공차",
+      "category": "커피",
+      "title": "8.13 LGU+ 유플투쁠 선착순 공차 최대 50% 할인쿠폰 증정!",
+      "value": "최대50%",
+      "valueText": "8.13 LGU+ 유플투쁠 선착순 공차 최대 50% 할인쿠폰 증정!",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.08.13 - 2026.08.31",
+      "startsAt": "2026-08-13",
+      "validUntil": "2026-08-31",
+      "notes": "2026.08.13(목) ~ 2026.08.31(월)",
+      "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=663&keyword=&status=&scroll=y",
+      "sourceLabel": "공차 이벤트",
+      "fit": 95
+    },
+    {
       "id": "brand-pascucci-5e914f05df00",
       "provider": "brand",
       "pay": "브랜드",
@@ -342,6 +360,24 @@
       "source": "https://pay.naver.com/benefit/payment/detail/22873883590760",
       "sourceLabel": "네이버페이 상세",
       "fit": 86
+    },
+    {
+      "id": "skt-tday-59f44446240e",
+      "provider": "skt",
+      "pay": "SKT",
+      "brand": "투썸플레이스",
+      "category": "커피",
+      "title": "시즌 음료 5종/조각 케이크 5종 40% 할인(10종 중 택1)",
+      "value": "40%",
+      "valueText": "시즌 음료 5종/조각 케이크 5종 40% 할인(10종 중 택1)",
+      "condition": "SKT T멤버십 T day",
+      "period": "2026.08.19 - 2026.08.21",
+      "startsAt": "2026-08-19",
+      "validUntil": "2026-08-21",
+      "notes": "쿠폰 사용 기간: 2026년 8월 19일(수)~8월 21일(금)",
+      "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
+      "sourceLabel": "SKT T day",
+      "fit": 85
     },
     {
       "id": "skt-tday-b0ecc3daa8d9",
@@ -755,6 +791,24 @@
       "notes": "종료일은 목록에 없어 최근 공식 이벤트만 표시합니다.",
       "source": "https://mega-mgccoffee.com/bbs/detail/?YmJzX2lkeD02NDgmYmJzX2NhdGVnb3J5PTMmYmJzX2RldGFpbF9jYXRlZ29yeT0mYmJzX3BhZ2U9MQ==",
       "sourceLabel": "메가MGC 이벤트",
+      "fit": 57
+    },
+    {
+      "id": "brand-gongcha-24211e6bc90d",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "공차",
+      "category": "커피",
+      "title": "8월 13일 공차데이! SIZE UP 무료",
+      "value": "증정",
+      "valueText": "8월 13일 공차데이! SIZE UP 무료",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.08.13 - 2026.08.13",
+      "startsAt": "2026-08-13",
+      "validUntil": "2026-08-13",
+      "notes": "2026.08.13(목) ~ 2026.08.13(목)",
+      "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=666&keyword=&status=&scroll=y",
+      "sourceLabel": "공차 이벤트",
       "fit": 57
     },
     {
