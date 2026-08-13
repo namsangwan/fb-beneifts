@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-13T03:28:42.878Z",
-  "asOfDate": "2026-08-13",
-  "asOfLabel": "2026.08.13 12:28 KST",
+  "collectedAt": "2026-08-13T23:47:21.550Z",
+  "asOfDate": "2026-08-14",
+  "asOfLabel": "2026.08.14 08:47 KST",
   "warnings": [
     {
       "source": "compose",
@@ -809,24 +809,6 @@
       "notes": "종료일은 목록에 없어 최근 공식 이벤트만 표시합니다.",
       "source": "https://mega-mgccoffee.com/bbs/detail/?YmJzX2lkeD02NDgmYmJzX2NhdGVnb3J5PTMmYmJzX2RldGFpbF9jYXRlZ29yeT0mYmJzX3BhZ2U9MQ==",
       "sourceLabel": "메가MGC 이벤트",
-      "fit": 57
-    },
-    {
-      "id": "brand-gongcha-24211e6bc90d",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "공차",
-      "category": "커피",
-      "title": "8월 13일 공차데이! SIZE UP 무료",
-      "value": "증정",
-      "valueText": "8월 13일 공차데이! SIZE UP 무료",
-      "condition": "브랜드 공식 이벤트",
-      "period": "2026.08.13 - 2026.08.13",
-      "startsAt": "2026-08-13",
-      "validUntil": "2026-08-13",
-      "notes": "2026.08.13(목) ~ 2026.08.13(목)",
-      "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=666&keyword=&status=&scroll=y",
-      "sourceLabel": "공차 이벤트",
       "fit": 57
     },
     {
