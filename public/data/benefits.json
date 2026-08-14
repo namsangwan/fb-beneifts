@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-14T03:26:09.921Z",
-  "asOfDate": "2026-08-14",
-  "asOfLabel": "2026.08.14 12:25 KST",
+  "collectedAt": "2026-08-14T19:50:31.674Z",
+  "asOfDate": "2026-08-15",
+  "asOfLabel": "2026.08.15 04:50 KST",
   "warnings": [
     {
       "source": "compose",
@@ -127,24 +127,6 @@
     }
   ],
   "benefits": [
-    {
-      "id": "naver-24278798653035",
-      "provider": "naverpay",
-      "pay": "네이버페이",
-      "brand": "더벤티",
-      "category": "커피",
-      "title": "5천원 이상 결제 시 50% 할인",
-      "value": "50%",
-      "valueText": "50% 할인",
-      "condition": "5천원 이상 결제 시",
-      "period": "2026.08.11 - 2026.08.14",
-      "startsAt": "2026-08-11",
-      "validUntil": "2026-08-14",
-      "notes": "삼성페이 결제 시 혜택 적용 불가 자세한 내용은 매장 안내 참조",
-      "source": "https://pay.naver.com/benefit/payment/detail/24278798653035",
-      "sourceLabel": "네이버페이 상세",
-      "fit": 98
-    },
     {
       "id": "skt-tday-e727425da3a8",
       "provider": "skt",
@@ -758,7 +740,7 @@
       "fit": 57
     },
     {
-      "id": "brand-mega-c9205656e7f6",
+      "id": "brand-mega-c714a9d6f01a",
       "provider": "brand",
       "pay": "브랜드",
       "brand": "메가MGC커피",
@@ -771,7 +753,7 @@
       "startsAt": "2026-08-05",
       "validUntil": null,
       "notes": "종료일은 목록에 없어 최근 공식 이벤트만 표시합니다.",
-      "source": "https://mega-mgccoffee.com/bbs/detail/?YmJzX2lkeD02NTMmYmJzX2NhdGVnb3J5PTMmYmJzX2RldGFpbF9jYXRlZ29yeT0mYmJzX3BhZ2U9MQ==",
+      "source": "https://mega-mgccoffee.com/bbs/detail/?YmJzX2lkeD02NTQmYmJzX2NhdGVnb3J5PTMmYmJzX2RldGFpbF9jYXRlZ29yeT0mYmJzX3BhZ2U9MQ==",
       "sourceLabel": "메가MGC 이벤트",
       "fit": 57
     },
@@ -857,10 +839,10 @@
       "value": "증정",
       "valueText": "주말 오후 2시 이후, 케이크 페어링 별★ 증정",
       "condition": "브랜드 공식 이벤트",
-      "period": "2026.08.08 - 2026.08.30",
-      "startsAt": "2026-08-08",
+      "period": "2026.08.07 - 2026.08.30",
+      "startsAt": "2026-08-07",
       "validUntil": "2026-08-30",
-      "notes": "스타벅스 공식 이벤트 목록에서 확인.",
+      "notes": "2026-08-08 ~ 2026-08-30",
       "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3496",
       "sourceLabel": "스타벅스 이벤트",
       "fit": 57
