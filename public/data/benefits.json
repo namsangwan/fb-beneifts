@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-16T02:22:33.500Z",
-  "asOfDate": "2026-08-16",
-  "asOfLabel": "2026.08.16 11:22 KST",
+  "collectedAt": "2026-08-16T19:24:16.113Z",
+  "asOfDate": "2026-08-17",
+  "asOfLabel": "2026.08.17 04:24 KST",
   "warnings": [
     {
       "source": "compose",
@@ -396,6 +396,24 @@
       "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
       "sourceLabel": "SKT T day",
       "fit": 85
+    },
+    {
+      "id": "brand-pascucci-aca18982ce71",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "파스쿠찌",
+      "category": "커피",
+      "title": "[해피앱] 여름엔 스파클링! E쿠폰 최대 25% OFF",
+      "value": "최대25%",
+      "valueText": "[해피앱] 여름엔 스파클링! E쿠폰 최대 25% OFF",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.08.17 - 2026.08.23",
+      "startsAt": "2026-08-17",
+      "validUntil": "2026-08-23",
+      "notes": "2026.08.17-2026.08.23",
+      "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1006",
+      "sourceLabel": "파스쿠찌 이벤트",
+      "fit": 83
     },
     {
       "id": "brand-pascucci-794881e78345",
