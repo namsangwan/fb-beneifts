@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-17T02:21:15.082Z",
-  "asOfDate": "2026-08-17",
-  "asOfLabel": "2026.08.17 11:21 KST",
+  "collectedAt": "2026-08-17T19:32:15.975Z",
+  "asOfDate": "2026-08-18",
+  "asOfLabel": "2026.08.18 04:32 KST",
   "warnings": [
     {
       "source": "compose",
@@ -18,7 +18,7 @@
         "투썸플레이스"
       ],
       "reason": "fetch failed",
-      "fallbackCount": 3
+      "fallbackCount": 2
     },
     {
       "source": "theventi",
@@ -27,11 +27,6 @@
       ],
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 2
-    },
-    {
-      "source": "kt-membership",
-      "reason": "fetch failed",
-      "fallbackCount": 8
     },
     {
       "source": "lguplus-ongoing",
@@ -151,24 +146,6 @@
       "fit": 97
     },
     {
-      "id": "kt-membership-184",
-      "provider": "kt",
-      "pay": "KT",
-      "brand": "공차",
-      "category": "커피",
-      "title": "전등급: [달.달.혜택] 인기 음료 6종 50% 할인(할인 한도 5천원) [상시]제조음료 구매 시 10% 할인",
-      "value": "50%",
-      "valueText": "전등급: [달.달.혜택] 인기 음료 6종 50% 할인(할인 한도 5천원) [상시]제조음료 구매 시 10% 할인",
-      "condition": "KT 멤버십 등급별 혜택",
-      "period": "2026.08.03 - 2026.08.17",
-      "startsAt": "2026-08-03",
-      "validUntil": "2026-08-17",
-      "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
-      "source": "https://membership.kt.com/discount/partner/C21/184/PartnerDetail.do",
-      "sourceLabel": "KT 멤버십",
-      "fit": 97
-    },
-    {
       "id": "kt-membership-122",
       "provider": "kt",
       "pay": "KT",
@@ -187,21 +164,21 @@
       "fit": 97
     },
     {
-      "id": "brand-gongcha-61df1330c5f3",
+      "id": "brand-hollys-554",
       "provider": "brand",
       "pay": "브랜드",
-      "brand": "공차",
+      "brand": "할리스",
       "category": "커피",
-      "title": "8.3~17 KT달달혜택! kt멤버십 회원 대상 인기음료 6종 50% 할인!",
+      "title": "할리스♥리센느, 첫 만남 기념! Welcome 50% 쿠폰",
       "value": "50%",
-      "valueText": "8.3~17 KT달달혜택! kt멤버십 회원 대상 인기음료 6종 50% 할인!",
+      "valueText": "할리스♥리센느, 첫 만남 기념! Welcome 50% 쿠폰",
       "condition": "브랜드 공식 이벤트",
-      "period": "2026.08.03 - 2026.08.17",
-      "startsAt": "2026-08-03",
-      "validUntil": "2026-08-17",
-      "notes": "2026.08.03(월) ~ 2026.08.17(월)",
-      "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=664&keyword=&status=&scroll=y",
-      "sourceLabel": "공차 이벤트",
+      "period": "2026.08.18 - 2026.09.08",
+      "startsAt": "2026-08-18",
+      "validUntil": "2026-09-08",
+      "notes": "할리스 공식 이벤트 목록에서 확인.",
+      "source": "https://www.hollys.co.kr/news/event/view.do?idx=554&pageNo=1&division=",
+      "sourceLabel": "할리스 이벤트",
       "fit": 95
     },
     {
@@ -220,24 +197,6 @@
       "notes": "2026.08.13(목) ~ 2026.08.31(월)",
       "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=663&keyword=&status=&scroll=y",
       "sourceLabel": "공차 이벤트",
-      "fit": 95
-    },
-    {
-      "id": "brand-pascucci-5e914f05df00",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "파스쿠찌",
-      "category": "커피",
-      "title": "[당근페이] 4,700원 이상 결제 시 50% OFF",
-      "value": "50%",
-      "valueText": "[당근페이] 4,700원 이상 결제 시 50% OFF",
-      "condition": "브랜드 공식 이벤트",
-      "period": "2026.08.01 - 2026.08.17",
-      "startsAt": "2026-08-01",
-      "validUntil": "2026-08-17",
-      "notes": "2026.08.01-2026.08.17",
-      "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1000",
-      "sourceLabel": "파스쿠찌 이벤트",
       "fit": 95
     },
     {
@@ -886,24 +845,6 @@
       "notes": "스타벅스 공식 이벤트 목록에서 확인.",
       "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3493",
       "sourceLabel": "스타벅스 이벤트",
-      "fit": 57
-    },
-    {
-      "id": "brand-twosome-260702",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "투썸플레이스",
-      "category": "커피",
-      "title": "투썸xNOL 제휴 이벤트",
-      "value": "투썸xNOL 제휴 이벤트",
-      "valueText": "투썸xNOL 제휴 이벤트",
-      "condition": "브랜드 공식 이벤트",
-      "period": "2026.08.03 - 2026.08.17",
-      "startsAt": "2026-08-03",
-      "validUntil": "2026-08-17",
-      "notes": "진행중",
-      "source": "https://mo.twosome.co.kr/ev/eventList.do?eventDiv=progress&searchOpt=endSoon",
-      "sourceLabel": "투썸 이벤트",
       "fit": 57
     },
     {
