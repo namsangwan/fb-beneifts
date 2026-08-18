@@ -1,9 +1,44 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-18T14:13:17.442Z",
+  "collectedAt": "2026-08-18T14:14:40.196Z",
   "asOfDate": "2026-08-18",
-  "asOfLabel": "2026.08.18 23:13 KST",
-  "warnings": [],
+  "asOfLabel": "2026.08.18 23:14 KST",
+  "warnings": [
+    {
+      "source": "compose",
+      "brands": [
+        "컴포즈커피"
+      ],
+      "reason": "Compose fetch failed: 403",
+      "fallbackCount": 2
+    },
+    {
+      "source": "twosome",
+      "brands": [
+        "투썸플레이스"
+      ],
+      "reason": "fetch failed",
+      "fallbackCount": 4
+    },
+    {
+      "source": "theventi",
+      "brands": [
+        "더벤티"
+      ],
+      "reason": "collector returned no current benefits; preserved previous current benefits",
+      "fallbackCount": 1
+    },
+    {
+      "source": "kt-membership",
+      "reason": "fetch failed",
+      "fallbackCount": 8
+    },
+    {
+      "source": "lguplus-ongoing",
+      "reason": "LG U+ ongoing events fetch failed: 403",
+      "fallbackCount": 0
+    }
+  ],
   "sources": [
     {
       "provider": "naverpay",
