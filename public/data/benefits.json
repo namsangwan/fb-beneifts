@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-17T23:27:13.136Z",
+  "collectedAt": "2026-08-18T02:17:04.739Z",
   "asOfDate": "2026-08-18",
-  "asOfLabel": "2026.08.18 08:27 KST",
+  "asOfLabel": "2026.08.18 11:16 KST",
   "warnings": [
     {
       "source": "compose",
@@ -250,10 +250,10 @@
       "value": "1만원",
       "valueText": "8.18~31 신한 슈퍼 SOL 1만원 이상 결제 시 마이신한포인트 5천P 적립!",
       "condition": "브랜드 공식 이벤트",
-      "period": "2026.08.13 - 2026.08.31",
-      "startsAt": "2026-08-13",
+      "period": "2026.08.18 - 2026.08.31",
+      "startsAt": "2026-08-18",
       "validUntil": "2026-08-31",
-      "notes": "2026.08.13(목) ~ 2026.08.31(월)",
+      "notes": "2026.08.18(화) ~ 2026.08.31(월)",
       "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=667&keyword=&status=&scroll=y",
       "sourceLabel": "공차 이벤트",
       "fit": 87
