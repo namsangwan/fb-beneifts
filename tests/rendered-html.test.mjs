@@ -64,6 +64,9 @@ test("serves the generated benefit JSON through the API", async () => {
       ["naverpay", "toss", "brand", "skt", "kt", "lguplus"].includes(benefit.provider),
     ),
   );
+  assert.ok(
+    payload.benefits.every((benefit) => ["커피", "베이커리", "간식", "기타"].includes(benefit.category)),
+  );
   const mPointPercentBenefits = payload.benefits.filter((benefit) =>
     /(?:M\s*포인트|엠포인트).*?\d+(?:\.\d+)?\s*%|\d+(?:\.\d+)?\s*%.*?(?:M\s*포인트|엠포인트)/i.test(
       `${benefit.title} ${benefit.valueText}`,

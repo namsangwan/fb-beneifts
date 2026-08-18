@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 type SourceFilter = "브랜드" | "SKT" | "KT" | "LGU+" | "네이버페이" | "토스";
-type Category = "커피" | "베이커리" | "간식";
+type Category = "커피" | "베이커리" | "간식" | "기타";
+type CategoryFilter = "카페/빵" | "전체" | Category;
 
 type Benefit = {
   id: string;
@@ -41,9 +42,9 @@ const emptyPayload: BenefitsPayload = {
 };
 
 const sourceOptions: SourceFilter[] = ["브랜드", "SKT", "KT", "LGU+", "네이버페이", "토스"];
-const categoryOptions: Array<Category | "전체"> = ["전체", "커피", "베이커리", "간식"];
+const categoryOptions: CategoryFilter[] = ["카페/빵", "전체", "커피", "베이커리", "간식", "기타"];
 const benefitJsonUrl = process.env.NEXT_PUBLIC_BENEFITS_JSON_URL ?? "/api/benefits";
-const preferencesVersion = 4;
+const preferencesVersion = 5;
 
 function daysLeft(dateText: string | null | undefined, asOfDate: string) {
   if (!dateText) return null;
@@ -79,9 +80,9 @@ export default function Home() {
   const [loadError, setLoadError] = useState("");
   const [selectedSources, setSelectedSources] = useState<SourceFilter[]>(sourceOptions);
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
-  const [category, setCategory] = useState<Category | "전체">("전체");
+  const [category, setCategory] = useState<CategoryFilter>("카페/빵");
   const [query, setQuery] = useState("");
-  const [didLoadPreferences, setDidLoadPreferences] = useState(false);
+  const didSkipInitialPreferenceSave = useRef(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -110,11 +111,9 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    let isMounted = true;
     const raw = window.localStorage.getItem("benefit-radar-preferences");
-    if (!raw) {
-      setDidLoadPreferences(true);
-      return;
-    }
+    if (!raw) return undefined;
 
     try {
       const preferences = JSON.parse(raw) as {
@@ -122,7 +121,7 @@ export default function Home() {
         pays?: Array<SourceFilter | "통신사">;
         sources?: SourceFilter[];
         brands?: string[];
-        category?: Category | "전체";
+        category?: CategoryFilter;
       };
       const legacySources = (preferences.pays ?? []).flatMap((source) =>
         source === "통신사" ? (["SKT", "KT", "LGU+"] as SourceFilter[]) : [source],
@@ -130,22 +129,35 @@ export default function Home() {
       const savedSources = preferences.sources ?? legacySources;
       const availableSources = savedSources.filter((source) => sourceOptions.includes(source));
       const nextSources = availableSources.length ? availableSources : sourceOptions;
-      setSelectedSources(
+      const nextSelectedSources =
         (preferences.version ?? 1) < preferencesVersion
           ? Array.from(new Set([...sourceOptions, ...nextSources]))
-          : nextSources,
-      );
-      setSelectedBrands(preferences.brands ?? []);
-      setCategory(preferences.category ?? "전체");
+          : nextSources;
+      const nextCategory =
+        (preferences.version ?? 1) < preferencesVersion && (preferences.category ?? "전체") === "전체"
+          ? "카페/빵"
+          : (preferences.category ?? "카페/빵");
+
+      queueMicrotask(() => {
+        if (!isMounted) return;
+        setSelectedSources(nextSelectedSources);
+        setSelectedBrands(preferences.brands ?? []);
+        setCategory(nextCategory);
+      });
     } catch {
       window.localStorage.removeItem("benefit-radar-preferences");
-    } finally {
-      setDidLoadPreferences(true);
     }
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   useEffect(() => {
-    if (!didLoadPreferences) return;
+    if (!didSkipInitialPreferenceSave.current) {
+      didSkipInitialPreferenceSave.current = true;
+      return;
+    }
 
     window.localStorage.setItem(
       "benefit-radar-preferences",
@@ -156,7 +168,7 @@ export default function Home() {
         category,
       }),
     );
-  }, [category, didLoadPreferences, selectedBrands, selectedSources]);
+  }, [category, selectedBrands, selectedSources]);
 
   const brandOptions = useMemo(
     () =>
@@ -172,7 +184,11 @@ export default function Home() {
     return payload.benefits
       .filter((benefit) => selectedSources.includes(benefit.pay))
       .filter((benefit) => selectedBrands.length === 0 || selectedBrands.includes(benefit.brand))
-      .filter((benefit) => category === "전체" || benefit.category === category)
+      .filter((benefit) => {
+        if (category === "전체") return true;
+        if (category === "카페/빵") return benefit.category === "커피" || benefit.category === "베이커리";
+        return benefit.category === category;
+      })
       .filter((benefit) => {
         const left = daysLeft(benefit.validUntil, payload.asOfDate);
         return left === null || left >= 0;
@@ -248,7 +264,7 @@ export default function Home() {
               onClick={() => {
                 setSelectedSources(sourceOptions);
                 setSelectedBrands([]);
-                setCategory("전체");
+                setCategory("카페/빵");
                 setQuery("");
               }}
               type="button"

@@ -52,10 +52,10 @@ type BenefitsPayload = {
 
 type Benefit = {
   id: string;
-  provider: "naverpay" | "toss" | "brand";
-  pay: "브랜드" | "네이버페이" | "토스";
+  provider: "naverpay" | "toss" | "brand" | "skt" | "kt" | "lguplus";
+  pay: "브랜드" | "네이버페이" | "토스" | "SKT" | "KT" | "LGU+";
   brand: string;
-  category: "커피" | "베이커리" | "간식";
+  category: "커피" | "베이커리" | "간식" | "기타";
   title: string;
   value: string;
   valueText: string;
@@ -101,6 +101,7 @@ The live endpoint should be treated as the source of truth.
 - Hide expired benefits by default using `validUntil` and `asOfDate`.
 - Keep future benefits visible, with a "예정" status when `startsAt` is later than `asOfDate`.
 - Sort by `fit` descending first.
+- Store Naver Pay F&B benefits even when the brand is not in the cafe/bakery allow-list, then use category display filters such as `카페/빵`, `전체`, and `기타`.
 - Treat `provider: "brand"` as official brand-event benefits.
 - Save user preferences on-device.
 

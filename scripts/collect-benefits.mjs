@@ -60,7 +60,7 @@ const cafeAndBakeryKeywords = [
   "롯데리아",
 ];
 
-const bakeryKeywords = ["파리바게뜨", "뚜레쥬르", "베이커리", "빵", "테디뵈르"];
+const bakeryKeywords = ["파리바게뜨", "뚜레쥬르", "베이커리", "빵", "테디뵈르", "HANS", "한스"];
 const snackKeywords = ["베스킨라빈스", "배스킨라빈스", "롯데리아"];
 const brandEventKeywords = [
   "할인",
@@ -391,7 +391,9 @@ async function readPreviousBenefits() {
 
 function categoryFromText(text) {
   if (snackKeywords.some((keyword) => text.includes(keyword))) return "간식";
-  return bakeryKeywords.some((keyword) => text.includes(keyword)) ? "베이커리" : "커피";
+  if (bakeryKeywords.some((keyword) => text.includes(keyword))) return "베이커리";
+  if (includesCafeOrBakery(text)) return "커피";
+  return "기타";
 }
 
 function hasBrandExclusionSignal(text) {
@@ -646,7 +648,7 @@ function normalizeNaverItem(item, asOfDate) {
     .filter(Boolean)
     .join(" ");
 
-  if (!includesCafeOrBakery(summaryText)) return null;
+  if (/배달의민족|배민/.test(summaryText)) return null;
 
   const startsAt = dateFromTimestampKst(item.promotionStartDateTime);
   const validUntil = dateFromTimestampKst(item.promotionEndDateTime);
@@ -655,7 +657,7 @@ function normalizeNaverItem(item, asOfDate) {
     provider: "naverpay",
     pay: "네이버페이",
     brand: item.promotionName ?? "네이버페이 혜택",
-    category: bakeryKeywords.some((keyword) => summaryText.includes(keyword)) ? "베이커리" : "커피",
+    category: categoryFromText(summaryText),
     title: `${item.promotionDescription ?? ""} ${item.exposeTitle ?? ""}`.trim(),
     value: displayValue(item.exposeTitle ?? ""),
     valueText: item.exposeTitle ?? "",

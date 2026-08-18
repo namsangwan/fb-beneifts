@@ -1,12 +1,12 @@
 # 카페할인 모아
 
-네이버페이와 토스의 커피/베이커리 결제 혜택, 그리고 브랜드 공식 이벤트를 매일 수집하고, 앱에서는 빠르게 개인화된 혜택만 보는 MVP입니다. 기본 목록에는 수집 기준일 현재 유효하거나 앞으로 시작되는 혜택만 노출합니다.
+네이버페이와 토스의 F&B 결제 혜택, 통신사 멤버십 혜택, 그리고 브랜드 공식 이벤트를 매일 수집하고, 앱에서는 빠르게 개인화된 혜택만 보는 MVP입니다. 기본 목록에는 수집 기준일 현재 유효하거나 앞으로 시작되는 혜택만 노출합니다.
 
 ## 첫 버전 범위
 
-- 공식 출처: 브랜드 공식 이벤트, 네이버페이 F&B 혜택, 토스피드 현재 월 프로모션
-- 카테고리: 커피, 베이커리, 간식
-- 개인화: 선호 페이, 자주 가는 브랜드, 카테고리, 만료 혜택 숨김
+- 공식 출처: 브랜드 공식 이벤트, 네이버페이 F&B 혜택, 토스피드 현재 월 프로모션, SKT/KT/LGU+ 멤버십 혜택
+- 카테고리: 커피, 베이커리, 간식, 기타
+- 개인화: 선호 출처, 자주 가는 브랜드, 표시 카테고리, 만료 혜택 숨김
 - 앱 데이터: 배치가 생성한 `public/data/benefits.json`
 - 서버 API: `/api/benefits`가 R2의 공개 JSON을 서버 쪽에서 읽어 같은 도메인으로 응답
 - 공개 JSON 서버: Cloudflare R2의 `benefits.json`
@@ -16,9 +16,9 @@
 
 ```ts
 type Benefit = {
-  provider: "naverpay" | "toss" | "brand";
+  provider: "naverpay" | "toss" | "brand" | "skt" | "kt" | "lguplus";
   brand: string;
-  category: "coffee" | "bakery" | "snack";
+  category: "커피" | "베이커리" | "간식" | "기타";
   title: string;
   discountType: "instant_discount" | "point_reward" | "coupon";
   valueText: string;
@@ -34,7 +34,7 @@ type Benefit = {
 
 ## 수집 파이프라인
 
-1. 매일 오전 9시에 수집 작업 실행
+1. 매일 한국시간 04:00, 08:00, 10:00에 수집 작업 실행
 2. 공식 페이지 다운로드
 3. 페이지별 파서로 브랜드, 금액 조건, 할인율, 기간 추출
 4. 출처별 고유 ID와 `sourceHash` 생성
@@ -94,17 +94,17 @@ https://benefit-radar.<your-workers-subdomain>.workers.dev
 
 ## 출처별 수집 방식
 
-- 네이버페이: F&B 혜택 목록 API 응답을 정규화하고 종료일이 지난 항목은 제외
+- 네이버페이: F&B 혜택 목록 API 응답을 정규화하고 종료일이 지난 항목은 제외. 브랜드명으로 수집 차단하지 않고 `기타`까지 저장한 뒤 앱의 표시 필터에서 걸러봄
 - 토스: `https://toss.im/tossfeed/article/tosspay-promotion` 현재 월 글에서 커피/베이커리 관련 현재/미래 혜택만 추출
 - 브랜드 공식 이벤트: 할리스, 빽다방, 컴포즈커피, 매머드커피/익스프레스, 메가MGC커피, 공차, 파리바게뜨, 폴바셋, 스타벅스, 투썸플레이스, 파스쿠찌, 더벤티의 공식 이벤트/공지 목록에서 할인/쿠폰/적립/무료/1+1 성격의 현재 또는 최근 이벤트를 추출
 - 이디야: 공식 이벤트 목록 최신성이 낮아 우선 제외
-- 브랜드 필터: 출시/굿즈/리콜/공지/채용성 글과 고향사랑기부제, HOLLYS PASS처럼 커피·빵 할인과 직접 관련이 낮은 항목은 제외
+- 브랜드 공식 이벤트 필터: 출시/굿즈/리콜/공지/채용성 글과 고향사랑기부제, HOLLYS PASS처럼 커피·빵 할인과 직접 관련이 낮은 항목은 제외
 
 ## 다음 단계
 
 - `npm run collect`로 JSON 스냅샷 생성
 - `npm run upload:r2`로 `public/data/benefits.json`을 R2에 업로드
 - `npm run deploy:web`으로 빌드된 화면을 Cloudflare Workers에 배포
-- GitHub Actions의 `Update benefit JSON` 워크플로가 매일 00:00 UTC, 한국시간 09:00에 실행
+- GitHub Actions의 `Update benefit JSON` 워크플로가 매일 한국시간 04:00, 08:00, 10:00에 실행
 - 앱은 같은 도메인의 `/api/benefits`를 호출하고, Worker가 R2의 공개 `benefits.json`을 읽어 반환
 - 내 주변 매장, 혜택 종료 임박 알림, 브랜드별 최저가 랭킹 추가

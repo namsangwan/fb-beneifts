@@ -1,44 +1,9 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-18T13:04:22.689Z",
+  "collectedAt": "2026-08-18T14:13:17.442Z",
   "asOfDate": "2026-08-18",
-  "asOfLabel": "2026.08.18 22:04 KST",
-  "warnings": [
-    {
-      "source": "compose",
-      "brands": [
-        "컴포즈커피"
-      ],
-      "reason": "Compose fetch failed: 403",
-      "fallbackCount": 2
-    },
-    {
-      "source": "twosome",
-      "brands": [
-        "투썸플레이스"
-      ],
-      "reason": "fetch failed",
-      "fallbackCount": 4
-    },
-    {
-      "source": "theventi",
-      "brands": [
-        "더벤티"
-      ],
-      "reason": "collector returned no current benefits; preserved previous current benefits",
-      "fallbackCount": 1
-    },
-    {
-      "source": "kt-membership",
-      "reason": "fetch failed",
-      "fallbackCount": 8
-    },
-    {
-      "source": "lguplus-ongoing",
-      "reason": "LG U+ ongoing events fetch failed: 403",
-      "fallbackCount": 0
-    }
-  ],
+  "asOfLabel": "2026.08.18 23:13 KST",
+  "warnings": [],
   "sources": [
     {
       "provider": "naverpay",
@@ -155,7 +120,7 @@
       "provider": "naverpay",
       "pay": "네이버페이",
       "brand": "HANS",
-      "category": "커피",
+      "category": "베이커리",
       "title": "포인트·머니 1만원 이상 결제 시 50% 적립",
       "value": "50%",
       "valueText": "50% 적립",
@@ -183,6 +148,24 @@
       "validUntil": "2026-08-31",
       "notes": "1인 1만원 한도 적립 가능 자세한 사항은 매장 안내 참조",
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653049",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 98
+    },
+    {
+      "id": "naver-24278798653030",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "7번가피자",
+      "category": "기타",
+      "title": "2.5만원 이상 결제 시 50% 적립",
+      "value": "50%",
+      "valueText": "50% 적립",
+      "condition": "2.5만원 이상 결제 시",
+      "period": "2026.08.20 - 2026.08.21",
+      "startsAt": "2026-08-20",
+      "validUntil": "2026-08-21",
+      "notes": "Npay QR 포인트·머니 결제 시 혜택 적용 가능 1인 1회, 최대 12,500원 한도",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653030",
       "sourceLabel": "네이버페이 상세",
       "fit": 98
     },
@@ -277,6 +260,24 @@
       "fit": 90
     },
     {
+      "id": "naver-22873880884044",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "맥도날드",
+      "category": "기타",
+      "title": "포인트·머니 1만원 이상 결제 시 20% 적립",
+      "value": "20%",
+      "valueText": "20% 적립",
+      "condition": "포인트·머니 1만원 이상 결제 시",
+      "period": "2026.08.01 - 2026.08.31",
+      "startsAt": "2026-08-01",
+      "validUntil": "2026-08-31",
+      "notes": "현장결제 포인트·머니 (앱, 온라인 결제 혜택 적용 제외) 결제 시 혜택 적용 가능 카드 결제 시 혜택 적용 불가",
+      "source": "https://pay.naver.com/benefit/payment/detail/22873880884044",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 90
+    },
+    {
       "id": "naver-14414967832373",
       "provider": "naverpay",
       "pay": "네이버페이",
@@ -291,6 +292,60 @@
       "validUntil": "2026-08-31",
       "notes": "클릭하고 혜택 신청하기 하신 분에 한하여 혜택이 제공됩니다. 네이버페이앱으로 결제 하신 분에 한하여 혜택 제공됩니다.",
       "source": "https://pay.naver.com/benefit/payment/detail/14414967832373",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 90
+    },
+    {
+      "id": "naver-22873870420316",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "또봉이통닭",
+      "category": "기타",
+      "title": "포인트·머니 1.6만원 이상 결제 시 1만원 적립",
+      "value": "1만원",
+      "valueText": "1만원 적립",
+      "condition": "포인트·머니 1.6만원 이상 결제 시",
+      "period": "2026.08.10 - 2026.09.09",
+      "startsAt": "2026-08-10",
+      "validUntil": "2026-09-09",
+      "notes": "자세한 사항은 매장 안내 참조",
+      "source": "https://pay.naver.com/benefit/payment/detail/22873870420316",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 90
+    },
+    {
+      "id": "naver-24274589298740",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "베라나폴리",
+      "category": "기타",
+      "title": "12만원 이상 결제 시 2만원 할인",
+      "value": "2만원",
+      "valueText": "2만원 할인",
+      "condition": "12만원 이상 결제 시",
+      "period": "2026.07.27 - 2026.08.23",
+      "startsAt": "2026-07-27",
+      "validUntil": "2026-08-23",
+      "notes": "횟수 제한 없음 타 쿠폰 행사 및 제휴 할인과 중복 적용 불가",
+      "source": "https://pay.naver.com/benefit/payment/detail/24274589298740",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 90
+    },
+    {
+      "id": "naver-22873942115897",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "쌤쌤쌤 광화문점",
+      "category": "기타",
+      "title": "포인트·머니 3만원 이상 결제 시 1.2만원 적립",
+      "value": "1.2만원",
+      "valueText": "1.2만원 적립",
+      "condition": "포인트·머니 3만원 이상 결제 시",
+      "period": "2026.08.01 - 2026.09.30",
+      "startsAt": "2026-08-01",
+      "validUntil": "2026-09-30",
+      "notes": "회원 기준 월 1회 적립 가능 페이스사인 결제 시 혜택 적용 가능",
+      "source": "https://pay.naver.com/benefit/payment/detail/22873942115897",
       "sourceLabel": "네이버페이 상세",
       "fit": 90
     },
@@ -475,6 +530,42 @@
       "fit": 82
     },
     {
+      "id": "naver-24185394544944",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "포르투7",
+      "category": "기타",
+      "title": "포인트·머니 1.8만원 이상 결제 시 3천원 적립",
+      "value": "3천원",
+      "valueText": "3천원 적립",
+      "condition": "포인트·머니 1.8만원 이상 결제 시",
+      "period": "2026.07.01 - 2026.08.30",
+      "startsAt": "2026-07-01",
+      "validUntil": "2026-08-30",
+      "notes": "매주(월~일) 1회 참여 가능 매주 1회 참여는 동원홈푸드 브랜드(크리스피프레시,포르투7,샌드프레소) 통합 적용",
+      "source": "https://pay.naver.com/benefit/payment/detail/24185394544944",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 82
+    },
+    {
+      "id": "naver-24185392412452",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "크리스피프레시",
+      "category": "기타",
+      "title": "포인트·머니 1.8만원 이상 결제 시 3천원 적립",
+      "value": "3천원",
+      "valueText": "3천원 적립",
+      "condition": "포인트·머니 1.8만원 이상 결제 시",
+      "period": "2026.07.01 - 2026.08.30",
+      "startsAt": "2026-07-01",
+      "validUntil": "2026-08-30",
+      "notes": "매주(월~일) 1회 참여 가능 매주 1회 참여는 동원홈푸드 브랜드(크리스피프레시,포르투7,샌드프레소) 통합 적용",
+      "source": "https://pay.naver.com/benefit/payment/detail/24185392412452",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 82
+    },
+    {
       "id": "naver-24185390371624",
       "provider": "naverpay",
       "pay": "네이버페이",
@@ -489,6 +580,24 @@
       "validUntil": "2026-08-30",
       "notes": "매주(월~일) 1회 참여 가능 매주 1회 참여는 동원홈푸드 브랜드(크리스피프레시,포르투7,샌드프레소) 통합 적용",
       "source": "https://pay.naver.com/benefit/payment/detail/24185390371624",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 82
+    },
+    {
+      "id": "naver-22873859467352",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "갤러리아 식품관",
+      "category": "기타",
+      "title": "포인트·머니 2만원 이상 결제 시 3천원 적립",
+      "value": "3천원",
+      "valueText": "3천원 적립",
+      "condition": "포인트·머니 2만원 이상 결제 시",
+      "period": "2026.08.01 - 2026.08.31",
+      "startsAt": "2026-08-01",
+      "validUntil": "2026-08-31",
+      "notes": "기간 내 1회 참여 가능 카드 결제 시 혜택 적용 불가",
+      "source": "https://pay.naver.com/benefit/payment/detail/22873859467352",
       "sourceLabel": "네이버페이 상세",
       "fit": 82
     },
@@ -911,7 +1020,7 @@
       "provider": "brand",
       "pay": "브랜드",
       "brand": "스타벅스",
-      "category": "커피",
+      "category": "기타",
       "title": "주말 오후 2시 이후, 케이크 페어링 별★ 증정",
       "value": "증정",
       "valueText": "주말 오후 2시 이후, 케이크 페어링 별★ 증정",
@@ -929,7 +1038,7 @@
       "provider": "brand",
       "pay": "브랜드",
       "brand": "스타벅스",
-      "category": "커피",
+      "category": "기타",
       "title": "스타트래블 우리카드 8월 혜택",
       "value": "혜택",
       "valueText": "스타트래블 우리카드 8월 혜택",
