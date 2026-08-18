@@ -1,44 +1,9 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-18T02:17:04.739Z",
+  "collectedAt": "2026-08-18T13:03:05.048Z",
   "asOfDate": "2026-08-18",
-  "asOfLabel": "2026.08.18 11:16 KST",
-  "warnings": [
-    {
-      "source": "compose",
-      "brands": [
-        "컴포즈커피"
-      ],
-      "reason": "Compose fetch failed: 403",
-      "fallbackCount": 2
-    },
-    {
-      "source": "twosome",
-      "brands": [
-        "투썸플레이스"
-      ],
-      "reason": "fetch failed",
-      "fallbackCount": 2
-    },
-    {
-      "source": "theventi",
-      "brands": [
-        "더벤티"
-      ],
-      "reason": "collector returned no current benefits; preserved previous current benefits",
-      "fallbackCount": 2
-    },
-    {
-      "source": "kt-membership",
-      "reason": "fetch failed",
-      "fallbackCount": 7
-    },
-    {
-      "source": "lguplus-ongoing",
-      "reason": "LG U+ ongoing events fetch failed: 403",
-      "fallbackCount": 0
-    }
-  ],
+  "asOfLabel": "2026.08.18 22:03 KST",
+  "warnings": [],
   "sources": [
     {
       "provider": "naverpay",
@@ -132,6 +97,60 @@
     }
   ],
   "benefits": [
+    {
+      "id": "naver-22873968021573",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "잠바주스",
+      "category": "커피",
+      "title": "Npay QR 구간별 결제 시 50% 할인",
+      "value": "50%",
+      "valueText": "50% 할인",
+      "condition": "Npay QR 구간별 결제 시",
+      "period": "2026.08.17 - 2026.08.23",
+      "startsAt": "2026-08-17",
+      "validUntil": "2026-08-23",
+      "notes": "1인 최대 1만원 한도 할인 정가 기준 2만원 구매시까지 가능",
+      "source": "https://pay.naver.com/benefit/payment/detail/22873968021573",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 98
+    },
+    {
+      "id": "naver-22873879368776",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "HANS",
+      "category": "커피",
+      "title": "포인트·머니 1만원 이상 결제 시 50% 적립",
+      "value": "50%",
+      "valueText": "50% 적립",
+      "condition": "포인트·머니 1만원 이상 결제 시",
+      "period": "2026.08.14 - 2026.08.28",
+      "startsAt": "2026-08-14",
+      "validUntil": "2026-08-28",
+      "notes": "기간 내 횟수 제한 없이 1인 5만원 한도 적립 세부 내용은 '자세히 보기' 참고",
+      "source": "https://pay.naver.com/benefit/payment/detail/22873879368776",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 98
+    },
+    {
+      "id": "naver-24278798653049",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "매머드커피",
+      "category": "커피",
+      "title": "1800원 이상 결제 시 50% 적립",
+      "value": "50%",
+      "valueText": "50% 적립",
+      "condition": "1800원 이상 결제 시",
+      "period": "2026.08.18 - 2026.08.31",
+      "startsAt": "2026-08-18",
+      "validUntil": "2026-08-31",
+      "notes": "1인 1만원 한도 적립 가능 자세한 사항은 매장 안내 참조",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653049",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 98
+    },
     {
       "id": "skt-tday-e727425da3a8",
       "provider": "skt",
@@ -421,6 +440,24 @@
       "fit": 82
     },
     {
+      "id": "naver-24185390371624",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "샌드프레소",
+      "category": "커피",
+      "title": "포인트·머니 1.8만원 이상 결제 시 3천원 적립",
+      "value": "3천원",
+      "valueText": "3천원 적립",
+      "condition": "포인트·머니 1.8만원 이상 결제 시",
+      "period": "2026.07.01 - 2026.08.30",
+      "startsAt": "2026-07-01",
+      "validUntil": "2026-08-30",
+      "notes": "매주(월~일) 1회 참여 가능 매주 1회 참여는 동원홈푸드 브랜드(크리스피프레시,포르투7,샌드프레소) 통합 적용",
+      "source": "https://pay.naver.com/benefit/payment/detail/24185390371624",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 82
+    },
+    {
       "id": "naver-22873938557245",
       "provider": "naverpay",
       "pay": "네이버페이",
@@ -439,6 +476,24 @@
       "fit": 82
     },
     {
+      "id": "kt-membership-60",
+      "provider": "kt",
+      "pay": "KT",
+      "brand": "뚜레쥬르",
+      "category": "베이커리",
+      "title": "전등급: [달.달.혜택] 4천원 할인(1만원 이상 구매 시) / VVIP: [상시] 1,000원당 150원 할인 / VIP: [상시] 1,000원당 150원 할인 / Gold: [상시] 1,000원당 150원 할인 / 일반: [상시] 1,000원당 100원 할인",
+      "value": "4천원",
+      "valueText": "전등급: [달.달.혜택] 4천원 할인(1만원 이상 구매 시) / VVIP: [상시] 1,000원당 150원 할인 / VIP: [상시] 1,000원당 150원 할인 / Gold: [상시] 1,000원당 150원 할인 / 일반: [상시] 1,000원당 100원 할인",
+      "condition": "KT 멤버십 등급별 혜택",
+      "period": "2026.08.18 - 2026.08.31",
+      "startsAt": "2026-08-18",
+      "validUntil": "2026-08-31",
+      "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
+      "source": "https://membership.kt.com/discount/partner/C21/60/PartnerDetail.do",
+      "sourceLabel": "KT 멤버십",
+      "fit": 81
+    },
+    {
       "id": "naver-22873886394717",
       "provider": "naverpay",
       "pay": "네이버페이",
@@ -455,6 +510,24 @@
       "source": "https://pay.naver.com/benefit/payment/detail/22873886394717",
       "sourceLabel": "네이버페이 상세",
       "fit": 78
+    },
+    {
+      "id": "kt-membership-184",
+      "provider": "kt",
+      "pay": "KT",
+      "brand": "공차",
+      "category": "커피",
+      "title": "전등급: 제조음료 구매 시 10% 할인",
+      "value": "10%",
+      "valueText": "전등급: 제조음료 구매 시 10% 할인",
+      "condition": "KT 멤버십 등급별 혜택",
+      "period": "상시/월별 제공",
+      "startsAt": null,
+      "validUntil": null,
+      "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
+      "source": "https://membership.kt.com/discount/partner/C21/184/PartnerDetail.do",
+      "sourceLabel": "KT 멤버십",
+      "fit": 77
     },
     {
       "id": "kt-membership-102",
@@ -597,24 +670,6 @@
       "validUntil": null,
       "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
       "source": "https://membership.kt.com/discount/partner/C21/78/PartnerDetail.do",
-      "sourceLabel": "KT 멤버십",
-      "fit": 59
-    },
-    {
-      "id": "kt-membership-60",
-      "provider": "kt",
-      "pay": "KT",
-      "brand": "뚜레쥬르",
-      "category": "베이커리",
-      "title": "VVIP: 1,000원당 150원 할인 / VIP: 1,000원당 150원 할인 / Gold: 1,000원당 150원 할인 / 일반: 1,000원당 100원 할인",
-      "value": "1,000원",
-      "valueText": "VVIP: 1,000원당 150원 할인 / VIP: 1,000원당 150원 할인 / Gold: 1,000원당 150원 할인 / 일반: 1,000원당 100원 할인",
-      "condition": "KT 멤버십 등급별 혜택",
-      "period": "상시/월별 제공",
-      "startsAt": null,
-      "validUntil": null,
-      "notes": "KT 멤버십 공식 제휴 브랜드 상세에서 확인.",
-      "source": "https://membership.kt.com/discount/partner/C21/60/PartnerDetail.do",
       "sourceLabel": "KT 멤버십",
       "fit": 59
     },
@@ -853,6 +908,42 @@
       "fit": 57
     },
     {
+      "id": "brand-twosome-260804",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "투썸플레이스",
+      "category": "커피",
+      "title": "청호나이스 The M 미니얼음정수기 설치 프로모션",
+      "value": "프로모션",
+      "valueText": "청호나이스 The M 미니얼음정수기 설치 프로모션",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.08.13 - 2026.09.13",
+      "startsAt": "2026-08-13",
+      "validUntil": "2026-09-13",
+      "notes": "진행중",
+      "source": "https://mo.twosome.co.kr/ev/eventList.do?eventDiv=progress&searchOpt=endSoon",
+      "sourceLabel": "투썸 이벤트",
+      "fit": 57
+    },
+    {
+      "id": "brand-twosome-260803",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "투썸플레이스",
+      "category": "커피",
+      "title": "앱 한정 자몽생 미니+아메리카노(R) 할인",
+      "value": "할인",
+      "valueText": "앱 한정 자몽생 미니+아메리카노(R) 할인",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.08.07 - 2026.09.30",
+      "startsAt": "2026-08-07",
+      "validUntil": "2026-09-30",
+      "notes": "진행중",
+      "source": "https://mo.twosome.co.kr/ev/eventList.do?eventDiv=progress&searchOpt=endSoon",
+      "sourceLabel": "투썸 이벤트",
+      "fit": 57
+    },
+    {
       "id": "brand-twosome-260709",
       "provider": "brand",
       "pay": "브랜드",
@@ -922,24 +1013,6 @@
       "notes": "2026.08.01-2026.08.31",
       "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1001",
       "sourceLabel": "파스쿠찌 이벤트",
-      "fit": 57
-    },
-    {
-      "id": "brand-theventi-0a371324c8e1",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "더벤티",
-      "category": "커피",
-      "title": "[프로모션] PAYCO 포인트로 결제 시 8월 혜택!",
-      "value": "혜택",
-      "valueText": "[프로모션] PAYCO 포인트로 결제 시 8월 혜택!",
-      "condition": "브랜드 공식 이벤트",
-      "period": "2026.08.01 - 2026.08.24",
-      "startsAt": "2026-08-01",
-      "validUntil": "2026-08-24",
-      "notes": "이벤트기간 : 2026-08-01 ~ 2026-08-24",
-      "source": "https://theventi.co.kr/new2022/news/event.html?bmain=view&uid=293&mode=",
-      "sourceLabel": "더벤티 이벤트",
       "fit": 57
     },
     {

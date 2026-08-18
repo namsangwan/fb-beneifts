@@ -32,6 +32,7 @@ const sources = {
 const cafeAndBakeryKeywords = [
   "커피",
   "카페",
+  "잠바주스",
   "이디야",
   "투썸",
   "할리스",
@@ -48,6 +49,9 @@ const cafeAndBakeryKeywords = [
   "파스쿠찌",
   "파리바게뜨",
   "뚜레쥬르",
+  "HANS",
+  "한스",
+  "샌드프레소",
   "베이커리",
   "빵",
   "테디뵈르",
@@ -634,16 +638,15 @@ function normalizeExternalBenefit({
 
 function normalizeNaverItem(item, asOfDate) {
   const raw = JSON.stringify(item);
-  const text = [
+  const summaryText = [
     item.promotionName,
     item.promotionDescription,
     item.exposeTitle,
-    item.cautionText,
   ]
     .filter(Boolean)
     .join(" ");
 
-  if (!includesCafeOrBakery(text)) return null;
+  if (!includesCafeOrBakery(summaryText)) return null;
 
   const startsAt = dateFromTimestampKst(item.promotionStartDateTime);
   const validUntil = dateFromTimestampKst(item.promotionEndDateTime);
@@ -652,7 +655,7 @@ function normalizeNaverItem(item, asOfDate) {
     provider: "naverpay",
     pay: "네이버페이",
     brand: item.promotionName ?? "네이버페이 혜택",
-    category: bakeryKeywords.some((keyword) => text.includes(keyword)) ? "베이커리" : "커피",
+    category: bakeryKeywords.some((keyword) => summaryText.includes(keyword)) ? "베이커리" : "커피",
     title: `${item.promotionDescription ?? ""} ${item.exposeTitle ?? ""}`.trim(),
     value: displayValue(item.exposeTitle ?? ""),
     valueText: item.exposeTitle ?? "",
