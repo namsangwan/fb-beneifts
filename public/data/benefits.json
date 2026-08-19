@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-18T23:26:56.528Z",
+  "collectedAt": "2026-08-19T02:20:24.217Z",
   "asOfDate": "2026-08-19",
-  "asOfLabel": "2026.08.19 08:26 KST",
+  "asOfLabel": "2026.08.19 11:20 KST",
   "warnings": [
     {
       "source": "compose",
@@ -1037,9 +1037,9 @@
       "value": "3,200원",
       "valueText": "🐄아침&후레쉬우유 200ml 2개 3,200원 → 1,600원!",
       "condition": "브랜드 공식 이벤트",
-      "period": "2026.08.02 - 2026.09.30",
+      "period": "2026.08.02 - 2026.09.13",
       "startsAt": "2026-08-02",
-      "validUntil": "2026-09-30",
+      "validUntil": "2026-09-13",
       "notes": "파리바게뜨 공식 프로모션 목록에서 확인.",
       "source": "https://www.paris.co.kr/promotion/morning-fresh-milk-event/",
       "sourceLabel": "파리바게뜨 프로모션",
