@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-19T02:20:24.217Z",
-  "asOfDate": "2026-08-19",
-  "asOfLabel": "2026.08.19 11:20 KST",
+  "collectedAt": "2026-08-19T19:30:06.042Z",
+  "asOfDate": "2026-08-20",
+  "asOfLabel": "2026.08.20 04:29 KST",
   "warnings": [
     {
       "source": "compose",
@@ -27,6 +27,11 @@
       ],
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 1
+    },
+    {
+      "source": "kt-membership",
+      "reason": "fetch failed",
+      "fallbackCount": 8
     },
     {
       "source": "lguplus-ongoing",
@@ -182,24 +187,6 @@
       "fit": 98
     },
     {
-      "id": "naver-24278798653049",
-      "provider": "naverpay",
-      "pay": "네이버페이",
-      "brand": "매머드커피",
-      "category": "커피",
-      "title": "1800원 이상 결제 시 50% 적립",
-      "value": "50%",
-      "valueText": "50% 적립",
-      "condition": "1800원 이상 결제 시",
-      "period": "2026.08.18 - 2026.08.31",
-      "startsAt": "2026-08-18",
-      "validUntil": "2026-08-31",
-      "notes": "1인 1만원 한도 적립 가능 자세한 사항은 매장 안내 참조",
-      "source": "https://pay.naver.com/benefit/payment/detail/24278798653049",
-      "sourceLabel": "네이버페이 상세",
-      "fit": 98
-    },
-    {
       "id": "naver-24278798653030",
       "provider": "naverpay",
       "pay": "네이버페이",
@@ -214,6 +201,24 @@
       "validUntil": "2026-08-21",
       "notes": "Npay QR 포인트·머니 결제 시 혜택 적용 가능 1인 1회, 최대 12,500원 한도",
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653030",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 98
+    },
+    {
+      "id": "naver-24278798653049",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "매머드커피",
+      "category": "커피",
+      "title": "1800원 이상 결제 시 50% 적립",
+      "value": "50%",
+      "valueText": "50% 적립",
+      "condition": "1800원 이상 결제 시",
+      "period": "2026.08.18 - 2026.08.31",
+      "startsAt": "2026-08-18",
+      "validUntil": "2026-08-31",
+      "notes": "1인 1만원 한도 적립 가능 자세한 사항은 매장 안내 참조",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653049",
       "sourceLabel": "네이버페이 상세",
       "fit": 98
     },
@@ -488,7 +493,7 @@
       "fit": 86
     },
     {
-      "id": "skt-tday-59f44446240e",
+      "id": "skt-tday-75abcd9024bc",
       "provider": "skt",
       "pay": "SKT",
       "brand": "투썸플레이스",
@@ -500,13 +505,13 @@
       "period": "2026.08.19 - 2026.08.21",
       "startsAt": "2026-08-19",
       "validUntil": "2026-08-21",
-      "notes": "쿠폰 사용 기간: 2026년 8월 19일(수)~8월 21일(금)",
+      "notes": "쿠폰 사용 기간: 2026년 8월 19일(수) 오전 9시~8월 21일(금) 오후 11시 59분",
       "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
       "sourceLabel": "SKT T day",
       "fit": 85
     },
     {
-      "id": "skt-tday-b0ecc3daa8d9",
+      "id": "skt-tday-1cef8b5186cf",
       "provider": "skt",
       "pay": "SKT",
       "brand": "투썸플레이스",
@@ -515,10 +520,10 @@
       "value": "40%",
       "valueText": "투썸플레이스 시즌 음료 5종 또는 조각 케이크 5종 40% 할인(10종 중 택1)",
       "condition": "SKT T멤버십 T day",
-      "period": "2026.08.19 - 2026.08.25",
+      "period": "2026.08.19 - 2026.08.21",
       "startsAt": "2026-08-19",
-      "validUntil": "2026-08-25",
-      "notes": "쿠폰 사용 기간: 2026년 8월 19일(수) 오전 9시~8월 25일(화) 오후 11시 59분",
+      "validUntil": "2026-08-21",
+      "notes": "쿠폰 사용 기간: 2026년 8월 19일(수) 오전 9시~8월 21일(금) 오후 11시 59분",
       "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
       "sourceLabel": "SKT T day",
       "fit": 85
@@ -920,6 +925,24 @@
       "fit": 59
     },
     {
+      "id": "brand-paikdabang-8631bc00ec02",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "빽다방",
+      "category": "커피",
+      "title": "빽다방 20주년 기념 아메리카노(ICED) 1천원에 만나보세요! (8/19~8/21)",
+      "value": "1천원",
+      "valueText": "빽다방 20주년 기념 아메리카노(ICED) 1천원에 만나보세요! (8/19~8/21)",
+      "condition": "브랜드 공식 이벤트",
+      "period": "기간 미고지",
+      "startsAt": null,
+      "validUntil": null,
+      "notes": "빽다방 공식 이벤트 목록에서 확인.",
+      "source": "https://paikdabang.com/post_news/%eb%b9%bd%eb%8b%a4%eb%b0%a9-20%ec%a3%bc%eb%85%84-%ea%b8%b0%eb%85%90-%ec%95%84%eb%a9%94%eb%a6%ac%ec%b9%b4%eb%85%b8iced-1%ec%b2%9c%ec%9b%90%ec%97%90-%eb%a7%8c%eb%82%98%eb%b3%b4%ec%84%b8%ec%9a%94-8-1/",
+      "sourceLabel": "빽다방 이벤트",
+      "fit": 57
+    },
+    {
       "id": "brand-compose-f7dd3488ef51",
       "provider": "brand",
       "pay": "브랜드",
@@ -1151,24 +1174,6 @@
       "notes": "진행중",
       "source": "https://mo.twosome.co.kr/ev/eventList.do?eventDiv=progress&searchOpt=endSoon",
       "sourceLabel": "투썸 이벤트",
-      "fit": 57
-    },
-    {
-      "id": "brand-pascucci-915fe964d517",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "파스쿠찌",
-      "category": "커피",
-      "title": "[해피앱] 저당 빅 아이스티 구매 시 아메리카노 증정",
-      "value": "증정",
-      "valueText": "[해피앱] 저당 빅 아이스티 구매 시 아메리카노 증정",
-      "condition": "브랜드 공식 이벤트",
-      "period": "2026.08.13 - 2026.08.19",
-      "startsAt": "2026-08-13",
-      "validUntil": "2026-08-19",
-      "notes": "2026.08.13-2026.08.19",
-      "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1007",
-      "sourceLabel": "파스쿠찌 이벤트",
       "fit": 57
     },
     {
