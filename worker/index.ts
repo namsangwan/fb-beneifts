@@ -27,6 +27,7 @@ interface ExecutionContext {
 
 const DEFAULT_BENEFITS_JSON_URL =
   "https://pub-56d7d48261244062821afb49268b2223.r2.dev/benefits.json";
+const APP_ADS_TXT = "google.com, pub-1118126864738967, DIRECT, f08c47fec0942fa0\n";
 
 async function fetchBenefitsJson(request: Request, env: Env | undefined) {
   const benefitsJsonUrl = env?.BENEFITS_JSON_URL ?? DEFAULT_BENEFITS_JSON_URL;
@@ -44,6 +45,15 @@ async function fetchBenefitsJson(request: Request, env: Env | undefined) {
 const worker = {
   async fetch(request: Request, env: Env | undefined, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
+
+    if (url.pathname === "/app-ads.txt") {
+      return new Response(APP_ADS_TXT, {
+        headers: {
+          "content-type": "text/plain; charset=utf-8",
+          "cache-control": "public, max-age=3600",
+        },
+      });
+    }
 
     if (url.pathname === "/api/benefits") {
       const response = await fetchBenefitsJson(request, env);

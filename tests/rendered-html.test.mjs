@@ -83,3 +83,13 @@ test("serves the generated benefit JSON through the API", async () => {
   assert.doesNotMatch(JSON.stringify(payload.sources), /배달의민족|배민/);
   assert.ok(payload.benefits.every((benefit) => !("raw" in benefit)));
 });
+
+test("serves AdMob app-ads.txt at the root", async () => {
+  const response = await render("/app-ads.txt");
+  assert.equal(response.status, 200);
+  assert.match(response.headers.get("content-type") ?? "", /^text\/plain\b/i);
+  assert.equal(
+    await response.text(),
+    "google.com, pub-1118126864738967, DIRECT, f08c47fec0942fa0\n",
+  );
+});
