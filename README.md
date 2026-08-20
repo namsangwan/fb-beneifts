@@ -34,7 +34,7 @@ type Benefit = {
 
 ## 수집 파이프라인
 
-1. 매일 한국시간 04:00, 08:00, 10:00에 수집 작업 실행
+1. 매일 한국시간 09:00, 11:00, 15:00, 19:00에 수집 작업 실행
 2. 공식 페이지 다운로드
 3. 페이지별 파서로 브랜드, 금액 조건, 할인율, 기간 추출
 4. 출처별 고유 ID와 `sourceHash` 생성
@@ -105,6 +105,6 @@ https://benefit-radar.<your-workers-subdomain>.workers.dev
 - `npm run collect`로 JSON 스냅샷 생성
 - `npm run upload:r2`로 `public/data/benefits.json`을 R2에 업로드
 - `npm run deploy:web`으로 빌드된 화면을 Cloudflare Workers에 배포
-- GitHub Actions의 `Update benefit JSON` 워크플로가 매일 한국시간 04:00, 08:00, 10:00에 실행
+- GitHub Actions의 `Update benefit JSON` 워크플로가 매일 한국시간 09:00, 11:00, 15:00, 19:00에 실행
 - 앱은 같은 도메인의 `/api/benefits`를 호출하고, Worker가 R2의 공개 `benefits.json`을 읽어 반환
 - 내 주변 매장, 혜택 종료 임박 알림, 브랜드별 최저가 랭킹 추가

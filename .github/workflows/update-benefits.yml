@@ -12,8 +12,8 @@ on:
       - "package.json"
       - "package-lock.json"
   schedule:
-    # 04:00, 08:00, 10:00 KST
-    - cron: "0 1,19,23 * * *"
+    # 09:00, 11:00, 15:00, 19:00 KST
+    - cron: "0 0,2,6,10 * * *"
   workflow_dispatch:
 
 permissions:

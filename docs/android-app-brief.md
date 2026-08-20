@@ -31,10 +31,13 @@ Prefer the Worker endpoint in the app because it keeps the API on our own domain
 
 ## Update Schedule
 
-GitHub Actions runs the benefit collector once a day:
+GitHub Actions runs the benefit collector four times a day:
 
 ```text
 00:00 UTC / 09:00 KST
+02:00 UTC / 11:00 KST
+06:00 UTC / 15:00 KST
+10:00 UTC / 19:00 KST
 ```
 
 The batch collects data, writes `public/data/benefits.json`, uploads it to Cloudflare R2, and commits the generated JSON when changed.
