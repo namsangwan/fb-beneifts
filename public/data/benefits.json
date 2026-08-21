@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-20T12:52:01.555Z",
-  "asOfDate": "2026-08-20",
-  "asOfLabel": "2026.08.20 21:51 KST",
+  "collectedAt": "2026-08-21T01:19:00.682Z",
+  "asOfDate": "2026-08-21",
+  "asOfLabel": "2026.08.21 10:18 KST",
   "warnings": [
     {
       "source": "compose",
@@ -305,6 +305,24 @@
       "notes": "2026.08.13(목) ~ 2026.08.31(월)",
       "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=663&keyword=&status=&scroll=y",
       "sourceLabel": "공차 이벤트",
+      "fit": 95
+    },
+    {
+      "id": "brand-parisbaguette-261e585164ae",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "파리바게뜨",
+      "category": "베이커리",
+      "title": "혜택 챙기러 파바 고!💙 8/21(금), 단 하루! 💚Npay 최대 50%",
+      "value": "최대50%",
+      "valueText": "혜택 챙기러 파바 고!💙 8/21(금), 단 하루! 💚Npay 최대 50%",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.08.21 - 2026.08.21",
+      "startsAt": "2026-08-21",
+      "validUntil": "2026-08-21",
+      "notes": "파리바게뜨 공식 프로모션 목록에서 확인.",
+      "source": "https://www.paris.co.kr/promotion/benefit-napy-260821/",
+      "sourceLabel": "파리바게뜨 프로모션",
       "fit": 95
     },
     {
@@ -1007,6 +1025,24 @@
       "notes": "종료일은 목록에 없어 최근 공식 혜택만 표시합니다.",
       "source": "https://www.mmthcoffee.com/sub/notice/view.html?noticeSeq=122",
       "sourceLabel": "매머드 공지",
+      "fit": 57
+    },
+    {
+      "id": "brand-mega-939601e1630c",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "메가MGC커피",
+      "category": "커피",
+      "title": "8월 메가MGC커피 X 카카오페이 할인 EVENT",
+      "value": "할인",
+      "valueText": "8월 메가MGC커피 X 카카오페이 할인 EVENT",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026-08-21부터",
+      "startsAt": "2026-08-21",
+      "validUntil": null,
+      "notes": "종료일은 목록에 없어 최근 공식 이벤트만 표시합니다.",
+      "source": "https://mega-mgccoffee.com/bbs/detail/?YmJzX2lkeD02NjImYmJzX2NhdGVnb3J5PTMmYmJzX2RldGFpbF9jYXRlZ29yeT0mYmJzX3BhZ2U9MQ==",
+      "sourceLabel": "메가MGC 이벤트",
       "fit": 57
     },
     {
