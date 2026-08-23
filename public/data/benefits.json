@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-23T03:03:09.395Z",
+  "collectedAt": "2026-08-23T06:41:25.027Z",
   "asOfDate": "2026-08-23",
-  "asOfLabel": "2026.08.23 12:02 KST",
+  "asOfLabel": "2026.08.23 15:41 KST",
   "warnings": [
     {
       "source": "compose",
@@ -27,6 +27,11 @@
       ],
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 1
+    },
+    {
+      "source": "kt-membership",
+      "reason": "fetch failed",
+      "fallbackCount": 8
     },
     {
       "source": "lguplus-ongoing",
@@ -353,9 +358,9 @@
       "value": "1.2만원",
       "valueText": "1.2만원 적립",
       "condition": "포인트·머니 3만원 이상 결제 시",
-      "period": "2026.08.01 - 2026.09.30",
+      "period": "2026.08.01 - 2026.08.31",
       "startsAt": "2026-08-01",
-      "validUntil": "2026-09-30",
+      "validUntil": "2026-08-31",
       "notes": "회원 기준 월 1회 적립 가능 페이스사인 결제 시 혜택 적용 가능",
       "source": "https://pay.naver.com/benefit/payment/detail/22873942115897",
       "sourceLabel": "네이버페이 상세",
