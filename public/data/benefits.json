@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-25T02:59:20.523Z",
+  "collectedAt": "2026-08-25T06:49:10.111Z",
   "asOfDate": "2026-08-25",
-  "asOfLabel": "2026.08.25 11:59 KST",
+  "asOfLabel": "2026.08.25 15:48 KST",
   "warnings": [
     {
       "source": "compose",
@@ -27,11 +27,6 @@
       ],
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 1
-    },
-    {
-      "source": "kt-membership",
-      "reason": "fetch failed",
-      "fallbackCount": 8
     },
     {
       "source": "lguplus-ongoing",
@@ -1002,9 +997,9 @@
       "pay": "브랜드",
       "brand": "파리바게뜨",
       "category": "베이커리",
-      "title": "🐝우리벌꿀 카스테라 구매 시, 🍞실키롤 케익 증정!",
+      "title": "🐝우리 벌꿀 카스테라 구매 시, 🍞실키롤 케익 증정!",
       "value": "증정",
-      "valueText": "🐝우리벌꿀 카스테라 구매 시, 🍞실키롤 케익 증정!",
+      "valueText": "🐝우리 벌꿀 카스테라 구매 시, 🍞실키롤 케익 증정!",
       "condition": "브랜드 공식 이벤트",
       "period": "2026.08.24 - 2026.08.31",
       "startsAt": "2026-08-24",
