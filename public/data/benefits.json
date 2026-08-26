@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-26T03:05:34.047Z",
+  "collectedAt": "2026-08-26T06:50:39.851Z",
   "asOfDate": "2026-08-26",
-  "asOfLabel": "2026.08.26 12:05 KST",
+  "asOfLabel": "2026.08.26 15:50 KST",
   "warnings": [
     {
       "source": "compose",
@@ -27,11 +27,6 @@
       ],
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 1
-    },
-    {
-      "source": "kt-membership",
-      "reason": "fetch failed",
-      "fallbackCount": 8
     },
     {
       "source": "lguplus-ongoing",
@@ -682,10 +677,10 @@
       "value": "15%",
       "valueText": "8.24~8.28 카카오페이 굿딜 결제 시 15% 할인!",
       "condition": "브랜드 공식 이벤트",
-      "period": "2026.08.24 - 2026.08.28",
+      "period": "2026.08.24 - 2026.08.26",
       "startsAt": "2026-08-24",
-      "validUntil": "2026-08-28",
-      "notes": "2026.08.24(월) ~ 2026.08.28(금)",
+      "validUntil": "2026-08-26",
+      "notes": "2026.08.24(월) ~ 2026.08.26(수)",
       "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=670&keyword=&status=&scroll=y",
       "sourceLabel": "공차 이벤트",
       "fit": 75
