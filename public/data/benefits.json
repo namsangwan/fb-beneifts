@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-27T07:54:00.318Z",
-  "asOfDate": "2026-08-27",
-  "asOfLabel": "2026.08.27 16:53 KST",
+  "collectedAt": "2026-08-27T20:10:48.874Z",
+  "asOfDate": "2026-08-28",
+  "asOfLabel": "2026.08.28 05:10 KST",
   "warnings": [
     {
       "source": "compose",
@@ -127,24 +127,6 @@
     }
   ],
   "benefits": [
-    {
-      "id": "naver-22873879368776",
-      "provider": "naverpay",
-      "pay": "네이버페이",
-      "brand": "HANS",
-      "category": "베이커리",
-      "title": "포인트·머니 1만원 이상 결제 시 50% 적립",
-      "value": "50%",
-      "valueText": "50% 적립",
-      "condition": "포인트·머니 1만원 이상 결제 시",
-      "period": "2026.08.14 - 2026.08.27",
-      "startsAt": "2026-08-14",
-      "validUntil": "2026-08-27",
-      "notes": "기간 내 횟수 제한 없이 1인 5만원 한도 적립 세부 내용은 '자세히 보기' 참고",
-      "source": "https://pay.naver.com/benefit/payment/detail/22873879368776",
-      "sourceLabel": "네이버페이 상세",
-      "fit": 98
-    },
     {
       "id": "naver-24278798653049",
       "provider": "naverpay",
