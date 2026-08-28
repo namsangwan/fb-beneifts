@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-27T20:10:48.874Z",
+  "collectedAt": "2026-08-28T09:58:02.781Z",
   "asOfDate": "2026-08-28",
-  "asOfLabel": "2026.08.28 05:10 KST",
+  "asOfLabel": "2026.08.28 18:57 KST",
   "warnings": [
     {
       "source": "compose",
@@ -263,10 +263,10 @@
       "value": "50%",
       "valueText": "[카카오페이] QR 오더로 1만원 이상 결제 시 50% OFF",
       "condition": "브랜드 공식 이벤트",
-      "period": "기간 미고지",
-      "startsAt": null,
-      "validUntil": null,
-      "notes": "파스쿠찌 공식 이벤트 목록에서 확인.",
+      "period": "2026.08.28 - 2026.08.30",
+      "startsAt": "2026-08-28",
+      "validUntil": "2026-08-30",
+      "notes": "2026.08.28-2026.08.30",
       "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1011",
       "sourceLabel": "파스쿠찌 이벤트",
       "fit": 95
@@ -504,6 +504,24 @@
       "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
       "sourceLabel": "SKT T day",
       "fit": 85
+    },
+    {
+      "id": "brand-starbucks-3528",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "스타벅스",
+      "category": "기타",
+      "title": "딜리버스 푸드 2종 30% 할인",
+      "value": "30%",
+      "valueText": "딜리버스 푸드 2종 30% 할인",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.08.28 - 2026.09.20",
+      "startsAt": "2026-08-28",
+      "validUntil": "2026-09-20",
+      "notes": "2026-08-28 ~ 2026-09-20",
+      "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3528",
+      "sourceLabel": "스타벅스 이벤트",
+      "fit": 83
     },
     {
       "id": "brand-pascucci-73aa5f6c36a0",
