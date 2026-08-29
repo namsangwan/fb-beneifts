@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-08-28T21:10:02.337Z",
+  "collectedAt": "2026-08-29T05:57:43.754Z",
   "asOfDate": "2026-08-29",
-  "asOfLabel": "2026.08.29 06:09 KST",
+  "asOfLabel": "2026.08.29 14:57 KST",
   "warnings": [
     {
       "source": "compose",
@@ -27,6 +27,11 @@
       ],
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 1
+    },
+    {
+      "source": "kt-membership",
+      "reason": "fetch failed",
+      "fallbackCount": 8
     },
     {
       "source": "lguplus-ongoing",
@@ -1115,24 +1120,6 @@
       "notes": "종료일은 목록에 없어 최근 공식 이벤트만 표시합니다.",
       "source": "https://mega-mgccoffee.com/bbs/detail/?YmJzX2lkeD02NDgmYmJzX2NhdGVnb3J5PTMmYmJzX2RldGFpbF9jYXRlZ29yeT0mYmJzX3BhZ2U9MQ==",
       "sourceLabel": "메가MGC 이벤트",
-      "fit": 57
-    },
-    {
-      "id": "brand-parisbaguette-68e5ec4f3d15",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "파리바게뜨",
-      "category": "베이커리",
-      "title": "🐝우리 벌꿀 카스테라 구매 시, 🍞실키롤 케익 증정!",
-      "value": "증정",
-      "valueText": "🐝우리 벌꿀 카스테라 구매 시, 🍞실키롤 케익 증정!",
-      "condition": "브랜드 공식 이벤트",
-      "period": "2026.08.24 - 2026.08.31",
-      "startsAt": "2026-08-24",
-      "validUntil": "2026-08-31",
-      "notes": "파리바게뜨 공식 프로모션 목록에서 확인.",
-      "source": "https://www.paris.co.kr/promotion/buy-castella-get-silkyrollcake-aug-2026/",
-      "sourceLabel": "파리바게뜨 프로모션",
       "fit": 57
     },
     {
