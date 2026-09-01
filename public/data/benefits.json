@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-09-01T03:55:47.854Z",
+  "collectedAt": "2026-09-01T11:14:02.700Z",
   "asOfDate": "2026-09-01",
-  "asOfLabel": "2026.09.01 12:55 KST",
+  "asOfLabel": "2026.09.01 20:13 KST",
   "warnings": [
     {
       "source": "compose",
@@ -35,11 +35,6 @@
       ],
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 1
-    },
-    {
-      "source": "kt-membership",
-      "reason": "fetch failed",
-      "fallbackCount": 8
     },
     {
       "source": "lguplus-ongoing",
@@ -661,24 +656,6 @@
       "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=639&keyword=&status=&scroll=y",
       "sourceLabel": "공차 이벤트",
       "fit": 67
-    },
-    {
-      "id": "naver-24278798653098",
-      "provider": "naverpay",
-      "pay": "네이버페이",
-      "brand": "D타워 광화문 커넥트 프로모션",
-      "category": "기타",
-      "title": "Npay 머니.포인트 결제시",
-      "value": "",
-      "valueText": "",
-      "condition": "Npay 머니.포인트 결제시",
-      "period": "2026.09.01 - 2026.09.30",
-      "startsAt": "2026-09-01",
-      "validUntil": "2026-09-30",
-      "notes": "Npay 머니.포인트 1만원 이상 결제 시 10% 적립 기간내 1인 최대 5만원 한도까지 적립",
-      "source": "https://pay.naver.com/benefit/payment/detail/24278798653098",
-      "sourceLabel": "네이버페이 상세",
-      "fit": 60
     },
     {
       "id": "skt-tday-fc5a7f36bc8b",
