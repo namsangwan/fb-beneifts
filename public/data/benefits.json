@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-09-01T11:14:02.700Z",
-  "asOfDate": "2026-09-01",
-  "asOfLabel": "2026.09.01 20:13 KST",
+  "collectedAt": "2026-09-02T03:15:32.527Z",
+  "asOfDate": "2026-09-02",
+  "asOfLabel": "2026.09.02 12:15 KST",
   "warnings": [
     {
       "source": "compose",
@@ -244,6 +244,24 @@
       "fit": 95
     },
     {
+      "id": "naver-24278798653244",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "D타워 광화문 프로모션",
+      "category": "기타",
+      "title": "포인트·머니 1만원 이상 결제 시 10% 적립",
+      "value": "10%",
+      "valueText": "10% 적립",
+      "condition": "포인트·머니 1만원 이상 결제 시",
+      "period": "2026.09.01 - 2026.09.30",
+      "startsAt": "2026-09-01",
+      "validUntil": "2026-09-30",
+      "notes": "Npay 머니.포인트 1만원 이상 결제 시 10% 적립 기간 내 1인 최대 5만원 한도까지 적립",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653244",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 90
+    },
+    {
       "id": "naver-24278798653199",
       "provider": "naverpay",
       "pay": "네이버페이",
@@ -352,6 +370,24 @@
       "fit": 90
     },
     {
+      "id": "naver-24278798653243",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "브리나케오슈",
+      "category": "기타",
+      "title": "2만원 이상 결제 시 6천원 적립",
+      "value": "6천원",
+      "valueText": "6천원 적립",
+      "condition": "2만원 이상 결제 시",
+      "period": "2026.08.10 - 2026.10.31",
+      "startsAt": "2026-08-10",
+      "validUntil": "2026-10-31",
+      "notes": "네이버페이 QR, 페이스사인 결제시 적용 회원 ID 기준 프로모션 기간 중 1회 적용",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653243",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 90
+    },
+    {
       "id": "brand-gongcha-06e0dd5cc825",
       "provider": "brand",
       "pay": "브랜드",
@@ -367,6 +403,24 @@
       "notes": "2026.09.01(화) ~ 2026.09.30(수)",
       "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=673&keyword=&status=&scroll=y",
       "sourceLabel": "공차 이벤트",
+      "fit": 87
+    },
+    {
+      "id": "brand-parisbaguette-b020f26d168c",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "파리바게뜨",
+      "category": "베이커리",
+      "title": "9월 매주 수요일! 새로워진 신한 슈퍼SOL로 1만원 이상 결제하면 💙4천원 혜택",
+      "value": "1만원",
+      "valueText": "9월 매주 수요일! 새로워진 신한 슈퍼SOL로 1만원 이상 결제하면 💙4천원 혜택",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.09.01 - 2026.09.30",
+      "startsAt": "2026-09-01",
+      "validUntil": "2026-09-30",
+      "notes": "파리바게뜨 공식 프로모션 목록에서 확인.",
+      "source": "https://www.paris.co.kr/promotion/pb-with-shinhan-super-sol-2026-sep/",
+      "sourceLabel": "파리바게뜨 프로모션",
       "fit": 87
     },
     {
@@ -656,6 +710,24 @@
       "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=639&keyword=&status=&scroll=y",
       "sourceLabel": "공차 이벤트",
       "fit": 67
+    },
+    {
+      "id": "naver-24278798653241",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "제주 착한가격업소",
+      "category": "기타",
+      "title": "2만원 이상 결제 시 2천원 적립",
+      "value": "2천원",
+      "valueText": "2천원 적립",
+      "condition": "2만원 이상 결제 시",
+      "period": "2026.09.01 - 2026.09.30",
+      "startsAt": "2026-09-01",
+      "validUntil": "2026-09-30",
+      "notes": "1인 월 4회 참여 가능 카드 결제 시 혜택 적용 불가",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653241",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 60
     },
     {
       "id": "skt-tday-fc5a7f36bc8b",
