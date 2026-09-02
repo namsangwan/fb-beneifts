@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-09-02T03:15:32.527Z",
+  "collectedAt": "2026-09-02T10:47:13.309Z",
   "asOfDate": "2026-09-02",
-  "asOfLabel": "2026.09.02 12:15 KST",
+  "asOfLabel": "2026.09.02 19:47 KST",
   "warnings": [
     {
       "source": "compose",
@@ -366,6 +366,24 @@
       "validUntil": "2026-09-30",
       "notes": "자세한 내용은 매장 안내 참조",
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653200",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 90
+    },
+    {
+      "id": "naver-24278798653246",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "태백산 제주본점",
+      "category": "기타",
+      "title": "3만원 이상 결제 시 6천원 적립",
+      "value": "6천원",
+      "valueText": "6천원 적립",
+      "condition": "3만원 이상 결제 시",
+      "period": "2026.08.10 - 2026.10.31",
+      "startsAt": "2026-08-10",
+      "validUntil": "2026-10-31",
+      "notes": "네이버페이 QR, 페이스사인 결제시 적용 회원 ID 기준 프로모션 기간 중 1회 적용",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653246",
       "sourceLabel": "네이버페이 상세",
       "fit": 90
     },
