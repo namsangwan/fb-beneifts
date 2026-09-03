@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-09-02T10:47:13.309Z",
-  "asOfDate": "2026-09-02",
-  "asOfLabel": "2026.09.02 19:47 KST",
+  "collectedAt": "2026-09-03T03:17:51.541Z",
+  "asOfDate": "2026-09-03",
+  "asOfLabel": "2026.09.03 12:17 KST",
   "warnings": [
     {
       "source": "compose",
@@ -11,14 +11,6 @@
       ],
       "reason": "Compose fetch failed: 403",
       "fallbackCount": 2
-    },
-    {
-      "source": "mega",
-      "brands": [
-        "메가MGC커피"
-      ],
-      "reason": "collector returned no current benefits; preserved previous current benefits",
-      "fallbackCount": 3
     },
     {
       "source": "twosome",
@@ -35,6 +27,11 @@
       ],
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 1
+    },
+    {
+      "source": "kt-membership",
+      "reason": "fetch failed",
+      "fallbackCount": 8
     },
     {
       "source": "lguplus-ongoing",
@@ -136,42 +133,6 @@
   ],
   "benefits": [
     {
-      "id": "skt-tday-8db951f76101",
-      "provider": "skt",
-      "pay": "SKT",
-      "brand": "공차",
-      "category": "커피",
-      "title": "인기 음료 6종 50% 할인/적립",
-      "value": "50%",
-      "valueText": "인기 음료 6종 50% 할인/적립",
-      "condition": "SKT T멤버십 T day",
-      "period": "2026.09.02 - 2026.09.02",
-      "startsAt": "2026-09-02",
-      "validUntil": "2026-09-02",
-      "notes": "이벤트 기간: 2026년 9월 2일(수) 오전 9시~오후 11시 59분",
-      "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
-      "sourceLabel": "SKT T day",
-      "fit": 97
-    },
-    {
-      "id": "skt-tday-967e987daf2f",
-      "provider": "skt",
-      "pay": "SKT",
-      "brand": "공차",
-      "category": "커피",
-      "title": "공차 인기 음료 6종 50% 할인/적립",
-      "value": "50%",
-      "valueText": "공차 인기 음료 6종 50% 할인/적립",
-      "condition": "SKT T멤버십 T day",
-      "period": "2026.09.02 - 2026.09.02",
-      "startsAt": "2026-09-02",
-      "validUntil": "2026-09-02",
-      "notes": "이벤트 기간: 2026년 9월 2일(수) 오전 9시~오후 11시 59분",
-      "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
-      "sourceLabel": "SKT T day",
-      "fit": 97
-    },
-    {
       "id": "skt-tday-7855148f49e5",
       "provider": "skt",
       "pay": "SKT",
@@ -223,24 +184,6 @@
       "notes": "할리스 공식 이벤트 목록에서 확인.",
       "source": "https://www.hollys.co.kr/news/event/view.do?idx=554&pageNo=1&division=",
       "sourceLabel": "할리스 이벤트",
-      "fit": 95
-    },
-    {
-      "id": "brand-gongcha-ba13a908b2c3",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "공차",
-      "category": "커피",
-      "title": "9.2 단 하루! SKT T day 인기음료 6종 50% 할인 또는 적립",
-      "value": "50%",
-      "valueText": "9.2 단 하루! SKT T day 인기음료 6종 50% 할인 또는 적립",
-      "condition": "브랜드 공식 이벤트",
-      "period": "2026.08.31 - 2026.09.02",
-      "startsAt": "2026-08-31",
-      "validUntil": "2026-09-02",
-      "notes": "2026.08.31(월) ~ 2026.09.02(수)",
-      "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=669&keyword=&status=&scroll=y",
-      "sourceLabel": "공차 이벤트",
       "fit": 95
     },
     {
@@ -748,6 +691,24 @@
       "fit": 60
     },
     {
+      "id": "skt-tday-acabc7e845f6",
+      "provider": "skt",
+      "pay": "SKT",
+      "brand": "파리바게뜨",
+      "category": "베이커리",
+      "title": "1,000원당 200원 할인 또는 200P 적립",
+      "value": "1,000원",
+      "valueText": "1,000원당 200원 할인 또는 200P 적립",
+      "condition": "SKT T멤버십 T day",
+      "period": "2026.09.07 - 2026.09.11",
+      "startsAt": "2026-09-07",
+      "validUntil": "2026-09-11",
+      "notes": "이벤트 기간: 2026년 9월 7일(월) 오전 9시~9월 11일(금) 오후 11시 59분",
+      "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
+      "sourceLabel": "SKT T day",
+      "fit": 59
+    },
+    {
       "id": "skt-tday-fc5a7f36bc8b",
       "provider": "skt",
       "pay": "SKT",
@@ -946,56 +907,20 @@
       "fit": 57
     },
     {
-      "id": "brand-mega-c714a9d6f01a",
+      "id": "brand-mega-ddec04527535",
       "provider": "brand",
       "pay": "브랜드",
       "brand": "메가MGC커피",
       "category": "커피",
-      "title": "8월 메가MGC커피 X 하나페이 할인 EVENT",
-      "value": "할인",
-      "valueText": "8월 메가MGC커피 X 하나페이 할인 EVENT",
-      "condition": "브랜드 공식 이벤트",
-      "period": "2026-08-05부터",
-      "startsAt": "2026-08-05",
-      "validUntil": null,
-      "notes": "종료일은 목록에 없어 최근 공식 이벤트만 표시합니다.",
-      "source": "https://mega-mgccoffee.com/bbs/detail/?YmJzX2lkeD02NTQmYmJzX2NhdGVnb3J5PTMmYmJzX2RldGFpbF9jYXRlZ29yeT0mYmJzX3BhZ2U9MQ==",
-      "sourceLabel": "메가MGC 이벤트",
-      "fit": 57
-    },
-    {
-      "id": "brand-mega-cc7a949d79b5",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "메가MGC커피",
-      "category": "커피",
-      "title": "8월 메가MGC커피 X PAYCO 적립/할인 EVENT",
+      "title": "9월 메가MGC커피 X 신한 SOL페이 적립 EVENT",
       "value": "적립",
-      "valueText": "8월 메가MGC커피 X PAYCO 적립/할인 EVENT",
+      "valueText": "9월 메가MGC커피 X 신한 SOL페이 적립 EVENT",
       "condition": "브랜드 공식 이벤트",
-      "period": "2026-07-31부터",
-      "startsAt": "2026-07-31",
+      "period": "2026-09-03부터",
+      "startsAt": "2026-09-03",
       "validUntil": null,
       "notes": "종료일은 목록에 없어 최근 공식 이벤트만 표시합니다.",
-      "source": "https://mega-mgccoffee.com/bbs/detail/?YmJzX2lkeD02NTImYmJzX2NhdGVnb3J5PTMmYmJzX2RldGFpbF9jYXRlZ29yeT0mYmJzX3BhZ2U9MQ==",
-      "sourceLabel": "메가MGC 이벤트",
-      "fit": 57
-    },
-    {
-      "id": "brand-mega-743ce45166d7",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "메가MGC커피",
-      "category": "커피",
-      "title": "8월 메가MGC커피 X 신한 SOL페이 적립 EVENT",
-      "value": "적립",
-      "valueText": "8월 메가MGC커피 X 신한 SOL페이 적립 EVENT",
-      "condition": "브랜드 공식 이벤트",
-      "period": "2026-07-27부터",
-      "startsAt": "2026-07-27",
-      "validUntil": null,
-      "notes": "종료일은 목록에 없어 최근 공식 이벤트만 표시합니다.",
-      "source": "https://mega-mgccoffee.com/bbs/detail/?YmJzX2lkeD02NDgmYmJzX2NhdGVnb3J5PTMmYmJzX2RldGFpbF9jYXRlZ29yeT0mYmJzX3BhZ2U9MQ==",
+      "source": "https://mega-mgccoffee.com/bbs/detail/?YmJzX2lkeD02NzMmYmJzX2NhdGVnb3J5PTMmYmJzX2RldGFpbF9jYXRlZ29yeT0mYmJzX3BhZ2U9MQ==",
       "sourceLabel": "메가MGC 이벤트",
       "fit": 57
     },
