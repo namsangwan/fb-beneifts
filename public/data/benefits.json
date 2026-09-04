@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-09-03T10:47:29.043Z",
-  "asOfDate": "2026-09-03",
-  "asOfLabel": "2026.09.03 19:47 KST",
+  "collectedAt": "2026-09-04T03:19:37.593Z",
+  "asOfDate": "2026-09-04",
+  "asOfLabel": "2026.09.04 12:19 KST",
   "warnings": [
     {
       "source": "compose",
@@ -27,11 +27,6 @@
       ],
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 1
-    },
-    {
-      "source": "kt-membership",
-      "reason": "fetch failed",
-      "fallbackCount": 8
     },
     {
       "source": "lguplus-ongoing",
@@ -184,6 +179,42 @@
       "notes": "할리스 공식 이벤트 목록에서 확인.",
       "source": "https://www.hollys.co.kr/news/event/view.do?idx=554&pageNo=1&division=",
       "sourceLabel": "할리스 이벤트",
+      "fit": 95
+    },
+    {
+      "id": "brand-mega-76e7c3063363",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "메가MGC커피",
+      "category": "커피",
+      "title": "카카오페이 굿딜 틴즈 50% 할인 EVENT",
+      "value": "50%",
+      "valueText": "카카오페이 굿딜 틴즈 50% 할인 EVENT",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026-09-03부터",
+      "startsAt": "2026-09-03",
+      "validUntil": null,
+      "notes": "종료일은 목록에 없어 최근 공식 이벤트만 표시합니다.",
+      "source": "https://mega-mgccoffee.com/bbs/detail/?YmJzX2lkeD02NzgmYmJzX2NhdGVnb3J5PTMmYmJzX2RldGFpbF9jYXRlZ29yeT0mYmJzX3BhZ2U9MQ==",
+      "sourceLabel": "메가MGC 이벤트",
+      "fit": 95
+    },
+    {
+      "id": "brand-parisbaguette-6e54e7eff859",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "파리바게뜨",
+      "category": "베이커리",
+      "title": "혜택 챙기러 파바 고!💙 9/4(금), 단 하루! 🩵ONE DAY 파바 최대 70%",
+      "value": "최대70%",
+      "valueText": "혜택 챙기러 파바 고!💙 9/4(금), 단 하루! 🩵ONE DAY 파바 최대 70%",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.09.04 - 2026.09.04",
+      "startsAt": "2026-09-04",
+      "validUntil": "2026-09-04",
+      "notes": "파리바게뜨 공식 프로모션 목록에서 확인.",
+      "source": "https://www.paris.co.kr/promotion/benefit-oneday-pb-260904/",
+      "sourceLabel": "파리바게뜨 프로모션",
       "fit": 95
     },
     {
@@ -922,6 +953,24 @@
       "notes": "종료일은 목록에 없어 최근 공식 이벤트만 표시합니다.",
       "source": "https://mega-mgccoffee.com/bbs/detail/?YmJzX2lkeD02NzMmYmJzX2NhdGVnb3J5PTMmYmJzX2RldGFpbF9jYXRlZ29yeT0mYmJzX3BhZ2U9MQ==",
       "sourceLabel": "메가MGC 이벤트",
+      "fit": 57
+    },
+    {
+      "id": "brand-parisbaguette-ad5f5c11f5c5",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "파리바게뜨",
+      "category": "베이커리",
+      "title": "🐝우리 벌꿀 카스테라 구매 시, 🍞호두파운드 케익 증정!",
+      "value": "증정",
+      "valueText": "🐝우리 벌꿀 카스테라 구매 시, 🍞호두파운드 케익 증정!",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.09.03 - 2026.09.13",
+      "startsAt": "2026-09-03",
+      "validUntil": "2026-09-13",
+      "notes": "파리바게뜨 공식 프로모션 목록에서 확인.",
+      "source": "https://www.paris.co.kr/promotion/buy-castella-get-walnutpoundcake-sep-2026/",
+      "sourceLabel": "파리바게뜨 프로모션",
       "fit": 57
     },
     {
