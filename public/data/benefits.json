@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-09-06T10:24:27.400Z",
-  "asOfDate": "2026-09-06",
-  "asOfLabel": "2026.09.06 19:24 KST",
+  "collectedAt": "2026-09-07T03:16:54.075Z",
+  "asOfDate": "2026-09-07",
+  "asOfLabel": "2026.09.07 12:16 KST",
   "warnings": [
     {
       "source": "compose",
@@ -179,24 +179,6 @@
       "notes": "할리스 공식 이벤트 목록에서 확인.",
       "source": "https://www.hollys.co.kr/news/event/view.do?idx=554&pageNo=1&division=",
       "sourceLabel": "할리스 이벤트",
-      "fit": 95
-    },
-    {
-      "id": "brand-mega-76e7c3063363",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "메가MGC커피",
-      "category": "커피",
-      "title": "카카오페이 굿딜 틴즈 50% 할인 EVENT",
-      "value": "50%",
-      "valueText": "카카오페이 굿딜 틴즈 50% 할인 EVENT",
-      "condition": "브랜드 공식 이벤트",
-      "period": "2026-09-03부터",
-      "startsAt": "2026-09-03",
-      "validUntil": null,
-      "notes": "종료일은 목록에 없어 최근 공식 이벤트만 표시합니다.",
-      "source": "https://mega-mgccoffee.com/bbs/detail/?YmJzX2lkeD02NzgmYmJzX2NhdGVnb3J5PTMmYmJzX2RldGFpbF9jYXRlZ29yeT0mYmJzX3BhZ2U9MQ==",
-      "sourceLabel": "메가MGC 이벤트",
       "fit": 95
     },
     {
@@ -503,6 +485,24 @@
       "notes": "2026-08-28 ~ 2026-09-20",
       "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3528",
       "sourceLabel": "스타벅스 이벤트",
+      "fit": 83
+    },
+    {
+      "id": "brand-pascucci-be91cf5731bc",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "파스쿠찌",
+      "category": "커피",
+      "title": "[네이버페이] Npay QR 결제 시 40% OFF",
+      "value": "40%",
+      "valueText": "[네이버페이] Npay QR 결제 시 40% OFF",
+      "condition": "브랜드 공식 이벤트",
+      "period": "기간 미고지",
+      "startsAt": null,
+      "validUntil": null,
+      "notes": "파스쿠찌 공식 이벤트 목록에서 확인.",
+      "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1018",
+      "sourceLabel": "파스쿠찌 이벤트",
       "fit": 83
     },
     {
@@ -828,6 +828,24 @@
       "source": "https://membership.kt.com/discount/partner/C21/81/PartnerDetail.do",
       "sourceLabel": "KT 멤버십",
       "fit": 59
+    },
+    {
+      "id": "brand-hollys-561",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "할리스",
+      "category": "커피",
+      "title": "♥ 5 DAYS, 5 TASTES ♥ 오늘의 메뉴 2천원 할인!",
+      "value": "2천원",
+      "valueText": "♥ 5 DAYS, 5 TASTES ♥ 오늘의 메뉴 2천원 할인!",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.09.07 - 2026.09.11",
+      "startsAt": "2026-09-07",
+      "validUntil": "2026-09-11",
+      "notes": "할리스 공식 이벤트 목록에서 확인.",
+      "source": "https://www.hollys.co.kr/news/event/view.do?idx=561&pageNo=1&division=",
+      "sourceLabel": "할리스 이벤트",
+      "fit": 57
     },
     {
       "id": "brand-hollys-555",
