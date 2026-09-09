@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-09-09T03:28:15.001Z",
+  "collectedAt": "2026-09-09T10:52:53.720Z",
   "asOfDate": "2026-09-09",
-  "asOfLabel": "2026.09.09 12:28 KST",
+  "asOfLabel": "2026.09.09 19:52 KST",
   "warnings": [
     {
       "source": "compose",
@@ -317,9 +317,9 @@
       "value": "6천원",
       "valueText": "6천원 적립",
       "condition": "포인트·머니 43,800원 이상 결제 시",
-      "period": "2026.09.09 - 2026.10.11",
+      "period": "2026.09.09 - 2026.10.18",
       "startsAt": "2026-09-09",
-      "validUntil": "2026-10-11",
+      "validUntil": "2026-10-18",
       "notes": "기간 내 1인 1회 참여 가능 카드 결제 시 혜택 적용 불가",
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653206",
       "sourceLabel": "네이버페이 상세",
@@ -358,6 +358,24 @@
       "validUntil": "2026-10-31",
       "notes": "네이버페이 QR, 페이스사인 결제시 적용 회원 ID 기준 프로모션 기간 중 1회 적용",
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653243",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 90
+    },
+    {
+      "id": "naver-24278798653266",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "하이디라오",
+      "category": "기타",
+      "title": "포인트·머니 10만원 이상 결제 시 1만원 적립",
+      "value": "1만원",
+      "valueText": "1만원 적립",
+      "condition": "포인트·머니 10만원 이상 결제 시",
+      "period": "2026.09.10 - 2026.10.09",
+      "startsAt": "2026-09-10",
+      "validUntil": "2026-10-09",
+      "notes": "자세한 사항은 매장 안내 참조",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653266",
       "sourceLabel": "네이버페이 상세",
       "fit": 90
     },
