@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-09-08T10:44:24.323Z",
-  "asOfDate": "2026-09-08",
-  "asOfLabel": "2026.09.08 19:44 KST",
+  "collectedAt": "2026-09-09T03:28:15.001Z",
+  "asOfDate": "2026-09-09",
+  "asOfLabel": "2026.09.09 12:28 KST",
   "warnings": [
     {
       "source": "compose",
@@ -164,24 +164,6 @@
       "fit": 97
     },
     {
-      "id": "brand-hollys-554",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "할리스",
-      "category": "커피",
-      "title": "할리스♥리센느, 첫 만남 기념! Welcome 50% 쿠폰",
-      "value": "50%",
-      "valueText": "할리스♥리센느, 첫 만남 기념! Welcome 50% 쿠폰",
-      "condition": "브랜드 공식 이벤트",
-      "period": "2026.08.18 - 2026.09.08",
-      "startsAt": "2026-08-18",
-      "validUntil": "2026-09-08",
-      "notes": "할리스 공식 이벤트 목록에서 확인.",
-      "source": "https://www.hollys.co.kr/news/event/view.do?idx=554&pageNo=1&division=",
-      "sourceLabel": "할리스 이벤트",
-      "fit": 95
-    },
-    {
       "id": "naver-24278798653244",
       "provider": "naverpay",
       "pay": "네이버페이",
@@ -254,6 +236,24 @@
       "fit": 90
     },
     {
+      "id": "naver-24278798653203",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "파스쿠찌",
+      "category": "커피",
+      "title": "포인트·머니·카드 QR 1만원 이상 결제 시 40% 할인",
+      "value": "40%",
+      "valueText": "40% 할인",
+      "condition": "포인트·머니·카드 QR 1만원 이상 결제 시",
+      "period": "2026.09.09 - 2026.09.13",
+      "startsAt": "2026-09-09",
+      "validUntil": "2026-09-13",
+      "notes": "1일 1회 참여 가능 삼성페이 결제 시 혜택 적용 불가",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653203",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 90
+    },
+    {
       "id": "naver-24278798653205",
       "provider": "naverpay",
       "pay": "네이버페이",
@@ -304,6 +304,24 @@
       "validUntil": "2026-09-30",
       "notes": "자세한 내용은 매장 안내 참조",
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653200",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 90
+    },
+    {
+      "id": "naver-24278798653206",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "명륜진사갈비",
+      "category": "기타",
+      "title": "포인트·머니 43,800원 이상 결제 시 6천원 적립",
+      "value": "6천원",
+      "valueText": "6천원 적립",
+      "condition": "포인트·머니 43,800원 이상 결제 시",
+      "period": "2026.09.09 - 2026.10.11",
+      "startsAt": "2026-09-09",
+      "validUntil": "2026-10-11",
+      "notes": "기간 내 1인 1회 참여 가능 카드 결제 시 혜택 적용 불가",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653206",
       "sourceLabel": "네이버페이 상세",
       "fit": 90
     },
@@ -396,6 +414,24 @@
       "source": "https://www.baristapaulbassett.co.kr/whatsNews/event/View.pb?eventSeq=4636",
       "sourceLabel": "폴바셋 이벤트",
       "fit": 87
+    },
+    {
+      "id": "naver-24278798653209",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "쉐이크쉑",
+      "category": "기타",
+      "title": "Npay QR 결제 시 25% 할인",
+      "value": "25%",
+      "valueText": "25% 할인",
+      "condition": "Npay QR 결제 시",
+      "period": "2026.09.09 - 2026.09.13",
+      "startsAt": "2026-09-09",
+      "validUntil": "2026-09-13",
+      "notes": "최대 8천원 할인 POS에서만 적용 가능(키오스크 할인 불가)",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653209",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 86
     },
     {
       "id": "naver-24278798653264",
@@ -971,6 +1007,24 @@
       "notes": "종료일은 목록에 없어 최근 공식 이벤트만 표시합니다.",
       "source": "https://mega-mgccoffee.com/bbs/detail/?YmJzX2lkeD02NzMmYmJzX2NhdGVnb3J5PTMmYmJzX2RldGFpbF9jYXRlZ29yeT0mYmJzX3BhZ2U9MQ==",
       "sourceLabel": "메가MGC 이벤트",
+      "fit": 57
+    },
+    {
+      "id": "brand-gongcha-42048c56f0b4",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "공차",
+      "category": "커피",
+      "title": "9월 9일 공차데이! SIZE UP 무료",
+      "value": "증정",
+      "valueText": "9월 9일 공차데이! SIZE UP 무료",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.09.09 - 2026.09.09",
+      "startsAt": "2026-09-09",
+      "validUntil": "2026-09-09",
+      "notes": "2026.09.09(수) ~ 2026.09.09(수)",
+      "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=672&keyword=&status=&scroll=y",
+      "sourceLabel": "공차 이벤트",
       "fit": 57
     },
     {
