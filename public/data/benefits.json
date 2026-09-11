@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-09-10T10:47:31.904Z",
-  "asOfDate": "2026-09-10",
-  "asOfLabel": "2026.09.10 19:47 KST",
+  "collectedAt": "2026-09-11T03:23:20.157Z",
+  "asOfDate": "2026-09-11",
+  "asOfLabel": "2026.09.11 12:23 KST",
   "warnings": [
     {
       "source": "compose",
@@ -27,11 +27,6 @@
       ],
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 1
-    },
-    {
-      "source": "kt-membership",
-      "reason": "fetch failed",
-      "fallbackCount": 8
     },
     {
       "source": "lguplus-ongoing",
@@ -132,6 +127,24 @@
     }
   ],
   "benefits": [
+    {
+      "id": "naver-24278798653208",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "HANS",
+      "category": "베이커리",
+      "title": "포인트·머니 1만원 이상 결제 시 50% 적립",
+      "value": "50%",
+      "valueText": "50% 적립",
+      "condition": "포인트·머니 1만원 이상 결제 시",
+      "period": "2026.09.11 - 2026.09.24",
+      "startsAt": "2026-09-11",
+      "validUntil": "2026-09-24",
+      "notes": "기간 내 횟수 제한 없이 1인 5만원 한도 적립 세부 내용은 '자세히 보기' 참고",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653208",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 98
+    },
     {
       "id": "skt-tday-7855148f49e5",
       "provider": "skt",
