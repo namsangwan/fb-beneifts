@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-09-11T10:44:26.616Z",
-  "asOfDate": "2026-09-11",
-  "asOfLabel": "2026.09.11 19:44 KST",
+  "collectedAt": "2026-09-12T03:28:44.633Z",
+  "asOfDate": "2026-09-12",
+  "asOfLabel": "2026.09.12 12:28 KST",
   "warnings": [
     {
       "source": "compose",
@@ -812,6 +812,24 @@
       "fit": 67
     },
     {
+      "id": "naver-24278798653196",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "던킨",
+      "category": "커피",
+      "title": "Npay QR 1.2만원 결제 시 4,800원 할인",
+      "value": "4,800원",
+      "valueText": "4,800원 할인",
+      "condition": "Npay QR 1.2만원 결제 시",
+      "period": "2026.09.12 - 2026.09.12",
+      "startsAt": "2026-09-12",
+      "validUntil": "2026-09-12",
+      "notes": "자세한 내용은 매장 안내 참조",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653196",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 60
+    },
+    {
       "id": "naver-24278798653241",
       "provider": "naverpay",
       "pay": "네이버페이",
@@ -828,42 +846,6 @@
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653241",
       "sourceLabel": "네이버페이 상세",
       "fit": 60
-    },
-    {
-      "id": "skt-tday-acabc7e845f6",
-      "provider": "skt",
-      "pay": "SKT",
-      "brand": "파리바게뜨",
-      "category": "베이커리",
-      "title": "1,000원당 200원 할인 또는 200P 적립",
-      "value": "1,000원",
-      "valueText": "1,000원당 200원 할인 또는 200P 적립",
-      "condition": "SKT T멤버십 T day",
-      "period": "2026.09.07 - 2026.09.11",
-      "startsAt": "2026-09-07",
-      "validUntil": "2026-09-11",
-      "notes": "이벤트 기간: 2026년 9월 7일(월) 오전 9시~9월 11일(금) 오후 11시 59분",
-      "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
-      "sourceLabel": "SKT T day",
-      "fit": 59
-    },
-    {
-      "id": "skt-tday-fc5a7f36bc8b",
-      "provider": "skt",
-      "pay": "SKT",
-      "brand": "파리바게뜨",
-      "category": "베이커리",
-      "title": "파리바게뜨 1,000원당 200원 할인 또는 200P 적립",
-      "value": "1,000원",
-      "valueText": "파리바게뜨 1,000원당 200원 할인 또는 200P 적립",
-      "condition": "SKT T멤버십 T day",
-      "period": "2026.09.07 - 2026.09.11",
-      "startsAt": "2026-09-07",
-      "validUntil": "2026-09-11",
-      "notes": "이벤트 기간: 2026년 9월 7일(월) 오전 9시~9월 11일(금) 오후 11시 59분",
-      "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
-      "sourceLabel": "SKT T day",
-      "fit": 59
     },
     {
       "id": "kt-membership-78",
@@ -954,24 +936,6 @@
       "source": "https://membership.kt.com/discount/partner/C21/81/PartnerDetail.do",
       "sourceLabel": "KT 멤버십",
       "fit": 59
-    },
-    {
-      "id": "brand-hollys-561",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "할리스",
-      "category": "커피",
-      "title": "♥ 5 DAYS, 5 TASTES ♥ 오늘의 메뉴 2천원 할인!",
-      "value": "2천원",
-      "valueText": "♥ 5 DAYS, 5 TASTES ♥ 오늘의 메뉴 2천원 할인!",
-      "condition": "브랜드 공식 이벤트",
-      "period": "2026.09.07 - 2026.09.11",
-      "startsAt": "2026-09-07",
-      "validUntil": "2026-09-11",
-      "notes": "할리스 공식 이벤트 목록에서 확인.",
-      "source": "https://www.hollys.co.kr/news/event/view.do?idx=561&pageNo=1&division=",
-      "sourceLabel": "할리스 이벤트",
-      "fit": 57
     },
     {
       "id": "brand-hollys-555",
