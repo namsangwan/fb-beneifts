@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-09-13T11:13:44.443Z",
-  "asOfDate": "2026-09-13",
-  "asOfLabel": "2026.09.13 20:13 KST",
+  "collectedAt": "2026-09-14T03:44:21.104Z",
+  "asOfDate": "2026-09-14",
+  "asOfLabel": "2026.09.14 12:44 KST",
   "warnings": [
     {
       "source": "compose",
@@ -18,7 +18,7 @@
         "투썸플레이스"
       ],
       "reason": "fetch failed",
-      "fallbackCount": 3
+      "fallbackCount": 2
     },
     {
       "source": "theventi",
@@ -27,6 +27,11 @@
       ],
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 1
+    },
+    {
+      "source": "kt-membership",
+      "reason": "fetch failed",
+      "fallbackCount": 8
     },
     {
       "source": "lguplus-ongoing",
@@ -146,6 +151,24 @@
       "fit": 98
     },
     {
+      "id": "naver-24278798653204",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "잠바주스",
+      "category": "커피",
+      "title": "Npay QR 1.5만원 이상 결제 시 50% 할인",
+      "value": "50%",
+      "valueText": "50% 할인",
+      "condition": "Npay QR 1.5만원 이상 결제 시",
+      "period": "2026.09.14 - 2026.09.20",
+      "startsAt": "2026-09-14",
+      "validUntil": "2026-09-20",
+      "notes": "결제 1회당 최대 1만원 한도 할인 타 혜택과 중복 적용 불가",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653204",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 98
+    },
+    {
       "id": "skt-tday-7855148f49e5",
       "provider": "skt",
       "pay": "SKT",
@@ -180,6 +203,24 @@
       "source": "https://membership.kt.com/discount/partner/C21/122/PartnerDetail.do",
       "sourceLabel": "KT 멤버십",
       "fit": 97
+    },
+    {
+      "id": "brand-gongcha-61165ab9b02c",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "공차",
+      "category": "커피",
+      "title": "9.14 LGU+ 유플투쁠 선착순 공차 최대 50% 할인쿠폰 증정!",
+      "value": "최대50%",
+      "valueText": "9.14 LGU+ 유플투쁠 선착순 공차 최대 50% 할인쿠폰 증정!",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.09.14 - 2026.09.30",
+      "startsAt": "2026-09-14",
+      "validUntil": "2026-09-30",
+      "notes": "2026.09.14(월) ~ 2026.09.30(수)",
+      "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=671&keyword=&status=&scroll=y",
+      "sourceLabel": "공차 이벤트",
+      "fit": 95
     },
     {
       "id": "naver-24278798653244",
@@ -232,24 +273,6 @@
       "validUntil": "2026-12-31",
       "notes": "클릭하고 혜택 신청하기 하신 분에 한하여 혜택이 제공됩니다. 네이버페이앱으로 결제 하신 분에 한하여 혜택 제공됩니다.",
       "source": "https://pay.naver.com/benefit/payment/detail/14414967832373",
-      "sourceLabel": "네이버페이 상세",
-      "fit": 90
-    },
-    {
-      "id": "naver-24278798653203",
-      "provider": "naverpay",
-      "pay": "네이버페이",
-      "brand": "파스쿠찌",
-      "category": "커피",
-      "title": "포인트·머니·카드 QR 1만원 이상 결제 시 40% 할인",
-      "value": "40%",
-      "valueText": "40% 할인",
-      "condition": "포인트·머니·카드 QR 1만원 이상 결제 시",
-      "period": "2026.09.09 - 2026.09.13",
-      "startsAt": "2026-09-09",
-      "validUntil": "2026-09-13",
-      "notes": "1일 1회 참여 가능 삼성페이 결제 시 혜택 적용 불가",
-      "source": "https://pay.naver.com/benefit/payment/detail/24278798653203",
       "sourceLabel": "네이버페이 상세",
       "fit": 90
     },
@@ -322,6 +345,42 @@
       "validUntil": "2026-10-09",
       "notes": "자세한 사항은 매장 안내 참조",
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653266",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 90
+    },
+    {
+      "id": "naver-24278798653293",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "베라나폴리",
+      "category": "기타",
+      "title": "Npay QR 결제 시 다이닝 세트 최대 5만원 할인",
+      "value": "최대5만원",
+      "valueText": "다이닝 세트 최대 5만원 할인",
+      "condition": "Npay QR 결제 시",
+      "period": "2026.09.14 - 2026.10.11",
+      "startsAt": "2026-09-14",
+      "validUntil": "2026-10-11",
+      "notes": "자세한 사항은 매장 안내 참조",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653293",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 90
+    },
+    {
+      "id": "naver-24278798653289",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "라그릴리아",
+      "category": "기타",
+      "title": "Npay QR 결제 시 다이닝 세트 최대 5만원 할인",
+      "value": "최대5만원",
+      "valueText": "다이닝 세트 최대 5만원 할인",
+      "condition": "Npay QR 결제 시",
+      "period": "2026.09.14 - 2026.10.11",
+      "startsAt": "2026-09-14",
+      "validUntil": "2026-10-11",
+      "notes": "다이닝 커플세트(정상가: 103,500원) Npay 결제시 3만원 할인 다이닝 패밀리세트(정상가: 202,000원) Npay 결제 시 5만원 할인",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653289",
       "sourceLabel": "네이버페이 상세",
       "fit": 90
     },
@@ -452,24 +511,6 @@
       "fit": 86
     },
     {
-      "id": "naver-24278798653209",
-      "provider": "naverpay",
-      "pay": "네이버페이",
-      "brand": "쉐이크쉑",
-      "category": "기타",
-      "title": "Npay QR 결제 시 25% 할인",
-      "value": "25%",
-      "valueText": "25% 할인",
-      "condition": "Npay QR 결제 시",
-      "period": "2026.09.09 - 2026.09.13",
-      "startsAt": "2026-09-09",
-      "validUntil": "2026-09-13",
-      "notes": "최대 8천원 할인 POS에서만 적용 가능(키오스크 할인 불가)",
-      "source": "https://pay.naver.com/benefit/payment/detail/24278798653209",
-      "sourceLabel": "네이버페이 상세",
-      "fit": 86
-    },
-    {
       "id": "naver-24278798653264",
       "provider": "naverpay",
       "pay": "네이버페이",
@@ -578,6 +619,24 @@
       "fit": 85
     },
     {
+      "id": "brand-parisbaguette-cdcaeea31770",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "파리바게뜨",
+      "category": "베이커리",
+      "title": "🍚밥 먹자! 💙파바 고? 최대 30% 선착순 혜택!",
+      "value": "최대30%",
+      "valueText": "🍚밥 먹자! 💙파바 고? 최대 30% 선착순 혜택!",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.09.13 - 2026.10.11",
+      "startsAt": "2026-09-13",
+      "validUntil": "2026-10-11",
+      "notes": "파리바게뜨 공식 프로모션 목록에서 확인.",
+      "source": "https://www.paris.co.kr/promotion/lets-pb-go-product/",
+      "sourceLabel": "파리바게뜨 프로모션",
+      "fit": 83
+    },
+    {
       "id": "brand-starbucks-3528",
       "provider": "brand",
       "pay": "브랜드",
@@ -596,20 +655,20 @@
       "fit": 83
     },
     {
-      "id": "brand-pascucci-be91cf5731bc",
+      "id": "brand-pascucci-b73dc05dbfcf",
       "provider": "brand",
       "pay": "브랜드",
       "brand": "파스쿠찌",
       "category": "커피",
-      "title": "[네이버페이] Npay QR 결제 시 40% OFF",
-      "value": "40%",
-      "valueText": "[네이버페이] Npay QR 결제 시 40% OFF",
+      "title": "[해피앱] 모바일 교환권 저당 빅 아이스티 외 20% OFF",
+      "value": "20%",
+      "valueText": "[해피앱] 모바일 교환권 저당 빅 아이스티 외 20% OFF",
       "condition": "브랜드 공식 이벤트",
-      "period": "2026.09.09 - 2026.09.13",
-      "startsAt": "2026-09-09",
-      "validUntil": "2026-09-13",
-      "notes": "2026.09.09-2026.09.13",
-      "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1018",
+      "period": "2026.09.14 - 2026.09.20",
+      "startsAt": "2026-09-14",
+      "validUntil": "2026-09-20",
+      "notes": "2026.09.14-2026.09.20",
+      "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1019",
       "sourceLabel": "파스쿠찌 이벤트",
       "fit": 83
     },
@@ -737,6 +796,24 @@
       "notes": "*해당 프로모션은 일부 매장에 한하여 진행됩니다.",
       "source": "https://www.hollys.co.kr/news/event/view.do?idx=518&pageNo=1&division=",
       "sourceLabel": "할리스 이벤트",
+      "fit": 75
+    },
+    {
+      "id": "brand-gongcha-06bc5588b45c",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "공차",
+      "category": "커피",
+      "title": "9.14~9.20 카카오페이 굿딜 결제 시 10% 할인!",
+      "value": "10%",
+      "valueText": "9.14~9.20 카카오페이 굿딜 결제 시 10% 할인!",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.09.14 - 2026.09.20",
+      "startsAt": "2026-09-14",
+      "validUntil": "2026-09-20",
+      "notes": "2026.09.14(월) ~ 2026.09.20(일)",
+      "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=675&keyword=&status=&scroll=y",
+      "sourceLabel": "공차 이벤트",
       "fit": 75
     },
     {
@@ -1010,6 +1087,24 @@
       "fit": 57
     },
     {
+      "id": "brand-mega-5fdf07433d9f",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "메가MGC커피",
+      "category": "커피",
+      "title": "9월 메가MGC커피 X 하나페이 할인 EVENT",
+      "value": "할인",
+      "valueText": "9월 메가MGC커피 X 하나페이 할인 EVENT",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026-09-03부터",
+      "startsAt": "2026-09-03",
+      "validUntil": null,
+      "notes": "종료일은 목록에 없어 최근 공식 이벤트만 표시합니다.",
+      "source": "https://mega-mgccoffee.com/bbs/detail/?YmJzX2lkeD02NzQmYmJzX2NhdGVnb3J5PTMmYmJzX2RldGFpbF9jYXRlZ29yeT0mYmJzX3BhZ2U9MQ==",
+      "sourceLabel": "메가MGC 이벤트",
+      "fit": 57
+    },
+    {
       "id": "brand-mega-ddec04527535",
       "provider": "brand",
       "pay": "브랜드",
@@ -1028,21 +1123,21 @@
       "fit": 57
     },
     {
-      "id": "brand-parisbaguette-ad5f5c11f5c5",
+      "id": "brand-paulbassett-ccd2154ab0f4",
       "provider": "brand",
       "pay": "브랜드",
-      "brand": "파리바게뜨",
-      "category": "베이커리",
-      "title": "🐝우리 벌꿀 카스테라 구매 시, 🍞호두파운드 케익 증정!",
-      "value": "증정",
-      "valueText": "🐝우리 벌꿀 카스테라 구매 시, 🍞호두파운드 케익 증정!",
+      "brand": "폴바셋",
+      "category": "커피",
+      "title": "폴 바셋 앱 퀴즈 이벤트 - 매주 월요일 9시마다 폴바셋 APP 접속 후 퀴즈 풀고! 쿠폰 받고",
+      "value": "쿠폰",
+      "valueText": "폴 바셋 앱 퀴즈 이벤트 - 매주 월요일 9시마다 폴바셋 APP 접속 후 퀴즈 풀고! 쿠폰 받고",
       "condition": "브랜드 공식 이벤트",
-      "period": "2026.09.03 - 2026.09.13",
-      "startsAt": "2026-09-03",
-      "validUntil": "2026-09-13",
-      "notes": "파리바게뜨 공식 프로모션 목록에서 확인.",
-      "source": "https://www.paris.co.kr/promotion/buy-castella-get-walnutpoundcake-sep-2026/",
-      "sourceLabel": "파리바게뜨 프로모션",
+      "period": "기간 미고지",
+      "startsAt": null,
+      "validUntil": null,
+      "notes": "폴바셋 공식 홈 이벤트 배너에서 확인. 종료일은 페이지에 별도 표기되지 않습니다.",
+      "source": "https://www.baristapaulbassett.co.kr/whatsNews/event/View.pb?eventSeq=4641",
+      "sourceLabel": "폴바셋 이벤트",
       "fit": 57
     },
     {
@@ -1133,24 +1228,6 @@
       "notes": "2026-08-28 ~ 2026-09-28",
       "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3521",
       "sourceLabel": "스타벅스 이벤트",
-      "fit": 57
-    },
-    {
-      "id": "brand-twosome-260804",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "투썸플레이스",
-      "category": "커피",
-      "title": "청호나이스 The M 미니얼음정수기 설치 프로모션",
-      "value": "프로모션",
-      "valueText": "청호나이스 The M 미니얼음정수기 설치 프로모션",
-      "condition": "브랜드 공식 이벤트",
-      "period": "2026.08.13 - 2026.09.13",
-      "startsAt": "2026-08-13",
-      "validUntil": "2026-09-13",
-      "notes": "진행중",
-      "source": "https://mo.twosome.co.kr/ev/eventList.do?eventDiv=progress&searchOpt=endSoon",
-      "sourceLabel": "투썸 이벤트",
       "fit": 57
     },
     {
