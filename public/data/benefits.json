@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-09-14T03:44:21.104Z",
+  "collectedAt": "2026-09-14T12:00:19.759Z",
   "asOfDate": "2026-09-14",
-  "asOfLabel": "2026.09.14 12:44 KST",
+  "asOfLabel": "2026.09.14 21:00 KST",
   "warnings": [
     {
       "source": "compose",
@@ -27,11 +27,6 @@
       ],
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 1
-    },
-    {
-      "source": "kt-membership",
-      "reason": "fetch failed",
-      "fallbackCount": 8
     },
     {
       "source": "lguplus-ongoing",
@@ -1156,6 +1151,24 @@
       "notes": "폴바셋 공식 홈 이벤트 배너에서 확인. 종료일은 페이지에 별도 표기되지 않습니다.",
       "source": "https://www.baristapaulbassett.co.kr/whatsNews/event/View.pb?eventSeq=4635",
       "sourceLabel": "폴바셋 이벤트",
+      "fit": 57
+    },
+    {
+      "id": "brand-starbucks-3541",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "스타벅스",
+      "category": "기타",
+      "title": "케이크 페어링 별★ 증정 디저트 위크",
+      "value": "증정",
+      "valueText": "케이크 페어링 별★ 증정 디저트 위크",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.09.14 - 2026.09.23",
+      "startsAt": "2026-09-14",
+      "validUntil": "2026-09-23",
+      "notes": "2026-09-15 ~ 2026-09-23",
+      "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3541",
+      "sourceLabel": "스타벅스 이벤트",
       "fit": 57
     },
     {
