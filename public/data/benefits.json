@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-09-14T12:00:19.759Z",
-  "asOfDate": "2026-09-14",
-  "asOfLabel": "2026.09.14 21:00 KST",
+  "collectedAt": "2026-09-15T03:44:54.910Z",
+  "asOfDate": "2026-09-15",
+  "asOfLabel": "2026.09.15 12:44 KST",
   "warnings": [
     {
       "source": "compose",
@@ -27,6 +27,11 @@
       ],
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 1
+    },
+    {
+      "source": "kt-membership",
+      "reason": "fetch failed",
+      "fallbackCount": 8
     },
     {
       "source": "lguplus-ongoing",
