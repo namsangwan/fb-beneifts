@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-09-17T03:46:52.996Z",
+  "collectedAt": "2026-09-17T11:07:36.461Z",
   "asOfDate": "2026-09-17",
-  "asOfLabel": "2026.09.17 12:46 KST",
+  "asOfLabel": "2026.09.17 20:07 KST",
   "warnings": [
     {
       "source": "compose",
@@ -524,14 +524,14 @@
       "fit": 86
     },
     {
-      "id": "skt-tday-5a5951d4c831",
+      "id": "skt-tday-422ac537da46",
       "provider": "skt",
       "pay": "SKT",
       "brand": "파리바게뜨",
       "category": "베이커리",
-      "title": "추석 기획전 40% 할인",
-      "value": "40%",
-      "valueText": "추석 기획전 40% 할인",
+      "title": "추석 기획전 최대 40% 할인",
+      "value": "최대40%",
+      "valueText": "추석 기획전 최대 40% 할인",
       "condition": "SKT T멤버십 T day",
       "period": "2026.09.23 - 2026.09.27",
       "startsAt": "2026-09-23",
@@ -542,14 +542,14 @@
       "fit": 85
     },
     {
-      "id": "skt-tday-9fab1cb5ad86",
+      "id": "skt-tday-505d3c82f47f",
       "provider": "skt",
       "pay": "SKT",
       "brand": "파리바게뜨",
       "category": "베이커리",
-      "title": "파리바게뜨 추석 선물류 12종 40% 할인(최대 8,000원)",
+      "title": "파리바게뜨 추석 선물류 17종 40% 할인(최대 8,000원)",
       "value": "40%",
-      "valueText": "파리바게뜨 추석 선물류 12종 40% 할인(최대 8,000원)",
+      "valueText": "파리바게뜨 추석 선물류 17종 40% 할인(최대 8,000원)",
       "condition": "SKT T멤버십 T day",
       "period": "2026.09.23 - 2026.09.27",
       "startsAt": "2026-09-23",
