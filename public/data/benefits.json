@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-09-16T10:57:46.725Z",
-  "asOfDate": "2026-09-16",
-  "asOfLabel": "2026.09.16 19:57 KST",
+  "collectedAt": "2026-09-17T03:46:52.996Z",
+  "asOfDate": "2026-09-17",
+  "asOfLabel": "2026.09.17 12:46 KST",
   "warnings": [
     {
       "source": "compose",
@@ -27,11 +27,6 @@
       ],
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 1
-    },
-    {
-      "source": "kt-membership",
-      "reason": "fetch failed",
-      "fallbackCount": 8
     },
     {
       "source": "lguplus-ongoing",
@@ -169,24 +164,6 @@
       "fit": 98
     },
     {
-      "id": "skt-tday-7855148f49e5",
-      "provider": "skt",
-      "pay": "SKT",
-      "brand": "던킨",
-      "category": "커피",
-      "title": "던킨 50% 할인/적립",
-      "value": "50%",
-      "valueText": "던킨 50% 할인/적립",
-      "condition": "SKT T멤버십 T day",
-      "period": "2026.09.16 - 2026.09.16",
-      "startsAt": "2026-09-16",
-      "validUntil": "2026-09-16",
-      "notes": "이벤트 기간: 2026년 9월 16일(수) 오전 9시~오후 11시 59분",
-      "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
-      "sourceLabel": "SKT T day",
-      "fit": 97
-    },
-    {
       "id": "kt-membership-122",
       "provider": "kt",
       "pay": "KT",
@@ -220,6 +197,24 @@
       "notes": "2026.09.14(월) ~ 2026.09.30(수)",
       "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=671&keyword=&status=&scroll=y",
       "sourceLabel": "공차 이벤트",
+      "fit": 95
+    },
+    {
+      "id": "brand-pascucci-27a0fc545851",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "파스쿠찌",
+      "category": "커피",
+      "title": "[해피앱] 추석맞이 최대 50% 혜택!",
+      "value": "최대50%",
+      "valueText": "[해피앱] 추석맞이 최대 50% 혜택!",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.09.17 - 2026.09.20",
+      "startsAt": "2026-09-17",
+      "validUntil": "2026-09-20",
+      "notes": "2026.09.17-2026.09.20",
+      "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1025",
+      "sourceLabel": "파스쿠찌 이벤트",
       "fit": 95
     },
     {
@@ -529,37 +524,19 @@
       "fit": 86
     },
     {
-      "id": "skt-tday-f2e88109d5ee",
+      "id": "skt-tday-5a5951d4c831",
       "provider": "skt",
       "pay": "SKT",
-      "brand": "던킨",
-      "category": "커피",
-      "title": "30% 할인/적립",
-      "value": "30%",
-      "valueText": "30% 할인/적립",
+      "brand": "파리바게뜨",
+      "category": "베이커리",
+      "title": "추석 기획전 40% 할인",
+      "value": "40%",
+      "valueText": "추석 기획전 40% 할인",
       "condition": "SKT T멤버십 T day",
-      "period": "2026.09.16 - 2026.09.16",
-      "startsAt": "2026-09-16",
-      "validUntil": "2026-09-16",
-      "notes": "이벤트 기간: 2026년 9월 16일(수) 오전 9시~오후 11시 59분",
-      "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
-      "sourceLabel": "SKT T day",
-      "fit": 85
-    },
-    {
-      "id": "skt-tday-1b6db94e58e5",
-      "provider": "skt",
-      "pay": "SKT",
-      "brand": "던킨",
-      "category": "커피",
-      "title": "던킨 30% 할인/적립",
-      "value": "30%",
-      "valueText": "던킨 30% 할인/적립",
-      "condition": "SKT T멤버십 T day",
-      "period": "2026.09.16 - 2026.09.16",
-      "startsAt": "2026-09-16",
-      "validUntil": "2026-09-16",
-      "notes": "이벤트 기간: 2026년 9월 16일(수) 오전 9시~오후 11시 59분",
+      "period": "2026.09.23 - 2026.09.27",
+      "startsAt": "2026-09-23",
+      "validUntil": "2026-09-27",
+      "notes": "쿠폰 사용 기간: 2026년 9월 23일(수) ~9월 27일(일)",
       "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
       "sourceLabel": "SKT T day",
       "fit": 85
@@ -1282,6 +1259,24 @@
       "notes": "진행중",
       "source": "https://mo.twosome.co.kr/ev/eventList.do?eventDiv=progress&searchOpt=endSoon",
       "sourceLabel": "투썸 이벤트",
+      "fit": 57
+    },
+    {
+      "id": "brand-pascucci-12becd66cf68",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "파스쿠찌",
+      "category": "커피",
+      "title": "[해피앱] 델리위크 핫샌드위치 구매시 아메리카노 증정",
+      "value": "증정",
+      "valueText": "[해피앱] 델리위크 핫샌드위치 구매시 아메리카노 증정",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.09.17 - 2026.09.30",
+      "startsAt": "2026-09-17",
+      "validUntil": "2026-09-30",
+      "notes": "2026.09.17-2026.09.30",
+      "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1026",
+      "sourceLabel": "파스쿠찌 이벤트",
       "fit": 57
     },
     {
