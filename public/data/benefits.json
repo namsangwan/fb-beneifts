@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-09-17T11:07:36.461Z",
-  "asOfDate": "2026-09-17",
-  "asOfLabel": "2026.09.17 20:07 KST",
+  "collectedAt": "2026-09-18T03:33:29.103Z",
+  "asOfDate": "2026-09-18",
+  "asOfLabel": "2026.09.18 12:33 KST",
   "warnings": [
     {
       "source": "compose",
@@ -27,6 +27,11 @@
       ],
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 1
+    },
+    {
+      "source": "kt-membership",
+      "reason": "fetch failed",
+      "fallbackCount": 8
     },
     {
       "source": "lguplus-ongoing",
@@ -216,6 +221,24 @@
       "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1025",
       "sourceLabel": "파스쿠찌 이벤트",
       "fit": 95
+    },
+    {
+      "id": "naver-24278798653341",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "뚜레쥬르",
+      "category": "베이커리",
+      "title": "2만원 이상 결제 시 1만원 적립",
+      "value": "1만원",
+      "valueText": "1만원 적립",
+      "condition": "2만원 이상 결제 시",
+      "period": "2026.09.18 - 2026.09.18",
+      "startsAt": "2026-09-18",
+      "validUntil": "2026-09-18",
+      "notes": "일부 매장 제외(행사매장 여부는 방문 전에 확인해 주세요)",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653341",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 90
     },
     {
       "id": "naver-24278798653244",
