@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-09-23T03:39:56.509Z",
+  "collectedAt": "2026-09-23T10:55:14.231Z",
   "asOfDate": "2026-09-23",
-  "asOfLabel": "2026.09.23 12:39 KST",
+  "asOfLabel": "2026.09.23 19:55 KST",
   "warnings": [
     {
       "source": "compose",
@@ -35,6 +35,11 @@
       ],
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 1
+    },
+    {
+      "source": "kt-membership",
+      "reason": "fetch failed",
+      "fallbackCount": 8
     },
     {
       "source": "lguplus-ongoing",
@@ -1105,6 +1110,24 @@
       "notes": "폴바셋 공식 홈 이벤트 배너에서 확인. 종료일은 페이지에 별도 표기되지 않습니다.",
       "source": "https://www.baristapaulbassett.co.kr/whatsNews/event/View.pb?eventSeq=4635",
       "sourceLabel": "폴바셋 이벤트",
+      "fit": 57
+    },
+    {
+      "id": "brand-starbucks-3558",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "스타벅스",
+      "category": "기타",
+      "title": "Welcoming Coffeehouse",
+      "value": "Welcoming Coffeehouse",
+      "valueText": "Welcoming Coffeehouse",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.09.23 - 2026.10.02",
+      "startsAt": "2026-09-23",
+      "validUntil": "2026-10-02",
+      "notes": "2026-09-28 ~ 2026-10-02",
+      "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3558",
+      "sourceLabel": "스타벅스 이벤트",
       "fit": 57
     },
     {
