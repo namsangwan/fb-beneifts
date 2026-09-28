@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-09-27T11:32:46.139Z",
-  "asOfDate": "2026-09-27",
-  "asOfLabel": "2026.09.27 20:32 KST",
+  "collectedAt": "2026-09-28T04:04:44.673Z",
+  "asOfDate": "2026-09-28",
+  "asOfLabel": "2026.09.28 13:04 KST",
   "warnings": [
     {
       "source": "compose",
@@ -35,6 +35,11 @@
       ],
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 1
+    },
+    {
+      "source": "kt-membership",
+      "reason": "fetch failed",
+      "fallbackCount": 8
     },
     {
       "source": "lguplus-ongoing",
@@ -135,6 +140,24 @@
     }
   ],
   "benefits": [
+    {
+      "id": "naver-24278798653334",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "공차",
+      "category": "커피",
+      "title": "포인트·머니 5천원 이상 결제 시 50% 적립",
+      "value": "50%",
+      "valueText": "50% 적립",
+      "condition": "포인트·머니 5천원 이상 결제 시",
+      "period": "2026.09.28 - 2026.09.30",
+      "startsAt": "2026-09-28",
+      "validUntil": "2026-09-30",
+      "notes": "기간내 1인 2만원 한도 적립 입점 매장 제외",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653334",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 98
+    },
     {
       "id": "naver-24278798653344",
       "provider": "naverpay",
@@ -550,42 +573,6 @@
       "fit": 85
     },
     {
-      "id": "skt-tday-329c6bd09a8d",
-      "provider": "skt",
-      "pay": "SKT",
-      "brand": "파리바게뜨",
-      "category": "베이커리",
-      "title": "추석 기획전 최대 40% 할인",
-      "value": "최대40%",
-      "valueText": "추석 기획전 최대 40% 할인",
-      "condition": "SKT T멤버십 T day",
-      "period": "2026.09.23 - 2026.09.27",
-      "startsAt": "2026-09-23",
-      "validUntil": "2026-09-27",
-      "notes": "쿠폰 사용 기간: 2026년 9월 23일(수) 오전 9시~9월 27일(일) 오후 11시 59분",
-      "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
-      "sourceLabel": "SKT T day",
-      "fit": 85
-    },
-    {
-      "id": "skt-tday-505d3c82f47f",
-      "provider": "skt",
-      "pay": "SKT",
-      "brand": "파리바게뜨",
-      "category": "베이커리",
-      "title": "파리바게뜨 추석 선물류 17종 40% 할인(최대 8,000원)",
-      "value": "40%",
-      "valueText": "파리바게뜨 추석 선물류 17종 40% 할인(최대 8,000원)",
-      "condition": "SKT T멤버십 T day",
-      "period": "2026.09.23 - 2026.09.27",
-      "startsAt": "2026-09-23",
-      "validUntil": "2026-09-27",
-      "notes": "쿠폰 사용 기간: 2026년 9월 23일(수) 오전 9시~9월 27일(일) 오후 11시 59분",
-      "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
-      "sourceLabel": "SKT T day",
-      "fit": 85
-    },
-    {
       "id": "brand-parisbaguette-cdcaeea31770",
       "provider": "brand",
       "pay": "브랜드",
@@ -604,6 +591,24 @@
       "fit": 83
     },
     {
+      "id": "brand-pascucci-450a87e5f620",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "파스쿠찌",
+      "category": "커피",
+      "title": "[해피앱] 가을 추천 메뉴 모바일 교환권 최대 24% 혜택",
+      "value": "최대24%",
+      "valueText": "[해피앱] 가을 추천 메뉴 모바일 교환권 최대 24% 혜택",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.09.28 - 2026.10.04",
+      "startsAt": "2026-09-28",
+      "validUntil": "2026-10-04",
+      "notes": "2026.09.28-2026.10.04",
+      "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1028",
+      "sourceLabel": "파스쿠찌 이벤트",
+      "fit": 83
+    },
+    {
       "id": "brand-pascucci-794881e78345",
       "provider": "brand",
       "pay": "브랜드",
@@ -618,6 +623,24 @@
       "validUntil": "2026-09-30",
       "notes": "2026.09.01-2026.09.30",
       "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1004",
+      "sourceLabel": "파스쿠찌 이벤트",
+      "fit": 83
+    },
+    {
+      "id": "brand-pascucci-7ec7d1f0e827",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "파스쿠찌",
+      "category": "커피",
+      "title": "[T 멤버십] T day VIP 40% 할인, 골드/실버 20% 할인!",
+      "value": "40%",
+      "valueText": "[T 멤버십] T day VIP 40% 할인, 골드/실버 20% 할인!",
+      "condition": "브랜드 공식 이벤트",
+      "period": "기간 미고지",
+      "startsAt": null,
+      "validUntil": null,
+      "notes": "파스쿠찌 공식 이벤트 목록에서 확인.",
+      "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=995",
       "sourceLabel": "파스쿠찌 이벤트",
       "fit": 83
     },
@@ -656,24 +679,6 @@
       "source": "https://pay.naver.com/benefit/payment/detail/22873938557245",
       "sourceLabel": "네이버페이 상세",
       "fit": 82
-    },
-    {
-      "id": "brand-pascucci-e929e507aa88",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "파스쿠찌",
-      "category": "커피",
-      "title": "[해피오더] 매월 마지막주 픽업위크 4천원 혜택!",
-      "value": "4천원",
-      "valueText": "[해피오더] 매월 마지막주 픽업위크 4천원 혜택!",
-      "condition": "브랜드 공식 이벤트",
-      "period": "2026.09.21 - 2026.09.27",
-      "startsAt": "2026-09-21",
-      "validUntil": "2026-09-27",
-      "notes": "2026.09.21-2026.09.27",
-      "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1024",
-      "sourceLabel": "파스쿠찌 이벤트",
-      "fit": 79
     },
     {
       "id": "naver-24278798653290",
@@ -818,24 +823,6 @@
       "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=639&keyword=&status=&scroll=y",
       "sourceLabel": "공차 이벤트",
       "fit": 67
-    },
-    {
-      "id": "naver-24278798653198",
-      "provider": "naverpay",
-      "pay": "네이버페이",
-      "brand": "배스킨라빈스",
-      "category": "간식",
-      "title": "Npay QR 결제 시 레디팩 2+2 증정",
-      "value": "2+2",
-      "valueText": "레디팩 2+2 증정",
-      "condition": "Npay QR 결제 시",
-      "period": "2026.09.21 - 2026.09.27",
-      "startsAt": "2026-09-21",
-      "validUntil": "2026-09-27",
-      "notes": "자세한 내용은 매장 안내 참조",
-      "source": "https://pay.naver.com/benefit/payment/detail/24278798653198",
-      "sourceLabel": "네이버페이 상세",
-      "fit": 60
     },
     {
       "id": "naver-24278798653241",
