@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-09-28T13:06:36.059Z",
-  "asOfDate": "2026-09-28",
-  "asOfLabel": "2026.09.28 22:06 KST",
+  "collectedAt": "2026-09-29T04:37:45.629Z",
+  "asOfDate": "2026-09-29",
+  "asOfLabel": "2026.09.29 13:37 KST",
   "warnings": [
     {
       "source": "compose",
@@ -1072,24 +1072,6 @@
       "fit": 57
     },
     {
-      "id": "brand-paulbassett-ccd2154ab0f4",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "폴바셋",
-      "category": "커피",
-      "title": "폴 바셋 앱 퀴즈 이벤트 - 매주 월요일 9시마다 폴바셋 APP 접속 후 퀴즈 풀고! 쿠폰 받고",
-      "value": "쿠폰",
-      "valueText": "폴 바셋 앱 퀴즈 이벤트 - 매주 월요일 9시마다 폴바셋 APP 접속 후 퀴즈 풀고! 쿠폰 받고",
-      "condition": "브랜드 공식 이벤트",
-      "period": "기간 미고지",
-      "startsAt": null,
-      "validUntil": null,
-      "notes": "폴바셋 공식 홈 이벤트 배너에서 확인. 종료일은 페이지에 별도 표기되지 않습니다.",
-      "source": "https://www.baristapaulbassett.co.kr/whatsNews/event/View.pb?eventSeq=4641",
-      "sourceLabel": "폴바셋 이벤트",
-      "fit": 57
-    },
-    {
       "id": "brand-paulbassett-48b2d6fdd0ea",
       "provider": "brand",
       "pay": "브랜드",
@@ -1212,24 +1194,6 @@
       "validUntil": "2026-09-30",
       "notes": "스타벅스 공식 이벤트 목록에서 확인.",
       "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3519",
-      "sourceLabel": "스타벅스 이벤트",
-      "fit": 57
-    },
-    {
-      "id": "brand-starbucks-3521",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "스타벅스",
-      "category": "기타",
-      "title": "One More Coffee with 블랙 글레이즈드 라떼",
-      "value": "One More Coffee with 블랙 글레이즈드 라떼",
-      "valueText": "One More Coffee with 블랙 글레이즈드 라떼",
-      "condition": "브랜드 공식 이벤트",
-      "period": "2026.08.27 - 2026.09.28",
-      "startsAt": "2026-08-27",
-      "validUntil": "2026-09-28",
-      "notes": "2026-08-28 ~ 2026-09-28",
-      "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3521",
       "sourceLabel": "스타벅스 이벤트",
       "fit": 57
     },
