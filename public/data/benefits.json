@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-09-29T12:16:32.577Z",
-  "asOfDate": "2026-09-29",
-  "asOfLabel": "2026.09.29 21:16 KST",
+  "collectedAt": "2026-09-30T04:21:35.965Z",
+  "asOfDate": "2026-09-30",
+  "asOfLabel": "2026.09.30 13:21 KST",
   "warnings": [
     {
       "source": "compose",
@@ -21,12 +21,12 @@
       "fallbackCount": 1
     },
     {
-      "source": "twosome",
+      "source": "starbucks",
       "brands": [
-        "투썸플레이스"
+        "스타벅스"
       ],
       "reason": "fetch failed",
-      "fallbackCount": 2
+      "fallbackCount": 5
     },
     {
       "source": "theventi",
@@ -1108,24 +1108,6 @@
       "fit": 57
     },
     {
-      "id": "brand-starbucks-3555",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "스타벅스",
-      "category": "기타",
-      "title": "차량용 햇빛 가리개 증정 이벤트",
-      "value": "증정",
-      "valueText": "차량용 햇빛 가리개 증정 이벤트",
-      "condition": "브랜드 공식 이벤트",
-      "period": "2026.09.22 - 2026.09.29",
-      "startsAt": "2026-09-22",
-      "validUntil": "2026-09-29",
-      "notes": "2026-09-23 ~ 소진 시까지",
-      "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3555",
-      "sourceLabel": "스타벅스 이벤트",
-      "fit": 57
-    },
-    {
       "id": "brand-starbucks-3518",
       "provider": "brand",
       "pay": "브랜드",
@@ -1195,24 +1177,6 @@
       "notes": "스타벅스 공식 이벤트 목록에서 확인.",
       "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3519",
       "sourceLabel": "스타벅스 이벤트",
-      "fit": 57
-    },
-    {
-      "id": "brand-twosome-260803",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "투썸플레이스",
-      "category": "커피",
-      "title": "앱 한정 자몽생 미니+아메리카노(R) 할인",
-      "value": "할인",
-      "valueText": "앱 한정 자몽생 미니+아메리카노(R) 할인",
-      "condition": "브랜드 공식 이벤트",
-      "period": "2026.08.07 - 2026.09.30",
-      "startsAt": "2026-08-07",
-      "validUntil": "2026-09-30",
-      "notes": "진행중",
-      "source": "https://mo.twosome.co.kr/ev/eventList.do?eventDiv=progress&searchOpt=endSoon",
-      "sourceLabel": "투썸 이벤트",
       "fit": 57
     },
     {
