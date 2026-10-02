@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-10-02T04:25:55.239Z",
+  "collectedAt": "2026-10-02T12:00:13.754Z",
   "asOfDate": "2026-10-02",
-  "asOfLabel": "2026.10.02 13:25 KST",
+  "asOfLabel": "2026.10.02 21:00 KST",
   "warnings": [
     {
       "source": "compose",
@@ -35,6 +35,11 @@
       ],
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 1
+    },
+    {
+      "source": "kt-membership",
+      "reason": "fetch failed",
+      "fallbackCount": 8
     },
     {
       "source": "lguplus-ongoing",
@@ -289,9 +294,9 @@
       "value": "6천원",
       "valueText": "6천원 적립",
       "condition": "포인트·머니 43,800원 이상 결제 시",
-      "period": "2026.09.09 - 2026.10.18",
+      "period": "2026.09.09 - 2026.10.11",
       "startsAt": "2026-09-09",
-      "validUntil": "2026-10-18",
+      "validUntil": "2026-10-11",
       "notes": "기간 내 1인 1회 참여 가능 카드 결제 시 혜택 적용 불가",
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653206",
       "sourceLabel": "네이버페이 상세",
