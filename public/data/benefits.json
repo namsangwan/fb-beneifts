@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-10-06T12:53:51.893Z",
-  "asOfDate": "2026-10-06",
-  "asOfLabel": "2026.10.06 21:53 KST",
+  "collectedAt": "2026-10-07T04:42:23.818Z",
+  "asOfDate": "2026-10-07",
+  "asOfLabel": "2026.10.07 13:42 KST",
   "warnings": [
     {
       "source": "compose",
@@ -404,6 +404,24 @@
       "source": "https://www.baristapaulbassett.co.kr/whatsNews/event/View.pb?eventSeq=4636",
       "sourceLabel": "폴바셋 이벤트",
       "fit": 87
+    },
+    {
+      "id": "naver-24278798653439",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "쉐이크쉑",
+      "category": "기타",
+      "title": "Npay QR 결제 시 40% 할인",
+      "value": "40%",
+      "valueText": "40% 할인",
+      "condition": "Npay QR 결제 시",
+      "period": "2026.10.07 - 2026.10.11",
+      "startsAt": "2026-10-07",
+      "validUntil": "2026-10-11",
+      "notes": "최대 8천원 할인 인천공항 T1, T2점은 행사매장에서 제외",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653439",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 86
     },
     {
       "id": "skt-tday-eb77bcce4e3a",
