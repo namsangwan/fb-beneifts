@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-10-07T04:42:23.818Z",
+  "collectedAt": "2026-10-07T12:47:27.825Z",
   "asOfDate": "2026-10-07",
-  "asOfLabel": "2026.10.07 13:42 KST",
+  "asOfLabel": "2026.10.07 21:47 KST",
   "warnings": [
     {
       "source": "compose",
@@ -1033,6 +1033,24 @@
       "notes": "폴바셋 공식 홈 이벤트 배너에서 확인. 종료일은 페이지에 별도 표기되지 않습니다.",
       "source": "https://www.baristapaulbassett.co.kr/whatsNews/event/View.pb?eventSeq=4635",
       "sourceLabel": "폴바셋 이벤트",
+      "fit": 57
+    },
+    {
+      "id": "brand-starbucks-3571",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "스타벅스",
+      "category": "기타",
+      "title": "베어리스타 피크닉 매트 증정 이벤트",
+      "value": "증정",
+      "valueText": "베어리스타 피크닉 매트 증정 이벤트",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026-10-07부터",
+      "startsAt": "2026-10-07",
+      "validUntil": null,
+      "notes": "2026-10-08 ~ 소진 시까지",
+      "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3571",
+      "sourceLabel": "스타벅스 이벤트",
       "fit": 57
     },
     {
