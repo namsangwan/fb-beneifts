@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-10-08T12:56:33.938Z",
-  "asOfDate": "2026-10-08",
-  "asOfLabel": "2026.10.08 21:56 KST",
+  "collectedAt": "2026-10-09T04:55:48.677Z",
+  "asOfDate": "2026-10-09",
+  "asOfLabel": "2026.10.09 13:55 KST",
   "warnings": [
     {
       "source": "compose",
@@ -35,6 +35,11 @@
       ],
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 1
+    },
+    {
+      "source": "kt-membership",
+      "reason": "fetch failed",
+      "fallbackCount": 8
     },
     {
       "source": "lguplus-ongoing",
@@ -730,24 +735,6 @@
       "fit": 75
     },
     {
-      "id": "brand-gongcha-e18eb8f4069c",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "공차",
-      "category": "커피",
-      "title": "10.6~10.8 카카오페이 굿딜 결제 시 15% 할인!",
-      "value": "15%",
-      "valueText": "10.6~10.8 카카오페이 굿딜 결제 시 15% 할인!",
-      "condition": "브랜드 공식 이벤트",
-      "period": "2026.10.06 - 2026.10.08",
-      "startsAt": "2026-10-06",
-      "validUntil": "2026-10-08",
-      "notes": "2026.10.06(화) ~ 2026.10.08(목)",
-      "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=683&keyword=&status=&scroll=y",
-      "sourceLabel": "공차 이벤트",
-      "fit": 75
-    },
-    {
       "id": "brand-twosome-260219",
       "provider": "brand",
       "pay": "브랜드",
@@ -818,6 +805,24 @@
       "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=639&keyword=&status=&scroll=y",
       "sourceLabel": "공차 이벤트",
       "fit": 67
+    },
+    {
+      "id": "naver-24278798653469",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "던킨",
+      "category": "커피",
+      "title": "Npay QR 1.2만원 결제 시 4,800원 할인",
+      "value": "4,800원",
+      "valueText": "4,800원 할인",
+      "condition": "Npay QR 1.2만원 결제 시",
+      "period": "2026.10.09 - 2026.10.09",
+      "startsAt": "2026-10-09",
+      "validUntil": "2026-10-09",
+      "notes": "자세한 내용은 매장 안내 참조",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653469",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 60
     },
     {
       "id": "skt-tday-f68c39fd1e76",
@@ -1015,24 +1020,6 @@
       "notes": "종료일은 목록에 없어 최근 공식 혜택만 표시합니다.",
       "source": "https://www.mmthcoffee.com/sub/notice/view.html?noticeSeq=122",
       "sourceLabel": "매머드 공지",
-      "fit": 57
-    },
-    {
-      "id": "brand-mega-01cfff3ed379",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "메가MGC커피",
-      "category": "커피",
-      "title": "10월 메가MGC커피 X 카카오페이 (ICE)아메리카노 99원 챌린지 EVENT",
-      "value": "99원",
-      "valueText": "10월 메가MGC커피 X 카카오페이 (ICE)아메리카노 99원 챌린지 EVENT",
-      "condition": "브랜드 공식 이벤트",
-      "period": "2026-10-01부터",
-      "startsAt": "2026-10-01",
-      "validUntil": null,
-      "notes": "종료일은 목록에 없어 최근 공식 이벤트만 표시합니다.",
-      "source": "https://mega-mgccoffee.com/bbs/detail/?YmJzX2lkeD02OTEmYmJzX2NhdGVnb3J5PTMmYmJzX2RldGFpbF9jYXRlZ29yeT0mYmJzX3BhZ2U9MQ==",
-      "sourceLabel": "메가MGC 이벤트",
       "fit": 57
     },
     {
