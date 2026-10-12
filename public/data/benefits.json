@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-10-12T04:42:17.312Z",
+  "collectedAt": "2026-10-12T14:37:34.159Z",
   "asOfDate": "2026-10-12",
-  "asOfLabel": "2026.10.12 13:42 KST",
+  "asOfLabel": "2026.10.12 23:37 KST",
   "warnings": [
     {
       "source": "compose",
@@ -679,6 +679,24 @@
       "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=639&keyword=&status=&scroll=y",
       "sourceLabel": "공차 이벤트",
       "fit": 67
+    },
+    {
+      "id": "naver-24278798653490",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "파리바게뜨 네플멤 더블혜택",
+      "category": "베이커리",
+      "title": "파리바게뜨 X 네이버플러스멤버십 회원 Npay QR 결제 더블혜택",
+      "value": "",
+      "valueText": "",
+      "condition": "파리바게뜨 X 네이버플러스멤버십 회원 Npay QR 결제 더블혜택",
+      "period": "2026.10.12 - 2026.10.31",
+      "startsAt": "2026-10-12",
+      "validUntil": "2026-10-31",
+      "notes": "- 파리바게뜨에서 네이버플러스멤버십 회원이 Npay QR결제시 현장할인 5% & 포인트 5% 적립 - 1일 1회 5천원 한도 적립 적용",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653490",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 60
     },
     {
       "id": "kt-membership-78",
