@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-10-14T03:50:30.076Z",
+  "collectedAt": "2026-10-14T11:20:59.580Z",
   "asOfDate": "2026-10-14",
-  "asOfLabel": "2026.10.14 12:50 KST",
+  "asOfLabel": "2026.10.14 20:20 KST",
   "warnings": [
     {
       "source": "compose",
@@ -375,9 +375,9 @@
       "pay": "네이버페이",
       "brand": "파리바게뜨",
       "category": "베이커리",
-      "title": "Npay QR 결제 시 파란라벨 전 제품 40% 할인",
+      "title": "Npay QR 결제 시 파란라벨 40% 할인",
       "value": "40%",
-      "valueText": "파란라벨 전 제품 40% 할인",
+      "valueText": "파란라벨 40% 할인",
       "condition": "Npay QR 결제 시",
       "period": "2026.10.13 - 2026.10.18",
       "startsAt": "2026-10-13",
