@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-10-13T13:42:15.367Z",
-  "asOfDate": "2026-10-13",
-  "asOfLabel": "2026.10.13 22:42 KST",
+  "collectedAt": "2026-10-14T03:50:30.076Z",
+  "asOfDate": "2026-10-14",
+  "asOfLabel": "2026.10.14 12:50 KST",
   "warnings": [
     {
       "source": "compose",
@@ -530,6 +530,24 @@
       "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
       "sourceLabel": "SKT T day",
       "fit": 85
+    },
+    {
+      "id": "brand-parisbaguette-9a24bd70125b",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "파리바게뜨",
+      "category": "베이커리",
+      "title": "💚Npay QR 결제 시, 파란라벨 전 제품 40% 할인💙",
+      "value": "40%",
+      "valueText": "💚Npay QR 결제 시, 파란라벨 전 제품 40% 할인💙",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.10.14 - 2026.10.18",
+      "startsAt": "2026-10-14",
+      "validUntil": "2026-10-18",
+      "notes": "파리바게뜨 공식 프로모션 목록에서 확인.",
+      "source": "https://www.paris.co.kr/promotion/benefit-napy-paranlabel/",
+      "sourceLabel": "파리바게뜨 프로모션",
+      "fit": 83
     },
     {
       "id": "brand-pascucci-794881e78345",
