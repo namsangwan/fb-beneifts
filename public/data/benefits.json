@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-10-14T11:20:59.580Z",
-  "asOfDate": "2026-10-14",
-  "asOfLabel": "2026.10.14 20:20 KST",
+  "collectedAt": "2026-10-15T03:32:13.948Z",
+  "asOfDate": "2026-10-15",
+  "asOfLabel": "2026.10.15 12:32 KST",
   "warnings": [
     {
       "source": "compose",
@@ -135,6 +135,24 @@
     }
   ],
   "benefits": [
+    {
+      "id": "naver-24278798653508",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "설빙",
+      "category": "기타",
+      "title": "포인트·머니 9,900원 이상 결제 시 50% 적립",
+      "value": "50%",
+      "valueText": "50% 적립",
+      "condition": "포인트·머니 9,900원 이상 결제 시",
+      "period": "2026.10.15 - 2026.10.18",
+      "startsAt": "2026-10-15",
+      "validUntil": "2026-10-18",
+      "notes": "기간내 횟수 제한없이 1인 3만원 한도까지 적립",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653508",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 98
+    },
     {
       "id": "skt-tday-3a52ddf44157",
       "provider": "skt",
@@ -473,6 +491,24 @@
       "startsAt": "2026-10-12",
       "validUntil": "2026-10-16",
       "notes": "이벤트 기간: 2026년 10월 12일(월) 오전 9시~10월 16일(금) 오후 11시 59분",
+      "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
+      "sourceLabel": "SKT T day",
+      "fit": 85
+    },
+    {
+      "id": "skt-tday-3d10a4c13253",
+      "provider": "skt",
+      "pay": "SKT",
+      "brand": "던킨",
+      "category": "커피",
+      "title": "30% 할인/적립",
+      "value": "30%",
+      "valueText": "30% 할인/적립",
+      "condition": "SKT T멤버십 T day",
+      "period": "2026.10.21 - 2026.10.21",
+      "startsAt": "2026-10-21",
+      "validUntil": "2026-10-21",
+      "notes": "이벤트 기간: 2026년 10월 21일(수) 오전 9시~오후 11시 59분",
       "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
       "sourceLabel": "SKT T day",
       "fit": 85
