@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-10-15T10:58:09.835Z",
-  "asOfDate": "2026-10-15",
-  "asOfLabel": "2026.10.15 19:57 KST",
+  "collectedAt": "2026-10-16T03:27:54.891Z",
+  "asOfDate": "2026-10-16",
+  "asOfLabel": "2026.10.16 12:27 KST",
   "warnings": [
     {
       "source": "compose",
@@ -35,11 +35,6 @@
       ],
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 1
-    },
-    {
-      "source": "kt-membership",
-      "reason": "fetch failed",
-      "fallbackCount": 8
     },
     {
       "source": "lguplus-ongoing",
@@ -247,6 +242,24 @@
       "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=676&keyword=&status=&scroll=y",
       "sourceLabel": "공차 이벤트",
       "fit": 95
+    },
+    {
+      "id": "naver-24278798653443",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "뚜레쥬르",
+      "category": "베이커리",
+      "title": "2만원 이상 결제 시 클래식 롤케이크 증정",
+      "value": "증정",
+      "valueText": "클래식 롤케이크 증정",
+      "condition": "2만원 이상 결제 시",
+      "period": "2026.10.16 - 2026.10.31",
+      "startsAt": "2026-10-16",
+      "validUntil": "2026-10-31",
+      "notes": "일부 매장 제외(행사매장 여부는 방문 전에 확인해 주세요)",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653443",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 90
     },
     {
       "id": "naver-14414967832373",
@@ -623,6 +636,24 @@
       "validUntil": "2026-11-30",
       "notes": "매주 1회(월~일) 참여 가능 현장결제 시 혜택 제공",
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653470",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 82
+    },
+    {
+      "id": "naver-24278798653511",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "밴루엔",
+      "category": "기타",
+      "title": "포인트·머니 QR 1만원 이상 결제 시 3천원 적립",
+      "value": "3천원",
+      "valueText": "3천원 적립",
+      "condition": "포인트·머니 QR 1만원 이상 결제 시",
+      "period": "2026.10.16 - 2026.10.20",
+      "startsAt": "2026-10-16",
+      "validUntil": "2026-10-20",
+      "notes": "자세한 내용은 매장 안내 참조",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653511",
       "sourceLabel": "네이버페이 상세",
       "fit": 82
     },
