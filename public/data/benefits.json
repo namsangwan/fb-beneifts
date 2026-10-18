@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-10-17T10:15:38.897Z",
-  "asOfDate": "2026-10-17",
-  "asOfLabel": "2026.10.17 19:15 KST",
+  "collectedAt": "2026-10-18T03:22:42.062Z",
+  "asOfDate": "2026-10-18",
+  "asOfLabel": "2026.10.18 12:22 KST",
   "warnings": [
     {
       "source": "compose",
@@ -135,24 +135,6 @@
     }
   ],
   "benefits": [
-    {
-      "id": "naver-24278798653468",
-      "provider": "naverpay",
-      "pay": "네이버페이",
-      "brand": "던킨",
-      "category": "커피",
-      "title": "Npay QR 결제 시 50% 할인",
-      "value": "50%",
-      "valueText": "50% 할인",
-      "condition": "Npay QR 결제 시",
-      "period": "2026.10.17 - 2026.10.17",
-      "startsAt": "2026-10-17",
-      "validUntil": "2026-10-17",
-      "notes": "자세한 내용은 매장 안내 참조",
-      "source": "https://pay.naver.com/benefit/payment/detail/24278798653468",
-      "sourceLabel": "네이버페이 상세",
-      "fit": 98
-    },
     {
       "id": "naver-24278798653508",
       "provider": "naverpay",
