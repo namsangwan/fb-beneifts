@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-10-19T12:22:15.129Z",
-  "asOfDate": "2026-10-19",
-  "asOfLabel": "2026.10.19 21:21 KST",
+  "collectedAt": "2026-10-20T03:45:03.629Z",
+  "asOfDate": "2026-10-20",
+  "asOfLabel": "2026.10.20 12:44 KST",
   "warnings": [
     {
       "source": "paikdabang",
@@ -17,7 +17,7 @@
       "brands": [
         "컴포즈커피"
       ],
-      "reason": "Compose fetch failed: 502",
+      "reason": "Compose fetch failed: 403",
       "fallbackCount": 2
     },
     {
@@ -143,6 +143,24 @@
     }
   ],
   "benefits": [
+    {
+      "id": "naver-24278798653517",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "배스킨라빈스",
+      "category": "간식",
+      "title": "QR로 패밀리 결제 시 최대 70% 할인",
+      "value": "최대70%",
+      "valueText": "최대 70% 할인",
+      "condition": "QR로 패밀리 결제 시",
+      "period": "2026.10.20 - 2026.10.23",
+      "startsAt": "2026-10-20",
+      "validUntil": "2026-10-23",
+      "notes": "기간 내 1회 참여 가능 삼성페이 결제 시 혜택 적용 불가",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653517",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 98
+    },
     {
       "id": "skt-tday-457c2f98556a",
       "provider": "skt",
@@ -412,6 +430,24 @@
       "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
       "sourceLabel": "SKT T day",
       "fit": 85
+    },
+    {
+      "id": "brand-parisbaguette-cdcaeea31770",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "파리바게뜨",
+      "category": "베이커리",
+      "title": "🍚밥 먹자! 💙파바 고? 최대 30% 선착순 혜택!",
+      "value": "최대30%",
+      "valueText": "🍚밥 먹자! 💙파바 고? 최대 30% 선착순 혜택!",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.09.13 - 2026.10.31",
+      "startsAt": "2026-09-13",
+      "validUntil": "2026-10-31",
+      "notes": "파리바게뜨 공식 프로모션 목록에서 확인.",
+      "source": "https://www.paris.co.kr/promotion/lets-pb-go-product/",
+      "sourceLabel": "파리바게뜨 프로모션",
+      "fit": 83
     },
     {
       "id": "brand-pascucci-794881e78345",
