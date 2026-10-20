@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-10-20T03:45:03.629Z",
+  "collectedAt": "2026-10-20T11:01:52.424Z",
   "asOfDate": "2026-10-20",
-  "asOfLabel": "2026.10.20 12:44 KST",
+  "asOfLabel": "2026.10.20 20:01 KST",
   "warnings": [
     {
       "source": "paikdabang",
@@ -441,9 +441,9 @@
       "value": "최대30%",
       "valueText": "🍚밥 먹자! 💙파바 고? 최대 30% 선착순 혜택!",
       "condition": "브랜드 공식 이벤트",
-      "period": "2026.09.13 - 2026.10.31",
+      "period": "2026.09.13 - 2026.11.22",
       "startsAt": "2026-09-13",
-      "validUntil": "2026-10-31",
+      "validUntil": "2026-11-22",
       "notes": "파리바게뜨 공식 프로모션 목록에서 확인.",
       "source": "https://www.paris.co.kr/promotion/lets-pb-go-product/",
       "sourceLabel": "파리바게뜨 프로모션",
