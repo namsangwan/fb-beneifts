@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-10-21T03:36:57.355Z",
+  "collectedAt": "2026-10-21T11:18:18.923Z",
   "asOfDate": "2026-10-21",
-  "asOfLabel": "2026.10.21 12:36 KST",
+  "asOfLabel": "2026.10.21 20:18 KST",
   "warnings": [
     {
       "source": "paikdabang",
@@ -447,6 +447,24 @@
       "notes": "파리바게뜨 공식 프로모션 목록에서 확인.",
       "source": "https://www.paris.co.kr/promotion/lets-pb-go-product/",
       "sourceLabel": "파리바게뜨 프로모션",
+      "fit": 83
+    },
+    {
+      "id": "brand-starbucks-3596",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "스타벅스",
+      "category": "기타",
+      "title": "홀리데이 푸드 20% 할인!",
+      "value": "20%",
+      "valueText": "홀리데이 푸드 20% 할인!",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026.10.21 - 2026.10.25",
+      "startsAt": "2026-10-21",
+      "validUntil": "2026-10-25",
+      "notes": "2026-10-22 ~ 2026-10-25",
+      "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3596",
+      "sourceLabel": "스타벅스 이벤트",
       "fit": 83
     },
     {
