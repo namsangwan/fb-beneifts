@@ -1609,10 +1609,21 @@ function errorReason(error) {
  * - 이미 끝난 혜택, 기간을 다시 해석해 보니 끝난 혜택은 버린다.
  * - 종료일이 없는 항목은 마지막으로 실제 수집(확인)된 날로부터 오래되면 버린다.
  */
+function publishedAtFromRaw(raw) {
+  try {
+    const parsed = JSON.parse(raw ?? "");
+    const value = parsed?.publishedAt ?? parsed?.uploadDate ?? null;
+    return typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value) ? value : null;
+  } catch {
+    return null;
+  }
+}
+
 export function reviveFallbackBenefits(benefits, asOfDate) {
   return benefits
     .map((benefit) => {
-      if (benefit.startsAt || benefit.validUntil) return benefit;
+      // 종료일이 없는 항목은 제목의 기간을 지금 규칙으로 다시 읽는다. (예전 규칙으로 잘못 읽은 연도 바로잡기)
+      if (benefit.validUntil) return benefit;
       const period = parseFlexiblePeriod(benefit.title ?? "", asOfDate);
       if (!period.startsAt && !period.validUntil) return benefit;
       return { ...benefit, ...period, period: formatPeriod(period.startsAt, period.validUntil) };
@@ -1620,6 +1631,9 @@ export function reviveFallbackBenefits(benefits, asOfDate) {
     .filter((benefit) => isCurrentOrFuture(benefit, asOfDate))
     .filter((benefit) => {
       if (benefit.validUntil) return true;
+      // 새로 수집할 때와 같이, 종료일 없는 게시물은 게시 후 60일이 지나면 되살리지 않는다.
+      const publishedAt = publishedAtFromRaw(benefit.raw);
+      if (publishedAt && daysBetween(publishedAt, asOfDate) > 60) return false;
       const verifiedAt = benefit.collectedAt ? dateFromTimestampKst(benefit.collectedAt) : benefit.lastVerifiedAt;
       if (!verifiedAt) return false;
       return daysBetween(verifiedAt, asOfDate) <= FALLBACK_OPEN_ENDED_MAX_AGE_DAYS;

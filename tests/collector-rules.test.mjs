@@ -207,3 +207,31 @@ test("브랜드 이벤트: 종료일이 없으면 게시 60일 뒤 제외한다(
   assert.equal(event("2025-12-30"), null);
   assert.equal(event("2026-10-01").startsAt, "2026-01-02");
 });
+
+test("복구: 예전 규칙으로 잘못 읽은 항목도 지금 규칙으로 다시 거른다", () => {
+  const revived = reviveFallbackBenefits(
+    [
+      {
+        id: "brand-paikdabang-2eb5365f7ce8",
+        title: "2026년 말의해 맞이 '말차' 전 메뉴 2,026원 프로모션(1/2~) – 빽다방 앱",
+        startsAt: "2027-01-02",
+        validUntil: null,
+        collectedAt: "2026-10-24T15:04:53.617Z",
+        raw: JSON.stringify({ href: "x", title: "t", publishedAt: "2025-12-30" }),
+      },
+      {
+        id: "recent",
+        title: "가을 신메뉴 할인 (10/20~)",
+        startsAt: "2026-10-20",
+        validUntil: null,
+        collectedAt: "2026-10-24T15:04:53.617Z",
+        raw: JSON.stringify({ publishedAt: "2026-10-19" }),
+      },
+    ],
+    asOf,
+  );
+  assert.deepEqual(
+    revived.map((benefit) => benefit.id),
+    ["recent"],
+  );
+});
