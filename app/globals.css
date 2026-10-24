@@ -470,6 +470,12 @@ dd {
   white-space: nowrap;
 }
 
+.deadline-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
 .deadline.urgent {
   background: #fff0d4;
   color: #8a5300;
