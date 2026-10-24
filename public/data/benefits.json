@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-10-24T15:29:56.439Z",
+  "collectedAt": "2026-10-24T15:33:55.976Z",
   "asOfDate": "2026-10-25",
-  "asOfLabel": "2026.10.25 00:29 KST",
+  "asOfLabel": "2026.10.25 00:33 KST",
   "warnings": [
     {
       "source": "toss",
@@ -16,8 +16,8 @@
         "빽다방"
       ],
       "kind": "empty",
-      "reason": "collector returned no current benefits; preserved previous current benefits",
-      "fallbackCount": 1
+      "reason": "collector returned no current benefits",
+      "fallbackCount": 0
     },
     {
       "source": "compose",
@@ -54,6 +54,12 @@
       "kind": "empty",
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 1
+    },
+    {
+      "source": "kt-membership",
+      "kind": "failed",
+      "reason": "fetch failed (UND_ERR_CONNECT_TIMEOUT)",
+      "fallbackCount": 9
     },
     {
       "source": "lguplus-ongoing",
@@ -837,25 +843,6 @@
       "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=639&keyword=&status=&scroll=y",
       "sourceLabel": "공차 이벤트",
       "fit": 67,
-      "lastVerifiedAt": "2026-10-25"
-    },
-    {
-      "id": "brand-paikdabang-2eb5365f7ce8",
-      "provider": "brand",
-      "pay": "브랜드",
-      "brand": "빽다방",
-      "category": "커피",
-      "title": "2026년 말의해 맞이 ‘말차’ 전 메뉴 2,026원 프로모션(1/2~) – 빽다방 앱 ‘픽업오더 전용",
-      "value": "2,026원",
-      "valueText": "2026년 말의해 맞이 ‘말차’ 전 메뉴 2,026원 프로모션(1/2~) – 빽다방 앱 ‘픽업오더 전용",
-      "condition": "브랜드 공식 이벤트",
-      "period": "2027-01-02부터",
-      "startsAt": "2027-01-02",
-      "validUntil": null,
-      "notes": "빽다방 공식 이벤트 목록에서 확인.",
-      "source": "https://paikdabang.com/post_news/2026_promotion/",
-      "sourceLabel": "빽다방 이벤트",
-      "fit": 57,
       "lastVerifiedAt": "2026-10-25"
     },
     {
