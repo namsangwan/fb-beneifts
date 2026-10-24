@@ -6,7 +6,8 @@ on:
       - main
     paths:
       - ".github/workflows/update-benefits.yml"
-      - "scripts/collect-benefits.mjs"
+      - "scripts/**"
+      - "tests/collector-rules.test.mjs"
       - "data/benefits.snapshot.json"
       - "public/data/benefits.json"
       - "package.json"
@@ -18,6 +19,11 @@ on:
 
 permissions:
   contents: write
+  issues: write
+
+concurrency:
+  group: update-benefits
+  cancel-in-progress: false
 
 jobs:
   collect:
@@ -31,8 +37,16 @@ jobs:
           cache: npm
 
       - run: npm ci
+
+      # 수집 규칙이 깨졌으면 수집·업로드 전에 멈춘다.
+      - run: npm run test:rules
+
       - run: npm run collect
       - run: npm run build
+
+      # 생성된 JSON이 API 계약을 지키는지 확인한 뒤에만 업로드한다.
+      - name: Validate generated JSON
+        run: node --test tests/rendered-html.test.mjs tests/worker-api.test.mjs
 
       - name: Upload public JSON to Cloudflare R2
         if: ${{ vars.R2_BUCKET != '' }}
@@ -53,4 +67,27 @@ jobs:
           git config user.email "benefit-radar-bot@users.noreply.github.com"
           git add data/benefits.snapshot.json public/data/benefits.json
           git commit -m "Update benefit snapshot"
+          git pull --rebase
           git push
+
+      # 출처 수집 실패를 "수집 상태" 이슈 하나로 관리한다. 본문만 고쳐서 알림이 반복되지 않게 하고, 정상화되면 닫는다.
+      - name: Report collector health
+        if: ${{ always() && hashFiles('public/data/benefits.json') != '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          title="수집 상태: 출처 수집 실패"
+          node scripts/check-collector-health.mjs > health.md
+          unhealthy=$(node scripts/check-collector-health.mjs --json | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>console.log(JSON.parse(s).unhealthy))')
+          issue=$(gh issue list --state open --search "in:title \"$title\"" --json number --jq '.[0].number // empty')
+
+          if [ "$unhealthy" = "true" ]; then
+            if [ -n "$issue" ]; then
+              gh issue edit "$issue" --body-file health.md
+            else
+              gh issue create --title "$title" --body-file health.md
+            fi
+          elif [ -n "$issue" ]; then
+            gh issue close "$issue" --comment "모든 출처가 정상 수집되어 닫습니다."
+          fi

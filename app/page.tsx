@@ -23,6 +23,7 @@ type Benefit = {
   source: string;
   sourceLabel: string;
   fit: number;
+  lastVerifiedAt?: string | null;
 };
 
 type BenefitsPayload = {
@@ -46,19 +47,39 @@ const categoryOptions: CategoryFilter[] = ["카페/빵", "전체", "커피", "�
 const benefitJsonUrl = process.env.NEXT_PUBLIC_BENEFITS_JSON_URL ?? "/api/benefits";
 const preferencesVersion = 5;
 
-function daysLeft(dateText: string | null | undefined, asOfDate: string) {
-  if (!dateText) return null;
-
-  const today = new Date(`${asOfDate}T00:00:00+09:00`);
-  const target = new Date(`${dateText}T23:59:59+09:00`);
-  return Math.ceil((target.getTime() - today.getTime()) / 86400000);
+function todayKst() {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Seoul" }).format(new Date());
 }
 
-function isStarted(benefit: Benefit, asOfDate: string) {
-  if (!benefit.startsAt) return true;
+function epochDay(dateText: string) {
+  return Math.floor(Date.parse(`${dateText}T00:00:00Z`) / 86400000);
+}
 
-  const today = new Date(`${asOfDate}T00:00:00+09:00`);
-  return new Date(`${benefit.startsAt}T00:00:00+09:00`).getTime() <= today.getTime();
+// 만료·남은 일수는 수집일이 아니라 실제 오늘(KST)을 기준으로 한다. 기기 시계가 수집일보다 이르면 수집일을 쓴다.
+function effectiveToday(asOfDate: string, today: string | null) {
+  return today && today > asOfDate ? today : asOfDate;
+}
+
+// Android와 같은 정책: 종료일 당일 0일(오늘까지), 어제 종료 -1일(만료).
+function daysLeft(dateText: string | null | undefined, today: string) {
+  if (!dateText) return null;
+  return epochDay(dateText) - epochDay(today);
+}
+
+function isStarted(benefit: Benefit, today: string) {
+  if (!benefit.startsAt) return true;
+  return benefit.startsAt <= today;
+}
+
+function shortDate(dateText: string) {
+  const [, month, day] = dateText.split("-").map(Number);
+  return `${month}/${day}`;
+}
+
+function matchesCategory(benefit: Benefit, category: CategoryFilter) {
+  if (category === "전체") return true;
+  if (category === "카페/빵") return benefit.category === "커피" || benefit.category === "베이커리";
+  return benefit.category === category;
 }
 
 function toggleValue<T>(list: T[], value: T) {
@@ -82,7 +103,15 @@ export default function Home() {
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [category, setCategory] = useState<CategoryFilter>("카페/빵");
   const [query, setQuery] = useState("");
+  const [clientToday, setClientToday] = useState<string | null>(null);
   const didSkipInitialPreferenceSave = useRef(false);
+  const today = effectiveToday(payload.asOfDate, clientToday);
+  const staleDays = clientToday && payload.collectedAt ? epochDay(clientToday) - epochDay(payload.asOfDate) : 0;
+
+  useEffect(() => {
+    // 서버 렌더링과 어긋나지 않도록 오늘 날짜는 브라우저에서 정한다.
+    queueMicrotask(() => setClientToday(todayKst()));
+  }, []);
 
   useEffect(() => {
     let isMounted = true;
@@ -170,12 +199,16 @@ export default function Home() {
     );
   }, [category, selectedBrands, selectedSources]);
 
+  // 브랜드 목록은 고른 종류에 맞춘다. (카페/빵을 볼 때 식당 행사 이름이 섞이지 않게)
   const brandOptions = useMemo(
     () =>
-      Array.from(new Set(payload.benefits.map((benefit) => benefit.brand))).sort((a, b) =>
-        a.localeCompare(b, "ko"),
-      ),
-    [payload.benefits],
+      Array.from(
+        new Set([
+          ...payload.benefits.filter((benefit) => matchesCategory(benefit, category)).map((benefit) => benefit.brand),
+          ...selectedBrands,
+        ]),
+      ).sort((a, b) => a.localeCompare(b, "ko")),
+    [category, payload.benefits, selectedBrands],
   );
 
   const filteredBenefits = useMemo(() => {
@@ -184,13 +217,9 @@ export default function Home() {
     return payload.benefits
       .filter((benefit) => selectedSources.includes(benefit.pay))
       .filter((benefit) => selectedBrands.length === 0 || selectedBrands.includes(benefit.brand))
+      .filter((benefit) => matchesCategory(benefit, category))
       .filter((benefit) => {
-        if (category === "전체") return true;
-        if (category === "카페/빵") return benefit.category === "커피" || benefit.category === "베이커리";
-        return benefit.category === category;
-      })
-      .filter((benefit) => {
-        const left = daysLeft(benefit.validUntil, payload.asOfDate);
+        const left = daysLeft(benefit.validUntil, today);
         return left === null || left >= 0;
       })
       .filter((benefit) => {
@@ -200,7 +229,7 @@ export default function Home() {
           .includes(normalizedQuery);
       })
       .sort((a, b) => b.fit - a.fit);
-  }, [category, payload.asOfDate, payload.benefits, query, selectedBrands, selectedSources]);
+  }, [category, payload.benefits, query, selectedBrands, selectedSources, today]);
 
   const activeTop = filteredBenefits[0];
   const selectedBrandText =
@@ -219,6 +248,11 @@ export default function Home() {
       </section>
 
       {loadError ? <p className="error-banner">{loadError}</p> : null}
+      {!loadError && staleDays >= 2 ? (
+        <p className="error-banner">
+          혜택 정보가 {staleDays}일 전 수집분입니다. 이용 전 원문에서 기간을 확인해 주세요.
+        </p>
+      ) : null}
 
       <section className="overview">
         <div className="today-pick">
@@ -335,8 +369,9 @@ export default function Home() {
 
         <section className="benefit-list" aria-label="혜택 목록">
           {filteredBenefits.map((benefit) => {
-            const left = daysLeft(benefit.validUntil, payload.asOfDate);
+            const left = daysLeft(benefit.validUntil, today);
             const urgent = left !== null && left >= 0 && left <= 3;
+            const unverified = benefit.lastVerifiedAt && benefit.lastVerifiedAt < payload.asOfDate;
 
             return (
               <article className="benefit-card" key={benefit.id}>
@@ -362,9 +397,16 @@ export default function Home() {
                 </dl>
 
                 <div className="card-bottom">
-                  <span className={urgent ? "deadline urgent" : "deadline"}>
-                    {statusText(benefit, payload.asOfDate)}
-                  </span>
+                  <div className="deadline-group">
+                    <span className={urgent ? "deadline urgent" : "deadline"}>
+                      {statusText(benefit, today)}
+                    </span>
+                    {unverified ? (
+                      <span className="deadline" title="출처 수집이 실패해 이전에 확인한 내용을 보여줍니다.">
+                        {shortDate(benefit.lastVerifiedAt as string)} 확인
+                      </span>
+                    ) : null}
+                  </div>
                   <a href={benefit.source} target="_blank" rel="noreferrer">
                     {benefit.sourceLabel}
                   </a>

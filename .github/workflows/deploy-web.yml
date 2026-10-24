@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - "data/benefits.snapshot.json"
+      - "public/data/benefits.json"
   workflow_dispatch:
 
 permissions:
@@ -21,7 +24,9 @@ jobs:
           cache: npm
 
       - run: npm ci
-      - run: npm run build
+      - run: npm run lint
+      # 규칙 테스트 → 빌드 → 렌더링·API 테스트. 실패하면 배포하지 않는다.
+      - run: npm test
 
       - name: Deploy to Cloudflare Workers
         env:
