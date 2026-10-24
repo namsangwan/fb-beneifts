@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-10-23T11:08:16.932Z",
-  "asOfDate": "2026-10-23",
-  "asOfLabel": "2026.10.23 20:08 KST",
+  "collectedAt": "2026-10-24T03:35:08.612Z",
+  "asOfDate": "2026-10-24",
+  "asOfLabel": "2026.10.24 12:35 KST",
   "warnings": [
     {
       "source": "paikdabang",
@@ -143,24 +143,6 @@
     }
   ],
   "benefits": [
-    {
-      "id": "naver-24278798653517",
-      "provider": "naverpay",
-      "pay": "네이버페이",
-      "brand": "배스킨라빈스",
-      "category": "간식",
-      "title": "QR로 패밀리 결제 시 최대 70% 할인",
-      "value": "최대70%",
-      "valueText": "최대 70% 할인",
-      "condition": "QR로 패밀리 결제 시",
-      "period": "2026.10.20 - 2026.10.23",
-      "startsAt": "2026-10-20",
-      "validUntil": "2026-10-23",
-      "notes": "기간 내 1회 참여 가능 삼성페이 결제 시 혜택 적용 불가",
-      "source": "https://pay.naver.com/benefit/payment/detail/24278798653517",
-      "sourceLabel": "네이버페이 상세",
-      "fit": 98
-    },
     {
       "id": "naver-24278798653526",
       "provider": "naverpay",
