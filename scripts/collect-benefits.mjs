@@ -1,5 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
+import { pathToFileURL } from "node:url";
 
 const sources = {
   naver:
@@ -43,6 +44,8 @@ const cafeAndBakeryKeywords = [
   "매머드익스프레스",
   "공차",
   "메가커피",
+  "메가MGC",
+  "스타벅스",
   "빽다방",
   "더벤티",
   "던킨",
@@ -60,7 +63,9 @@ const cafeAndBakeryKeywords = [
   "롯데리아",
 ];
 
-const bakeryKeywords = ["파리바게뜨", "뚜레쥬르", "베이커리", "빵", "테디뵈르", "HANS", "한스"];
+const bakeryKeywords = ["파리바게뜨", "뚜레쥬르", "파리크라상", "베이커리", "빵", "테디뵈르", "HANS", "한스"];
+// 브랜드 공식 이벤트는 문구보다 브랜드 업종으로 분류한다. (스타벅스 "홀리데이 푸드"가 기타로 빠지던 문제)
+const bakeryBrands = new Set(["파리바게뜨", "뚜레쥬르", "파리크라상"]);
 const snackKeywords = ["베스킨라빈스", "배스킨라빈스", "롯데리아"];
 const brandEventKeywords = [
   "할인",
@@ -100,6 +105,9 @@ const brandEventExclusionKeywords = [
   "제품소개",
   "한정 판매",
   "굿즈",
+  "포토카드",
+  "포카",
+  "랜덤 증정",
   "키링",
   "텀블러",
   "MD",
@@ -167,6 +175,27 @@ const telecomEventExclusionKeywords = [
   "유심",
 ];
 
+const FETCH_TIMEOUT_MS = 20000;
+
+// 한 출처가 응답하지 않아 전체 수집이 멈추지 않도록 시간 제한을 두고, 네트워크 오류·5xx는 한 번만 재시도한다.
+async function fetchWithRetry(url, options = {}, attempts = 2) {
+  let lastError;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      const response = await fetch(url, { ...options, signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
+      if (response.status >= 500 && attempt < attempts) {
+        lastError = new Error(`HTTP ${response.status}`);
+      } else {
+        return response;
+      }
+    } catch (error) {
+      lastError = error;
+    }
+    await new Promise((resolve) => setTimeout(resolve, 1500 * attempt));
+  }
+  throw lastError;
+}
+
 function hash(value) {
   return createHash("sha256").update(value).digest("hex");
 }
@@ -194,7 +223,7 @@ function dateFromTimestampKst(timestamp) {
   return kstDateParts(new Date(timestamp)).date;
 }
 
-function formatPeriod(startsAt, endsAt) {
+export function formatPeriod(startsAt, endsAt) {
   if (!startsAt && !endsAt) return "기간 미고지";
   if (!startsAt) return `${endsAt}까지`;
   if (!endsAt) return `${startsAt}부터`;
@@ -245,7 +274,7 @@ function inferFoodBrand(text, fallback = "커피") {
   return specificKeywords.find((keyword) => text.includes(keyword)) ?? fallback;
 }
 
-function isCurrentOrFuture(benefit, asOfDate) {
+export function isCurrentOrFuture(benefit, asOfDate) {
   if (!benefit.validUntil) return true;
 
   return benefit.validUntil >= asOfDate;
@@ -273,19 +302,61 @@ function textFromHtml(html) {
     .join("\n");
 }
 
-function displayValue(valueText) {
+const amountPattern = String.raw`\d+(?:,\d{3})*(?:\.\d+)?\s*(?:만\s*원|천\s*원|원|만\s*P|천\s*P|P|포인트)`;
+
+// "1만원 이상 결제 시", "7천원 이상 구매하면" 같은 사용 조건 금액은 혜택 크기가 아니다.
+export function stripSpendConditions(text) {
+  return compactText(text)
+    .replace(
+      new RegExp(
+        String.raw`${amountPattern}\s*(?:이상|이하|초과)\s*(?:결제|구매|주문|이용|충전|자동\s*충전)?\s*(?:시|하면|할\s*때)?`,
+        "g",
+      ),
+      " ",
+    )
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+// "1,000원당 150원 할인" → 15%
+function perAmountRates(text) {
+  return Array.from(
+    compactText(text).matchAll(/(\d+(?:,\d{3})*)\s*원\s*당\s*(\d+(?:,\d{3})*)\s*원/g),
+  )
+    .map(([, base, discount]) => (Number(discount.replaceAll(",", "")) / Number(base.replaceAll(",", ""))) * 100)
+    .filter((rate) => Number.isFinite(rate) && rate > 0 && rate < 100);
+}
+
+export function amountInWon(text) {
+  const match = text.match(/(\d+(?:,\d{3})*(?:\.\d+)?)\s*(만|천)?\s*(?:원|P|포인트)/);
+  if (!match) return 0;
+  const number = Number(match[1].replaceAll(",", ""));
+  if (match[2] === "만") return number * 10000;
+  if (match[2] === "천") return number * 1000;
+  return number;
+}
+
+export function displayValue(valueText) {
   const text = compactText(valueText);
   const mPointBenefit = mPointEffectiveBenefit(text);
   if (mPointBenefit) return mPointBenefit.effectiveText;
 
-  const plusDeal = text.match(/\d+\s*\+\s*\d+/);
+  const rates = perAmountRates(text);
+  if (rates.length) {
+    const max = Math.max(...rates);
+    return `${rates.length > 1 && Math.min(...rates) !== max ? "최대" : ""}${formatPercentNumber(max)}%`;
+  }
+
+  const benefitText = stripSpendConditions(text);
+
+  const plusDeal = benefitText.match(/\d+\s*\+\s*\d+/);
   if (plusDeal) return plusDeal[0].replace(/\s+/g, "");
 
-  const percent = text.match(/(?:최대\s*)?\d+(?:\.\d+)?\s*%/);
+  const percent = benefitText.match(/(?:최대\s*)?\d+(?:\.\d+)?\s*%/);
   if (percent) return percent[0].replace(/\s+/g, "");
 
-  const amount = text.match(/(?:최대\s*)?\d+(?:,\d{3})*(?:\.\d+)?\s*(만원|천원|원)/);
-  if (amount) return amount[0].replace(/\s+/g, "");
+  const amount = benefitText.match(new RegExp(String.raw`(?:최대\s*)?${amountPattern}`));
+  if (amount) return amount[0].replace(/\s+/g, "").replace(/포인트$/, "P");
 
   if (/쿠폰/.test(text)) return "쿠폰";
   if (/무료|증정/.test(text)) return "증정";
@@ -307,7 +378,7 @@ function formatPercentNumber(percent) {
   });
 }
 
-function mPointEffectiveBenefit(text) {
+export function mPointEffectiveBenefit(text) {
   const compacted = compactText(text);
   if (!/M\s*포인트|엠포인트/i.test(compacted)) return null;
 
@@ -343,30 +414,32 @@ function applyMPointEffectiveValue(benefit) {
   };
 }
 
-function scoreBenefit(benefit) {
-  const text = `${benefit.value} ${benefit.title}`;
-  const percent = Number(text.match(/(\d+(?:\.\d+)?)%/)?.[1] ?? 0);
-  const amountMatch = text.match(/(\d+(?:\.\d+)?)\s*(만원|천원|원)/);
-  const unit = amountMatch?.[2];
-  const amount =
-    amountMatch && unit === "만원"
-      ? Number(amountMatch[1]) * 10000
-      : amountMatch && unit === "천원"
-        ? Number(amountMatch[1]) * 1000
-        : amountMatch
-          ? Number(amountMatch[1])
-          : 0;
+export function scoreBenefit(benefit) {
+  // 배지(value)를 우선하고, 제목은 사용 조건 금액을 지운 뒤에만 참고한다.
+  const valueText = compactText(benefit.value ?? "");
+  const titleText = stripSpendConditions(benefit.title ?? "");
+  const percentOf = (text) => Number(text.match(/(\d+(?:\.\d+)?)\s*%/)?.[1] ?? 0);
+  const percent = percentOf(valueText) || (/M\s*포인트|엠포인트/i.test(titleText) ? 0 : percentOf(titleText));
+  const amount = amountInWon(valueText) || amountInWon(titleText);
+  const text = `${valueText} ${titleText}`;
 
-  if (percent >= 50) return 98;
-  if (amount >= 5000) return 90;
-  if (percent >= 20) return 86;
-  if (amount >= 3000) return 82;
-  if (percent >= 7) return 78;
-  if (percent >= 2) return 70;
-  return 60;
+  let score = 60;
+  if (percent >= 50) score = 98;
+  else if (/\d+\s*\+\s*1\b/.test(text) && !/스탬프|챌린지/.test(text)) score = 92;
+  else if (amount >= 5000) score = 90;
+  else if (percent >= 20) score = 86;
+  else if (/무료/.test(text)) score = 84;
+  else if (amount >= 3000) score = 82;
+  else if (percent >= 7) score = 78;
+  else if (/증정|쿠폰/.test(text)) score = 72;
+  else if (percent >= 2) score = 70;
+
+  // 네이버 F&B 목록의 식당·행사는 카페/빵 혜택보다 뒤로 보낸다.
+  if (benefit.category === "기타") score -= 15;
+  return score;
 }
 
-function toPublicBenefit(benefit) {
+export function toPublicBenefit(benefit) {
   const publicBenefit = { ...benefit };
   delete publicBenefit.raw;
   delete publicBenefit.sourceHash;
@@ -389,7 +462,7 @@ async function readPreviousBenefits() {
   return [];
 }
 
-function categoryFromText(text) {
+export function categoryFromText(text) {
   if (snackKeywords.some((keyword) => text.includes(keyword))) return "간식";
   if (bakeryKeywords.some((keyword) => text.includes(keyword))) return "베이커리";
   if (includesCafeOrBakery(text)) return "커피";
@@ -421,8 +494,12 @@ function absoluteUrl(url, baseUrl) {
   return new URL(decodeHtml(url), baseUrl).href;
 }
 
-function dateFromMonthDay(month, day, asOfDate) {
-  const [year] = asOfDate.split("-");
+export function dateFromMonthDay(month, day, asOfDate) {
+  const [asOfYear, asOfMonth] = asOfDate.split("-").map(Number);
+  const monthNumber = Number(month);
+  // 연도가 생략된 날짜는 기준일의 해로 보되, 연말에 본 1~3월은 다음 해, 연초에 본 10~12월은 지난해로 본다.
+  const diff = monthNumber - asOfMonth;
+  const year = diff <= -9 ? asOfYear + 1 : diff >= 9 ? asOfYear - 1 : asOfYear;
   return `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
 }
 
@@ -431,8 +508,14 @@ function inferEndYear(startsAt, endMonth, asOfDate) {
   return endMonth < startMonth ? startYear + 1 : startYear;
 }
 
-function parseFlexiblePeriod(text, asOfDate) {
-  const normalized = compactText(text).replace(/\([^)]+\)/g, "");
+const optionalTime = String.raw`(?:\s*(?:오전|오후)?\s*\d{1,2}\s*시(?:\s*\d{1,2}\s*분)?)?`;
+
+export function parseFlexiblePeriod(text, asOfDate) {
+  // 요일·(ICED) 같은 괄호는 지우되, "(8/19~8/21)"처럼 숫자가 든 괄호는 기간일 수 있어 남긴다.
+  const normalized = compactText(text)
+    .replace(/\((?![^)]*\d)[^)]*\)/g, "")
+    .replace(/[()]/g, " ")
+    .replace(/\s+/g, " ");
   const koreanDateTimeRange = normalized.match(
     /(\d{4})년\s*(\d{1,2})월\s*(\d{1,2})일(?:\s*(?:오전|오후)?\s*\d{1,2}시(?:\s*\d{1,2}분)?)?\s*~\s*(?:(\d{4})년\s*)?(\d{1,2})월\s*(\d{1,2})일/,
   );
@@ -488,7 +571,7 @@ function parseFlexiblePeriod(text, asOfDate) {
   }
 
   const koreanRange = normalized.match(
-    /(\d{1,2})월\s*(\d{1,2})일?\s*(?:~|-)\s*(\d{1,2})월\s*(\d{1,2})일?/,
+    new RegExp(String.raw`(\d{1,2})월\s*(\d{1,2})일?${optionalTime}\s*(?:~|-)\s*(\d{1,2})월\s*(\d{1,2})일?`),
   );
   if (koreanRange) {
     const [, sm, sd, em, ed] = koreanRange;
@@ -508,6 +591,16 @@ function parseFlexiblePeriod(text, asOfDate) {
     return {
       startsAt,
       validUntil: `${endYear}-${em.padStart(2, "0")}-${ed.padStart(2, "0")}`,
+    };
+  }
+
+  const sameMonthRange = normalized.match(/(?<![\d.])(\d{1,2})[./](\d{1,2})\s*~\s*(\d{1,2})(?![./\d%])(?!\s*(?:%|원|천|만))/);
+  if (sameMonthRange) {
+    const [, sm, sd, ed] = sameMonthRange;
+    const startsAt = dateFromMonthDay(sm, sd, asOfDate);
+    return {
+      startsAt,
+      validUntil: `${startsAt.slice(0, 4)}-${sm.padStart(2, "0")}-${ed.padStart(2, "0")}`,
     };
   }
 
@@ -538,7 +631,7 @@ function daysBetween(dateA, dateB) {
   return Math.floor((end.getTime() - start.getTime()) / 86400000);
 }
 
-function normalizeBrandEvent({
+export function normalizeBrandEvent({
   brand,
   id,
   title,
@@ -554,12 +647,16 @@ function normalizeBrandEvent({
     .replace(/^\[(이벤트|안내|출시|시즌메뉴 프로모션)\]\s*/g, "")
     .replace(/^★|★$/g, "")
     .trim();
+  if (!startsAt && !validUntil) {
+    // 목록에 기간 칸이 없어도 제목에 "(8/19~8/21)"처럼 기간이 적힌 경우가 많다.
+    ({ startsAt, validUntil } = parseFlexiblePeriod(cleanTitle, asOfDate));
+  }
   const benefit = {
     id: `brand-${id}`,
     provider: "brand",
     pay: "브랜드",
     brand,
-    category: categoryFromText(`${brand} ${cleanTitle} ${notes}`),
+    category: bakeryBrands.has(brand) ? "베이커리" : "커피",
     title: cleanTitle,
     value: displayValue(cleanTitle),
     valueText: cleanTitle,
@@ -592,7 +689,7 @@ function normalizeBrandEvent({
   };
 }
 
-function normalizeExternalBenefit({
+export function normalizeExternalBenefit({
   provider,
   pay,
   brand,
@@ -638,7 +735,7 @@ function normalizeExternalBenefit({
   };
 }
 
-function normalizeNaverItem(item, asOfDate) {
+export function normalizeNaverItem(item, asOfDate) {
   const raw = JSON.stringify(item);
   const summaryText = [
     item.promotionName,
@@ -698,7 +795,7 @@ async function collectNaver(asOfDate) {
 }
 
 async function fetchNaverPage(page) {
-  const response = await fetch(`${sources.naver}&page=${page}`, {
+  const response = await fetchWithRetry(`${sources.naver}&page=${page}`, {
     headers: { accept: "application/json" },
   });
 
@@ -710,7 +807,7 @@ async function fetchNaverPage(page) {
 }
 
 async function collectToss(asOfDate) {
-  const response = await fetch(sources.toss);
+  const response = await fetchWithRetry(sources.toss);
 
   if (!response.ok) {
     throw new Error(`Toss fetch failed: ${response.status}`);
@@ -783,7 +880,7 @@ async function collectToss(asOfDate) {
 }
 
 async function fetchText(url, label) {
-  const response = await fetch(url, {
+  const response = await fetchWithRetry(url, {
     headers: {
       accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
       "user-agent": "benefit-radar/1.0 (+https://github.com/namsangwan/fb-beneifts)",
@@ -798,7 +895,7 @@ async function fetchText(url, label) {
 }
 
 async function fetchFormJson(url, params, label) {
-  const response = await fetch(url, {
+  const response = await fetchWithRetry(url, {
     method: "POST",
     headers: {
       accept: "application/json, text/javascript, */*; q=0.01",
@@ -817,7 +914,7 @@ async function fetchFormJson(url, params, label) {
 }
 
 async function fetchKtFormJson(url, params, label) {
-  const response = await fetch(url, {
+  const response = await fetchWithRetry(url, {
     method: "POST",
     headers: {
       accept: "application/json, text/javascript, */*; q=0.01",
@@ -1490,159 +1587,280 @@ async function collectLguplusOngoing(asOfDate) {
     .slice(0, 10);
 }
 
-function previousProviderBenefits(previousBenefits, { provider, pay, legacySourcePattern }, asOfDate) {
-  return previousBenefits
-    .filter(
-      (benefit) =>
-        (benefit.provider === provider && benefit.pay === pay) ||
-        (benefit.provider === "telecom" &&
-          benefit.pay === "통신사" &&
-          legacySourcePattern.test(benefit.sourceLabel ?? "")),
-    )
-    .filter((benefit) => isCurrentOrFuture(benefit, asOfDate))
-    .map((benefit) =>
-      benefit.provider === provider
-        ? benefit
-        : {
-            ...benefit,
-            id: benefit.id.replace(/^telecom-/, `${provider}-`),
-            provider,
-            pay,
-          },
-    );
+// 이전 수집분으로 복구할 때, 종료일이 없는 항목은 출처가 계속 실패하면 끝났는지 알 수 없으므로
+// 마지막 확인 후 이 기간까지만 유지한다. 종료일이 적힌 항목은 종료일까지 유지한다.
+const FALLBACK_OPEN_ENDED_MAX_AGE_DAYS = 14;
+
+function errorReason(error) {
+  const message = error?.message ?? String(error);
+  const cause = error?.cause?.code ?? error?.cause?.message;
+  if (error?.name === "TimeoutError") return `timeout after ${FETCH_TIMEOUT_MS / 1000}s`;
+  return cause && !message.includes(cause) ? `${message} (${cause})` : message;
 }
 
-async function collectTelecomBenefits(asOfDate, previousBenefits = []) {
-  const collectors = [
-    {
-      name: "skt-tday",
-      provider: "skt",
-      pay: "SKT",
-      legacySourcePattern: /SKT/,
-      collect: () => collectSktTday(asOfDate),
-    },
-    {
-      name: "kt-membership",
-      provider: "kt",
-      pay: "KT",
-      legacySourcePattern: /KT/,
-      collect: () => collectKtMembership(asOfDate),
-    },
-    {
-      name: "lguplus-ongoing",
-      provider: "lguplus",
-      pay: "LGU+",
-      legacySourcePattern: /LG U\+/,
-      collect: () => collectLguplusOngoing(asOfDate),
-    },
-  ];
+/**
+ * 복구 대상 이전 혜택을 고른다.
+ * - 이미 끝난 혜택, 기간을 다시 해석해 보니 끝난 혜택은 버린다.
+ * - 종료일이 없는 항목은 마지막으로 실제 수집(확인)된 날로부터 오래되면 버린다.
+ */
+export function reviveFallbackBenefits(benefits, asOfDate) {
+  return benefits
+    .map((benefit) => {
+      if (benefit.startsAt || benefit.validUntil) return benefit;
+      const period = parseFlexiblePeriod(benefit.title ?? "", asOfDate);
+      if (!period.startsAt && !period.validUntil) return benefit;
+      return { ...benefit, ...period, period: formatPeriod(period.startsAt, period.validUntil) };
+    })
+    .filter((benefit) => isCurrentOrFuture(benefit, asOfDate))
+    .filter((benefit) => {
+      if (benefit.validUntil) return true;
+      const verifiedAt = benefit.collectedAt ? dateFromTimestampKst(benefit.collectedAt) : benefit.lastVerifiedAt;
+      if (!verifiedAt) return false;
+      return daysBetween(verifiedAt, asOfDate) <= FALLBACK_OPEN_ENDED_MAX_AGE_DAYS;
+    });
+}
+
+function previousProviderBenefits(previousBenefits, { provider, pay, legacySourcePattern }, asOfDate) {
+  return reviveFallbackBenefits(
+    previousBenefits
+      .filter(
+        (benefit) =>
+          (benefit.provider === provider && benefit.pay === pay) ||
+          (benefit.provider === "telecom" &&
+            benefit.pay === "통신사" &&
+            legacySourcePattern?.test(benefit.sourceLabel ?? "")),
+      )
+      .map((benefit) =>
+        benefit.provider === provider
+          ? benefit
+          : {
+              ...benefit,
+              id: benefit.id.replace(/^telecom-/, `${provider}-`),
+              provider,
+              pay,
+            },
+      ),
+    asOfDate,
+  );
+}
+
+/**
+ * 수집기 하나의 결과를 이전 데이터 복구 규칙과 함께 정리한다.
+ * 실패하거나 0건이면 이전 미만료 데이터를 쓰고 warnings에 남긴다.
+ */
+export function settleCollectorResult(result, collector, fallbackBenefits) {
+  const base = { source: collector.name, ...(collector.brands ? { brands: collector.brands } : {}) };
+
+  if (result.status === "rejected") {
+    return {
+      benefits: fallbackBenefits,
+      warning: {
+        ...base,
+        kind: "failed",
+        reason: errorReason(result.reason),
+        fallbackCount: fallbackBenefits.length,
+      },
+    };
+  }
+
+  if (result.value.length === 0) {
+    return {
+      benefits: fallbackBenefits,
+      warning: {
+        ...base,
+        kind: "empty",
+        reason:
+          fallbackBenefits.length > 0
+            ? "collector returned no current benefits; preserved previous current benefits"
+            : "collector returned no current benefits",
+        fallbackCount: fallbackBenefits.length,
+      },
+    };
+  }
+
+  return { benefits: result.value, warning: null };
+}
+
+async function runCollectors(collectors, previousBenefits, asOfDate, fallbackFor) {
   const results = await Promise.allSettled(collectors.map((collector) => collector.collect()));
   const warnings = [];
-
   const benefits = results.flatMap((result, index) => {
     const collector = collectors[index];
-    const fallbackBenefits = previousProviderBenefits(previousBenefits, collector, asOfDate);
-
-    if (result.status === "rejected") {
-      warnings.push({
-        source: collector.name,
-        reason: result.reason?.message ?? String(result.reason),
-        fallbackCount: fallbackBenefits.length,
-      });
-      return fallbackBenefits;
-    }
-
-    if (result.value.length === 0 && fallbackBenefits.length > 0) {
-      warnings.push({
-        source: collector.name,
-        reason: "collector returned no current benefits; preserved previous current benefits",
-        fallbackCount: fallbackBenefits.length,
-      });
-      return fallbackBenefits;
-    }
-
-    return result.value;
+    const settled = settleCollectorResult(result, collector, fallbackFor(previousBenefits, collector, asOfDate));
+    if (settled.warning) warnings.push(settled.warning);
+    return settled.benefits;
   });
-
   return { benefits, warnings };
 }
 
-function previousBrandBenefits(previousBenefits, brands, asOfDate) {
-  return previousBenefits
-    .filter((benefit) => benefit.provider === "brand" && brands.includes(benefit.brand))
-    .filter((benefit) => isCurrentOrFuture(benefit, asOfDate));
+async function collectTelecomBenefits(asOfDate, previousBenefits = []) {
+  return runCollectors(
+    [
+      {
+        name: "skt-tday",
+        provider: "skt",
+        pay: "SKT",
+        legacySourcePattern: /SKT/,
+        collect: () => collectSktTday(asOfDate),
+      },
+      {
+        name: "kt-membership",
+        provider: "kt",
+        pay: "KT",
+        legacySourcePattern: /KT/,
+        collect: () => collectKtMembership(asOfDate),
+      },
+      {
+        name: "lguplus-ongoing",
+        provider: "lguplus",
+        pay: "LGU+",
+        legacySourcePattern: /LG U\+/,
+        collect: () => collectLguplusOngoing(asOfDate),
+      },
+    ],
+    previousBenefits,
+    asOfDate,
+    previousProviderBenefits,
+  );
+}
+
+async function collectPaymentBenefits(asOfDate, previousBenefits = []) {
+  return runCollectors(
+    [
+      { name: "naverpay", provider: "naverpay", pay: "네이버페이", collect: () => collectNaver(asOfDate) },
+      { name: "toss", provider: "toss", pay: "토스", collect: () => collectToss(asOfDate) },
+    ],
+    previousBenefits,
+    asOfDate,
+    previousProviderBenefits,
+  );
+}
+
+function previousBrandBenefits(previousBenefits, { brands }, asOfDate) {
+  return reviveFallbackBenefits(
+    previousBenefits.filter((benefit) => benefit.provider === "brand" && brands.includes(benefit.brand)),
+    asOfDate,
+  );
 }
 
 async function collectBrandBenefits(asOfDate, previousBenefits = []) {
-  const collectors = [
-    { name: "hollys", brands: ["할리스"], collect: () => collectHollys(asOfDate) },
-    { name: "paikdabang", brands: ["빽다방"], collect: () => collectPaikdabang(asOfDate) },
-    { name: "compose", brands: ["컴포즈커피"], collect: () => collectCompose(asOfDate) },
-    { name: "mammoth", brands: ["매머드커피"], collect: () => collectMammoth(asOfDate) },
-    { name: "mega", brands: ["메가MGC커피"], collect: () => collectMega(asOfDate) },
-    { name: "gongcha", brands: ["공차"], collect: () => collectGongcha(asOfDate) },
-    { name: "parisbaguette", brands: ["파리바게뜨"], collect: () => collectParisBaguette(asOfDate) },
-    { name: "paulbassett", brands: ["폴바셋"], collect: () => collectPaulBassett(asOfDate) },
-    { name: "starbucks", brands: ["스타벅스"], collect: () => collectStarbucks(asOfDate) },
-    { name: "twosome", brands: ["투썸플레이스"], collect: () => collectTwosome(asOfDate) },
-    { name: "pascucci", brands: ["파스쿠찌"], collect: () => collectPascucci(asOfDate) },
-    { name: "theventi", brands: ["더벤티"], collect: () => collectTheVenti(asOfDate) },
-  ];
-  const results = await Promise.allSettled(collectors.map((collector) => collector.collect()));
-  const warnings = [];
+  return runCollectors(
+    [
+      { name: "hollys", brands: ["할리스"], collect: () => collectHollys(asOfDate) },
+      { name: "paikdabang", brands: ["빽다방"], collect: () => collectPaikdabang(asOfDate) },
+      { name: "compose", brands: ["컴포즈커피"], collect: () => collectCompose(asOfDate) },
+      { name: "mammoth", brands: ["매머드커피"], collect: () => collectMammoth(asOfDate) },
+      { name: "mega", brands: ["메가MGC커피"], collect: () => collectMega(asOfDate) },
+      { name: "gongcha", brands: ["공차"], collect: () => collectGongcha(asOfDate) },
+      { name: "parisbaguette", brands: ["파리바게뜨"], collect: () => collectParisBaguette(asOfDate) },
+      { name: "paulbassett", brands: ["폴바셋"], collect: () => collectPaulBassett(asOfDate) },
+      { name: "starbucks", brands: ["스타벅스"], collect: () => collectStarbucks(asOfDate) },
+      { name: "twosome", brands: ["투썸플레이스"], collect: () => collectTwosome(asOfDate) },
+      { name: "pascucci", brands: ["파스쿠찌"], collect: () => collectPascucci(asOfDate) },
+      { name: "theventi", brands: ["더벤티"], collect: () => collectTheVenti(asOfDate) },
+    ],
+    previousBenefits,
+    asOfDate,
+    previousBrandBenefits,
+  );
+}
 
-  return {
-    benefits: results.flatMap((result, index) => {
-      const collector = collectors[index];
-      const fallbackBenefits = previousBrandBenefits(previousBenefits, collector.brands, asOfDate);
+function dedupeKey(benefit) {
+  const brand = compactText(benefit.brand ?? "");
+  const text = compactText(benefit.title ?? "")
+    .replace(/\[[^\]]*\]/g, " ")
+    .replace(/\([^)]*\)/g, " ")
+    .replaceAll(brand, " ")
+    .replace(/[\s·!~,.:-]/g, "")
+    .toLowerCase();
+  return `${brand}|${text}`;
+}
 
-      if (result.status === "rejected") {
-        warnings.push({
-          source: collector.name,
-          brands: collector.brands,
-          reason: result.reason?.message ?? String(result.reason),
-          fallbackCount: fallbackBenefits.length,
-        });
-        return fallbackBenefits;
-      }
+function richness(benefit) {
+  return (
+    (benefit.validUntil ? 4 : 0) +
+    (benefit.startsAt ? 2 : 0) +
+    (benefit.provider === "brand" ? 0 : 1)
+  );
+}
 
-      if (result.value.length === 0 && fallbackBenefits.length > 0) {
-        warnings.push({
-          source: collector.name,
-          brands: collector.brands,
-          reason: "collector returned no current benefits; preserved previous current benefits",
-          fallbackCount: fallbackBenefits.length,
-        });
-        return fallbackBenefits;
-      }
+/**
+ * 출처 간·출처 내 중복을 합친다.
+ * - 같은 id는 하나만 남긴다.
+ * - 브랜드와 핵심 문구(대괄호·괄호·브랜드명·공백 제거)가 같고 기간이 겹치면 같은 혜택으로 본다.
+ *   기간 정보가 더 풍부한 쪽을 남기고, 빠진 기간은 다른 쪽에서 채운다.
+ */
+export function dedupeBenefits(benefits) {
+  const byId = new Map();
+  for (const benefit of benefits) {
+    if (!byId.has(benefit.id)) byId.set(benefit.id, benefit);
+  }
 
-      return result.value;
-    }),
-    warnings,
-  };
+  const groups = new Map();
+  for (const benefit of byId.values()) {
+    const key = dedupeKey(benefit);
+    const group = groups.get(key) ?? [];
+    group.push(benefit);
+    groups.set(key, group);
+  }
+
+  const merged = [];
+  for (const group of groups.values()) {
+    const remaining = [...group];
+    while (remaining.length) {
+      remaining.sort((a, b) => richness(b) - richness(a) || b.fit - a.fit);
+      const best = remaining.shift();
+      const overlapping = remaining.filter((other) => periodsOverlap(best, other));
+      for (const other of overlapping) remaining.splice(remaining.indexOf(other), 1);
+      const startsAt = best.startsAt ?? overlapping.find((other) => other.startsAt)?.startsAt ?? null;
+      const validUntil = best.validUntil ?? overlapping.find((other) => other.validUntil)?.validUntil ?? null;
+      merged.push(
+        startsAt === best.startsAt && validUntil === best.validUntil
+          ? best
+          : { ...best, startsAt, validUntil, period: formatPeriod(startsAt, validUntil) },
+      );
+    }
+  }
+  return merged;
+}
+
+function periodsOverlap(a, b) {
+  const aStart = a.startsAt ?? "0000-01-01";
+  const aEnd = a.validUntil ?? "9999-12-31";
+  const bStart = b.startsAt ?? "0000-01-01";
+  const bEnd = b.validUntil ?? "9999-12-31";
+  return aStart <= bEnd && bStart <= aEnd;
+}
+
+// 이번 수집에서 실제로 확인한 날짜. 이전 데이터로 복구된 항목은 처음 확인한 날짜가 그대로 남는다.
+function withVerification(benefits, asOfDate) {
+  return benefits.map((benefit) => ({
+    ...benefit,
+    lastVerifiedAt: benefit.collectedAt
+      ? dateFromTimestampKst(benefit.collectedAt)
+      : (benefit.lastVerifiedAt ?? asOfDate),
+  }));
 }
 
 async function main() {
   const { date: asOfDate, label: asOfLabel } = kstDateParts();
   const previousBenefits = await readPreviousBenefits();
-  const [naverBenefits, tossBenefits, brandResult, telecomResult] = await Promise.all([
-    collectNaver(asOfDate),
-    collectToss(asOfDate),
+  const [paymentResult, brandResult, telecomResult] = await Promise.all([
+    collectPaymentBenefits(asOfDate, previousBenefits),
     collectBrandBenefits(asOfDate, previousBenefits),
     collectTelecomBenefits(asOfDate, previousBenefits),
   ]);
-  const brandBenefits = brandResult.benefits;
-  const telecomBenefits = telecomResult.benefits;
 
-  const benefits = [...naverBenefits, ...tossBenefits, ...brandBenefits, ...telecomBenefits].sort(
-    (a, b) => b.fit - a.fit,
-  );
+  const benefits = withVerification(
+    dedupeBenefits([...paymentResult.benefits, ...brandResult.benefits, ...telecomResult.benefits]),
+    asOfDate,
+  ).sort((a, b) => b.fit - a.fit);
   const outputBase = {
     schemaVersion: 1,
     collectedAt: new Date().toISOString(),
     asOfDate,
     asOfLabel,
-    warnings: [...brandResult.warnings, ...telecomResult.warnings],
+    warnings: [...paymentResult.warnings, ...brandResult.warnings, ...telecomResult.warnings],
     sources: [
       {
         provider: "naverpay",
@@ -1716,10 +1934,15 @@ async function main() {
   ]);
 
   console.log(`Saved ${benefits.length} current or future benefits`);
+  for (const warning of outputBase.warnings) {
+    console.warn(`[${warning.kind}] ${warning.source}: ${warning.reason} (fallback ${warning.fallbackCount})`);
+  }
   console.log(`Wrote public/data/benefits.json`);
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+  });
+}

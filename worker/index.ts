@@ -42,6 +42,72 @@ async function fetchBenefitsJson(request: Request, env: Env | undefined) {
   });
 }
 
+const BENEFITS_HEADERS = {
+  "content-type": "application/json; charset=utf-8",
+  "cache-control": "public, max-age=300, stale-while-revalidate=86400",
+};
+// 마지막으로 정상 확인한 응답을 이 키로 Cloudflare 캐시에 보관한다.
+const LAST_GOOD_CACHE_KEY = "https://benefit-radar.internal/last-good-benefits.json";
+
+type BenefitsCheck = { ok: true; body: string } | { ok: false; error: string };
+
+function validateBenefitsBody(body: string): BenefitsCheck {
+  try {
+    const payload = JSON.parse(body) as { schemaVersion?: unknown; benefits?: unknown; asOfDate?: unknown };
+    if (payload.schemaVersion !== 1 || !Array.isArray(payload.benefits) || typeof payload.asOfDate !== "string") {
+      return { ok: false, error: "benefits_json_invalid" };
+    }
+    return { ok: true, body };
+  } catch {
+    return { ok: false, error: "benefits_json_invalid" };
+  }
+}
+
+function defaultCache(): Cache | null {
+  const cacheStorage = (globalThis as { caches?: CacheStorage & { default?: Cache } }).caches;
+  return cacheStorage?.default ?? null;
+}
+
+async function loadBenefits(request: Request, env: Env | undefined): Promise<BenefitsCheck> {
+  try {
+    const response = await fetchBenefitsJson(request, env);
+    if (!response.ok) return { ok: false, error: "benefits_json_not_found" };
+    return validateBenefitsBody(await response.text());
+  } catch {
+    return { ok: false, error: "benefits_json_unreachable" };
+  }
+}
+
+async function handleBenefits(request: Request, env: Env | undefined, ctx: ExecutionContext) {
+  const result = await loadBenefits(request, env);
+  const cache = defaultCache();
+
+  if (result.ok) {
+    if (cache) {
+      ctx.waitUntil(
+        cache
+          .put(
+            LAST_GOOD_CACHE_KEY,
+            new Response(result.body, { headers: { ...BENEFITS_HEADERS, "cache-control": "public, max-age=604800" } }),
+          )
+          .catch(() => undefined),
+      );
+    }
+    return new Response(result.body, { status: 200, headers: BENEFITS_HEADERS });
+  }
+
+  // 원본이 일시적으로 없거나 깨졌으면 마지막 정상 응답을 대신 준다. 앱은 asOfDate로 오래된 정도를 판단한다.
+  const lastGood = cache ? await cache.match(LAST_GOOD_CACHE_KEY).catch(() => undefined) : undefined;
+  if (lastGood) {
+    return new Response(lastGood.body, {
+      status: 200,
+      headers: { ...BENEFITS_HEADERS, "cache-control": "public, max-age=60", "x-benefits-fallback": result.error },
+    });
+  }
+
+  return Response.json({ error: result.error }, { status: 503, headers: { "cache-control": "no-store" } });
+}
+
 const worker = {
   async fetch(request: Request, env: Env | undefined, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
@@ -56,22 +122,7 @@ const worker = {
     }
 
     if (url.pathname === "/api/benefits") {
-      const response = await fetchBenefitsJson(request, env);
-
-      if (!response.ok) {
-        return Response.json(
-          { error: "benefits_json_not_found" },
-          { status: 503 },
-        );
-      }
-
-      return new Response(response.body, {
-        status: 200,
-        headers: {
-          "content-type": "application/json; charset=utf-8",
-          "cache-control": "public, max-age=300, stale-while-revalidate=86400",
-        },
-      });
+      return handleBenefits(request, env, ctx);
     }
 
     if (url.pathname === "/_vinext/image") {

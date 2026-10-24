@@ -67,14 +67,17 @@ test("serves the generated benefit JSON through the API", async () => {
   assert.ok(
     payload.benefits.every((benefit) => ["커피", "베이커리", "간식", "기타"].includes(benefit.category)),
   );
-  const mPointPercentBenefits = payload.benefits.filter((benefit) =>
-    /(?:M\s*포인트|엠포인트).*?\d+(?:\.\d+)?\s*%|\d+(?:\.\d+)?\s*%.*?(?:M\s*포인트|엠포인트)/i.test(
-      `${benefit.title} ${benefit.valueText}`,
+  // M포인트 표시 규칙은 tests/collector-rules.test.mjs의 고정 입력으로 검증한다.
+  // 여기서는 저장된 JSON에 특정 혜택이 있는지에 기대지 않고 계약만 확인한다.
+  assert.equal(new Set(payload.benefits.map((benefit) => benefit.id)).size, payload.benefits.length);
+  assert.ok(
+    payload.benefits.every(
+      (benefit) =>
+        typeof benefit.title === "string" &&
+        typeof benefit.source === "string" &&
+        (benefit.validUntil == null || /^\d{4}-\d{2}-\d{2}$/.test(benefit.validUntil)),
     ),
   );
-  assert.ok(mPointPercentBenefits.length > 0);
-  assert.ok(mPointPercentBenefits.every((benefit) => /^\d+(?:\.\d+)?%$/.test(benefit.value)));
-  assert.ok(mPointPercentBenefits.every((benefit) => !/^50%$|^20%$/.test(benefit.value)));
   assert.ok(
     payload.benefits.every(
       (benefit) => !/배달의민족|배민/.test(`${benefit.brand} ${benefit.title} ${benefit.valueText}`),
@@ -82,6 +85,7 @@ test("serves the generated benefit JSON through the API", async () => {
   );
   assert.doesNotMatch(JSON.stringify(payload.sources), /배달의민족|배민/);
   assert.ok(payload.benefits.every((benefit) => !("raw" in benefit)));
+  assert.ok(payload.benefits.every((benefit) => !("sourceHash" in benefit) && !("collectedAt" in benefit)));
 });
 
 test("serves AdMob app-ads.txt at the root", async () => {
