@@ -37,9 +37,13 @@ async function fetchBenefitsJson(request: Request, env: Env | undefined) {
     return env?.ASSETS ? env.ASSETS.fetch(new Request(assetUrl)) : fetch(assetUrl);
   }
 
-  return fetch(benefitsJsonUrl, {
+  // R2 객체의 cache-control(stale-while-revalidate 1일) 때문에 Cloudflare가 Worker의 원본 요청을
+  // 오래된 응답으로 계속 채우는 일이 있었다. 원본 요청은 엣지에 최대 60초만 캐시한다.
+  const init: RequestInit & { cf?: { cacheTtl: number; cacheEverything: boolean } } = {
     headers: { accept: "application/json" },
-  });
+    cf: { cacheTtl: 60, cacheEverything: true },
+  };
+  return fetch(benefitsJsonUrl, init);
 }
 
 const BENEFITS_HEADERS = {

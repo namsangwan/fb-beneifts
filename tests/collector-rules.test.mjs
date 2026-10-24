@@ -179,3 +179,31 @@ test("공개 JSON은 감사용 필드를 제거하고 확인일은 남긴다", (
   const publicBenefit = toPublicBenefit({ id: "a", raw: "x", sourceHash: "h", collectedAt: "t", lastVerifiedAt: "2026-10-24" });
   assert.deepEqual(publicBenefit, { id: "a", lastVerifiedAt: "2026-10-24" });
 });
+
+test("기간 파싱: 문구에 적힌 연도를 연도 없는 날짜에 쓴다", () => {
+  assert.deepEqual(
+    parseFlexiblePeriod("2026년 말의해 맞이 '말차' 전 메뉴 2,026원 프로모션(1/2~) – 빽다방 앱", asOf),
+    { startsAt: "2026-01-02", validUntil: null },
+  );
+  // 10월에 본 "1월"은 연도 단서가 없으면 올해로 본다. (다음 해로 넘기는 것은 11~12월에 본 1~2월만)
+  assert.equal(dateFromMonthDay(1, 2, "2026-10-24"), "2026-01-02");
+  assert.equal(dateFromMonthDay(1, 2, "2026-11-20"), "2027-01-02");
+});
+
+test("브랜드 이벤트: 종료일이 없으면 게시 60일 뒤 제외한다(제목에서 시작일만 읽힌 경우 포함)", () => {
+  const event = (publishedAt) =>
+    normalizeBrandEvent(
+      {
+        brand: "빽다방",
+        id: "p-2",
+        title: "2026년 말의해 맞이 '말차' 전 메뉴 2,026원 프로모션(1/2~)",
+        source: "x",
+        sourceLabel: "y",
+        publishedAt,
+        raw: "r",
+      },
+      asOf,
+    );
+  assert.equal(event("2025-12-30"), null);
+  assert.equal(event("2026-10-01").startsAt, "2026-01-02");
+});

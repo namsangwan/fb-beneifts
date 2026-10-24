@@ -497,9 +497,9 @@ function absoluteUrl(url, baseUrl) {
 export function dateFromMonthDay(month, day, asOfDate) {
   const [asOfYear, asOfMonth] = asOfDate.split("-").map(Number);
   const monthNumber = Number(month);
-  // 연도가 생략된 날짜는 기준일의 해로 보되, 연말에 본 1~3월은 다음 해, 연초에 본 10~12월은 지난해로 본다.
+  // 연도가 생략된 날짜는 기준일의 해로 보되, 11~12월에 본 1~2월은 다음 해, 1~2월에 본 11~12월은 지난해로 본다.
   const diff = monthNumber - asOfMonth;
-  const year = diff <= -9 ? asOfYear + 1 : diff >= 9 ? asOfYear - 1 : asOfYear;
+  const year = diff <= -10 ? asOfYear + 1 : diff >= 10 ? asOfYear - 1 : asOfYear;
   return `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
 }
 
@@ -516,6 +516,12 @@ export function parseFlexiblePeriod(text, asOfDate) {
     .replace(/\((?![^)]*\d)[^)]*\)/g, "")
     .replace(/[()]/g, " ")
     .replace(/\s+/g, " ");
+  // "2026년 말의해 맞이 … (1/2~)"처럼 문구에 연도가 따로 적혀 있으면, 연도 없는 날짜는 그 해로 본다.
+  const yearHint = normalized.match(/(?<!\d)(20\d{2})\s*년(?!\s*\d{1,2}\s*월)/)?.[1];
+  const monthDay = (month, day) =>
+    yearHint
+      ? `${yearHint}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`
+      : dateFromMonthDay(month, day, asOfDate);
   const koreanDateTimeRange = normalized.match(
     /(\d{4})년\s*(\d{1,2})월\s*(\d{1,2})일(?:\s*(?:오전|오후)?\s*\d{1,2}시(?:\s*\d{1,2}분)?)?\s*~\s*(?:(\d{4})년\s*)?(\d{1,2})월\s*(\d{1,2})일/,
   );
@@ -575,7 +581,7 @@ export function parseFlexiblePeriod(text, asOfDate) {
   );
   if (koreanRange) {
     const [, sm, sd, em, ed] = koreanRange;
-    const startsAt = dateFromMonthDay(sm, sd, asOfDate);
+    const startsAt = monthDay(sm, sd);
     const endYear = inferEndYear(startsAt, Number(em), asOfDate);
     return {
       startsAt,
@@ -586,7 +592,7 @@ export function parseFlexiblePeriod(text, asOfDate) {
   const slashRange = normalized.match(/(\d{1,2})[./](\d{1,2})\s*(?:~|-)\s*(\d{1,2})[./](\d{1,2})/);
   if (slashRange) {
     const [, sm, sd, em, ed] = slashRange;
-    const startsAt = dateFromMonthDay(sm, sd, asOfDate);
+    const startsAt = monthDay(sm, sd);
     const endYear = inferEndYear(startsAt, Number(em), asOfDate);
     return {
       startsAt,
@@ -597,7 +603,7 @@ export function parseFlexiblePeriod(text, asOfDate) {
   const sameMonthRange = normalized.match(/(?<![\d.])(\d{1,2})[./](\d{1,2})\s*~\s*(\d{1,2})(?![./\d%])(?!\s*(?:%|원|천|만))/);
   if (sameMonthRange) {
     const [, sm, sd, ed] = sameMonthRange;
-    const startsAt = dateFromMonthDay(sm, sd, asOfDate);
+    const startsAt = monthDay(sm, sd);
     return {
       startsAt,
       validUntil: `${startsAt.slice(0, 4)}-${sm.padStart(2, "0")}-${ed.padStart(2, "0")}`,
@@ -608,7 +614,7 @@ export function parseFlexiblePeriod(text, asOfDate) {
   if (openStart) {
     const [, sm, sd] = openStart;
     return {
-      startsAt: dateFromMonthDay(sm, sd, asOfDate),
+      startsAt: monthDay(sm, sd),
       validUntil: null,
     };
   }
@@ -617,7 +623,7 @@ export function parseFlexiblePeriod(text, asOfDate) {
   if (openKoreanStart) {
     const [, sm, sd] = openKoreanStart;
     return {
-      startsAt: dateFromMonthDay(sm, sd, asOfDate),
+      startsAt: monthDay(sm, sd),
       validUntil: null,
     };
   }
@@ -675,9 +681,9 @@ export function normalizeBrandEvent({
 
   if (!isCurrentOrFuture(adjustedBenefit, asOfDate)) return null;
   if (
+    // 종료일 없는 이벤트는 게시 후 60일이 지나면 뺀다. 제목에서 시작일만 읽힌 경우도 같다.
     !validUntil &&
     publishedAt &&
-    (!startsAt || startsAt === publishedAt) &&
     daysBetween(publishedAt, asOfDate) > 60
   ) {
     return null;
