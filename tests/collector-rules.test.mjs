@@ -5,6 +5,7 @@ import test from "node:test";
 import {
   dateFromMonthDay,
   dedupeBenefits,
+  hasBrandBenefitSignal,
   displayValue,
   normalizeBrandEvent,
   normalizeExternalBenefit,
@@ -140,16 +141,16 @@ test("복구: 지난 기간·오래된 무기한 항목은 되살리지 않는�
 test("수집 결과 정리: 실패·0건은 경고와 함께 복구한다", () => {
   const collector = { name: "naverpay" };
   const fallback = [{ id: "old" }];
-  const failed = settleCollectorResult({ status: "rejected", reason: new Error("Naver fetch failed: 500") }, collector, fallback);
+  const failed = settleCollectorResult({ status: "rejected", reason: new Error("Naver fetch failed: 500") }, collector, fallback, asOf);
   assert.equal(failed.benefits, fallback);
   assert.equal(failed.warning.kind, "failed");
   assert.equal(failed.warning.fallbackCount, 1);
 
-  const empty = settleCollectorResult({ status: "fulfilled", value: [] }, collector, []);
+  const empty = settleCollectorResult({ status: "fulfilled", value: [] }, collector, [], asOf);
   assert.equal(empty.warning.kind, "empty");
   assert.deepEqual(empty.benefits, []);
 
-  const ok = settleCollectorResult({ status: "fulfilled", value: [{ id: "new" }] }, collector, fallback);
+  const ok = settleCollectorResult({ status: "fulfilled", value: [{ id: "new" }] }, collector, fallback, asOf);
   assert.equal(ok.warning, null);
   assert.deepEqual(ok.benefits, [{ id: "new" }]);
 });
@@ -261,4 +262,27 @@ test("중계: 해외 IP를 막는 출처만, 설정이 있을 때만 중계를 �
     body: "eventDiv=progress&pageNum=1",
   });
   assert.equal(JSON.parse(relayRequestFor("https://www.lguplus.com/benefit-event/ongoing", {}, env).init.body).method, "GET");
+});
+
+test("0건일 때는 최근에 확인한 이전 혜택만 유지한다", () => {
+  const fallback = [
+    { id: "old-mpoint", validUntil: "2026-12-31", collectedAt: "2026-08-20T12:00:00Z" },
+    { id: "recent", validUntil: "2026-10-31", collectedAt: "2026-10-20T12:00:00Z" },
+  ];
+  const empty = settleCollectorResult({ status: "fulfilled", value: [] }, { name: "theventi" }, fallback, asOf);
+  assert.deepEqual(
+    empty.benefits.map((benefit) => benefit.id),
+    ["recent"],
+  );
+  assert.equal(empty.warning.fallbackCount, 1);
+  // 접속 자체가 실패하면 종료일이 남은 혜택은 그대로 유지한다.
+  const failed = settleCollectorResult({ status: "rejected", reason: new Error("x") }, { name: "theventi" }, fallback, asOf);
+  assert.equal(failed.benefits.length, 2);
+});
+
+test("결제수단 제휴 프로모션 제목을 혜택으로 본다", () => {
+  assert.equal(hasBrandBenefitSignal("26년 10월 삼성카드 LINK 프로모션"), true);
+  assert.equal(hasBrandBenefitSignal("26년 10월 카카오페이 굿딜 프로모션"), true);
+  assert.equal(hasBrandBenefitSignal("[프로모션] READY, SET, RE: PLAY! 러닝 클래스 수강권 GET"), false);
+  assert.equal(hasBrandBenefitSignal("[프로모션] 극장판 치이카와 기대평 SNS 댓글 이벤트"), false);
 });

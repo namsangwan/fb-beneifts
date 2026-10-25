@@ -522,10 +522,14 @@ function hasPositiveBrandBenefitSignal(text) {
   if (/(?:카드|card|마이샵|link).{0,12}혜택|혜택.{0,12}(?:카드|card|마이샵|link)/.test(normalized)) {
     return true;
   }
+  // "26년 10월 삼성카드 LINK 프로모션"처럼 결제수단 제휴 프로모션은 제목에 할인·적립이 없어도 혜택이다.
+  if (/(?:카드|card|link|페이|pay).{0,12}(?:프로모션|이벤트|event)/.test(normalized)) {
+    return true;
+  }
   return brandEventKeywords.some((keyword) => normalized.includes(keyword.toLowerCase()));
 }
 
-function hasBrandBenefitSignal(text) {
+export function hasBrandBenefitSignal(text) {
   if (hasBrandExclusionSignal(text)) return false;
   return hasPositiveBrandBenefitSignal(text);
 }
@@ -1596,7 +1600,8 @@ async function collectLguplusOngoing(asOfDate) {
 }
 
 // 이전 수집분으로 복구할 때, 종료일이 없는 항목은 출처가 계속 실패하면 끝났는지 알 수 없으므로
-// 마지막 확인 후 이 기간까지만 유지한다. 종료일이 적힌 항목은 종료일까지 유지한다.
+// 마지막 확인 후 이 기간까지만 유지한다. 종료일이 적힌 항목은 출처 접속이 실패한 동안에는 종료일까지 유지하고,
+// 출처에 접속은 되는데 0건이 나오면 이 기간까지만 유지한다.
 const FALLBACK_OPEN_ENDED_MAX_AGE_DAYS = 14;
 
 function errorReason(error) {
@@ -1670,7 +1675,12 @@ function previousProviderBenefits(previousBenefits, { provider, pay, legacySourc
  * 수집기 하나의 결과를 이전 데이터 복구 규칙과 함께 정리한다.
  * 실패하거나 0건이면 이전 미만료 데이터를 쓰고 warnings에 남긴다.
  */
-export function settleCollectorResult(result, collector, fallbackBenefits) {
+function isRecentlyVerified(benefit, asOfDate) {
+  const verifiedAt = benefit.collectedAt ? dateFromTimestampKst(benefit.collectedAt) : benefit.lastVerifiedAt;
+  return Boolean(verifiedAt) && daysBetween(verifiedAt, asOfDate) <= FALLBACK_OPEN_ENDED_MAX_AGE_DAYS;
+}
+
+export function settleCollectorResult(result, collector, fallbackBenefits, asOfDate = kstDateParts().date) {
   const base = { source: collector.name, ...(collector.brands ? { brands: collector.brands } : {}) };
 
   if (result.status === "rejected") {
@@ -1686,6 +1696,9 @@ export function settleCollectorResult(result, collector, fallbackBenefits) {
   }
 
   if (result.value.length === 0) {
+    // 출처에는 접속했는데 진행 중인 혜택이 없다고 나온 경우다. 파서 고장일 수도 있어 이전 데이터를 쓰되,
+    // 끝났는데 목록에서만 사라진 혜택이 종료일까지 남지 않도록 최근에 확인한 것만 쓴다.
+    fallbackBenefits = fallbackBenefits.filter((benefit) => isRecentlyVerified(benefit, asOfDate));
     return {
       benefits: fallbackBenefits,
       warning: {
@@ -1708,7 +1721,7 @@ async function runCollectors(collectors, previousBenefits, asOfDate, fallbackFor
   const warnings = [];
   const benefits = results.flatMap((result, index) => {
     const collector = collectors[index];
-    const settled = settleCollectorResult(result, collector, fallbackFor(previousBenefits, collector, asOfDate));
+    const settled = settleCollectorResult(result, collector, fallbackFor(previousBenefits, collector, asOfDate), asOfDate);
     if (settled.warning) warnings.push(settled.warning);
     return settled.benefits;
   });
