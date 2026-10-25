@@ -69,10 +69,33 @@ jobs:
 
           git config user.name "benefit-radar-bot"
           git config user.email "benefit-radar-bot@users.noreply.github.com"
-          git add data/benefits.snapshot.json public/data/benefits.json
-          git commit -m "Update benefit snapshot"
-          git pull --rebase
-          git push
+
+          # 수집하는 동안 main이 바뀌었으면(PR 머지, 다른 수집 실행) rebase가 JSON에서 충돌한다.
+          # 두 파일은 매번 새로 만드는 결과물이므로, 최신 main 위에 이번 결과를 그대로 덮어 커밋한다.
+          tmp="$RUNNER_TEMP/benefits"
+          mkdir -p "$tmp"
+          cp data/benefits.snapshot.json "$tmp/snapshot.json"
+          cp public/data/benefits.json "$tmp/public.json"
+
+          for attempt in 1 2 3; do
+            git fetch --quiet origin main
+            git reset --quiet --hard origin/main
+            cp "$tmp/snapshot.json" data/benefits.snapshot.json
+            cp "$tmp/public.json" public/data/benefits.json
+            if git diff --quiet -- data/benefits.snapshot.json public/data/benefits.json; then
+              echo "No benefit changes against latest main"
+              exit 0
+            fi
+            git add data/benefits.snapshot.json public/data/benefits.json
+            git commit --quiet -m "Update benefit snapshot"
+            if git push --quiet origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push rejected (attempt $attempt), retrying on latest main"
+            sleep $((attempt * 5))
+          done
+          echo "Could not push benefit snapshot after 3 attempts" >&2
+          exit 1
 
       # 출처 수집 실패를 "수집 상태" 이슈 하나로 관리한다. 본문만 고쳐서 알림이 반복되지 않게 하고, 정상화되면 닫는다.
       - name: Report collector health
