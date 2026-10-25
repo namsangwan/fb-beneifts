@@ -1,4 +1,4 @@
-// 배포한 서울 리전 중계로 3개 출처에 실제로 접속되는지 확인한다.
+// 배포한 서울 리전 중계로 4개 출처에 실제로 접속되는지 확인한다.
 // 사용법: RELAY_URL=https://… RELAY_TOKEN=… npm run check:relay
 const { RELAY_URL, RELAY_TOKEN } = process.env;
 if (!RELAY_URL || !RELAY_TOKEN) {
@@ -13,6 +13,7 @@ const checks = [
     { url: "https://mo.twosome.co.kr/ev/eventListAjax.json", method: "POST", headers: form, body: "eventDiv=progress&searchOpt=endSoon&pageNum=1" },
   ],
   ["LG U+", { url: "https://www.lguplus.com/benefit-event/ongoing" }],
+  ["더벤티", { url: "https://theventi.co.kr/new2022/news/event.html" }],
   [
     "KT 멤버십",
     {
@@ -36,11 +37,12 @@ for (const [name, payload] of checks) {
     });
     const body = await response.text();
     const relayError = response.headers.get("x-relay-error");
-    const ok = !relayError && response.status === 200;
+    const challenged = /자동등록방지를 위해 보안절차|please prove that you are human/i.test(body);
+    const ok = !relayError && !challenged && response.status === 200;
     if (!ok) failed += 1;
     console.log(
       `${ok ? "OK  " : "FAIL"} ${name.padEnd(8)} status=${response.status}${relayError ? ` relay=${relayError}` : ""} ` +
-        `${body.length.toLocaleString()}자 ${Date.now() - started}ms`,
+        `${body.length.toLocaleString()}자 ${Date.now() - started}ms${challenged ? " (사람 확인 페이지)" : ""}`,
     );
   } catch (error) {
     failed += 1;

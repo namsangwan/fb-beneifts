@@ -6,6 +6,7 @@ import {
   dateFromMonthDay,
   dedupeBenefits,
   hasBrandBenefitSignal,
+  isBotChallengePage,
   displayValue,
   normalizeBrandEvent,
   normalizeExternalBenefit,
@@ -285,4 +286,17 @@ test("결제수단 제휴 프로모션 제목을 혜택으로 본다", () => {
   assert.equal(hasBrandBenefitSignal("26년 10월 카카오페이 굿딜 프로모션"), true);
   assert.equal(hasBrandBenefitSignal("[프로모션] READY, SET, RE: PLAY! 러닝 클래스 수강권 GET"), false);
   assert.equal(hasBrandBenefitSignal("[프로모션] 극장판 치이카와 기대평 SNS 댓글 이벤트"), false);
+});
+
+test("사람 확인 페이지를 알아본다", () => {
+  assert.equal(
+    isBotChallengePage("<h1>자동등록방지를 위해 보안절차를 거치고 있습니다.</h1><p>Please prove that you are human.</p>"),
+    true,
+  );
+  assert.equal(isBotChallengePage('<p class="tit">26년 10월 삼성카드 LINK 프로모션</p>'), false);
+});
+
+test("중계: 더벤티도 중계를 거친다", () => {
+  const env = { RELAY_URL: "https://relay.example/relay", RELAY_TOKEN: "t" };
+  assert.notEqual(relayRequestFor("https://theventi.co.kr/new2022/news/event.html", {}, env), null);
 });

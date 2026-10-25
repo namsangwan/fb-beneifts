@@ -1,7 +1,7 @@
 // 카페할인 모아 수집 중계 (Firebase Cloud Functions 2세대, 서울 리전)
 //
-// 투썸플레이스·LG U+·KT 멤버십은 해외(GitHub Actions) IP를 막는다.
-// 수집기는 이 3곳 요청만 이 함수로 보내고, 함수가 서울에서 대신 받아 돌려준다.
+// 투썸플레이스·LG U+·KT 멤버십·더벤티는 해외(GitHub Actions) 요청을 막거나 사람 확인 페이지를 준다.
+// 수집기는 이 4곳 요청만 이 함수로 보내고, 함수가 서울에서 대신 받아 돌려준다.
 // 규칙은 relay-core.js, 배포·설정 방법은 ../README.md를 본다.
 
 import { gzipSync } from "node:zlib";

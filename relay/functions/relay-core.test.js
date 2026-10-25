@@ -12,7 +12,8 @@ test("토큰이 정확히 같을 때만 허용한다", () => {
   assert.equal(isAuthorized("Bearer abc123", ""), false);
 });
 
-test("허용한 3개 도메인의 https만 중계한다", () => {
+test("허용한 4개 도메인의 https만 중계한다", () => {
+  assert.equal(buildUpstreamRequest({ url: "https://theventi.co.kr/new2022/news/event.html" }).ok, true);
   assert.equal(buildUpstreamRequest({ url: "https://www.lguplus.com/benefit-event/ongoing" }).ok, true);
   // 컴포즈커피는 서울 리전 IP도 막아 허용 목록에서 뺐다.
   assert.equal(buildUpstreamRequest({ url: "https://composecoffee.com/event" }).error, "host_not_allowed");

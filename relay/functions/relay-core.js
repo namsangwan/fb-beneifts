@@ -12,6 +12,7 @@ export const ALLOWED_HOSTS = new Set([
   "mo.twosome.co.kr",
   "www.lguplus.com",
   "membership.kt.com",
+  "theventi.co.kr",
 ]);
 
 const ALLOWED_METHODS = new Set(["GET", "POST"]);
