@@ -48,6 +48,15 @@ test("server-renders the benefit radar shell", async () => {
   assert.match(html, /<title>카페할인 모아<\/title>/i);
   assert.match(html, /카페할인 모아/);
   assert.doesNotMatch(html, /카카오페이|굿딜/);
+  // 웹 화면 골격: 내 관심/전체 탭, 검색, 설정, 필터(간식 포함 4종·LG U+ 표기)
+  assert.match(html, /내 관심/);
+  assert.match(html, /role="tablist"/);
+  assert.match(html, /브랜드, 혜택 검색/);
+  assert.match(html, /aria-label="설정"/);
+  for (const label of ["커피", "베이커리", "간식", "기타", "브랜드 이벤트", "LG U\\+"]) {
+    assert.match(html, new RegExp(`>${label}<`));
+  }
+  assert.match(html, /name="viewport"/);
 });
 
 test("serves the generated benefit JSON through the API", async () => {
