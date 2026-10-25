@@ -176,13 +176,53 @@ const telecomEventExclusionKeywords = [
 ];
 
 const FETCH_TIMEOUT_MS = 20000;
+const RELAY_TIMEOUT_MS = 45000;
+
+// 해외(GitHub Actions) IP를 막는 출처. RELAY_URL·RELAY_TOKEN이 있으면 서울 리전 중계(relay/)를 거친다.
+export const RELAYED_HOSTS = new Set(["composecoffee.com", "mo.twosome.co.kr", "www.lguplus.com", "membership.kt.com"]);
+
+/** 중계를 거칠 요청이면 중계 요청으로 바꾼다. 아니면 null. */
+export function relayRequestFor(url, options = {}, env = process.env) {
+  if (!env.RELAY_URL || !env.RELAY_TOKEN) return null;
+  const target = new URL(url);
+  if (!RELAYED_HOSTS.has(target.hostname)) return null;
+  return {
+    url: env.RELAY_URL,
+    init: {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${env.RELAY_TOKEN}`,
+        "content-type": "application/json",
+        "accept-encoding": "gzip",
+      },
+      body: JSON.stringify({
+        url: target.href,
+        method: options.method ?? "GET",
+        headers: Object.fromEntries(new Headers(options.headers ?? {}).entries()),
+        ...(options.body == null ? {} : { body: String(options.body) }),
+      }),
+    },
+  };
+}
+
+async function fetchOnce(url, options) {
+  const relayed = relayRequestFor(url, options);
+  if (!relayed) {
+    return fetch(url, { ...options, signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
+  }
+  const response = await fetch(relayed.url, { ...relayed.init, signal: AbortSignal.timeout(RELAY_TIMEOUT_MS) });
+  const relayError = response.headers.get("x-relay-error");
+  // 중계 자체의 오류(인증·도메인·원본 접속 실패)는 원본 응답과 구분해 바로 알린다.
+  if (relayError) throw new Error(`relay ${relayError} (${response.status})`);
+  return response;
+}
 
 // 한 출처가 응답하지 않아 전체 수집이 멈추지 않도록 시간 제한을 두고, 네트워크 오류·5xx는 한 번만 재시도한다.
 async function fetchWithRetry(url, options = {}, attempts = 2) {
   let lastError;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
-      const response = await fetch(url, { ...options, signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
+      const response = await fetchOnce(url, options);
       if (response.status >= 500 && attempt < attempts) {
         lastError = new Error(`HTTP ${response.status}`);
       } else {
@@ -1600,7 +1640,7 @@ const FALLBACK_OPEN_ENDED_MAX_AGE_DAYS = 14;
 function errorReason(error) {
   const message = error?.message ?? String(error);
   const cause = error?.cause?.code ?? error?.cause?.message;
-  if (error?.name === "TimeoutError") return `timeout after ${FETCH_TIMEOUT_MS / 1000}s`;
+  if (error?.name === "TimeoutError") return "timeout";
   return cause && !message.includes(cause) ? `${message} (${cause})` : message;
 }
 

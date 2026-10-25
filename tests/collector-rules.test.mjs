@@ -9,6 +9,7 @@ import {
   normalizeBrandEvent,
   normalizeExternalBenefit,
   parseFlexiblePeriod,
+  relayRequestFor,
   reviveFallbackBenefits,
   scoreBenefit,
   settleCollectorResult,
@@ -234,4 +235,29 @@ test("복구: 예전 규칙으로 잘못 읽은 항목도 지금 규칙으로 �
     revived.map((benefit) => benefit.id),
     ["recent"],
   );
+});
+
+test("중계: 해외 IP를 막는 출처만, 설정이 있을 때만 중계를 거친다", () => {
+  const env = { RELAY_URL: "https://relay.example/relay", RELAY_TOKEN: "t" };
+  assert.equal(relayRequestFor("https://pay.naver.com/x", {}, env), null);
+  assert.equal(relayRequestFor("https://composecoffee.com/event", {}, {}), null);
+
+  const relayed = relayRequestFor(
+    "https://mo.twosome.co.kr/ev/eventListAjax.json",
+    {
+      method: "POST",
+      headers: { "content-type": "application/x-www-form-urlencoded; charset=UTF-8", "user-agent": "benefit-radar/1.0" },
+      body: new URLSearchParams({ eventDiv: "progress", pageNum: "1" }),
+    },
+    env,
+  );
+  assert.equal(relayed.url, env.RELAY_URL);
+  assert.equal(relayed.init.headers.authorization, "Bearer t");
+  assert.deepEqual(JSON.parse(relayed.init.body), {
+    url: "https://mo.twosome.co.kr/ev/eventListAjax.json",
+    method: "POST",
+    headers: { "content-type": "application/x-www-form-urlencoded; charset=UTF-8", "user-agent": "benefit-radar/1.0" },
+    body: "eventDiv=progress&pageNum=1",
+  });
+  assert.equal(JSON.parse(relayRequestFor("https://www.lguplus.com/benefit-event/ongoing", {}, env).init.body).method, "GET");
 });

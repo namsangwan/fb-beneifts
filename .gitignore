@@ -41,3 +41,8 @@ next-env.d.ts
 /.wrangler/
 /outputs/
 /work/
+
+# Firebase 중계
+relay/functions/node_modules/
+relay/.firebase/
+firebase-debug.log

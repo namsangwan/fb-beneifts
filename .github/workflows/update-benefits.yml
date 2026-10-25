@@ -41,7 +41,11 @@ jobs:
       # 수집 규칙이 깨졌으면 수집·업로드 전에 멈춘다.
       - run: npm run test:rules
 
+      # 컴포즈·투썸·LG U+·KT는 해외 IP를 막아서 서울 리전 중계(relay/)를 거친다. 값이 없으면 직접 요청한다.
       - run: npm run collect
+        env:
+          RELAY_URL: ${{ vars.RELAY_URL }}
+          RELAY_TOKEN: ${{ secrets.RELAY_TOKEN }}
       - run: npm run build
 
       # 생성된 JSON이 API 계약을 지키는지 확인한 뒤에만 업로드한다.
