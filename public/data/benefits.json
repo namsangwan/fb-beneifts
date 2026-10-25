@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-10-24T15:33:55.976Z",
+  "collectedAt": "2026-10-25T03:32:02.773Z",
   "asOfDate": "2026-10-25",
-  "asOfLabel": "2026.10.25 00:33 KST",
+  "asOfLabel": "2026.10.25 12:31 KST",
   "warnings": [
     {
       "source": "toss",
@@ -54,12 +54,6 @@
       "kind": "empty",
       "reason": "collector returned no current benefits; preserved previous current benefits",
       "fallbackCount": 1
-    },
-    {
-      "source": "kt-membership",
-      "kind": "failed",
-      "reason": "fetch failed (UND_ERR_CONNECT_TIMEOUT)",
-      "fallbackCount": 9
     },
     {
       "source": "lguplus-ongoing",
