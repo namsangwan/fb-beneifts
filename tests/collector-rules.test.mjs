@@ -240,7 +240,8 @@ test("복구: 예전 규칙으로 잘못 읽은 항목도 지금 규칙으로 �
 test("중계: 해외 IP를 막는 출처만, 설정이 있을 때만 중계를 거친다", () => {
   const env = { RELAY_URL: "https://relay.example/relay", RELAY_TOKEN: "t" };
   assert.equal(relayRequestFor("https://pay.naver.com/x", {}, env), null);
-  assert.equal(relayRequestFor("https://composecoffee.com/event", {}, {}), null);
+  assert.equal(relayRequestFor("https://composecoffee.com/event", {}, env), null);
+  assert.equal(relayRequestFor("https://www.lguplus.com/benefit-event/ongoing", {}, {}), null);
 
   const relayed = relayRequestFor(
     "https://mo.twosome.co.kr/ev/eventListAjax.json",

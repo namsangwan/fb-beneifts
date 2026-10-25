@@ -13,7 +13,6 @@ const sources = {
     lguplusOngoing: "https://www.lguplus.com/benefit-event/ongoing",
   },
   brands: {
-    compose: "https://composecoffee.com/event",
     ediya: "https://www.ediya.com/contents/event.html",
     gongcha: "https://www.gong-cha.co.kr/brand/content/eventlist",
     hollys: "https://www.hollys.co.kr/news/event/list.do",
@@ -179,7 +178,8 @@ const FETCH_TIMEOUT_MS = 20000;
 const RELAY_TIMEOUT_MS = 45000;
 
 // 해외(GitHub Actions) IP를 막는 출처. RELAY_URL·RELAY_TOKEN이 있으면 서울 리전 중계(relay/)를 거친다.
-export const RELAYED_HOSTS = new Set(["composecoffee.com", "mo.twosome.co.kr", "www.lguplus.com", "membership.kt.com"]);
+// 컴포즈커피 공식 이벤트는 서울 리전(Google Cloud) IP까지 막아 2026-10-25에 수집 대상에서 뺐다.
+export const RELAYED_HOSTS = new Set(["mo.twosome.co.kr", "www.lguplus.com", "membership.kt.com"]);
 
 /** 중계를 거칠 요청이면 중계 요청으로 바꾼다. 아니면 null. */
 export function relayRequestFor(url, options = {}, env = process.env) {
@@ -1052,44 +1052,6 @@ async function collectPaikdabang(asOfDate) {
     .filter(Boolean);
 }
 
-async function collectCompose(asOfDate) {
-  const sourceUrl = sources.brands.compose;
-  const html = await fetchText(sourceUrl, "Compose");
-  const cards = Array.from(
-    html.matchAll(
-      /<a href="([^"]+)" class="doc_link"[\s\S]*?<div class="doc_title">([\s\S]*?)<\/div>[\s\S]*?<span class="regdate">([^<]+)<\/span>/g,
-    ),
-  );
-
-  return cards
-    .map(([, href, titleHtml, regdate]) => {
-      const title = compactText(textFromHtml(titleHtml));
-      const publishedAt = regdate.slice(0, 10);
-      const period = parseFlexiblePeriod(title, asOfDate);
-      if (!hasBrandBenefitSignal(title)) return null;
-
-      return normalizeBrandEvent(
-        {
-          brand: "컴포즈커피",
-          id: `compose-${hash(href).slice(0, 12)}`,
-          title,
-          source: absoluteUrl(href, sourceUrl),
-          sourceLabel: "컴포즈 이벤트",
-          startsAt: period.startsAt ?? publishedAt,
-          validUntil: period.validUntil,
-          publishedAt,
-          notes: period.validUntil
-            ? "컴포즈커피 공식 이벤트 목록에서 확인."
-            : "종료일은 목록에 없어 최근 공식 이벤트만 표시합니다.",
-          raw: JSON.stringify({ href, title, regdate }),
-        },
-        asOfDate,
-      );
-    })
-    .filter(Boolean)
-    .slice(0, 8);
-}
-
 async function collectMega(asOfDate) {
   const sourceUrl = sources.brands.mega;
   const html = await fetchText(sourceUrl, "Mega MGC");
@@ -1808,7 +1770,6 @@ async function collectBrandBenefits(asOfDate, previousBenefits = []) {
     [
       { name: "hollys", brands: ["할리스"], collect: () => collectHollys(asOfDate) },
       { name: "paikdabang", brands: ["빽다방"], collect: () => collectPaikdabang(asOfDate) },
-      { name: "compose", brands: ["컴포즈커피"], collect: () => collectCompose(asOfDate) },
       { name: "mammoth", brands: ["매머드커피"], collect: () => collectMammoth(asOfDate) },
       { name: "mega", brands: ["메가MGC커피"], collect: () => collectMega(asOfDate) },
       { name: "gongcha", brands: ["공차"], collect: () => collectGongcha(asOfDate) },
@@ -1954,7 +1915,6 @@ async function main() {
         children: [
           { brand: "할리스", url: sources.brands.hollys },
           { brand: "빽다방", url: sources.brands.paikdabang },
-          { brand: "컴포즈커피", url: sources.brands.compose },
           { brand: "매머드커피/익스프레스 이벤트", url: sources.brands.mammothEvent },
           { brand: "매머드커피/익스프레스 공지", url: sources.brands.mammothNotice },
           { brand: "메가MGC커피", url: sources.brands.mega },

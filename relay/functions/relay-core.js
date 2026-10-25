@@ -9,7 +9,6 @@ import { timingSafeEqual } from "node:crypto";
 
 // 해외 IP를 막아 GitHub Actions에서 직접 받을 수 없는 출처만 허용한다.
 export const ALLOWED_HOSTS = new Set([
-  "composecoffee.com",
   "mo.twosome.co.kr",
   "www.lguplus.com",
   "membership.kt.com",

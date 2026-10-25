@@ -1,4 +1,4 @@
-// 배포한 서울 리전 중계로 4개 출처에 실제로 접속되는지 확인한다.
+// 배포한 서울 리전 중계로 3개 출처에 실제로 접속되는지 확인한다.
 // 사용법: RELAY_URL=https://… RELAY_TOKEN=… npm run check:relay
 const { RELAY_URL, RELAY_TOKEN } = process.env;
 if (!RELAY_URL || !RELAY_TOKEN) {
@@ -8,7 +8,6 @@ if (!RELAY_URL || !RELAY_TOKEN) {
 
 const form = { "content-type": "application/x-www-form-urlencoded; charset=UTF-8", "x-requested-with": "XMLHttpRequest" };
 const checks = [
-  ["컴포즈커피", { url: "https://composecoffee.com/event" }],
   [
     "투썸플레이스",
     { url: "https://mo.twosome.co.kr/ev/eventListAjax.json", method: "POST", headers: form, body: "eventDiv=progress&searchOpt=endSoon&pageNum=1" },
