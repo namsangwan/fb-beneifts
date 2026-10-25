@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Firebase 중계 함수는 별도 패키지다.
+    "relay/functions/node_modules/**",
   ]),
 ]);
 

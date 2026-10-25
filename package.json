@@ -12,6 +12,7 @@
     "test": "npm run test:rules && npm run build && node --test tests/rendered-html.test.mjs tests/worker-api.test.mjs",
     "test:rules": "node --test tests/collector-rules.test.mjs",
     "check:health": "node scripts/check-collector-health.mjs",
+    "check:relay": "node scripts/check-relay.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "collect": "node scripts/collect-benefits.mjs",
     "upload:r2": "wrangler r2 object put \"$R2_BUCKET/benefits.json\" --file public/data/benefits.json --content-type application/json --cache-control \"public, max-age=300, stale-while-revalidate=86400\" --remote",
