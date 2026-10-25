@@ -6,7 +6,12 @@
 //   --json 은 { unhealthy, failed, empty, counts } 를 출력한다.
 import { readFile } from "node:fs/promises";
 
-const payload = JSON.parse(await readFile("public/data/benefits.json", "utf8"));
+const raw = await readFile("public/data/benefits.json", "utf8");
+if (/^(<<<<<<<|=======|>>>>>>>)/m.test(raw)) {
+  console.error("public/data/benefits.json에 git 충돌 표시가 있습니다. 이전 단계(Commit updated JSON) 로그를 확인하세요.");
+  process.exit(2);
+}
+const payload = JSON.parse(raw);
 const warnings = payload.warnings ?? [];
 const kindOf = (warning) => warning.kind ?? (/no current benefits/.test(warning.reason) ? "empty" : "failed");
 const failed = warnings.filter((warning) => kindOf(warning) === "failed");
