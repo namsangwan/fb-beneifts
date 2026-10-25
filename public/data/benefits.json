@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-10-25T03:32:02.773Z",
+  "collectedAt": "2026-10-25T08:30:03.275Z",
   "asOfDate": "2026-10-25",
-  "asOfLabel": "2026.10.25 12:31 KST",
+  "asOfLabel": "2026.10.25 17:29 KST",
   "warnings": [
     {
       "source": "toss",
@@ -20,15 +20,6 @@
       "fallbackCount": 0
     },
     {
-      "source": "compose",
-      "brands": [
-        "컴포즈커피"
-      ],
-      "kind": "failed",
-      "reason": "Compose fetch failed: 403",
-      "fallbackCount": 0
-    },
-    {
       "source": "mammoth",
       "brands": [
         "매머드커피"
@@ -36,15 +27,6 @@
       "kind": "empty",
       "reason": "collector returned no current benefits",
       "fallbackCount": 0
-    },
-    {
-      "source": "twosome",
-      "brands": [
-        "투썸플레이스"
-      ],
-      "kind": "failed",
-      "reason": "Twosome fetch failed: 403",
-      "fallbackCount": 1
     },
     {
       "source": "theventi",
@@ -57,8 +39,8 @@
     },
     {
       "source": "lguplus-ongoing",
-      "kind": "failed",
-      "reason": "LG U+ ongoing events fetch failed: 403",
+      "kind": "empty",
+      "reason": "collector returned no current benefits",
       "fallbackCount": 0
     }
   ],
@@ -100,10 +82,6 @@
         {
           "brand": "빽다방",
           "url": "https://paikdabang.com/news/?cate=event"
-        },
-        {
-          "brand": "컴포즈커피",
-          "url": "https://composecoffee.com/event"
         },
         {
           "brand": "매머드커피/익스프레스 이벤트",
@@ -666,7 +644,7 @@
       "source": "https://mo.twosome.co.kr/ev/eventList.do?eventDiv=progress&searchOpt=endSoon",
       "sourceLabel": "투썸 이벤트",
       "fit": 75,
-      "lastVerifiedAt": "2026-09-30"
+      "lastVerifiedAt": "2026-10-25"
     },
     {
       "id": "brand-pascucci-c6a2470a6705",
