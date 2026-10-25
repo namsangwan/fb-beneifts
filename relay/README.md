@@ -1,22 +1,22 @@
 # 서울 리전 수집 중계 (Firebase)
 
-투썸플레이스, LG U+, KT 멤버십은 해외 IP에서 오는 요청을 막는다.
+투썸플레이스, LG U+, KT 멤버십은 해외 IP에서 오는 요청을 막는다. 더벤티는 해외 요청에 상태 200으로 사람 확인 페이지를 준다.
 GitHub Actions(해외)에서는 403이나 시간 초과가 나지만, 국내 IP에서는 같은 요청이 200으로 열린다(2026-10-25 확인).
 
 컴포즈커피 공식 이벤트도 해외 IP를 막는데, 서울 리전(Google Cloud) IP까지 403으로 막아서 수집 대상에서 뺐다.
 컴포즈 혜택은 네이버페이·통신사 출처에 올라오면 그쪽으로는 계속 잡힌다.
 
-그래서 수집기는 이 3곳 요청만 서울 리전(`asia-northeast3`)의 Firebase 함수 `relay`로 보낸다.
+그래서 수집기는 이 4곳 요청만 서울 리전(`asia-northeast3`)의 Firebase 함수 `relay`로 보낸다.
 나머지 출처, 테스트, R2 업로드, JSON 커밋, 수집 상태 이슈는 지금처럼 GitHub Actions에서 처리한다.
 
 ```
-GitHub Actions ──(3곳만)──▶ relay (서울) ──▶ 투썸·LG U+·KT
+GitHub Actions ──(4곳만)──▶ relay (서울) ──▶ 투썸·LG U+·KT·더벤티
 ```
 
 ## 안전장치
 
 - `Authorization: Bearer <RELAY_TOKEN>` 헤더가 없으면 401을 돌려준다.
-- 위 3개 도메인의 https 주소만 요청한다. 리다이렉트로 밖으로 나가면 막는다.
+- 위 4개 도메인의 https 주소만 요청한다. 리다이렉트로 밖으로 나가면 막는다.
 - GET·POST만 허용하고, 원본에 넘기는 헤더도 정해진 것만 고른다(쿠키 등은 넘기지 않음).
 - 인스턴스는 최대 2개다.
 
@@ -53,17 +53,17 @@ GitHub Actions ──(3곳만)──▶ relay (서울) ──▶ 투썸·LG U+·
    firebase deploy --only functions:relay:relay
    ```
    끝에 출력되는 **Function URL**(`https://relay-….a.run.app` 형태)을 복사한다.
-6. 서울에서 3곳에 실제로 접속되는지 확인한다. 실행 위치와 상관없이 실제 요청은 서울의 함수가 보낸다.
+6. 서울에서 4곳에 실제로 접속되는지 확인한다. 실행 위치와 상관없이 실제 요청은 서울의 함수가 보낸다.
    ```bash
    cd ..   # benefit-radar-server
    RELAY_URL="<Function URL>" RELAY_TOKEN="<토큰>" npm run check:relay
    ```
-   세 줄 모두 `OK`면 된다. `status=403`이 나오면 그 사이트가 Google Cloud IP도 막는 것이다. 이 경우 수집기에 연결하지 말고 다른 방법을 정한다.
+   네 줄 모두 `OK`면 된다. `(사람 확인 페이지)`가 붙으면 서울 IP에도 확인 페이지가 나오는 것이므로 그 출처는 수집하지 못한다. `status=403`이 나오면 그 사이트가 Google Cloud IP도 막는 것이다. 이 경우 수집기에 연결하지 말고 다른 방법을 정한다.
 7. GitHub 저장소 → Settings → Secrets and variables → Actions에 다음을 추가한다.
    - **Variables**: `RELAY_URL` = Function URL
    - **Secrets**: `RELAY_TOKEN` = 토큰
 8. Actions → **Update benefit JSON** → Run workflow로 한 번 돌린다.
-   `npm run check:health`나 "수집 상태" 이슈에서 twosome·lguplus·kt 실패가 사라졌는지 확인한다.
+   `npm run check:health`나 "수집 상태" 이슈에서 twosome·lguplus·kt·theventi 실패가 사라졌는지 확인한다.
 
 `RELAY_URL`이나 `RELAY_TOKEN`을 지우면 수집기는 예전처럼 직접 요청한다.
 

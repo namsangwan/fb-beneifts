@@ -178,8 +178,9 @@ const FETCH_TIMEOUT_MS = 20000;
 const RELAY_TIMEOUT_MS = 45000;
 
 // 해외(GitHub Actions) IP를 막는 출처. RELAY_URL·RELAY_TOKEN이 있으면 서울 리전 중계(relay/)를 거친다.
+// 더벤티는 해외 요청에 사람 확인 페이지를 준다.
 // 컴포즈커피 공식 이벤트는 서울 리전(Google Cloud) IP까지 막아 2026-10-25에 수집 대상에서 뺐다.
-export const RELAYED_HOSTS = new Set(["mo.twosome.co.kr", "www.lguplus.com", "membership.kt.com"]);
+export const RELAYED_HOSTS = new Set(["mo.twosome.co.kr", "www.lguplus.com", "membership.kt.com", "theventi.co.kr"]);
 
 /** 중계를 거칠 요청이면 중계 요청으로 바꾼다. 아니면 null. */
 export function relayRequestFor(url, options = {}, env = process.env) {
@@ -941,7 +942,17 @@ async function fetchText(url, label) {
     throw new Error(`${label} fetch failed: ${response.status}`);
   }
 
-  return response.text();
+  const html = await response.text();
+  if (isBotChallengePage(html)) {
+    // 200이지만 본문이 사람 확인 페이지다. 0건으로 처리하면 문제가 묻히므로 실패로 알린다.
+    throw new Error(`${label} fetch failed: bot challenge page`);
+  }
+  return html;
+}
+
+// 일부 사이트는 해외·자동 요청에 상태 200과 함께 사람 확인 페이지를 준다. (더벤티, 2026-10-25 확인)
+export function isBotChallengePage(html) {
+  return /자동등록방지를 위해 보안절차를 거치고 있습니다|please prove that you are human/i.test(html.slice(0, 20000));
 }
 
 async function fetchFormJson(url, params, label) {
