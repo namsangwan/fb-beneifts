@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-10-28T04:23:45.948Z",
+  "collectedAt": "2026-10-28T12:15:02.786Z",
   "asOfDate": "2026-10-28",
-  "asOfLabel": "2026.10.28 13:23 KST",
+  "asOfLabel": "2026.10.28 21:14 KST",
   "warnings": [
     {
       "source": "toss",
@@ -210,9 +210,9 @@
       "value": "최대5천원",
       "valueText": "최대 5천원 적립",
       "condition": "대상 카페에서 2천원 이상 결제 시",
-      "period": "2026.01.05 - 2026.12.31",
+      "period": "2026.01.05 - 2026.11.01",
       "startsAt": "2026-01-05",
-      "validUntil": "2026-12-31",
+      "validUntil": "2026-11-01",
       "notes": "클릭하고 혜택 신청하기 하신 분에 한하여 혜택이 제공됩니다. 네이버페이앱으로 결제 하신 분에 한하여 혜택 제공됩니다.",
       "source": "https://pay.naver.com/benefit/payment/detail/14414967832373",
       "sourceLabel": "네이버페이 상세",
