@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-10-30T04:42:14.409Z",
+  "collectedAt": "2026-10-30T12:16:49.041Z",
   "asOfDate": "2026-10-30",
-  "asOfLabel": "2026.10.30 13:42 KST",
+  "asOfLabel": "2026.10.30 21:16 KST",
   "warnings": [
     {
       "source": "toss",
@@ -457,10 +457,10 @@
       "value": "40%",
       "valueText": "[T 멤버십] T day VIP 40% 할인, 골드/실버 20% 할인!",
       "condition": "브랜드 공식 이벤트",
-      "period": "기간 미고지",
-      "startsAt": null,
-      "validUntil": null,
-      "notes": "파스쿠찌 공식 이벤트 목록에서 확인.",
+      "period": "2026.10.28 - 2026.11.01",
+      "startsAt": "2026-10-28",
+      "validUntil": "2026-11-01",
+      "notes": "2026.10.28-2026.11.01",
       "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1010",
       "sourceLabel": "파스쿠찌 이벤트",
       "fit": 83,
