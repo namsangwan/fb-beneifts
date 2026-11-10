@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-11-10T06:15:08.530Z",
-  "asOfDate": "2026-11-10",
-  "asOfLabel": "2026.11.10 15:15 KST",
+  "collectedAt": "2026-11-10T17:31:57.263Z",
+  "asOfDate": "2026-11-11",
+  "asOfLabel": "2026.11.11 02:31 KST",
   "warnings": [
     {
       "source": "toss",
@@ -153,10 +153,10 @@
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653645",
       "sourceLabel": "네이버페이 상세",
       "sourceHash": "a3042ad492e0da640e734b03d15dea5542a23423893fe0126eea11a36131d410",
-      "collectedAt": "2026-11-10T06:15:02.558Z",
+      "collectedAt": "2026-11-10T17:31:51.114Z",
       "raw": "{\"promotionSeq\":24278798653645,\"promotionName\":\"던킨\",\"promotionDescription\":\"Npay QR 두바이시리즈 도넛 4종 결제 시\",\"autoAcmYn\":false,\"acmRate\":null,\"acmAmount\":null,\"applyBasisAmount\":null,\"payMethodType\":null,\"limitAcmCount\":null,\"limitAcmAmount\":null,\"exposeTitle\":\"50% 할인\",\"logoImageUrl\":\"https://phinf.pstatic.net/checkout/20260211_84/177080029123804s8n_PNG/promotionImageTempFile15678995256411381459.png\",\"linkUrl\":\"https://m.blog.naver.com/nv_npay/224470024552\",\"directLandingYn\":true,\"detailUrl\":\"https://pay.naver.com/benefit/payment/detail/24278798653645\",\"promotionStartDateTime\":1794150000000,\"promotionEndDateTime\":1796050799000,\"priority\":1,\"cardCompanyCode\":null,\"ctaText\":\"자세히 보기\",\"cautionText\":\"자세한 내용은 매장 안내 참조\",\"expectConfirmDate\":null,\"exceedBudgetYn\":false,\"fucMembershipYn\":null,\"targetYn\":null,\"confirmDate\":null,\"categoryText\":\"현장결제\",\"exposeYn\":true,\"cardCompanyName\":null,\"cautionTextLines\":[\"자세한 내용은 매장 안내 참조\"],\"payMethodTypeName\":null,\"phase\":\"NEW\",\"badge\":{\"text\":\"NEW\",\"color\":\"red\"}}",
       "fit": 98,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "kt-membership-122",
@@ -175,10 +175,10 @@
       "source": "https://membership.kt.com/discount/partner/C21/122/PartnerDetail.do",
       "sourceLabel": "KT 멤버십",
       "sourceHash": "c0fc9aadd373a9177e72d9981ac348f6cfd18876eab0b1dfd834f9d07405629e",
-      "collectedAt": "2026-11-10T06:15:08.084Z",
+      "collectedAt": "2026-11-10T17:31:57.255Z",
       "raw": "{\"partner\":{\"seq\":null,\"daeCode\":\"C21\",\"jungCode\":\"122\",\"jungName\":\"비트커피\",\"dcCont\":null,\"dcContVip\":null,\"useCount\":null,\"memMilgDudGubun\":null,\"etc\":null,\"homepageUrl\":null,\"logPath\":null,\"display\":null,\"detGubun\":null,\"displayType\":null,\"priority\":0,\"regDate\":null,\"upDate\":null,\"delGubun\":null,\"dummy2\":null,\"etcPhone\":null,\"repImgPath\":null,\"joinType\":null,\"ideaUrl\":null,\"recordCount\":0,\"staffName\":null,\"newYn\":null,\"event\":null,\"priorityAll\":null,\"top10\":null,\"jungImgAlt\":null,\"dcContSub\":null,\"dcContSub2\":null,\"dcContVipSub\":null,\"dcContVipSub2\":null,\"button1\":null,\"buttonLink1\":null,\"buttonMlink1\":null,\"buttonColor1\":null,\"buttonMcolor1\":null,\"btn1PcDp\":null,\"btn1MobileDp\":null,\"button2\":null,\"buttonLink2\":null,\"buttonMlink2\":null,\"buttonColor2\":null,\"buttonMcolor2\":null,\"btn2PcDp\":null,\"btn2MobileDp\":null,\"button3\":null,\"buttonLink3\":null,\"buttonMlink3\":null,\"buttonColor3\":null,\"buttonMcolor3\":null,\"btn3PcDp\":null,\"btn3MobileDp\":null,\"doubleDcContSum\":null,\"doubleDcCont\":null,\"doubleMemMilgDud\":null,\"doubleUseCount\":null,\"doubleEtc\":null,\"doubleDisplayStartDate\":null,\"doubleDisplayEndDate\":null,\"doubleDcDisplay\":null,\"vipDcContSum\":null,\"vipDcCont\":null,\"vipMemMilgDud\":null,\"vipUseCount\":null,\"vipEtc\":null,\"vipDisplayStartDate\":null,\"vipDisplayEndDate\":null,\"vipDcDisplay\":null,\"vipDcPriority\":null,\"vvipDcContSum\":null,\"vvipDcCont\":null,\"vvipMemMilgDud\":null,\"vvipUseCount\":null,\"vvipEtc\":null,\"vvipDisplayStartDate\":null,\"vvipDisplayEndDate\":null,\"vvipDcDisplay\":null,\"vvipDcPriority\":null,\"vvipOnly\":null,\"dcContVvip\":null,\"dcContGold\":null,\"dcContAll\":null,\"aa\":null,\"vvipBnftPcLogPath\":null,\"vvipBnftMLogPath\":null,\"vvipBenefitSum\":null,\"vvipBenefitDisplay\":null,\"vvipBenefitStDt\":null,\"vvipBenefitEndDt\":null,\"vvipBenefitPriority\":null,\"vvipBenefitAlt\":null,\"vipBenefitSum\":null,\"vipBenefitDisplay\":null,\"vipBenefitStDt\":null,\"vipBenefitEndDt\":null,\"vipBenefitPriority\":null,\"canonicalUrl\":null,\"alternateUrl\":null,\"title\":null,\"description\":null,\"ogTitle\":null,\"ogDescription\":null},\"title\":\"전등급: 아메리카노 50% 할인\",\"period\":{\"startsAt\":null,\"validUntil\":null}}",
       "fit": 97,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "brand-gongcha-694e0f7c3822",
@@ -197,10 +197,10 @@
       "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=690&keyword=&status=&scroll=y",
       "sourceLabel": "공차 이벤트",
       "sourceHash": "f9cace60803505e85f062b39d35c24b58088eeea1dd4f36543bb44bd798e8a41",
-      "collectedAt": "2026-11-10T06:15:04.478Z",
+      "collectedAt": "2026-11-10T17:31:53.581Z",
       "raw": "{\"href\":\"/brand/content/eventdetail?seq=690&keyword=&status=&scroll=y\",\"title\":\"11.10 현대 H.Point 하이라이트 공차 인기 밀크티 2종(L) 1+1 쿠폰 증정\",\"periodText\":\"2026.11.10(화) ~ 2026.11.13(금)\"}",
       "fit": 89,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "brand-paulbassett-06a2dcbd212f",
@@ -219,10 +219,10 @@
       "source": "https://www.baristapaulbassett.co.kr/whatsNews/event/View.pb?eventSeq=4647",
       "sourceLabel": "폴바셋 이벤트",
       "sourceHash": "14c3c785c71e55a00734e3a09d87af74323594a135ca584da87f42c31cdf1316",
-      "collectedAt": "2026-11-10T06:15:04.793Z",
+      "collectedAt": "2026-11-10T17:31:54.225Z",
       "raw": "{\"href\":\"https://www.baristapaulbassett.co.kr/whatsNews/event/View.pb?eventSeq=4647\",\"title\":\"자동충전이벤트\",\"description\":\"5만원 이상 자동충전 시, 1+1쿠폰 증정\"}",
       "fit": 89,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "skt-tday-d22feb407659",
@@ -241,10 +241,10 @@
       "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
       "sourceLabel": "SKT T day",
       "sourceHash": "d22feb407659ac528f11fad9b8e433588cb9532f06f4dc95e71a3edc21d5e16d",
-      "collectedAt": "2026-11-10T06:15:06.205Z",
+      "collectedAt": "2026-11-10T17:31:55.859Z",
       "raw": "{\"brand\":\"파리바게뜨\",\"title\":\"파리바게뜨 수능 선물 17종 최대 40% 할인(최대 8,000원)\",\"periodText\":\"쿠폰 사용 기간: 2026년 11월 11일(수) 오전 9시~11월 13일(금) 오후 11시 59분\"}",
       "fit": 89,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "skt-tday-a487df5df8fc",
@@ -263,10 +263,32 @@
       "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
       "sourceLabel": "SKT T day",
       "sourceHash": "a487df5df8fc2fadac660e739095e478362d9fd09019c50e438f45134d8ceca0",
-      "collectedAt": "2026-11-10T06:15:06.206Z",
+      "collectedAt": "2026-11-10T17:31:55.860Z",
       "raw": "{\"brand\":\"파스쿠찌\",\"title\":\"파스쿠찌 10,000원 이상 구매 시 40% 할인(최대 8,000원)\",\"periodText\":\"쿠폰 사용 기간: 2026년 11월 25일(수) 오전 9시~11월 29일(일) 오후 11시 59분(매장 영업시간에 사용하실 수 있습니다.)\"}",
       "fit": 89,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
+    },
+    {
+      "id": "naver-24278798653667",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "파스쿠찌",
+      "category": "커피",
+      "title": "포인트·머니·카드 QR 1만원 이상 결제 시 40% 할인",
+      "value": "40%",
+      "valueText": "40% 할인",
+      "condition": "포인트·머니·카드 QR 1만원 이상 결제 시",
+      "period": "2026.11.11 - 2026.11.15",
+      "startsAt": "2026-11-11",
+      "validUntil": "2026-11-15",
+      "notes": "1일 1회 참여 가능 삼성페이 결제 시 혜택 적용 불가",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653667",
+      "sourceLabel": "네이버페이 상세",
+      "sourceHash": "37242c992c97ea33b8df6f16aa98e591a78414636491973775b3ae7fac826b76",
+      "collectedAt": "2026-11-10T17:31:51.115Z",
+      "raw": "{\"promotionSeq\":24278798653667,\"promotionName\":\"파스쿠찌\",\"promotionDescription\":\"포인트·머니·카드 QR 1만원 이상 결제 시\",\"autoAcmYn\":false,\"acmRate\":null,\"acmAmount\":null,\"applyBasisAmount\":null,\"payMethodType\":null,\"limitAcmCount\":null,\"limitAcmAmount\":null,\"exposeTitle\":\"40% 할인\",\"logoImageUrl\":\"https://phinf.pstatic.net/checkout/20260318_168/17738273948818Yiw7_PNG/promotionImageTempFile8414477987942474087.png\",\"linkUrl\":\"https://m.blog.naver.com/nv_npay/224463444579\",\"directLandingYn\":true,\"detailUrl\":\"https://pay.naver.com/benefit/payment/detail/24278798653667\",\"promotionStartDateTime\":1794322800000,\"promotionEndDateTime\":1794754799000,\"priority\":99,\"cardCompanyCode\":null,\"ctaText\":\"자세히 보기\",\"cautionText\":\"1일 1회 참여 가능\\n삼성페이 결제 시 혜택 적용 불가\\n구매 금액의 40%, 최대 6,000원 한도 내 할인 적용 가능\\n모든 메뉴에 혜택 적용 가능(단, 세트/브런치 메뉴와 기타 할인 제품 혜택 적용 안 됨)\\n휴게소, 인샵, 특수점 등 일부 매장 제외(매장 사전 문의 또는 파스쿠찌 홈페이지 참조)\\n타 행사, 제휴 할인, 모바일상품권, 기타 현장 행사 중복 적용 불가\\n제휴사 사정에 의해 사전 고지 없이 변경 가능\\n자세한 사항은 매장 안내 참조\",\"expectConfirmDate\":null,\"exceedBudgetYn\":false,\"fucMembershipYn\":null,\"targetYn\":null,\"confirmDate\":null,\"categoryText\":\"현장결제\",\"exposeYn\":true,\"cardCompanyName\":null,\"cautionTextLines\":[\"1일 1회 참여 가능\",\"삼성페이 결제 시 혜택 적용 불가\",\"구매 금액의 40%, 최대 6,000원 한도 내 할인 적용 가능\",\"모든 메뉴에 혜택 적용 가능(단, 세트/브런치 메뉴와 기타 할인 제품 혜택 적용 안 됨)\",\"휴게소, 인샵, 특수점 등 일부 매장 제외(매장 사전 문의 또는 파스쿠찌 홈페이지 참조)\",\"타 행사, 제휴 할인, 모바일상품권, 기타 현장 행사 중복 적용 불가\",\"제휴사 사정에 의해 사전 고지 없이 변경 가능\",\"자세한 사항은 매장 안내 참조\"],\"payMethodTypeName\":null,\"phase\":\"D_N\",\"badge\":{\"text\":\"D-4\",\"color\":\"green\"}}",
+      "fit": 86,
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "skt-tday-fee8a95dab17",
@@ -285,10 +307,10 @@
       "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
       "sourceLabel": "SKT T day",
       "sourceHash": "fee8a95dab17c0ec127fccb4f910dd86e0e32f25fa238496a3f5381e321eda85",
-      "collectedAt": "2026-11-10T06:15:06.204Z",
+      "collectedAt": "2026-11-10T17:31:55.859Z",
       "raw": "{\"brand\":\"파리바게뜨\",\"title\":\"수능 기획전 최대 40% 할인\",\"periodText\":\"쿠폰 사용 기간: 2026년 11월 11일(수)~11월 13일(금)\"}",
       "fit": 85,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "skt-tday-c6b953d376b6",
@@ -307,10 +329,10 @@
       "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
       "sourceLabel": "SKT T day",
       "sourceHash": "c6b953d376b618f1bb920833de73f5fc0352761529f27cba14c72487121c650b",
-      "collectedAt": "2026-11-10T06:15:06.206Z",
+      "collectedAt": "2026-11-10T17:31:55.860Z",
       "raw": "{\"brand\":\"파스쿠찌\",\"title\":\"파스쿠찌 10,000원 이상 구매 시 20% 할인(최대 3,000원)\",\"periodText\":\"쿠폰 사용 기간: 2026년 11월 25일(수) 오전 9시~11월 29일(일) 오후 11시 59분(매장 영업시간에 사용하실 수 있습니다.)\"}",
       "fit": 85,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "brand-parisbaguette-cdcaeea31770",
@@ -351,10 +373,10 @@
       "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1047",
       "sourceLabel": "파스쿠찌 이벤트",
       "sourceHash": "b25329de8165a12e4dc950d7a03e61d1465e3628ce70a9b4ad06141b7b4e3eed",
-      "collectedAt": "2026-11-10T06:15:05.393Z",
+      "collectedAt": "2026-11-10T17:31:54.892Z",
       "raw": "{\"href\":\"eventView.asp?teSeq=1047\",\"title\":\"[네이버페이] Npay QR 1만원 이상 결제 시 40% OFF\",\"periodText\":\"\"}",
       "fit": 83,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "brand-pascucci-c5d596177627",
@@ -373,10 +395,10 @@
       "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1044",
       "sourceLabel": "파스쿠찌 이벤트",
       "sourceHash": "daee8262e7527c8e36b6c774689a88b3633f5c67e0268699edfd07032974ffff",
-      "collectedAt": "2026-11-10T06:15:05.393Z",
+      "collectedAt": "2026-11-10T17:31:54.892Z",
       "raw": "{\"href\":\"eventView.asp?teSeq=1044\",\"title\":\"[해피앱] 모바일 교환권 전통음료 20% 혜택\",\"periodText\":\"2026.11.09-2026.11.15\"}",
       "fit": 83,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "kt-membership-78",
@@ -395,10 +417,10 @@
       "source": "https://membership.kt.com/discount/partner/C21/78/PartnerDetail.do",
       "sourceLabel": "KT 멤버십",
       "sourceHash": "88a1902d32d0ed5ceb7230291e56e9a8b8f6403744fef68df3e073b50aa13b37",
-      "collectedAt": "2026-11-10T06:15:08.083Z",
+      "collectedAt": "2026-11-10T17:31:57.253Z",
       "raw": "{\"partner\":{\"seq\":null,\"daeCode\":\"C21\",\"jungCode\":\"78\",\"jungName\":\"던킨\",\"dcCont\":null,\"dcContVip\":null,\"useCount\":null,\"memMilgDudGubun\":null,\"etc\":null,\"homepageUrl\":null,\"logPath\":null,\"display\":null,\"detGubun\":null,\"displayType\":null,\"priority\":0,\"regDate\":null,\"upDate\":null,\"delGubun\":null,\"dummy2\":null,\"etcPhone\":null,\"repImgPath\":null,\"joinType\":null,\"ideaUrl\":null,\"recordCount\":0,\"staffName\":null,\"newYn\":null,\"event\":null,\"priorityAll\":null,\"top10\":null,\"jungImgAlt\":null,\"dcContSub\":null,\"dcContSub2\":null,\"dcContVipSub\":null,\"dcContVipSub2\":null,\"button1\":null,\"buttonLink1\":null,\"buttonMlink1\":null,\"buttonColor1\":null,\"buttonMcolor1\":null,\"btn1PcDp\":null,\"btn1MobileDp\":null,\"button2\":null,\"buttonLink2\":null,\"buttonMlink2\":null,\"buttonColor2\":null,\"buttonMcolor2\":null,\"btn2PcDp\":null,\"btn2MobileDp\":null,\"button3\":null,\"buttonLink3\":null,\"buttonMlink3\":null,\"buttonColor3\":null,\"buttonMcolor3\":null,\"btn3PcDp\":null,\"btn3MobileDp\":null,\"doubleDcContSum\":null,\"doubleDcCont\":null,\"doubleMemMilgDud\":null,\"doubleUseCount\":null,\"doubleEtc\":null,\"doubleDisplayStartDate\":null,\"doubleDisplayEndDate\":null,\"doubleDcDisplay\":null,\"vipDcContSum\":null,\"vipDcCont\":null,\"vipMemMilgDud\":null,\"vipUseCount\":null,\"vipEtc\":null,\"vipDisplayStartDate\":null,\"vipDisplayEndDate\":null,\"vipDcDisplay\":null,\"vipDcPriority\":null,\"vvipDcContSum\":null,\"vvipDcCont\":null,\"vvipMemMilgDud\":null,\"vvipUseCount\":null,\"vvipEtc\":null,\"vvipDisplayStartDate\":null,\"vvipDisplayEndDate\":null,\"vvipDcDisplay\":null,\"vvipDcPriority\":null,\"vvipOnly\":null,\"dcContVvip\":null,\"dcContGold\":null,\"dcContAll\":null,\"aa\":null,\"vvipBnftPcLogPath\":null,\"vvipBnftMLogPath\":null,\"vvipBenefitSum\":null,\"vvipBenefitDisplay\":null,\"vvipBenefitStDt\":null,\"vvipBenefitEndDt\":null,\"vvipBenefitPriority\":null,\"vvipBenefitAlt\":null,\"vipBenefitSum\":null,\"vipBenefitDisplay\":null,\"vipBenefitStDt\":null,\"vipBenefitEndDt\":null,\"vipBenefitPriority\":null,\"canonicalUrl\":null,\"alternateUrl\":null,\"title\":null,\"description\":null,\"ogTitle\":null,\"ogDescription\":null},\"title\":\"VVIP: [V/VIP 초이스] 아메리카노(S)＋글레이즈드 무료 / VIP: [V/VIP 초이스] 아메리카노(S)＋글레이즈드 무료\",\"period\":{\"startsAt\":null,\"validUntil\":null}}",
       "fit": 83,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "kt-membership-63",
@@ -417,10 +439,10 @@
       "source": "https://membership.kt.com/discount/partner/C21/63/PartnerDetail.do",
       "sourceLabel": "KT 멤버십",
       "sourceHash": "fd37062caf6df912678a34058eaa7e46e8d4057a274fdda446bcffaffbdc6a84",
-      "collectedAt": "2026-11-10T06:15:08.084Z",
+      "collectedAt": "2026-11-10T17:31:57.255Z",
       "raw": "{\"partner\":{\"seq\":null,\"daeCode\":\"C21\",\"jungCode\":\"63\",\"jungName\":\"메가MGC커피\",\"dcCont\":null,\"dcContVip\":null,\"useCount\":null,\"memMilgDudGubun\":null,\"etc\":null,\"homepageUrl\":null,\"logPath\":null,\"display\":null,\"detGubun\":null,\"displayType\":null,\"priority\":0,\"regDate\":null,\"upDate\":null,\"delGubun\":null,\"dummy2\":null,\"etcPhone\":null,\"repImgPath\":null,\"joinType\":null,\"ideaUrl\":null,\"recordCount\":0,\"staffName\":null,\"newYn\":null,\"event\":null,\"priorityAll\":null,\"top10\":null,\"jungImgAlt\":null,\"dcContSub\":null,\"dcContSub2\":null,\"dcContVipSub\":null,\"dcContVipSub2\":null,\"button1\":null,\"buttonLink1\":null,\"buttonMlink1\":null,\"buttonColor1\":null,\"buttonMcolor1\":null,\"btn1PcDp\":null,\"btn1MobileDp\":null,\"button2\":null,\"buttonLink2\":null,\"buttonMlink2\":null,\"buttonColor2\":null,\"buttonMcolor2\":null,\"btn2PcDp\":null,\"btn2MobileDp\":null,\"button3\":null,\"buttonLink3\":null,\"buttonMlink3\":null,\"buttonColor3\":null,\"buttonMcolor3\":null,\"btn3PcDp\":null,\"btn3MobileDp\":null,\"doubleDcContSum\":null,\"doubleDcCont\":null,\"doubleMemMilgDud\":null,\"doubleUseCount\":null,\"doubleEtc\":null,\"doubleDisplayStartDate\":null,\"doubleDisplayEndDate\":null,\"doubleDcDisplay\":null,\"vipDcContSum\":null,\"vipDcCont\":null,\"vipMemMilgDud\":null,\"vipUseCount\":null,\"vipEtc\":null,\"vipDisplayStartDate\":null,\"vipDisplayEndDate\":null,\"vipDcDisplay\":null,\"vipDcPriority\":null,\"vvipDcContSum\":null,\"vvipDcCont\":null,\"vvipMemMilgDud\":null,\"vvipUseCount\":null,\"vvipEtc\":null,\"vvipDisplayStartDate\":null,\"vvipDisplayEndDate\":null,\"vvipDcDisplay\":null,\"vvipDcPriority\":null,\"vvipOnly\":null,\"dcContVvip\":null,\"dcContGold\":null,\"dcContAll\":null,\"aa\":null,\"vvipBnftPcLogPath\":null,\"vvipBnftMLogPath\":null,\"vvipBenefitSum\":null,\"vvipBenefitDisplay\":null,\"vvipBenefitStDt\":null,\"vvipBenefitEndDt\":null,\"vvipBenefitPriority\":null,\"vvipBenefitAlt\":null,\"vipBenefitSum\":null,\"vipBenefitDisplay\":null,\"vipBenefitStDt\":null,\"vipBenefitEndDt\":null,\"vipBenefitPriority\":null,\"canonicalUrl\":null,\"alternateUrl\":null,\"title\":null,\"description\":null,\"ogTitle\":null,\"ogDescription\":null},\"title\":\"전등급: [상시] ICE 아메리카노 구매 시 500원 할인(3장) [OTTX메가MGC커피] 500원 할인쿠폰 2장 / VVIP: [V/VIP 초이스] 아메리카노(HOT/ICE) 2잔 무료 / VIP: [V/VIP 초이스] 아메리카노(HOT/ICE) 2잔 무료\",\"period\":{\"startsAt\":null,\"validUntil\":null}}",
       "fit": 83,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "kt-membership-59",
@@ -439,10 +461,10 @@
       "source": "https://membership.kt.com/discount/partner/C21/59/PartnerDetail.do",
       "sourceLabel": "KT 멤버십",
       "sourceHash": "aa3a44a558587d0521166418ae14c9eb992de94ae3fad1491f3571a6a9257d73",
-      "collectedAt": "2026-11-10T06:15:08.085Z",
+      "collectedAt": "2026-11-10T17:31:57.256Z",
       "raw": "{\"partner\":{\"seq\":null,\"daeCode\":\"C21\",\"jungCode\":\"59\",\"jungName\":\"스타벅스\",\"dcCont\":null,\"dcContVip\":null,\"useCount\":null,\"memMilgDudGubun\":null,\"etc\":null,\"homepageUrl\":null,\"logPath\":null,\"display\":null,\"detGubun\":null,\"displayType\":null,\"priority\":0,\"regDate\":null,\"upDate\":null,\"delGubun\":null,\"dummy2\":null,\"etcPhone\":null,\"repImgPath\":null,\"joinType\":null,\"ideaUrl\":null,\"recordCount\":0,\"staffName\":null,\"newYn\":null,\"event\":null,\"priorityAll\":null,\"top10\":null,\"jungImgAlt\":null,\"dcContSub\":null,\"dcContSub2\":null,\"dcContVipSub\":null,\"dcContVipSub2\":null,\"button1\":null,\"buttonLink1\":null,\"buttonMlink1\":null,\"buttonColor1\":null,\"buttonMcolor1\":null,\"btn1PcDp\":null,\"btn1MobileDp\":null,\"button2\":null,\"buttonLink2\":null,\"buttonMlink2\":null,\"buttonColor2\":null,\"buttonMcolor2\":null,\"btn2PcDp\":null,\"btn2MobileDp\":null,\"button3\":null,\"buttonLink3\":null,\"buttonMlink3\":null,\"buttonColor3\":null,\"buttonMcolor3\":null,\"btn3PcDp\":null,\"btn3MobileDp\":null,\"doubleDcContSum\":null,\"doubleDcCont\":null,\"doubleMemMilgDud\":null,\"doubleUseCount\":null,\"doubleEtc\":null,\"doubleDisplayStartDate\":null,\"doubleDisplayEndDate\":null,\"doubleDcDisplay\":null,\"vipDcContSum\":null,\"vipDcCont\":null,\"vipMemMilgDud\":null,\"vipUseCount\":null,\"vipEtc\":null,\"vipDisplayStartDate\":null,\"vipDisplayEndDate\":null,\"vipDcDisplay\":null,\"vipDcPriority\":null,\"vvipDcContSum\":null,\"vvipDcCont\":null,\"vvipMemMilgDud\":null,\"vvipUseCount\":null,\"vvipEtc\":null,\"vvipDisplayStartDate\":null,\"vvipDisplayEndDate\":null,\"vvipDcDisplay\":null,\"vvipDcPriority\":null,\"vvipOnly\":null,\"dcContVvip\":null,\"dcContGold\":null,\"dcContAll\":null,\"aa\":null,\"vvipBnftPcLogPath\":null,\"vvipBnftMLogPath\":null,\"vvipBenefitSum\":null,\"vvipBenefitDisplay\":null,\"vvipBenefitStDt\":null,\"vvipBenefitEndDt\":null,\"vvipBenefitPriority\":null,\"vvipBenefitAlt\":null,\"vipBenefitSum\":null,\"vipBenefitDisplay\":null,\"vipBenefitStDt\":null,\"vipBenefitEndDt\":null,\"vipBenefitPriority\":null,\"canonicalUrl\":null,\"alternateUrl\":null,\"title\":null,\"description\":null,\"ogTitle\":null,\"ogDescription\":null},\"title\":\"전등급: [상시]사이즈업 / VVIP: [VVIP생일] 생일 조각케이크＋아메리카노 2잔 무료 [V/VIP 초이스] 아메리카노 Short 무료 또는 4,000원 할인 / VIP: [V/VIP 초이스] 아메리카노 Short 무료 또는 4,000원 할인\",\"period\":{\"startsAt\":null,\"validUntil\":\"2026-12-31\"}}",
       "fit": 83,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "kt-membership-81",
@@ -461,10 +483,32 @@
       "source": "https://membership.kt.com/discount/partner/C21/81/PartnerDetail.do",
       "sourceLabel": "KT 멤버십",
       "sourceHash": "540a8cf10605a1fbb0cb1d27fc2bfe4c17e575c60533d390b0350939183023a4",
-      "collectedAt": "2026-11-10T06:15:08.087Z",
+      "collectedAt": "2026-11-10T17:31:57.258Z",
       "raw": "{\"partner\":{\"seq\":null,\"daeCode\":\"C21\",\"jungCode\":\"81\",\"jungName\":\"할리스\",\"dcCont\":null,\"dcContVip\":null,\"useCount\":null,\"memMilgDudGubun\":null,\"etc\":null,\"homepageUrl\":null,\"logPath\":null,\"display\":null,\"detGubun\":null,\"displayType\":null,\"priority\":0,\"regDate\":null,\"upDate\":null,\"delGubun\":null,\"dummy2\":null,\"etcPhone\":null,\"repImgPath\":null,\"joinType\":null,\"ideaUrl\":null,\"recordCount\":0,\"staffName\":null,\"newYn\":null,\"event\":null,\"priorityAll\":null,\"top10\":null,\"jungImgAlt\":null,\"dcContSub\":null,\"dcContSub2\":null,\"dcContVipSub\":null,\"dcContVipSub2\":null,\"button1\":null,\"buttonLink1\":null,\"buttonMlink1\":null,\"buttonColor1\":null,\"buttonMcolor1\":null,\"btn1PcDp\":null,\"btn1MobileDp\":null,\"button2\":null,\"buttonLink2\":null,\"buttonMlink2\":null,\"buttonColor2\":null,\"buttonMcolor2\":null,\"btn2PcDp\":null,\"btn2MobileDp\":null,\"button3\":null,\"buttonLink3\":null,\"buttonMlink3\":null,\"buttonColor3\":null,\"buttonMcolor3\":null,\"btn3PcDp\":null,\"btn3MobileDp\":null,\"doubleDcContSum\":null,\"doubleDcCont\":null,\"doubleMemMilgDud\":null,\"doubleUseCount\":null,\"doubleEtc\":null,\"doubleDisplayStartDate\":null,\"doubleDisplayEndDate\":null,\"doubleDcDisplay\":null,\"vipDcContSum\":null,\"vipDcCont\":null,\"vipMemMilgDud\":null,\"vipUseCount\":null,\"vipEtc\":null,\"vipDisplayStartDate\":null,\"vipDisplayEndDate\":null,\"vipDcDisplay\":null,\"vipDcPriority\":null,\"vvipDcContSum\":null,\"vvipDcCont\":null,\"vvipMemMilgDud\":null,\"vvipUseCount\":null,\"vvipEtc\":null,\"vvipDisplayStartDate\":null,\"vvipDisplayEndDate\":null,\"vvipDcDisplay\":null,\"vvipDcPriority\":null,\"vvipOnly\":null,\"dcContVvip\":null,\"dcContGold\":null,\"dcContAll\":null,\"aa\":null,\"vvipBnftPcLogPath\":null,\"vvipBnftMLogPath\":null,\"vvipBenefitSum\":null,\"vvipBenefitDisplay\":null,\"vvipBenefitStDt\":null,\"vvipBenefitEndDt\":null,\"vvipBenefitPriority\":null,\"vvipBenefitAlt\":null,\"vipBenefitSum\":null,\"vipBenefitDisplay\":null,\"vipBenefitStDt\":null,\"vipBenefitEndDt\":null,\"vipBenefitPriority\":null,\"canonicalUrl\":null,\"alternateUrl\":null,\"title\":null,\"description\":null,\"ogTitle\":null,\"ogDescription\":null},\"title\":\"VVIP: [VVIP 초이스] 커피 2잔＋휘낭시에 2개 세트 무료 / VIP: [생일] 바닐라 딜라이트(R) 1잔(생일 당월 한정)\",\"period\":{\"startsAt\":null,\"validUntil\":\"2026-12-31\"}}",
       "fit": 83,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
+    },
+    {
+      "id": "naver-24278798653692",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "커피앳웍스",
+      "category": "커피",
+      "title": "Npay QR 결제 시 7% 할인",
+      "value": "7%",
+      "valueText": "7% 할인",
+      "condition": "Npay QR 결제 시",
+      "period": "2026.11.01 - 2026.11.30",
+      "startsAt": "2026-11-01",
+      "validUntil": "2026-11-30",
+      "notes": "1회 최대 7천원 적립 가능 자세한 사항은 매장 안내 참조",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653692",
+      "sourceLabel": "네이버페이 상세",
+      "sourceHash": "ab0d44ed5a985e0642e20dd4080e7b2c2fae36c909a9fa8da38be0b3117598ef",
+      "collectedAt": "2026-11-10T17:31:51.116Z",
+      "raw": "{\"promotionSeq\":24278798653692,\"promotionName\":\"커피앳웍스\",\"promotionDescription\":\"Npay QR 결제 시\",\"autoAcmYn\":false,\"acmRate\":null,\"acmAmount\":null,\"applyBasisAmount\":null,\"payMethodType\":null,\"limitAcmCount\":null,\"limitAcmAmount\":null,\"exposeTitle\":\"7% 할인\",\"logoImageUrl\":\"https://phinf.pstatic.net/checkout/20260430_229/1777550617211BlVhw_PNG/promotionImageTempFile18352362225683404796.png\",\"linkUrl\":\"https://m.blog.naver.com/nv_npay/224455905115\",\"directLandingYn\":false,\"detailUrl\":\"https://pay.naver.com/benefit/payment/detail/24278798653692\",\"promotionStartDateTime\":1793458800000,\"promotionEndDateTime\":1796050799000,\"priority\":99,\"cardCompanyCode\":null,\"ctaText\":\"자세히 보기\",\"cautionText\":\"1회 최대 7천원 적립 가능\\n자세한 사항은 매장 안내 참조\",\"expectConfirmDate\":null,\"exceedBudgetYn\":false,\"fucMembershipYn\":null,\"targetYn\":null,\"confirmDate\":null,\"categoryText\":\"현장결제\",\"exposeYn\":true,\"cardCompanyName\":null,\"cautionTextLines\":[\"1회 최대 7천원 적립 가능\",\"자세한 사항은 매장 안내 참조\"],\"payMethodTypeName\":null,\"phase\":\"ONGOING\"}",
+      "fit": 78,
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "kt-membership-184",
@@ -483,10 +527,10 @@
       "source": "https://membership.kt.com/discount/partner/C21/184/PartnerDetail.do",
       "sourceLabel": "KT 멤버십",
       "sourceHash": "2d4a3f7bc0d749f7eeb6357bcbf907c22ac03165d25426656f4ff55cb11f2c79",
-      "collectedAt": "2026-11-10T06:15:08.082Z",
+      "collectedAt": "2026-11-10T17:31:57.253Z",
       "raw": "{\"partner\":{\"seq\":null,\"daeCode\":\"C21\",\"jungCode\":\"184\",\"jungName\":\"공차\",\"dcCont\":null,\"dcContVip\":null,\"useCount\":null,\"memMilgDudGubun\":null,\"etc\":null,\"homepageUrl\":null,\"logPath\":null,\"display\":null,\"detGubun\":null,\"displayType\":null,\"priority\":0,\"regDate\":null,\"upDate\":null,\"delGubun\":null,\"dummy2\":null,\"etcPhone\":null,\"repImgPath\":null,\"joinType\":null,\"ideaUrl\":null,\"recordCount\":0,\"staffName\":null,\"newYn\":null,\"event\":null,\"priorityAll\":null,\"top10\":null,\"jungImgAlt\":null,\"dcContSub\":null,\"dcContSub2\":null,\"dcContVipSub\":null,\"dcContVipSub2\":null,\"button1\":null,\"buttonLink1\":null,\"buttonMlink1\":null,\"buttonColor1\":null,\"buttonMcolor1\":null,\"btn1PcDp\":null,\"btn1MobileDp\":null,\"button2\":null,\"buttonLink2\":null,\"buttonMlink2\":null,\"buttonColor2\":null,\"buttonMcolor2\":null,\"btn2PcDp\":null,\"btn2MobileDp\":null,\"button3\":null,\"buttonLink3\":null,\"buttonMlink3\":null,\"buttonColor3\":null,\"buttonMcolor3\":null,\"btn3PcDp\":null,\"btn3MobileDp\":null,\"doubleDcContSum\":null,\"doubleDcCont\":null,\"doubleMemMilgDud\":null,\"doubleUseCount\":null,\"doubleEtc\":null,\"doubleDisplayStartDate\":null,\"doubleDisplayEndDate\":null,\"doubleDcDisplay\":null,\"vipDcContSum\":null,\"vipDcCont\":null,\"vipMemMilgDud\":null,\"vipUseCount\":null,\"vipEtc\":null,\"vipDisplayStartDate\":null,\"vipDisplayEndDate\":null,\"vipDcDisplay\":null,\"vipDcPriority\":null,\"vvipDcContSum\":null,\"vvipDcCont\":null,\"vvipMemMilgDud\":null,\"vvipUseCount\":null,\"vvipEtc\":null,\"vvipDisplayStartDate\":null,\"vvipDisplayEndDate\":null,\"vvipDcDisplay\":null,\"vvipDcPriority\":null,\"vvipOnly\":null,\"dcContVvip\":null,\"dcContGold\":null,\"dcContAll\":null,\"aa\":null,\"vvipBnftPcLogPath\":null,\"vvipBnftMLogPath\":null,\"vvipBenefitSum\":null,\"vvipBenefitDisplay\":null,\"vvipBenefitStDt\":null,\"vvipBenefitEndDt\":null,\"vvipBenefitPriority\":null,\"vvipBenefitAlt\":null,\"vipBenefitSum\":null,\"vipBenefitDisplay\":null,\"vipBenefitStDt\":null,\"vipBenefitEndDt\":null,\"vipBenefitPriority\":null,\"canonicalUrl\":null,\"alternateUrl\":null,\"title\":null,\"description\":null,\"ogTitle\":null,\"ogDescription\":null},\"title\":\"전등급: 제조음료 구매 시 10% 할인\",\"period\":{\"startsAt\":null,\"validUntil\":null}}",
       "fit": 77,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "kt-membership-60",
@@ -505,10 +549,10 @@
       "source": "https://membership.kt.com/discount/partner/C21/60/PartnerDetail.do",
       "sourceLabel": "KT 멤버십",
       "sourceHash": "654f27439f0338b1d765b733b07c7fc4dd5aec8b1c54dfceb3c6beb92b09235a",
-      "collectedAt": "2026-11-10T06:15:08.083Z",
+      "collectedAt": "2026-11-10T17:31:57.254Z",
       "raw": "{\"partner\":{\"seq\":null,\"daeCode\":\"C21\",\"jungCode\":\"60\",\"jungName\":\"뚜레쥬르\",\"dcCont\":null,\"dcContVip\":null,\"useCount\":null,\"memMilgDudGubun\":null,\"etc\":null,\"homepageUrl\":null,\"logPath\":null,\"display\":null,\"detGubun\":null,\"displayType\":null,\"priority\":0,\"regDate\":null,\"upDate\":null,\"delGubun\":null,\"dummy2\":null,\"etcPhone\":null,\"repImgPath\":null,\"joinType\":null,\"ideaUrl\":null,\"recordCount\":0,\"staffName\":null,\"newYn\":null,\"event\":null,\"priorityAll\":null,\"top10\":null,\"jungImgAlt\":null,\"dcContSub\":null,\"dcContSub2\":null,\"dcContVipSub\":null,\"dcContVipSub2\":null,\"button1\":null,\"buttonLink1\":null,\"buttonMlink1\":null,\"buttonColor1\":null,\"buttonMcolor1\":null,\"btn1PcDp\":null,\"btn1MobileDp\":null,\"button2\":null,\"buttonLink2\":null,\"buttonMlink2\":null,\"buttonColor2\":null,\"buttonMcolor2\":null,\"btn2PcDp\":null,\"btn2MobileDp\":null,\"button3\":null,\"buttonLink3\":null,\"buttonMlink3\":null,\"buttonColor3\":null,\"buttonMcolor3\":null,\"btn3PcDp\":null,\"btn3MobileDp\":null,\"doubleDcContSum\":null,\"doubleDcCont\":null,\"doubleMemMilgDud\":null,\"doubleUseCount\":null,\"doubleEtc\":null,\"doubleDisplayStartDate\":null,\"doubleDisplayEndDate\":null,\"doubleDcDisplay\":null,\"vipDcContSum\":null,\"vipDcCont\":null,\"vipMemMilgDud\":null,\"vipUseCount\":null,\"vipEtc\":null,\"vipDisplayStartDate\":null,\"vipDisplayEndDate\":null,\"vipDcDisplay\":null,\"vipDcPriority\":null,\"vvipDcContSum\":null,\"vvipDcCont\":null,\"vvipMemMilgDud\":null,\"vvipUseCount\":null,\"vvipEtc\":null,\"vvipDisplayStartDate\":null,\"vvipDisplayEndDate\":null,\"vvipDcDisplay\":null,\"vvipDcPriority\":null,\"vvipOnly\":null,\"dcContVvip\":null,\"dcContGold\":null,\"dcContAll\":null,\"aa\":null,\"vvipBnftPcLogPath\":null,\"vvipBnftMLogPath\":null,\"vvipBenefitSum\":null,\"vvipBenefitDisplay\":null,\"vvipBenefitStDt\":null,\"vvipBenefitEndDt\":null,\"vvipBenefitPriority\":null,\"vvipBenefitAlt\":null,\"vipBenefitSum\":null,\"vipBenefitDisplay\":null,\"vipBenefitStDt\":null,\"vipBenefitEndDt\":null,\"vipBenefitPriority\":null,\"canonicalUrl\":null,\"alternateUrl\":null,\"title\":null,\"description\":null,\"ogTitle\":null,\"ogDescription\":null},\"title\":\"VVIP: 1,000원당 150원 할인 / VIP: 1,000원당 150원 할인 / Gold: 1,000원당 150원 할인 / 일반: 1,000원당 100원 할인\",\"period\":{\"startsAt\":null,\"validUntil\":null}}",
       "fit": 77,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "kt-membership-102",
@@ -527,10 +571,10 @@
       "source": "https://membership.kt.com/discount/partner/C21/102/PartnerDetail.do",
       "sourceLabel": "KT 멤버십",
       "sourceHash": "403971ff55e60b70e6903d9a3b97142a0d07c2dbca7c4ffa477ad14c7161191c",
-      "collectedAt": "2026-11-10T06:15:08.085Z",
+      "collectedAt": "2026-11-10T17:31:57.256Z",
       "raw": "{\"partner\":{\"seq\":null,\"daeCode\":\"C21\",\"jungCode\":\"102\",\"jungName\":\"카페베네\",\"dcCont\":null,\"dcContVip\":null,\"useCount\":null,\"memMilgDudGubun\":null,\"etc\":null,\"homepageUrl\":null,\"logPath\":null,\"display\":null,\"detGubun\":null,\"displayType\":null,\"priority\":0,\"regDate\":null,\"upDate\":null,\"delGubun\":null,\"dummy2\":null,\"etcPhone\":null,\"repImgPath\":null,\"joinType\":null,\"ideaUrl\":null,\"recordCount\":0,\"staffName\":null,\"newYn\":null,\"event\":null,\"priorityAll\":null,\"top10\":null,\"jungImgAlt\":null,\"dcContSub\":null,\"dcContSub2\":null,\"dcContVipSub\":null,\"dcContVipSub2\":null,\"button1\":null,\"buttonLink1\":null,\"buttonMlink1\":null,\"buttonColor1\":null,\"buttonMcolor1\":null,\"btn1PcDp\":null,\"btn1MobileDp\":null,\"button2\":null,\"buttonLink2\":null,\"buttonMlink2\":null,\"buttonColor2\":null,\"buttonMcolor2\":null,\"btn2PcDp\":null,\"btn2MobileDp\":null,\"button3\":null,\"buttonLink3\":null,\"buttonMlink3\":null,\"buttonColor3\":null,\"buttonMcolor3\":null,\"btn3PcDp\":null,\"btn3MobileDp\":null,\"doubleDcContSum\":null,\"doubleDcCont\":null,\"doubleMemMilgDud\":null,\"doubleUseCount\":null,\"doubleEtc\":null,\"doubleDisplayStartDate\":null,\"doubleDisplayEndDate\":null,\"doubleDcDisplay\":null,\"vipDcContSum\":null,\"vipDcCont\":null,\"vipMemMilgDud\":null,\"vipUseCount\":null,\"vipEtc\":null,\"vipDisplayStartDate\":null,\"vipDisplayEndDate\":null,\"vipDcDisplay\":null,\"vipDcPriority\":null,\"vvipDcContSum\":null,\"vvipDcCont\":null,\"vvipMemMilgDud\":null,\"vvipUseCount\":null,\"vvipEtc\":null,\"vvipDisplayStartDate\":null,\"vvipDisplayEndDate\":null,\"vvipDcDisplay\":null,\"vvipDcPriority\":null,\"vvipOnly\":null,\"dcContVvip\":null,\"dcContGold\":null,\"dcContAll\":null,\"aa\":null,\"vvipBnftPcLogPath\":null,\"vvipBnftMLogPath\":null,\"vvipBenefitSum\":null,\"vvipBenefitDisplay\":null,\"vvipBenefitStDt\":null,\"vvipBenefitEndDt\":null,\"vvipBenefitPriority\":null,\"vvipBenefitAlt\":null,\"vipBenefitSum\":null,\"vipBenefitDisplay\":null,\"vipBenefitStDt\":null,\"vipBenefitEndDt\":null,\"vipBenefitPriority\":null,\"canonicalUrl\":null,\"alternateUrl\":null,\"title\":null,\"description\":null,\"ogTitle\":null,\"ogDescription\":null},\"title\":\"전등급: 10% 할인\",\"period\":{\"startsAt\":null,\"validUntil\":null}}",
       "fit": 77,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "kt-membership-57",
@@ -549,10 +593,10 @@
       "source": "https://membership.kt.com/discount/partner/C21/57/PartnerDetail.do",
       "sourceLabel": "KT 멤버십",
       "sourceHash": "e810360ae03e25c82689c9502318ea385450476662affac8790820b437955df6",
-      "collectedAt": "2026-11-10T06:15:08.086Z",
+      "collectedAt": "2026-11-10T17:31:57.257Z",
       "raw": "{\"partner\":{\"seq\":null,\"daeCode\":\"C21\",\"jungCode\":\"57\",\"jungName\":\"파리바게뜨\",\"dcCont\":null,\"dcContVip\":null,\"useCount\":null,\"memMilgDudGubun\":null,\"etc\":null,\"homepageUrl\":null,\"logPath\":null,\"display\":null,\"detGubun\":null,\"displayType\":null,\"priority\":0,\"regDate\":null,\"upDate\":null,\"delGubun\":null,\"dummy2\":null,\"etcPhone\":null,\"repImgPath\":null,\"joinType\":null,\"ideaUrl\":null,\"recordCount\":0,\"staffName\":null,\"newYn\":null,\"event\":null,\"priorityAll\":null,\"top10\":null,\"jungImgAlt\":null,\"dcContSub\":null,\"dcContSub2\":null,\"dcContVipSub\":null,\"dcContVipSub2\":null,\"button1\":null,\"buttonLink1\":null,\"buttonMlink1\":null,\"buttonColor1\":null,\"buttonMcolor1\":null,\"btn1PcDp\":null,\"btn1MobileDp\":null,\"button2\":null,\"buttonLink2\":null,\"buttonMlink2\":null,\"buttonColor2\":null,\"buttonMcolor2\":null,\"btn2PcDp\":null,\"btn2MobileDp\":null,\"button3\":null,\"buttonLink3\":null,\"buttonMlink3\":null,\"buttonColor3\":null,\"buttonMcolor3\":null,\"btn3PcDp\":null,\"btn3MobileDp\":null,\"doubleDcContSum\":null,\"doubleDcCont\":null,\"doubleMemMilgDud\":null,\"doubleUseCount\":null,\"doubleEtc\":null,\"doubleDisplayStartDate\":null,\"doubleDisplayEndDate\":null,\"doubleDcDisplay\":null,\"vipDcContSum\":null,\"vipDcCont\":null,\"vipMemMilgDud\":null,\"vipUseCount\":null,\"vipEtc\":null,\"vipDisplayStartDate\":null,\"vipDisplayEndDate\":null,\"vipDcDisplay\":null,\"vipDcPriority\":null,\"vvipDcContSum\":null,\"vvipDcCont\":null,\"vvipMemMilgDud\":null,\"vvipUseCount\":null,\"vvipEtc\":null,\"vvipDisplayStartDate\":null,\"vvipDisplayEndDate\":null,\"vvipDcDisplay\":null,\"vvipDcPriority\":null,\"vvipOnly\":null,\"dcContVvip\":null,\"dcContGold\":null,\"dcContAll\":null,\"aa\":null,\"vvipBnftPcLogPath\":null,\"vvipBnftMLogPath\":null,\"vvipBenefitSum\":null,\"vvipBenefitDisplay\":null,\"vvipBenefitStDt\":null,\"vvipBenefitEndDt\":null,\"vvipBenefitPriority\":null,\"vvipBenefitAlt\":null,\"vipBenefitSum\":null,\"vipBenefitDisplay\":null,\"vipBenefitStDt\":null,\"vipBenefitEndDt\":null,\"vipBenefitPriority\":null,\"canonicalUrl\":null,\"alternateUrl\":null,\"title\":null,\"description\":null,\"ogTitle\":null,\"ogDescription\":null},\"title\":\"VVIP: 1,000원당 100원 할인 / VIP: 1,000원당 100원 할인 / Gold: 1,000원당 100원 할인 / 일반: 1,000원당 50원 할인\",\"period\":{\"startsAt\":null,\"validUntil\":null}}",
       "fit": 77,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "naver-24278798653552",
@@ -571,10 +615,10 @@
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653552",
       "sourceLabel": "네이버페이 상세",
       "sourceHash": "cd94943d4a8826dc386422335f23327093b069f2d23e3f7e04ecd0c542efc150",
-      "collectedAt": "2026-11-10T06:15:02.560Z",
+      "collectedAt": "2026-11-10T17:31:51.116Z",
       "raw": "{\"promotionSeq\":24278798653552,\"promotionName\":\"VIPS\",\"promotionDescription\":\"포인트·머니로 10만원 이상 전액 결제 시\",\"autoAcmYn\":false,\"acmRate\":null,\"acmAmount\":null,\"applyBasisAmount\":null,\"payMethodType\":null,\"limitAcmCount\":null,\"limitAcmAmount\":null,\"exposeTitle\":\"5만원 적립\",\"logoImageUrl\":\"https://phinf.pstatic.net/checkout/20260131_265/1769856604831lS4Ld_PNG/promotionImageTempFile16524812746055730963.png\",\"linkUrl\":\"https://m.blog.naver.com/nv_npay/224455920586\",\"directLandingYn\":true,\"detailUrl\":\"https://pay.naver.com/benefit/payment/detail/24278798653552\",\"promotionStartDateTime\":1793113200000,\"promotionEndDateTime\":1795359599000,\"priority\":99,\"cardCompanyCode\":null,\"ctaText\":\"자세히 보기\",\"cautionText\":\"통신사 멤버십 혜택 중복 적용 가능\\n통신사 혜택 적용 후, 포인트·머니 QR로 최종 결제 10만원 이상 시 혜택 적용\\n삼성페이 및 카드 결제 시 혜택 대상에서 제외\\n일부 매장 제외(행사매장 여부는 방문 전에 확인해 주세요)\\n\",\"expectConfirmDate\":null,\"exceedBudgetYn\":false,\"fucMembershipYn\":null,\"targetYn\":null,\"confirmDate\":null,\"categoryText\":\"현장결제\",\"exposeYn\":true,\"cardCompanyName\":null,\"cautionTextLines\":[\"통신사 멤버십 혜택 중복 적용 가능\",\"통신사 혜택 적용 후, 포인트·머니 QR로 최종 결제 10만원 이상 시 혜택 적용\",\"삼성페이 및 카드 결제 시 혜택 대상에서 제외\",\"일부 매장 제외(행사매장 여부는 방문 전에 확인해 주세요)\"],\"payMethodTypeName\":null,\"phase\":\"ONGOING\"}",
       "fit": 75,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "naver-24278798653643",
@@ -593,10 +637,10 @@
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653643",
       "sourceLabel": "네이버페이 상세",
       "sourceHash": "c6d923902b3efc32f7637e883d444529eb9a1f74647659c56c295d0c19ea4287",
-      "collectedAt": "2026-11-10T06:15:02.560Z",
+      "collectedAt": "2026-11-10T17:31:51.117Z",
       "raw": "{\"promotionSeq\":24278798653643,\"promotionName\":\"후라토식당\",\"promotionDescription\":\"포인트·머니 2만원 이상 결제 시\",\"autoAcmYn\":false,\"acmRate\":null,\"acmAmount\":null,\"applyBasisAmount\":null,\"payMethodType\":null,\"limitAcmCount\":null,\"limitAcmAmount\":null,\"exposeTitle\":\"5천원 적립\",\"logoImageUrl\":\"https://phinf.pstatic.net/checkout/20260901_67/1788189103504wKOfi_PNG/promotionImageTempFile16971389336147650522.png\",\"linkUrl\":\"https://m.blog.naver.com/nv_npay/224455905115\",\"directLandingYn\":false,\"detailUrl\":\"https://pay.naver.com/benefit/payment/detail/24278798653643\",\"promotionStartDateTime\":1793458800000,\"promotionEndDateTime\":1796050799000,\"priority\":99,\"cardCompanyCode\":null,\"ctaText\":\"자세히 보기\",\"cautionText\":\"기간 내 4회 참여 가능 (최대 2만원까지 할인 가능)\\n자세한 내용은 매장 안내 참조\",\"expectConfirmDate\":null,\"exceedBudgetYn\":false,\"fucMembershipYn\":null,\"targetYn\":null,\"confirmDate\":null,\"categoryText\":\"현장결제\",\"exposeYn\":true,\"cardCompanyName\":null,\"cautionTextLines\":[\"기간 내 4회 참여 가능 (최대 2만원까지 할인 가능)\",\"자세한 내용은 매장 안내 참조\"],\"payMethodTypeName\":null,\"phase\":\"ONGOING\"}",
       "fit": 75,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "brand-hollys-518",
@@ -615,10 +659,10 @@
       "source": "https://www.hollys.co.kr/news/event/view.do?idx=518&pageNo=1&division=",
       "sourceLabel": "할리스 이벤트",
       "sourceHash": "bade61d294e7e3fa27d08646822ae76603037b0a9290a936f0361e1b5a109919",
-      "collectedAt": "2026-11-10T06:15:03.379Z",
+      "collectedAt": "2026-11-10T17:31:52.020Z",
       "raw": "\r\n    \t\t\t    \t\t\t    \t\t\t    \t\t\t     \t\t\t\t\t\t<a href=\"#\" onclick=\"javascript:onDetail(518); return false;\" >\r\n\t\t\t\t<img width='700' height='141' src=\"//admin.hollys.co.kr/upload/news/event/newsEvent_202604161111057800.png\" WIDTH=\"700\" HEIGHT=\"141\" BORDER=\"0\"></a>\r\n\t\t\t<dl class=\"event_list\">\r\n\t\t\t\t<dt>\r\n\t\t\t\t\t<a href=\"#\" onclick=\"javascript:onDetail(518); return false;\"><span style=\"\"><span class=\"sort\">매장이벤트</span>★모빌카드 10% 즉시 할인 프로모션 안내★</span></a>\r\n\t\t\t\t</dt>\r\n\t\t\t\t<dd class=\"pad_l_15\">*해당 프로모션은 일부 매장에 한하여 진행됩니다.</dd>\r\n\r\n\t\t\t\t<dd class=\"event_date\"><span>공지 기간</span>2026-04-27 ~ 2026-12-31</dd>\r\n\t\t\t</dl>\r\n\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t",
       "fit": 75,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "brand-gongcha-de6370fec906",
@@ -637,10 +681,10 @@
       "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=688&keyword=&status=&scroll=y",
       "sourceLabel": "공차 이벤트",
       "sourceHash": "8474306e1fd9c027a28a9b076412539b7a8f24a4dba81ed73417fbac164bd56f",
-      "collectedAt": "2026-11-10T06:15:04.479Z",
+      "collectedAt": "2026-11-10T17:31:53.582Z",
       "raw": "{\"href\":\"/brand/content/eventdetail?seq=688&keyword=&status=&scroll=y\",\"title\":\"11.1~30 삼성카드 LINK하면 7천원 이상 결제 시 10% 할인! 최대 1,500원\",\"periodText\":\"2026.11.01(일) ~ 2026.11.30(월)\"}",
       "fit": 75,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "brand-twosome-261009",
@@ -658,11 +702,11 @@
       "notes": "진행중 · M포인트는 1.5포인트를 1원 가치로 보고, 매장 1:1 사용분의 실질 할인효과를 약 10%로 계산했습니다.",
       "source": "https://mo.twosome.co.kr/ev/eventList.do?eventDiv=progress&searchOpt=endSoon",
       "sourceLabel": "투썸 이벤트",
-      "sourceHash": "6cd23533af18f8134b256c61de32ec4c97d08dcd3243dffa0c8f0c8781297a01",
-      "collectedAt": "2026-11-10T06:15:08.092Z",
-      "raw": "{\"ATTC_FILE_GRP_NO\":28154,\"TPAGE_NUM\":1,\"ANNO_END_DT\":\"2026-12-31\",\"LINK_URL\":\"\",\"EVENT_USE_DT_TERM\":\"진행중\",\"EVENT_IMG\":\"/upload/MODS0040/202610/MODS0040_20261027162942_ryjSFgIc\",\"TOTAL_COUNT\":12,\"ANNO_FR_DT\":\"2026-11-01\",\"ANNO_TITL_NM\":\"현대카드 M포인트 60% 사용 프로모션\",\"INQU_CNT\":0,\"NEXT_PAGE\":0,\"ANNO_SEQ_NO\":\"261009\",\"ANNO_TYPE_CD\":\"01\"}",
+      "sourceHash": "54f7d176f5c8b5686e5b7162acb79810104a73e1cb8166248488a3af550863fd",
+      "collectedAt": "2026-11-10T17:31:56.617Z",
+      "raw": "{\"ATTC_FILE_GRP_NO\":28154,\"TPAGE_NUM\":1,\"ANNO_END_DT\":\"2026-12-31\",\"LINK_URL\":\"\",\"EVENT_USE_DT_TERM\":\"진행중\",\"EVENT_IMG\":\"/upload/MODS0040/202610/MODS0040_20261027162942_ryjSFgIc\",\"TOTAL_COUNT\":16,\"ANNO_FR_DT\":\"2026-11-01\",\"ANNO_TITL_NM\":\"현대카드 M포인트 60% 사용 프로모션\",\"INQU_CNT\":0,\"NEXT_PAGE\":0,\"ANNO_SEQ_NO\":\"261009\",\"ANNO_TYPE_CD\":\"01\"}",
       "fit": 75,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "brand-twosome-260219",
@@ -680,11 +724,11 @@
       "notes": "진행중 · M포인트는 1.5포인트를 1원 가치로 보고, 매장 1:1 사용분의 실질 할인효과를 약 8.3%로 계산했습니다.",
       "source": "https://mo.twosome.co.kr/ev/eventList.do?eventDiv=progress&searchOpt=endSoon",
       "sourceLabel": "투썸 이벤트",
-      "sourceHash": "cd3524ec594155161280cf03770241c12d1dba4748bf7908d155738d0bfca066",
-      "collectedAt": "2026-11-10T06:15:08.092Z",
-      "raw": "{\"ATTC_FILE_GRP_NO\":23765,\"TPAGE_NUM\":1,\"ANNO_END_DT\":\"2026-12-31\",\"LINK_URL\":\"\",\"EVENT_USE_DT_TERM\":\"진행중\",\"EVENT_IMG\":\"/upload/MODS0040/202605/MODS0040_20260518132931_VMJXVdZz\",\"TOTAL_COUNT\":12,\"ANNO_FR_DT\":\"2026-03-01\",\"ANNO_TITL_NM\":\"현대카드 M포인트 50%\",\"INQU_CNT\":0,\"NEXT_PAGE\":0,\"ANNO_SEQ_NO\":\"260219\",\"ANNO_TYPE_CD\":\"01\"}",
+      "sourceHash": "0873e10ee007f1272439feab2bd27066232b547e8764331095117e16f02dec84",
+      "collectedAt": "2026-11-10T17:31:56.618Z",
+      "raw": "{\"ATTC_FILE_GRP_NO\":23765,\"TPAGE_NUM\":1,\"ANNO_END_DT\":\"2026-12-31\",\"LINK_URL\":\"\",\"EVENT_USE_DT_TERM\":\"진행중\",\"EVENT_IMG\":\"/upload/MODS0040/202605/MODS0040_20260518132931_VMJXVdZz\",\"TOTAL_COUNT\":16,\"ANNO_FR_DT\":\"2026-03-01\",\"ANNO_TITL_NM\":\"현대카드 M포인트 50%\",\"INQU_CNT\":0,\"NEXT_PAGE\":0,\"ANNO_SEQ_NO\":\"260219\",\"ANNO_TYPE_CD\":\"01\"}",
       "fit": 75,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "brand-pascucci-c6a2470a6705",
@@ -703,10 +747,10 @@
       "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=944",
       "sourceLabel": "파스쿠찌 이벤트",
       "sourceHash": "c5e02ee243ffb22f79e164733fba76b30f619cbe8c628b7710ee86aa18a5a675",
-      "collectedAt": "2026-11-10T06:15:05.393Z",
+      "collectedAt": "2026-11-10T17:31:54.893Z",
       "raw": "{\"href\":\"eventView.asp?teSeq=944\",\"title\":\"[현대카드] 매일 50% M포인트 사용\",\"periodText\":\"2026.01.01-2026.12.31\"}",
       "fit": 75,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "brand-pascucci-d81f443e0a66",
@@ -725,10 +769,10 @@
       "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=909",
       "sourceLabel": "파스쿠찌 이벤트",
       "sourceHash": "a1d6d5cdcadd276b8101ca8049bc11c3304491806f40e240eaae04e0e0f5b0ba",
-      "collectedAt": "2026-11-10T06:15:05.394Z",
+      "collectedAt": "2026-11-10T17:31:54.893Z",
       "raw": "{\"href\":\"eventView.asp?teSeq=909\",\"title\":\"[T 멤버십] 상시 제휴 10% 할인 또는 적립\",\"periodText\":\"\"}",
       "fit": 75,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "skt-tday-3c1b1fa6fda7",
@@ -747,10 +791,10 @@
       "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
       "sourceLabel": "SKT T day",
       "sourceHash": "3c1b1fa6fda711b3872aeac0687556b1a4ee50ac61495c34f9a2f04ee5cfaf3e",
-      "collectedAt": "2026-11-10T06:15:06.206Z",
+      "collectedAt": "2026-11-10T17:31:55.860Z",
       "raw": "{\"brand\":\"파스쿠찌\",\"title\":\"파스쿠찌 할인 쿠폰 1장\",\"periodText\":\"쿠폰 사용 기간: 2026년 11월 25일(수) 오전 9시~11월 29일(일) 오후 11시 59분(매장 영업시간에 사용하실 수 있습니다.)\"}",
       "fit": 71,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "lguplus-ongoing-035865c7bfb2",
@@ -769,10 +813,10 @@
       "source": "https://www.lguplus.com/benefit-event/ongoing/82593",
       "sourceLabel": "LG U+ 진행 이벤트",
       "sourceHash": "035865c7bfb2b2b44bd840654b0bb754cf942df3d622a322a8c0e96f907bb837",
-      "collectedAt": "2026-11-10T06:15:08.525Z",
+      "collectedAt": "2026-11-10T17:31:57.037Z",
       "raw": "{\"title\":\"[익시오] 재사용하고 커피쿠폰 받아요!\",\"tag\":\"새로워진 익시오로 다시 통화하고 선물도 받아가세요!\",\"alt\":\"익시오 웰컴백 이벤트 익시오로 재통화하고 커피 쿠폰 받아요! MGC 메가커피 커피 이미지.\",\"startDate\":\"2026-11-02\",\"endDate\":\"2026-11-30\",\"source\":\"https://www.lguplus.com/benefit-event/ongoing/82593\"}",
       "fit": 71,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "lguplus-ongoing-2dd0b6818aeb",
@@ -791,10 +835,10 @@
       "source": "https://www.lguplus.com/benefit-event/ongoing/82588",
       "sourceLabel": "LG U+ 진행 이벤트",
       "sourceHash": "2dd0b6818aeb222cda1f22d330b66a789e91cd14cf5f570ad4cfb4dbf132c8df",
-      "collectedAt": "2026-11-10T06:15:08.526Z",
+      "collectedAt": "2026-11-10T17:31:57.037Z",
       "raw": "{\"title\":\"듀얼넘버 온앤오프 신규 가입 이벤트\",\"tag\":\"가입 2개월 유지 시 투썸플레이스 카페라떼 R (전원 증정)\",\"alt\":\"듀얼넘버 온앤오프 가입 이벤트. 퇴근하면, 업무 번호는 OFF 가입하면 100% 선물 증정. 듀얼넘버 온앤오프 스마트폰 이미지, 투썸플레이스 카페라떼 이미지. 100% 증정\",\"startDate\":\"2026-11-01\",\"endDate\":\"2026-11-30\",\"source\":\"https://www.lguplus.com/benefit-event/ongoing/82588\"}",
       "fit": 71,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "brand-starbucks-3500",
@@ -813,10 +857,10 @@
       "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3500",
       "sourceLabel": "스타벅스 이벤트",
       "sourceHash": "df6e4558ececcb7e599dd67cbb31ccb712b3c81f7c067d68e40f3cbca98e4148",
-      "collectedAt": "2026-11-10T06:15:06.706Z",
+      "collectedAt": "2026-11-10T17:31:56.443Z",
       "raw": "{\"seq\":\"\",\"content\":\"\",\"menu_CD\":\"STB2811\",\"del_YN\":\"\",\"reg_USER\":\"\",\"reg_DT\":\"\",\"mod_USER\":\"\",\"mod_DT\":\"\",\"product_CD\":\"\",\"img_UPLOAD_PATH\":\"https://image.istarbucks.co.kr\",\"store_CODE\":null,\"store_NM\":\"\",\"view_YN\":\"\",\"pro_SEQ\":3500,\"sub_VIEW\":\"\",\"search_DATE_TYPE\":\"\",\"search_START_DATE\":\"\",\"search_END_DATE\":\"\",\"search_VIEW_YN\":\"\",\"search_KEY\":\"\",\"search_VALUE\":\"\",\"menu_CD_ARR\":null,\"title\":\"2026 WINTER  e-FREQUENCY 증정품 안내\",\"store_CD\":\"\",\"store_CNT\":0,\"start_DT\":\"2026-10-15\",\"end_DT\":\"2026-12-31\",\"online_YN\":\"\",\"capacity\":\"\",\"img_NM\":\"\",\"flash_NM\":\"\",\"view_ORDER\":\"\",\"hit\":\"\",\"store_MEMO\":\"\",\"store_GUBUN\":\"\",\"flash_W\":\"\",\"flash_H\":\"\",\"start_HOUR\":\"\",\"start_MINUTE\":\"\",\"end_HOUR\":\"\",\"end_MINUTE\":\"\",\"content_MOBILE\":\"\",\"etc_MEMO\":\"\",\"top_YN\":\"\",\"top_DATE\":\"\",\"stat\":\"\",\"view_TYPE\":\"D\",\"view_DATE\":\"\",\"view_SDT1\":\"2026-10-22\",\"view_SDT2\":\"\",\"view_EDT1\":\"2026-12-31\",\"view_EDT2\":\"\",\"content_TABLET\":\"\",\"pro_CON_SEQ\":0,\"str_SEQ\":0,\"file_SEQ\":0,\"file_CD\":\"\",\"file_NM\":\"\",\"web_THUM\":\"WEB_THUM_20261014110104840.png\",\"mob_THUM\":\"APP_THUM_20261014110104861.png\",\"tab_THUM\":\"\",\"web_IMG\":\"\",\"mob_IMG\":\"\",\"tab_IMG\":\"\",\"web_BTN_IMG\":\"\",\"app_BTN_IMG\":\"\",\"web_THUM_SEQ\":0,\"mob_THUM_SEQ\":0,\"tab_THUM_SEQ\":0,\"web_IMG_SEQ\":0,\"mob_IMG_SEQ\":0,\"tab_IMG_SEQ\":0,\"pagesize\":8,\"page\":1,\"record\":0,\"status\":\"\",\"search_MENU_CD\":\"\",\"search_END_YN\":\"\",\"file_DEL_ARRAY\":null,\"event_PAGE_NAME\":\"\",\"sbtitle_NAME\":\"2026 WINTER  e-FREQUENCY 증정품 안내\",\"web_XPSR_YN\":null,\"app_XPSR_YN\":null,\"contn_CTN_CNTNT\":null,\"contn_CNTNT_XPSR_DVSN_CODE\":null,\"web_CONTN_BTN_LINK_URL\":null,\"app_CONTN_BTN_LINK_URL\":null,\"web_CONTN_LINK_NWNDW_YN\":null,\"banner_TYPE\":null,\"webxpsrseqc\":\"\",\"buddypass_FREE_YN\":\"\",\"plcc_CRDCM_CODE\":\"\",\"plcc_CARD_KIND_CODE\":\"\",\"page_INDEX\":1,\"page_UNIT\":20,\"page_SIZE\":10,\"first_INDEX\":1,\"last_INDEX\":1,\"record_COUNT_PER_PAGE\":10,\"total_CNT\":0,\"rnum\":0}",
       "fit": 69,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "naver-24278798653630",
@@ -835,10 +879,10 @@
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653630",
       "sourceLabel": "네이버페이 상세",
       "sourceHash": "01b3f9b196bdccc925f8351e937d6a3398a21f44895017d00d75475faf863f7f",
-      "collectedAt": "2026-11-10T06:15:02.560Z",
+      "collectedAt": "2026-11-10T17:31:51.117Z",
       "raw": "{\"promotionSeq\":24278798653630,\"promotionName\":\"갤러리아 식품관\",\"promotionDescription\":\"포인트·머니 2만원 이상 결제 시\",\"autoAcmYn\":false,\"acmRate\":null,\"acmAmount\":null,\"applyBasisAmount\":null,\"payMethodType\":null,\"limitAcmCount\":null,\"limitAcmAmount\":null,\"exposeTitle\":\"3천원 적립\",\"logoImageUrl\":\"https://phinf.pstatic.net/checkout/20250909_173/1757375953389sb9Ju_PNG/promotionImageTempFile8025166118188079278.png\",\"linkUrl\":\"https://m.blog.naver.com/nv_npay/224455905115\",\"directLandingYn\":false,\"detailUrl\":\"https://pay.naver.com/benefit/payment/detail/24278798653630\",\"promotionStartDateTime\":1793458800000,\"promotionEndDateTime\":1796050799000,\"priority\":99,\"cardCompanyCode\":null,\"ctaText\":\"자세히 보기\",\"cautionText\":\"기간 내 1회 참여 가능\\n카드 결제 시 혜택 적용 불가\\n자세한 내용은 매장 안내 참조\",\"expectConfirmDate\":null,\"exceedBudgetYn\":false,\"fucMembershipYn\":null,\"targetYn\":null,\"confirmDate\":null,\"categoryText\":\"현장결제\",\"exposeYn\":true,\"cardCompanyName\":null,\"cautionTextLines\":[\"기간 내 1회 참여 가능\",\"카드 결제 시 혜택 적용 불가\",\"자세한 내용은 매장 안내 참조\"],\"payMethodTypeName\":null,\"phase\":\"ONGOING\"}",
       "fit": 67,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "brand-gongcha-5d394c87c204",
@@ -857,10 +901,10 @@
       "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=639&keyword=&status=&scroll=y",
       "sourceLabel": "공차 이벤트",
       "sourceHash": "8a371d552e6ba73c9f5f7065e1a49b1cbf894054f24f22fc23f370f7e0af6234",
-      "collectedAt": "2026-11-10T06:15:04.482Z",
+      "collectedAt": "2026-11-10T17:31:53.586Z",
       "raw": "{\"href\":\"/brand/content/eventdetail?seq=639&keyword=&status=&scroll=y\",\"title\":\"3.16~12.31 현대카드 M포인트 매일 20% 사용!\",\"periodText\":\"2026.03.16(월) ~ 2026.12.31(목)\"}",
       "fit": 67,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "brand-mega-b65d3ab3e422",
@@ -901,10 +945,10 @@
       "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3604",
       "sourceLabel": "스타벅스 이벤트",
       "sourceHash": "3a46b77bf3c5a02c3a5949432e161b542bcfe98b443325fb3faae2463b4ac2f4",
-      "collectedAt": "2026-11-10T06:15:06.704Z",
+      "collectedAt": "2026-11-10T17:31:56.441Z",
       "raw": "{\"seq\":\"\",\"content\":\"\",\"menu_CD\":\"STB2811\",\"del_YN\":\"\",\"reg_USER\":\"\",\"reg_DT\":\"\",\"mod_USER\":\"\",\"mod_DT\":\"\",\"product_CD\":\"\",\"img_UPLOAD_PATH\":\"https://image.istarbucks.co.kr\",\"store_CODE\":null,\"store_NM\":\"\",\"view_YN\":\"\",\"pro_SEQ\":3604,\"sub_VIEW\":\"\",\"search_DATE_TYPE\":\"\",\"search_START_DATE\":\"\",\"search_END_DATE\":\"\",\"search_VIEW_YN\":\"\",\"search_KEY\":\"\",\"search_VALUE\":\"\",\"menu_CD_ARR\":null,\"title\":\"e-스티커 더블 적립 이벤트\",\"store_CD\":\"\",\"store_CNT\":0,\"start_DT\":\"2026-11-02\",\"end_DT\":\"2026-11-12\",\"online_YN\":\"\",\"capacity\":\"\",\"img_NM\":\"\",\"flash_NM\":\"\",\"view_ORDER\":\"\",\"hit\":\"\",\"store_MEMO\":\"\",\"store_GUBUN\":\"\",\"flash_W\":\"\",\"flash_H\":\"\",\"start_HOUR\":\"\",\"start_MINUTE\":\"\",\"end_HOUR\":\"\",\"end_MINUTE\":\"\",\"content_MOBILE\":\"\",\"etc_MEMO\":\"\",\"top_YN\":\"\",\"top_DATE\":\"\",\"stat\":\"\",\"view_TYPE\":\"D\",\"view_DATE\":\"\",\"view_SDT1\":\"2026-11-06\",\"view_SDT2\":\"\",\"view_EDT1\":\"2026-11-12\",\"view_EDT2\":\"\",\"content_TABLET\":\"\",\"pro_CON_SEQ\":0,\"str_SEQ\":0,\"file_SEQ\":0,\"file_CD\":\"\",\"file_NM\":\"\",\"web_THUM\":\"WEB_THUM_20261029132833715.png\",\"mob_THUM\":\"APP_THUM_20261029132833741.png\",\"tab_THUM\":\"\",\"web_IMG\":\"\",\"mob_IMG\":\"\",\"tab_IMG\":\"\",\"web_BTN_IMG\":\"\",\"app_BTN_IMG\":\"\",\"web_THUM_SEQ\":0,\"mob_THUM_SEQ\":0,\"tab_THUM_SEQ\":0,\"web_IMG_SEQ\":0,\"mob_IMG_SEQ\":0,\"tab_IMG_SEQ\":0,\"pagesize\":8,\"page\":1,\"record\":0,\"status\":\"\",\"search_MENU_CD\":\"\",\"search_END_YN\":\"\",\"file_DEL_ARRAY\":null,\"event_PAGE_NAME\":\"\",\"sbtitle_NAME\":\"e-스티커 더블 적립 이벤트\",\"web_XPSR_YN\":null,\"app_XPSR_YN\":null,\"contn_CTN_CNTNT\":null,\"contn_CNTNT_XPSR_DVSN_CODE\":null,\"web_CONTN_BTN_LINK_URL\":null,\"app_CONTN_BTN_LINK_URL\":null,\"web_CONTN_LINK_NWNDW_YN\":null,\"banner_TYPE\":null,\"webxpsrseqc\":\"10\",\"buddypass_FREE_YN\":\"\",\"plcc_CRDCM_CODE\":\"\",\"plcc_CARD_KIND_CODE\":\"\",\"page_INDEX\":1,\"page_UNIT\":20,\"page_SIZE\":10,\"first_INDEX\":1,\"last_INDEX\":1,\"record_COUNT_PER_PAGE\":10,\"total_CNT\":0,\"rnum\":0}",
       "fit": 57,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "brand-starbucks-3627",
@@ -923,10 +967,10 @@
       "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3627",
       "sourceLabel": "스타벅스 이벤트",
       "sourceHash": "8097e3fb57816af452cab6c0de8d568ee739d015e774923b870f8653d584a042",
-      "collectedAt": "2026-11-10T06:15:06.705Z",
+      "collectedAt": "2026-11-10T17:31:56.442Z",
       "raw": "{\"seq\":\"\",\"content\":\"\",\"menu_CD\":\"STB2811\",\"del_YN\":\"\",\"reg_USER\":\"\",\"reg_DT\":\"\",\"mod_USER\":\"\",\"mod_DT\":\"\",\"product_CD\":\"\",\"img_UPLOAD_PATH\":\"https://image.istarbucks.co.kr\",\"store_CODE\":null,\"store_NM\":\"\",\"view_YN\":\"\",\"pro_SEQ\":3627,\"sub_VIEW\":\"\",\"search_DATE_TYPE\":\"\",\"search_START_DATE\":\"\",\"search_END_DATE\":\"\",\"search_VIEW_YN\":\"\",\"search_KEY\":\"\",\"search_VALUE\":\"\",\"menu_CD_ARR\":null,\"title\":\"딜리버스 Special hour 할인 혜택\",\"store_CD\":\"\",\"store_CNT\":0,\"start_DT\":\"2026-11-10\",\"end_DT\":\"2026-11-30\",\"online_YN\":\"\",\"capacity\":\"\",\"img_NM\":\"\",\"flash_NM\":\"\",\"view_ORDER\":\"\",\"hit\":\"\",\"store_MEMO\":\"\",\"store_GUBUN\":\"\",\"flash_W\":\"\",\"flash_H\":\"\",\"start_HOUR\":\"\",\"start_MINUTE\":\"\",\"end_HOUR\":\"\",\"end_MINUTE\":\"\",\"content_MOBILE\":\"\",\"etc_MEMO\":\"\",\"top_YN\":\"\",\"top_DATE\":\"\",\"stat\":\"\",\"view_TYPE\":\"C\",\"view_DATE\":\"2026-11-09 ~ 2026-11-30\",\"view_SDT1\":\"\",\"view_SDT2\":\"\",\"view_EDT1\":\"\",\"view_EDT2\":\"\",\"content_TABLET\":\"\",\"pro_CON_SEQ\":0,\"str_SEQ\":0,\"file_SEQ\":0,\"file_CD\":\"\",\"file_NM\":\"\",\"web_THUM\":\"WEB_THUM_20261110091923905.png\",\"mob_THUM\":\"APP_THUM_20261110091923928.png\",\"tab_THUM\":\"\",\"web_IMG\":\"\",\"mob_IMG\":\"\",\"tab_IMG\":\"\",\"web_BTN_IMG\":\"\",\"app_BTN_IMG\":\"\",\"web_THUM_SEQ\":0,\"mob_THUM_SEQ\":0,\"tab_THUM_SEQ\":0,\"web_IMG_SEQ\":0,\"mob_IMG_SEQ\":0,\"tab_IMG_SEQ\":0,\"pagesize\":8,\"page\":1,\"record\":0,\"status\":\"\",\"search_MENU_CD\":\"\",\"search_END_YN\":\"\",\"file_DEL_ARRAY\":null,\"event_PAGE_NAME\":\"\",\"sbtitle_NAME\":\"딜리버스 Special hour 할인 혜택\",\"web_XPSR_YN\":null,\"app_XPSR_YN\":null,\"contn_CTN_CNTNT\":null,\"contn_CNTNT_XPSR_DVSN_CODE\":null,\"web_CONTN_BTN_LINK_URL\":null,\"app_CONTN_BTN_LINK_URL\":null,\"web_CONTN_LINK_NWNDW_YN\":null,\"banner_TYPE\":null,\"webxpsrseqc\":\"\",\"buddypass_FREE_YN\":\"\",\"plcc_CRDCM_CODE\":\"\",\"plcc_CARD_KIND_CODE\":\"\",\"page_INDEX\":1,\"page_UNIT\":20,\"page_SIZE\":10,\"first_INDEX\":1,\"last_INDEX\":1,\"record_COUNT_PER_PAGE\":10,\"total_CNT\":0,\"rnum\":0}",
       "fit": 57,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "brand-starbucks-3615",
@@ -945,10 +989,10 @@
       "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3615",
       "sourceLabel": "스타벅스 이벤트",
       "sourceHash": "66476a9285ed30cd26ee8a6a24bb98a7547bc42b5482c7d81d1dc75bed30b49b",
-      "collectedAt": "2026-11-10T06:15:06.705Z",
+      "collectedAt": "2026-11-10T17:31:56.442Z",
       "raw": "{\"seq\":\"\",\"content\":\"\",\"menu_CD\":\"STB2811\",\"del_YN\":\"\",\"reg_USER\":\"\",\"reg_DT\":\"\",\"mod_USER\":\"\",\"mod_DT\":\"\",\"product_CD\":\"\",\"img_UPLOAD_PATH\":\"https://image.istarbucks.co.kr\",\"store_CODE\":null,\"store_NM\":\"\",\"view_YN\":\"\",\"pro_SEQ\":3615,\"sub_VIEW\":\"\",\"search_DATE_TYPE\":\"\",\"search_START_DATE\":\"\",\"search_END_DATE\":\"\",\"search_VIEW_YN\":\"\",\"search_KEY\":\"\",\"search_VALUE\":\"\",\"menu_CD_ARR\":null,\"title\":\"딜리버스 만원 별 더블 적립 이벤트\",\"store_CD\":\"\",\"store_CNT\":0,\"start_DT\":\"2026-11-02\",\"end_DT\":\"2026-11-30\",\"online_YN\":\"\",\"capacity\":\"\",\"img_NM\":\"\",\"flash_NM\":\"\",\"view_ORDER\":\"\",\"hit\":\"\",\"store_MEMO\":\"\",\"store_GUBUN\":\"\",\"flash_W\":\"\",\"flash_H\":\"\",\"start_HOUR\":\"\",\"start_MINUTE\":\"\",\"end_HOUR\":\"\",\"end_MINUTE\":\"\",\"content_MOBILE\":\"\",\"etc_MEMO\":\"\",\"top_YN\":\"\",\"top_DATE\":\"\",\"stat\":\"\",\"view_TYPE\":\"C\",\"view_DATE\":\"2026-11-01 ~ 2026-11-30\",\"view_SDT1\":\"\",\"view_SDT2\":\"\",\"view_EDT1\":\"\",\"view_EDT2\":\"\",\"content_TABLET\":\"\",\"pro_CON_SEQ\":0,\"str_SEQ\":0,\"file_SEQ\":0,\"file_CD\":\"\",\"file_NM\":\"\",\"web_THUM\":\"WEB_THUM_20261030154414292.jpg\",\"mob_THUM\":\"APP_THUM_20261030154414307.jpg\",\"tab_THUM\":\"\",\"web_IMG\":\"\",\"mob_IMG\":\"\",\"tab_IMG\":\"\",\"web_BTN_IMG\":\"\",\"app_BTN_IMG\":\"\",\"web_THUM_SEQ\":0,\"mob_THUM_SEQ\":0,\"tab_THUM_SEQ\":0,\"web_IMG_SEQ\":0,\"mob_IMG_SEQ\":0,\"tab_IMG_SEQ\":0,\"pagesize\":8,\"page\":1,\"record\":0,\"status\":\"\",\"search_MENU_CD\":\"\",\"search_END_YN\":\"\",\"file_DEL_ARRAY\":null,\"event_PAGE_NAME\":\"\",\"sbtitle_NAME\":\"딜리버스 만원 별 더블 적립 이벤트\",\"web_XPSR_YN\":null,\"app_XPSR_YN\":null,\"contn_CTN_CNTNT\":null,\"contn_CNTNT_XPSR_DVSN_CODE\":null,\"web_CONTN_BTN_LINK_URL\":null,\"app_CONTN_BTN_LINK_URL\":null,\"web_CONTN_LINK_NWNDW_YN\":null,\"banner_TYPE\":null,\"webxpsrseqc\":\"\",\"buddypass_FREE_YN\":\"\",\"plcc_CRDCM_CODE\":\"\",\"plcc_CARD_KIND_CODE\":\"\",\"page_INDEX\":1,\"page_UNIT\":20,\"page_SIZE\":10,\"first_INDEX\":1,\"last_INDEX\":1,\"record_COUNT_PER_PAGE\":10,\"total_CNT\":0,\"rnum\":0}",
       "fit": 57,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "brand-starbucks-3612",
@@ -967,10 +1011,10 @@
       "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3612",
       "sourceLabel": "스타벅스 이벤트",
       "sourceHash": "5d9bf5683b54de6a631bda7fb9d0737d785bff5cd1cbc88b3cbfc7bf9096f018",
-      "collectedAt": "2026-11-10T06:15:06.705Z",
+      "collectedAt": "2026-11-10T17:31:56.442Z",
       "raw": "{\"seq\":\"\",\"content\":\"\",\"menu_CD\":\"STB2811\",\"del_YN\":\"\",\"reg_USER\":\"\",\"reg_DT\":\"\",\"mod_USER\":\"\",\"mod_DT\":\"\",\"product_CD\":\"\",\"img_UPLOAD_PATH\":\"https://image.istarbucks.co.kr\",\"store_CODE\":null,\"store_NM\":\"\",\"view_YN\":\"\",\"pro_SEQ\":3612,\"sub_VIEW\":\"\",\"search_DATE_TYPE\":\"\",\"search_START_DATE\":\"\",\"search_END_DATE\":\"\",\"search_VIEW_YN\":\"\",\"search_KEY\":\"\",\"search_VALUE\":\"\",\"menu_CD_ARR\":null,\"title\":\"스타트래블 우리카드 11월 혜택\",\"store_CD\":\"\",\"store_CNT\":0,\"start_DT\":\"2026-11-01\",\"end_DT\":\"2026-11-30\",\"online_YN\":\"\",\"capacity\":\"\",\"img_NM\":\"\",\"flash_NM\":\"\",\"view_ORDER\":\"\",\"hit\":\"\",\"store_MEMO\":\"\",\"store_GUBUN\":\"\",\"flash_W\":\"\",\"flash_H\":\"\",\"start_HOUR\":\"\",\"start_MINUTE\":\"\",\"end_HOUR\":\"\",\"end_MINUTE\":\"\",\"content_MOBILE\":\"\",\"etc_MEMO\":\"\",\"top_YN\":\"\",\"top_DATE\":\"\",\"stat\":\"\",\"view_TYPE\":\"A\",\"view_DATE\":\"\",\"view_SDT1\":\"2026-11-01\",\"view_SDT2\":\"\",\"view_EDT1\":\"2026-11-30\",\"view_EDT2\":\"\",\"content_TABLET\":\"\",\"pro_CON_SEQ\":0,\"str_SEQ\":0,\"file_SEQ\":0,\"file_CD\":\"\",\"file_NM\":\"\",\"web_THUM\":\"WEB_THUM_20261030131821526.jpg\",\"mob_THUM\":\"APP_THUM_20261030131821542.jpg\",\"tab_THUM\":\"\",\"web_IMG\":\"\",\"mob_IMG\":\"\",\"tab_IMG\":\"\",\"web_BTN_IMG\":\"\",\"app_BTN_IMG\":\"\",\"web_THUM_SEQ\":0,\"mob_THUM_SEQ\":0,\"tab_THUM_SEQ\":0,\"web_IMG_SEQ\":0,\"mob_IMG_SEQ\":0,\"tab_IMG_SEQ\":0,\"pagesize\":8,\"page\":1,\"record\":0,\"status\":\"\",\"search_MENU_CD\":\"\",\"search_END_YN\":\"\",\"file_DEL_ARRAY\":null,\"event_PAGE_NAME\":\"\",\"sbtitle_NAME\":\"스타트래블 우리카드 11월 혜택\",\"web_XPSR_YN\":null,\"app_XPSR_YN\":null,\"contn_CTN_CNTNT\":null,\"contn_CNTNT_XPSR_DVSN_CODE\":null,\"web_CONTN_BTN_LINK_URL\":null,\"app_CONTN_BTN_LINK_URL\":null,\"web_CONTN_LINK_NWNDW_YN\":null,\"banner_TYPE\":null,\"webxpsrseqc\":\"\",\"buddypass_FREE_YN\":\"\",\"plcc_CRDCM_CODE\":\"\",\"plcc_CARD_KIND_CODE\":\"\",\"page_INDEX\":1,\"page_UNIT\":20,\"page_SIZE\":10,\"first_INDEX\":1,\"last_INDEX\":1,\"record_COUNT_PER_PAGE\":10,\"total_CNT\":0,\"rnum\":0}",
       "fit": 57,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "brand-starbucks-3610",
@@ -989,10 +1033,10 @@
       "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3610",
       "sourceLabel": "스타벅스 이벤트",
       "sourceHash": "5e275f3adfc87cfe89d13830e58466fb7f0496d2971d3b010ee37ded716afe1a",
-      "collectedAt": "2026-11-10T06:15:06.705Z",
+      "collectedAt": "2026-11-10T17:31:56.442Z",
       "raw": "{\"seq\":\"\",\"content\":\"\",\"menu_CD\":\"STB2811\",\"del_YN\":\"\",\"reg_USER\":\"\",\"reg_DT\":\"\",\"mod_USER\":\"\",\"mod_DT\":\"\",\"product_CD\":\"\",\"img_UPLOAD_PATH\":\"https://image.istarbucks.co.kr\",\"store_CODE\":null,\"store_NM\":\"\",\"view_YN\":\"\",\"pro_SEQ\":3610,\"sub_VIEW\":\"\",\"search_DATE_TYPE\":\"\",\"search_START_DATE\":\"\",\"search_END_DATE\":\"\",\"search_VIEW_YN\":\"\",\"search_KEY\":\"\",\"search_VALUE\":\"\",\"menu_CD_ARR\":null,\"title\":\"스타벅스 신한카드 청구할인 프로모션\",\"store_CD\":\"\",\"store_CNT\":0,\"start_DT\":\"2026-11-01\",\"end_DT\":\"2026-11-30\",\"online_YN\":\"\",\"capacity\":\"\",\"img_NM\":\"\",\"flash_NM\":\"\",\"view_ORDER\":\"\",\"hit\":\"\",\"store_MEMO\":\"\",\"store_GUBUN\":\"\",\"flash_W\":\"\",\"flash_H\":\"\",\"start_HOUR\":\"\",\"start_MINUTE\":\"\",\"end_HOUR\":\"\",\"end_MINUTE\":\"\",\"content_MOBILE\":\"\",\"etc_MEMO\":\"\",\"top_YN\":\"\",\"top_DATE\":\"\",\"stat\":\"\",\"view_TYPE\":\"A\",\"view_DATE\":\"\",\"view_SDT1\":\"2026-11-01\",\"view_SDT2\":\"\",\"view_EDT1\":\"2026-11-30\",\"view_EDT2\":\"\",\"content_TABLET\":\"\",\"pro_CON_SEQ\":0,\"str_SEQ\":0,\"file_SEQ\":0,\"file_CD\":\"\",\"file_NM\":\"\",\"web_THUM\":\"WEB_THUM_20261030154343841.jpg\",\"mob_THUM\":\"APP_THUM_20261030154343857.jpg\",\"tab_THUM\":\"\",\"web_IMG\":\"\",\"mob_IMG\":\"\",\"tab_IMG\":\"\",\"web_BTN_IMG\":\"\",\"app_BTN_IMG\":\"\",\"web_THUM_SEQ\":0,\"mob_THUM_SEQ\":0,\"tab_THUM_SEQ\":0,\"web_IMG_SEQ\":0,\"mob_IMG_SEQ\":0,\"tab_IMG_SEQ\":0,\"pagesize\":8,\"page\":1,\"record\":0,\"status\":\"\",\"search_MENU_CD\":\"\",\"search_END_YN\":\"\",\"file_DEL_ARRAY\":null,\"event_PAGE_NAME\":\"\",\"sbtitle_NAME\":\"스타벅스 신한카드 청구할인 프로모션\",\"web_XPSR_YN\":null,\"app_XPSR_YN\":null,\"contn_CTN_CNTNT\":null,\"contn_CNTNT_XPSR_DVSN_CODE\":null,\"web_CONTN_BTN_LINK_URL\":null,\"app_CONTN_BTN_LINK_URL\":null,\"web_CONTN_LINK_NWNDW_YN\":null,\"banner_TYPE\":null,\"webxpsrseqc\":\"\",\"buddypass_FREE_YN\":\"\",\"plcc_CRDCM_CODE\":\"\",\"plcc_CARD_KIND_CODE\":\"\",\"page_INDEX\":1,\"page_UNIT\":20,\"page_SIZE\":10,\"first_INDEX\":1,\"last_INDEX\":1,\"record_COUNT_PER_PAGE\":10,\"total_CNT\":0,\"rnum\":0}",
       "fit": 57,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "brand-starbucks-3609",
@@ -1011,10 +1055,10 @@
       "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3609",
       "sourceLabel": "스타벅스 이벤트",
       "sourceHash": "b5eecae9d64f809572e8da4197a247a0d2e21d028eb7dc3526e0b75dc6fb7020",
-      "collectedAt": "2026-11-10T06:15:06.706Z",
+      "collectedAt": "2026-11-10T17:31:56.442Z",
       "raw": "{\"seq\":\"\",\"content\":\"\",\"menu_CD\":\"STB2811\",\"del_YN\":\"\",\"reg_USER\":\"\",\"reg_DT\":\"\",\"mod_USER\":\"\",\"mod_DT\":\"\",\"product_CD\":\"\",\"img_UPLOAD_PATH\":\"https://image.istarbucks.co.kr\",\"store_CODE\":null,\"store_NM\":\"\",\"view_YN\":\"\",\"pro_SEQ\":3609,\"sub_VIEW\":\"\",\"search_DATE_TYPE\":\"\",\"search_START_DATE\":\"\",\"search_END_DATE\":\"\",\"search_VIEW_YN\":\"\",\"search_KEY\":\"\",\"search_VALUE\":\"\",\"menu_CD_ARR\":null,\"title\":\"스타벅스 신한카드 11월 혜택\",\"store_CD\":\"\",\"store_CNT\":0,\"start_DT\":\"2026-11-01\",\"end_DT\":\"2026-11-30\",\"online_YN\":\"\",\"capacity\":\"\",\"img_NM\":\"\",\"flash_NM\":\"\",\"view_ORDER\":\"\",\"hit\":\"\",\"store_MEMO\":\"\",\"store_GUBUN\":\"\",\"flash_W\":\"\",\"flash_H\":\"\",\"start_HOUR\":\"\",\"start_MINUTE\":\"\",\"end_HOUR\":\"\",\"end_MINUTE\":\"\",\"content_MOBILE\":\"\",\"etc_MEMO\":\"\",\"top_YN\":\"\",\"top_DATE\":\"\",\"stat\":\"\",\"view_TYPE\":\"A\",\"view_DATE\":\"\",\"view_SDT1\":\"2026-11-01\",\"view_SDT2\":\"\",\"view_EDT1\":\"2026-11-30\",\"view_EDT2\":\"\",\"content_TABLET\":\"\",\"pro_CON_SEQ\":0,\"str_SEQ\":0,\"file_SEQ\":0,\"file_CD\":\"\",\"file_NM\":\"\",\"web_THUM\":\"WEB_THUM_20261030154408480.jpg\",\"mob_THUM\":\"APP_THUM_20261030154408494.jpg\",\"tab_THUM\":\"\",\"web_IMG\":\"\",\"mob_IMG\":\"\",\"tab_IMG\":\"\",\"web_BTN_IMG\":\"\",\"app_BTN_IMG\":\"\",\"web_THUM_SEQ\":0,\"mob_THUM_SEQ\":0,\"tab_THUM_SEQ\":0,\"web_IMG_SEQ\":0,\"mob_IMG_SEQ\":0,\"tab_IMG_SEQ\":0,\"pagesize\":8,\"page\":1,\"record\":0,\"status\":\"\",\"search_MENU_CD\":\"\",\"search_END_YN\":\"\",\"file_DEL_ARRAY\":null,\"event_PAGE_NAME\":\"\",\"sbtitle_NAME\":\"스타벅스 신한카드 11월 혜택\",\"web_XPSR_YN\":null,\"app_XPSR_YN\":null,\"contn_CTN_CNTNT\":null,\"contn_CNTNT_XPSR_DVSN_CODE\":null,\"web_CONTN_BTN_LINK_URL\":null,\"app_CONTN_BTN_LINK_URL\":null,\"web_CONTN_LINK_NWNDW_YN\":null,\"banner_TYPE\":null,\"webxpsrseqc\":\"\",\"buddypass_FREE_YN\":\"\",\"plcc_CRDCM_CODE\":\"\",\"plcc_CARD_KIND_CODE\":\"\",\"page_INDEX\":1,\"page_UNIT\":20,\"page_SIZE\":10,\"first_INDEX\":1,\"last_INDEX\":1,\"record_COUNT_PER_PAGE\":10,\"total_CNT\":0,\"rnum\":0}",
       "fit": 57,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "brand-starbucks-3593",
@@ -1033,10 +1077,10 @@
       "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3593",
       "sourceLabel": "스타벅스 이벤트",
       "sourceHash": "d805dcfa28a319adb28541419ce1d06c8301da4e6059490baf4c0cd40e4d927e",
-      "collectedAt": "2026-11-10T06:15:06.706Z",
+      "collectedAt": "2026-11-10T17:31:56.443Z",
       "raw": "{\"seq\":\"\",\"content\":\"\",\"menu_CD\":\"STB2811\",\"del_YN\":\"\",\"reg_USER\":\"\",\"reg_DT\":\"\",\"mod_USER\":\"\",\"mod_DT\":\"\",\"product_CD\":\"\",\"img_UPLOAD_PATH\":\"https://image.istarbucks.co.kr\",\"store_CODE\":null,\"store_NM\":\"\",\"view_YN\":\"\",\"pro_SEQ\":3593,\"sub_VIEW\":\"\",\"search_DATE_TYPE\":\"\",\"search_START_DATE\":\"\",\"search_END_DATE\":\"\",\"search_VIEW_YN\":\"\",\"search_KEY\":\"\",\"search_VALUE\":\"\",\"menu_CD_ARR\":null,\"title\":\"스타벅스 삼성카드 11월 혜택\",\"store_CD\":\"\",\"store_CNT\":0,\"start_DT\":\"2026-11-01\",\"end_DT\":\"2026-11-30\",\"online_YN\":\"\",\"capacity\":\"\",\"img_NM\":\"\",\"flash_NM\":\"\",\"view_ORDER\":\"\",\"hit\":\"\",\"store_MEMO\":\"\",\"store_GUBUN\":\"\",\"flash_W\":\"\",\"flash_H\":\"\",\"start_HOUR\":\"\",\"start_MINUTE\":\"\",\"end_HOUR\":\"\",\"end_MINUTE\":\"\",\"content_MOBILE\":\"\",\"etc_MEMO\":\"\",\"top_YN\":\"\",\"top_DATE\":\"\",\"stat\":\"\",\"view_TYPE\":\"A\",\"view_DATE\":\"\",\"view_SDT1\":\"2026-11-01\",\"view_SDT2\":\"\",\"view_EDT1\":\"2026-11-30\",\"view_EDT2\":\"\",\"content_TABLET\":\"\",\"pro_CON_SEQ\":0,\"str_SEQ\":0,\"file_SEQ\":0,\"file_CD\":\"\",\"file_NM\":\"\",\"web_THUM\":\"WEB_THUM_20261030150231148.jpg\",\"mob_THUM\":\"APP_THUM_20261030150231167.jpg\",\"tab_THUM\":\"\",\"web_IMG\":\"\",\"mob_IMG\":\"\",\"tab_IMG\":\"\",\"web_BTN_IMG\":\"\",\"app_BTN_IMG\":\"\",\"web_THUM_SEQ\":0,\"mob_THUM_SEQ\":0,\"tab_THUM_SEQ\":0,\"web_IMG_SEQ\":0,\"mob_IMG_SEQ\":0,\"tab_IMG_SEQ\":0,\"pagesize\":8,\"page\":1,\"record\":0,\"status\":\"\",\"search_MENU_CD\":\"\",\"search_END_YN\":\"\",\"file_DEL_ARRAY\":null,\"event_PAGE_NAME\":\"\",\"sbtitle_NAME\":\"스타벅스 삼성카드 11월 혜택\",\"web_XPSR_YN\":null,\"app_XPSR_YN\":null,\"contn_CTN_CNTNT\":null,\"contn_CNTNT_XPSR_DVSN_CODE\":null,\"web_CONTN_BTN_LINK_URL\":null,\"app_CONTN_BTN_LINK_URL\":null,\"web_CONTN_LINK_NWNDW_YN\":null,\"banner_TYPE\":null,\"webxpsrseqc\":\"\",\"buddypass_FREE_YN\":\"\",\"plcc_CRDCM_CODE\":\"\",\"plcc_CARD_KIND_CODE\":\"\",\"page_INDEX\":1,\"page_UNIT\":20,\"page_SIZE\":10,\"first_INDEX\":1,\"last_INDEX\":1,\"record_COUNT_PER_PAGE\":10,\"total_CNT\":0,\"rnum\":0}",
       "fit": 57,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "brand-pascucci-64ed48379370",
@@ -1055,10 +1099,10 @@
       "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1042",
       "sourceLabel": "파스쿠찌 이벤트",
       "sourceHash": "b06575c1b1c3fd11fba15d86ec1f68db2d8d1eee6e5b0d664f26a6e3a5516600",
-      "collectedAt": "2026-11-10T06:15:05.393Z",
+      "collectedAt": "2026-11-10T17:31:54.892Z",
       "raw": "{\"href\":\"eventView.asp?teSeq=1042\",\"title\":\"[삼성카드 LINK] 11월의 특별한 혜택!\",\"periodText\":\"2026.11.01-2026.11.30\"}",
       "fit": 57,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "brand-pascucci-9b5fbec2f6d9",
@@ -1077,10 +1121,10 @@
       "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1041",
       "sourceLabel": "파스쿠찌 이벤트",
       "sourceHash": "5e8dc0eb15d5d428085684208b0c77cb5565a931b9efcc09ec88c3b98f1d9456",
-      "collectedAt": "2026-11-10T06:15:05.393Z",
+      "collectedAt": "2026-11-10T17:31:54.892Z",
       "raw": "{\"href\":\"eventView.asp?teSeq=1041\",\"title\":\"[해피앱] 음료 5+1 스탬프 챌린지\",\"periodText\":\"2026.11.01-2026.11.30\"}",
       "fit": 57,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "brand-theventi-4c415094aa5f",
@@ -1099,10 +1143,10 @@
       "source": "https://theventi.co.kr/new2022/news/event.html?bmain=view&uid=312&mode=",
       "sourceLabel": "더벤티 이벤트",
       "sourceHash": "d065b40cdbb634dd68649ad0954af2d0b1f0eda95a103b32495e2b1b8a21bdd0",
-      "collectedAt": "2026-11-10T06:15:08.211Z",
+      "collectedAt": "2026-11-10T17:31:57.014Z",
       "raw": "{\"href\":\"/new2022/news/event.html?bmain=view&uid=312&mode=\",\"title\":\"[프로모션]26년 11월 카카오페이 굿딜 프로모션\",\"periodText\":\"이벤트기간 : 2026-11-01 ~ 2026-11-15\"}",
       "fit": 57,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     },
     {
       "id": "brand-theventi-ceebce9ccb1e",
@@ -1121,10 +1165,10 @@
       "source": "https://theventi.co.kr/new2022/news/event.html?bmain=view&uid=311&mode=",
       "sourceLabel": "더벤티 이벤트",
       "sourceHash": "de9db7d80eb7693956e2a7ac083968443feb411873c6aa83871f34533ffd79ef",
-      "collectedAt": "2026-11-10T06:15:08.211Z",
+      "collectedAt": "2026-11-10T17:31:57.014Z",
       "raw": "{\"href\":\"/new2022/news/event.html?bmain=view&uid=311&mode=\",\"title\":\"[프로모션]26년 11월 삼성카드 LINK 프로모션\",\"periodText\":\"이벤트기간 : 2026-11-01 ~ 2026-11-30\"}",
       "fit": 57,
-      "lastVerifiedAt": "2026-11-10"
+      "lastVerifiedAt": "2026-11-11"
     }
   ]
 }
