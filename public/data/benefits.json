@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-11-11T05:00:01.839Z",
+  "collectedAt": "2026-11-11T13:41:57.519Z",
   "asOfDate": "2026-11-11",
-  "asOfLabel": "2026.11.11 13:59 KST",
+  "asOfLabel": "2026.11.11 22:41 KST",
   "warnings": [
     {
       "source": "toss",
@@ -336,10 +336,10 @@
       "value": "40%",
       "valueText": "[네이버페이] Npay QR 1만원 이상 결제 시 40% OFF",
       "condition": "브랜드 공식 이벤트",
-      "period": "기간 미고지",
-      "startsAt": null,
-      "validUntil": null,
-      "notes": "파스쿠찌 공식 이벤트 목록에서 확인.",
+      "period": "2026.11.11 - 2026.11.15",
+      "startsAt": "2026-11-11",
+      "validUntil": "2026-11-15",
+      "notes": "2026.11.11-2026.11.15",
       "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1047",
       "sourceLabel": "파스쿠찌 이벤트",
       "fit": 83,
