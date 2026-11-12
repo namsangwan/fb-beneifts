@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-11-11T13:41:57.519Z",
-  "asOfDate": "2026-11-11",
-  "asOfLabel": "2026.11.11 22:41 KST",
+  "collectedAt": "2026-11-12T06:02:46.666Z",
+  "asOfDate": "2026-11-12",
+  "asOfLabel": "2026.11.12 15:02 KST",
   "warnings": [
     {
       "source": "toss",
@@ -153,7 +153,26 @@
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653645",
       "sourceLabel": "네이버페이 상세",
       "fit": 98,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
+    },
+    {
+      "id": "naver-24278798653708",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "HANS",
+      "category": "베이커리",
+      "title": "포인트·머니 1만원 이상 결제 시 50% 적립",
+      "value": "50%",
+      "valueText": "50% 적립",
+      "condition": "포인트·머니 1만원 이상 결제 시",
+      "period": "2026.11.12 - 2026.11.18",
+      "startsAt": "2026-11-12",
+      "validUntil": "2026-11-18",
+      "notes": "기간 내 횟수 제한 없이 1인 5만원 한도 적립 세부 내용은 '자세히 보기' 참고",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653708",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 98,
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "kt-membership-122",
@@ -172,7 +191,7 @@
       "source": "https://membership.kt.com/discount/partner/C21/122/PartnerDetail.do",
       "sourceLabel": "KT 멤버십",
       "fit": 97,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "brand-gongcha-694e0f7c3822",
@@ -191,7 +210,7 @@
       "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=690&keyword=&status=&scroll=y",
       "sourceLabel": "공차 이벤트",
       "fit": 89,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "brand-paulbassett-06a2dcbd212f",
@@ -210,26 +229,7 @@
       "source": "https://www.baristapaulbassett.co.kr/whatsNews/event/View.pb?eventSeq=4647",
       "sourceLabel": "폴바셋 이벤트",
       "fit": 89,
-      "lastVerifiedAt": "2026-11-11"
-    },
-    {
-      "id": "skt-tday-d22feb407659",
-      "provider": "skt",
-      "pay": "SKT",
-      "brand": "파리바게뜨",
-      "category": "베이커리",
-      "title": "파리바게뜨 수능 선물 17종 최대 40% 할인(최대 8,000원)",
-      "value": "최대40%",
-      "valueText": "파리바게뜨 수능 선물 17종 최대 40% 할인(최대 8,000원)",
-      "condition": "SKT T멤버십 T day",
-      "period": "2026.11.11 - 2026.11.13",
-      "startsAt": "2026-11-11",
-      "validUntil": "2026-11-13",
-      "notes": "쿠폰 사용 기간: 2026년 11월 11일(수) 오전 9시~11월 13일(금) 오후 11시 59분",
-      "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
-      "sourceLabel": "SKT T day",
-      "fit": 89,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "skt-tday-a487df5df8fc",
@@ -248,7 +248,26 @@
       "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
       "sourceLabel": "SKT T day",
       "fit": 89,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
+    },
+    {
+      "id": "skt-tday-d22feb407659",
+      "provider": "skt",
+      "pay": "SKT",
+      "brand": "파리바게뜨",
+      "category": "베이커리",
+      "title": "파리바게뜨 수능 선물 17종 최대 40% 할인(최대 8,000원)",
+      "value": "최대40%",
+      "valueText": "파리바게뜨 수능 선물 17종 최대 40% 할인(최대 8,000원)",
+      "condition": "SKT T멤버십 T day",
+      "period": "2026.11.11 - 2026.11.13",
+      "startsAt": "2026-11-11",
+      "validUntil": "2026-11-13",
+      "notes": "쿠폰 사용 기간: 2026년 11월 11일(수) 오전 9시~11월 13일(금) 오후 11시 59분",
+      "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
+      "sourceLabel": "SKT T day",
+      "fit": 89,
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "naver-24278798653667",
@@ -267,26 +286,7 @@
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653667",
       "sourceLabel": "네이버페이 상세",
       "fit": 86,
-      "lastVerifiedAt": "2026-11-11"
-    },
-    {
-      "id": "skt-tday-fee8a95dab17",
-      "provider": "skt",
-      "pay": "SKT",
-      "brand": "파리바게뜨",
-      "category": "베이커리",
-      "title": "수능 기획전 최대 40% 할인",
-      "value": "최대40%",
-      "valueText": "수능 기획전 최대 40% 할인",
-      "condition": "SKT T멤버십 T day",
-      "period": "2026.11.11 - 2026.11.13",
-      "startsAt": "2026-11-11",
-      "validUntil": "2026-11-13",
-      "notes": "쿠폰 사용 기간: 2026년 11월 11일(수)~11월 13일(금)",
-      "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
-      "sourceLabel": "SKT T day",
-      "fit": 85,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "skt-tday-c6b953d376b6",
@@ -305,7 +305,45 @@
       "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
       "sourceLabel": "SKT T day",
       "fit": 85,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
+    },
+    {
+      "id": "skt-tday-51e5c4995a90",
+      "provider": "skt",
+      "pay": "SKT",
+      "brand": "파리바게뜨",
+      "category": "베이커리",
+      "title": "수능 기획전 최대 40% 할인",
+      "value": "최대40%",
+      "valueText": "수능 기획전 최대 40% 할인",
+      "condition": "SKT T멤버십 T day",
+      "period": "2026.11.11 - 2026.11.13",
+      "startsAt": "2026-11-11",
+      "validUntil": "2026-11-13",
+      "notes": "쿠폰 사용 기간: 2026년 11월 11일(수) 오전 9시~11월 13일(금) 오후 11시 59분",
+      "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
+      "sourceLabel": "SKT T day",
+      "fit": 85,
+      "lastVerifiedAt": "2026-11-12"
+    },
+    {
+      "id": "naver-24278798653690",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "설빙",
+      "category": "기타",
+      "title": "포인트·머니 9,900원 이상 결제 시 50% 적립",
+      "value": "50%",
+      "valueText": "50% 적립",
+      "condition": "포인트·머니 9,900원 이상 결제 시",
+      "period": "2026.11.12 - 2026.11.15",
+      "startsAt": "2026-11-12",
+      "validUntil": "2026-11-15",
+      "notes": "기간내 횟수 제한없이 1인 3만원 한도까지 적립",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653690",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 83,
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "brand-parisbaguette-cdcaeea31770",
@@ -343,7 +381,7 @@
       "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1047",
       "sourceLabel": "파스쿠찌 이벤트",
       "fit": 83,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "brand-pascucci-c5d596177627",
@@ -362,7 +400,7 @@
       "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1044",
       "sourceLabel": "파스쿠찌 이벤트",
       "fit": 83,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "kt-membership-78",
@@ -381,7 +419,7 @@
       "source": "https://membership.kt.com/discount/partner/C21/78/PartnerDetail.do",
       "sourceLabel": "KT 멤버십",
       "fit": 83,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "kt-membership-63",
@@ -400,7 +438,7 @@
       "source": "https://membership.kt.com/discount/partner/C21/63/PartnerDetail.do",
       "sourceLabel": "KT 멤버십",
       "fit": 83,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "kt-membership-59",
@@ -419,7 +457,7 @@
       "source": "https://membership.kt.com/discount/partner/C21/59/PartnerDetail.do",
       "sourceLabel": "KT 멤버십",
       "fit": 83,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "kt-membership-81",
@@ -438,7 +476,7 @@
       "source": "https://membership.kt.com/discount/partner/C21/81/PartnerDetail.do",
       "sourceLabel": "KT 멤버십",
       "fit": 83,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "naver-24278798653692",
@@ -457,7 +495,7 @@
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653692",
       "sourceLabel": "네이버페이 상세",
       "fit": 78,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "kt-membership-184",
@@ -476,7 +514,7 @@
       "source": "https://membership.kt.com/discount/partner/C21/184/PartnerDetail.do",
       "sourceLabel": "KT 멤버십",
       "fit": 77,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "kt-membership-60",
@@ -495,7 +533,7 @@
       "source": "https://membership.kt.com/discount/partner/C21/60/PartnerDetail.do",
       "sourceLabel": "KT 멤버십",
       "fit": 77,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "kt-membership-102",
@@ -514,7 +552,7 @@
       "source": "https://membership.kt.com/discount/partner/C21/102/PartnerDetail.do",
       "sourceLabel": "KT 멤버십",
       "fit": 77,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "kt-membership-57",
@@ -533,7 +571,7 @@
       "source": "https://membership.kt.com/discount/partner/C21/57/PartnerDetail.do",
       "sourceLabel": "KT 멤버십",
       "fit": 77,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "naver-24278798653552",
@@ -552,7 +590,7 @@
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653552",
       "sourceLabel": "네이버페이 상세",
       "fit": 75,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "naver-24278798653643",
@@ -571,7 +609,7 @@
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653643",
       "sourceLabel": "네이버페이 상세",
       "fit": 75,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "brand-hollys-518",
@@ -590,7 +628,7 @@
       "source": "https://www.hollys.co.kr/news/event/view.do?idx=518&pageNo=1&division=",
       "sourceLabel": "할리스 이벤트",
       "fit": 75,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "brand-gongcha-de6370fec906",
@@ -609,7 +647,7 @@
       "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=688&keyword=&status=&scroll=y",
       "sourceLabel": "공차 이벤트",
       "fit": 75,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "brand-twosome-261009",
@@ -628,7 +666,7 @@
       "source": "https://mo.twosome.co.kr/ev/eventList.do?eventDiv=progress&searchOpt=endSoon",
       "sourceLabel": "투썸 이벤트",
       "fit": 75,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "brand-twosome-260219",
@@ -647,7 +685,7 @@
       "source": "https://mo.twosome.co.kr/ev/eventList.do?eventDiv=progress&searchOpt=endSoon",
       "sourceLabel": "투썸 이벤트",
       "fit": 75,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "brand-pascucci-c6a2470a6705",
@@ -666,7 +704,7 @@
       "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=944",
       "sourceLabel": "파스쿠찌 이벤트",
       "fit": 75,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "brand-pascucci-d81f443e0a66",
@@ -685,7 +723,26 @@
       "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=909",
       "sourceLabel": "파스쿠찌 이벤트",
       "fit": 75,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
+    },
+    {
+      "id": "naver-24278798653666",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "쉐이크쉑",
+      "category": "기타",
+      "title": "Npay QR 결제 시 30% 할인",
+      "value": "30%",
+      "valueText": "30% 할인",
+      "condition": "Npay QR 결제 시",
+      "period": "2026.11.12 - 2026.11.15",
+      "startsAt": "2026-11-12",
+      "validUntil": "2026-11-15",
+      "notes": "최대 6천원 할인 인천공항 T1, T2점은 행사매장에서 제외",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653666",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 71,
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "skt-tday-3c1b1fa6fda7",
@@ -704,7 +761,7 @@
       "source": "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
       "sourceLabel": "SKT T day",
       "fit": 71,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "lguplus-ongoing-035865c7bfb2",
@@ -723,7 +780,7 @@
       "source": "https://www.lguplus.com/benefit-event/ongoing/82593",
       "sourceLabel": "LG U+ 진행 이벤트",
       "fit": 71,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "lguplus-ongoing-2dd0b6818aeb",
@@ -742,7 +799,7 @@
       "source": "https://www.lguplus.com/benefit-event/ongoing/82588",
       "sourceLabel": "LG U+ 진행 이벤트",
       "fit": 71,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "naver-24278798653691",
@@ -761,7 +818,7 @@
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653691",
       "sourceLabel": "네이버페이 상세",
       "fit": 70,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "brand-starbucks-3500",
@@ -780,7 +837,7 @@
       "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3500",
       "sourceLabel": "스타벅스 이벤트",
       "fit": 69,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "naver-24278798653630",
@@ -799,7 +856,7 @@
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653630",
       "sourceLabel": "네이버페이 상세",
       "fit": 67,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "brand-gongcha-5d394c87c204",
@@ -818,7 +875,7 @@
       "source": "https://www.gong-cha.co.kr/brand/content/eventdetail?seq=639&keyword=&status=&scroll=y",
       "sourceLabel": "공차 이벤트",
       "fit": 67,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "brand-mega-b65d3ab3e422",
@@ -856,7 +913,7 @@
       "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3604",
       "sourceLabel": "스타벅스 이벤트",
       "fit": 57,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "brand-starbucks-3627",
@@ -875,7 +932,7 @@
       "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3627",
       "sourceLabel": "스타벅스 이벤트",
       "fit": 57,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "brand-starbucks-3615",
@@ -894,7 +951,7 @@
       "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3615",
       "sourceLabel": "스타벅스 이벤트",
       "fit": 57,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "brand-starbucks-3612",
@@ -913,7 +970,7 @@
       "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3612",
       "sourceLabel": "스타벅스 이벤트",
       "fit": 57,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "brand-starbucks-3610",
@@ -932,7 +989,7 @@
       "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3610",
       "sourceLabel": "스타벅스 이벤트",
       "fit": 57,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "brand-starbucks-3609",
@@ -951,7 +1008,7 @@
       "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3609",
       "sourceLabel": "스타벅스 이벤트",
       "fit": 57,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "brand-starbucks-3593",
@@ -970,7 +1027,7 @@
       "source": "https://www.starbucks.co.kr/whats_new/campaign_list.do?pro_seq=3593",
       "sourceLabel": "스타벅스 이벤트",
       "fit": 57,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "brand-pascucci-64ed48379370",
@@ -989,7 +1046,7 @@
       "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1042",
       "sourceLabel": "파스쿠찌 이벤트",
       "fit": 57,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "brand-pascucci-9b5fbec2f6d9",
@@ -1008,7 +1065,7 @@
       "source": "https://www.pascucci.co.kr/event/eventView.asp?teSeq=1041",
       "sourceLabel": "파스쿠찌 이벤트",
       "fit": 57,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "brand-theventi-4c415094aa5f",
@@ -1027,7 +1084,7 @@
       "source": "https://theventi.co.kr/new2022/news/event.html?bmain=view&uid=312&mode=",
       "sourceLabel": "더벤티 이벤트",
       "fit": 57,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     },
     {
       "id": "brand-theventi-ceebce9ccb1e",
@@ -1046,7 +1103,7 @@
       "source": "https://theventi.co.kr/new2022/news/event.html?bmain=view&uid=311&mode=",
       "sourceLabel": "더벤티 이벤트",
       "fit": 57,
-      "lastVerifiedAt": "2026-11-11"
+      "lastVerifiedAt": "2026-11-12"
     }
   ]
 }
