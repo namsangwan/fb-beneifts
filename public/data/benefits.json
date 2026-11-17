@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-11-17T06:54:27.533Z",
+  "collectedAt": "2026-11-17T11:35:52.211Z",
   "asOfDate": "2026-11-17",
-  "asOfLabel": "2026.11.17 15:54 KST",
+  "asOfLabel": "2026.11.17 20:35 KST",
   "warnings": [
     {
       "source": "toss",
@@ -161,6 +161,25 @@
       "validUntil": "2026-11-30",
       "notes": "자세한 내용은 매장 안내 참조",
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653645",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 98,
+      "lastVerifiedAt": "2026-11-17"
+    },
+    {
+      "id": "naver-24278798653708",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "HANS",
+      "category": "베이커리",
+      "title": "포인트·머니 1만원 이상 결제 시 50% 적립",
+      "value": "50%",
+      "valueText": "50% 적립",
+      "condition": "포인트·머니 1만원 이상 결제 시",
+      "period": "2026.11.12 - 2026.11.18",
+      "startsAt": "2026-11-12",
+      "validUntil": "2026-11-18",
+      "notes": "기간 내 횟수 제한 없이 1인 5만원 한도 적립 세부 내용은 '자세히 보기' 참고",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653708",
       "sourceLabel": "네이버페이 상세",
       "fit": 98,
       "lastVerifiedAt": "2026-11-17"
@@ -370,6 +389,25 @@
       "validUntil": "2026-11-30",
       "notes": "1회 최대 7천원 적립 가능 자세한 사항은 매장 안내 참조",
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653692",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 78,
+      "lastVerifiedAt": "2026-11-17"
+    },
+    {
+      "id": "naver-24278798653720",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "광화문 K-베이커리 페스티벌",
+      "category": "베이커리",
+      "title": "페이스사인 결제 시 10% 적립",
+      "value": "10%",
+      "valueText": "10% 적립",
+      "condition": "페이스사인 결제 시",
+      "period": "2026.11.16 - 2026.11.20",
+      "startsAt": "2026-11-16",
+      "validUntil": "2026-11-20",
+      "notes": "1인당 월 최대 5만원 한도 지급",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653720",
       "sourceLabel": "네이버페이 상세",
       "fit": 78,
       "lastVerifiedAt": "2026-11-17"
