@@ -5,6 +5,8 @@ import { pathToFileURL } from "node:url";
 const sources = {
   naver:
     "https://pay.naver.com/web-api/pub/benefit/payment/accumulation-promotions?firstCategory=DOMESTIC_INSTORE&secondCategory=FNB",
+  // 현장결제 전체. 빵집 등 F&B 분류 밖에 올라오는 카페·빵 혜택이 있다. (2026-11 한스 50% 적립)
+  naverInstore: "https://pay.naver.com/web-api/pub/benefit/payment/accumulation-promotions?firstCategory=DOMESTIC_INSTORE",
   toss: "https://toss.im/tossfeed/article/tosspay-promotion",
   telecom: {
     sktTday: "https://sktmembership.tworld.co.kr/mps/pc-bff/program/tday.do",
@@ -505,7 +507,7 @@ async function readPreviousBenefits() {
 
 export function categoryFromText(text) {
   if (snackKeywords.some((keyword) => text.includes(keyword))) return "간식";
-  if (bakeryKeywords.some((keyword) => text.includes(keyword))) return "베이커리";
+  if (bakeryKeywords.some((keyword) => text.toLowerCase().includes(keyword.toLowerCase()))) return "베이커리";
   if (includesCafeOrBakery(text)) return "커피";
   return "기타";
 }
@@ -830,23 +832,46 @@ export function normalizeNaverItem(item, asOfDate) {
   };
 }
 
-async function collectNaver(asOfDate) {
-  const firstPage = await fetchNaverPage(1);
+async function fetchNaverList(baseUrl) {
+  const firstPage = await fetchNaverPage(baseUrl, 1);
   const total = firstPage.totalElements ?? firstPage.elements?.length ?? 0;
   const size = firstPage.paging?.size ?? firstPage.elements?.length ?? 10;
-  const pages = Math.max(1, Math.ceil(total / size));
+  // 현장결제 전체는 목록이 길 수 있어 페이지 수에 상한을 둔다.
+  const pages = Math.min(30, Math.max(1, Math.ceil(total / Math.max(1, size))));
 
   const rest =
     pages > 1
-      ? await Promise.all(Array.from({ length: pages - 1 }, (_, index) => fetchNaverPage(index + 2)))
+      ? await Promise.all(Array.from({ length: pages - 1 }, (_, index) => fetchNaverPage(baseUrl, index + 2)))
       : [];
 
-  const candidates = [firstPage, ...rest].flatMap((payload) => payload.elements ?? []);
-  return candidates.map((item) => normalizeNaverItem(item, asOfDate)).filter(Boolean);
+  return [firstPage, ...rest].flatMap((payload) => payload.elements ?? []);
 }
 
-async function fetchNaverPage(page) {
-  const response = await fetchWithRetry(`${sources.naver}&page=${page}`, {
+/** 현장결제 전체 목록에서 F&B 분류 밖의 카페·빵·간식 혜택만 고른다. (편의점·마트 등은 제외) */
+export function isCafeOrBakeryNaverItem(item) {
+  const text = [item.promotionName, item.promotionDescription, item.exposeTitle].filter(Boolean).join(" ");
+  return includesCafeOrBakery(text);
+}
+
+async function collectNaver(asOfDate) {
+  const fnbItems = await fetchNaverList(sources.naver);
+
+  let extraItems = [];
+  try {
+    const fnbIds = new Set(fnbItems.map((item) => item.promotionSeq));
+    extraItems = (await fetchNaverList(sources.naverInstore)).filter(
+      (item) => !fnbIds.has(item.promotionSeq) && isCafeOrBakeryNaverItem(item),
+    );
+  } catch (error) {
+    // 추가 목록만 실패하면 F&B 결과는 그대로 쓴다.
+    console.warn(`naverpay instore list skipped: ${error.message}`);
+  }
+
+  return [...fnbItems, ...extraItems].map((item) => normalizeNaverItem(item, asOfDate)).filter(Boolean);
+}
+
+async function fetchNaverPage(baseUrl, page) {
+  const response = await fetchWithRetry(`${baseUrl}&page=${page}`, {
     headers: { accept: "application/json" },
   });
 
