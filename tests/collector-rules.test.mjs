@@ -7,6 +7,8 @@ import {
   dedupeBenefits,
   hasBrandBenefitSignal,
   isBotChallengePage,
+  isCafeOrBakeryNaverItem,
+  normalizeNaverItem,
   displayValue,
   normalizeBrandEvent,
   normalizeExternalBenefit,
@@ -299,4 +301,20 @@ test("사람 확인 페이지를 알아본다", () => {
 test("중계: 더벤티도 중계를 거친다", () => {
   const env = { RELAY_URL: "https://relay.example/relay", RELAY_TOKEN: "t" };
   assert.notEqual(relayRequestFor("https://theventi.co.kr/new2022/news/event.html", {}, env), null);
+});
+
+test("네이버페이 현장결제 전체 목록에서는 카페·빵 혜택만 고른다", () => {
+  const hans = { promotionSeq: 24278798653708, promotionName: "HANS", promotionDescription: "포인트·머니 결제 시", exposeTitle: "50% 적립" };
+  assert.equal(isCafeOrBakeryNaverItem(hans), true);
+  assert.equal(isCafeOrBakeryNaverItem({ promotionName: "GS25", promotionDescription: "Npay QR 결제 시", exposeTitle: "10% 적립" }), false);
+  assert.equal(isCafeOrBakeryNaverItem({ promotionName: "이마트", exposeTitle: "5천원 적립" }), false);
+
+  const benefit = normalizeNaverItem(
+    { ...hans, promotionStartDateTime: Date.parse("2026-11-14T00:00:00+09:00"), promotionEndDateTime: Date.parse("2026-11-30T23:59:59+09:00") },
+    "2026-11-17",
+  );
+  assert.equal(benefit.brand, "HANS");
+  assert.equal(benefit.category, "베이커리");
+  assert.equal(benefit.value, "50%");
+  assert.equal(benefit.id, "naver-24278798653708");
 });
