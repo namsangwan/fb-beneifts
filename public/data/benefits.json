@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-11-17T18:58:38.340Z",
+  "collectedAt": "2026-11-18T06:15:08.398Z",
   "asOfDate": "2026-11-18",
-  "asOfLabel": "2026.11.18 03:58 KST",
+  "asOfLabel": "2026.11.18 15:15 KST",
   "warnings": [
     {
       "source": "toss",
@@ -703,14 +703,14 @@
       "pay": "네이버페이",
       "brand": "네이버멤버십 x 파리바게뜨",
       "category": "베이커리",
-      "title": "네이버멤버십 회원 Npay QR 결제 시 현장 할인 5% + 포인트 5% 적립",
+      "title": "네이버멤버십 회원 Npay QR 결제 시 현장할인 5% + 포인트 5% 적립",
       "value": "5%",
-      "valueText": "현장 할인 5% + 포인트 5% 적립",
+      "valueText": "현장할인 5% + 포인트 5% 적립",
       "condition": "네이버멤버십 회원 Npay QR 결제 시",
       "period": "2026.11.11 - 2027.12.31",
       "startsAt": "2026-11-11",
       "validUntil": "2027-12-31",
-      "notes": "- 1일 1회 5천원 한도 적립 적용 자세한 내용은 매장 안내 참조",
+      "notes": "1일 1회 5천원 한도 적립 적용 자세한 내용은 매장 안내 참조",
       "source": "https://pay.naver.com/benefit/payment/detail/24278798653691",
       "sourceLabel": "네이버페이 상세",
       "fit": 70,
