@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-11-18T18:41:43.913Z",
+  "collectedAt": "2026-11-19T06:16:00.851Z",
   "asOfDate": "2026-11-19",
-  "asOfLabel": "2026.11.19 03:41 KST",
+  "asOfLabel": "2026.11.19 15:15 KST",
   "warnings": [
     {
       "source": "toss",
@@ -36,6 +36,12 @@
       "kind": "empty",
       "reason": "collector returned no current benefits",
       "fallbackCount": 0
+    },
+    {
+      "source": "lguplus-ongoing",
+      "kind": "empty",
+      "reason": "collector returned no current benefits; preserved previous current benefits",
+      "fallbackCount": 1
     }
   ],
   "sources": [
