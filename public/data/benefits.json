@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "collectedAt": "2026-11-24T20:31:11.294Z",
+  "collectedAt": "2026-11-25T07:20:43.891Z",
   "asOfDate": "2026-11-25",
-  "asOfLabel": "2026.11.25 05:31 KST",
+  "asOfLabel": "2026.11.25 16:20 KST",
   "warnings": [
     {
       "source": "toss",
@@ -134,6 +134,25 @@
   ],
   "benefits": [
     {
+      "id": "naver-24278798653739",
+      "provider": "naverpay",
+      "pay": "네이버페이",
+      "brand": "더벤티",
+      "category": "커피",
+      "title": "Npay QR 5천원 이상 결제 시 50% 할인",
+      "value": "50%",
+      "valueText": "50% 할인",
+      "condition": "Npay QR 5천원 이상 결제 시",
+      "period": "2026.11.25 - 2026.11.27",
+      "startsAt": "2026-11-25",
+      "validUntil": "2026-11-27",
+      "notes": "삼성페이 결제 시 혜택 적용 불가 자세한 내용은 매장 안내 참조",
+      "source": "https://pay.naver.com/benefit/payment/detail/24278798653739",
+      "sourceLabel": "네이버페이 상세",
+      "fit": 98,
+      "lastVerifiedAt": "2026-11-25"
+    },
+    {
       "id": "naver-24278798653715",
       "provider": "naverpay",
       "pay": "네이버페이",
@@ -207,6 +226,25 @@
       "source": "https://membership.kt.com/discount/partner/C21/122/PartnerDetail.do",
       "sourceLabel": "KT 멤버십",
       "fit": 97,
+      "lastVerifiedAt": "2026-11-25"
+    },
+    {
+      "id": "brand-mega-68a75ba79678",
+      "provider": "brand",
+      "pay": "브랜드",
+      "brand": "메가MGC커피",
+      "category": "커피",
+      "title": "메가MGC커피 X 유독 유튜브 프리미엄 50% 할인 EVENT",
+      "value": "50%",
+      "valueText": "메가MGC커피 X 유독 유튜브 프리미엄 50% 할인 EVENT",
+      "condition": "브랜드 공식 이벤트",
+      "period": "2026-11-25부터",
+      "startsAt": "2026-11-25",
+      "validUntil": null,
+      "notes": "종료일은 목록에 없어 최근 공식 이벤트만 표시합니다.",
+      "source": "https://mega-mgccoffee.com/bbs/detail/?YmJzX2lkeD03MTcmYmJzX2NhdGVnb3J5PTMmYmJzX2RldGFpbF9jYXRlZ29yeT0mYmJzX3BhZ2U9MQ==",
+      "sourceLabel": "메가MGC 이벤트",
+      "fit": 95,
       "lastVerifiedAt": "2026-11-25"
     },
     {
